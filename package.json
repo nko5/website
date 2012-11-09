@@ -39,7 +39,8 @@
     "uglify-js": "*",
     "underscore": "*",
     "irc": "*",
-    "redis": "*"
+    "redis": "*",
+    "jadevu": "0.0.10"
   },
   "devDependencies": {
     "nodemon": "0.6.18",

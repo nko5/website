@@ -123,6 +123,12 @@ else
         else
           h2 Here&rsquo;s what&rsquo;s happening
 
+        #recent-deploys
+          each team in recentDeploys
+            include entry-info
+        template( id="entry-info" ):
+          include entry-info
+
     tbody.minor
       tr.header
         td.time( datetime='2012-11-11T23:00:00Z' )

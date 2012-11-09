@@ -44,6 +44,6 @@ module.exports = (app) ->
           return error(err) if err
 
           app.events.emit 'updateTeamStats', team
-          app.events.emit 'deploy', deploy, req.team
+          app.events.emit 'deploy', deploy, team
 
           res.end JSON.stringify(deploy)

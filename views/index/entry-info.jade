@@ -1,0 +1,7 @@
+.entry-info( data-team-id=team.id )
+  - if (url = team.entry.url)
+    a( href=url )
+      img.screenshot( src=team.screenshot )
+  h2: a( href=url )= team.entry.name || team.name
+  h3 by 
+    a( href=team )= team.name

@@ -19,10 +19,18 @@ loadCanRegister = (req, res, next) ->
     req.teamsLeft = left
     next()
 
-app.get '/', [loadCanRegister, loadCurrentPersonWithTeam], (req, res, next) ->
+loadRecentDeploys = (req, res, next) ->
+  Team.find { 'lastDeploy.createdAt': { '$exists': 1 }}, {},
+    { limit: 4, sort: { 'lastDeploy.createdAt': -1 }}, (err, teams) ->
+      return next(err) if err
+      req.recentDeploys = teams
+      next()
+
+app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys], (req, res, next) ->
   res.render2 'index/index',
     team: req.team
     stats: app.stats
+    recentDeploys: req.recentDeploys
 
 [ 'locations', 'prizes', 'rules', 'sponsors', 'scoring', 'jobs',
   'how-to-win', 'tell-me-a-story' ].forEach (p) ->

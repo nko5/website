@@ -20,3 +20,13 @@ app.events.on 'updateTeamStats', (team) ->
 
 app.events.on 'updateStats', (stats) ->
   app.ws?.sockets.json.emit 'updateStats', stats
+
+app.events.on 'deploy', (deploy, team) ->
+  app.ws?.sockets.json.emit 'deploy',
+    id: team.id
+    slug: team.slug
+    screenshot: team.screenshot
+    name: team.name
+    entry:
+      url: team.entry.url
+      name: team.entry.name

@@ -6,6 +6,8 @@ var express = require('express')
   , secrets = env.secrets
   , EventEmitter = require('events').EventEmitter
   , Stats = require('../models/stats');
+require('jadevu');
+
 
 // express
 var app = module.exports = express.createServer();
