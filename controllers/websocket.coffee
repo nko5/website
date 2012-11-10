@@ -22,8 +22,6 @@ app.events.on 'updateStats', (stats) ->
   app.ws?.sockets.json.emit 'updateStats', stats
 
 app.events.on 'deploy', (deploy, team) ->
-  util.log 'deploy'
-  console.log [deploy, team]
   app.ws?.sockets.json.emit 'deploy',
     id: team.id
     slug: team.slug
