@@ -20,14 +20,15 @@ load = ->
   ws.on 'deploy', (team) ->
     $recentDeploys = $('#recent-deploys')
 
-    toAdd = template 'entry-info', team: team
-    $recentDeploys.append(toAdd)
+    $toAdd = template 'entry-info', team: team
 
-    toRemove = $recentDeploys.find(".entry-info[data-team-id=#{team.id}]:first")
-    if toRemove.length is 0
-      toRemove = $recentDeploys.find('.entry-info:first')
-    toRemove.animate width: 'hide', ->
-      toRemove.remove()
+    $toRemove = $recentDeploys.find(".entry-info[data-team-id=#{team.id}]:first")
+    if $toRemove.length is 0
+      $toRemove = $recentDeploys.find('.entry-info:first')
+
+    $recentDeploys.append($toAdd)
+    $toRemove.animate width: 'hide', ->
+      $toRemove.remove()
 
   updateStats = ($el, stats) ->
     for k, v of stats
