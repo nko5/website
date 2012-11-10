@@ -219,6 +219,14 @@
     "postageapp": {
       "version": "0.1.0"
     },
+    "ratchetio": {
+      "version": "0.0.4",
+      "dependencies": {
+        "node-uuid": {
+          "version": "1.4.0"
+        }
+      }
+    },
     "relative-date": {
       "version": "1.1.1"
     },

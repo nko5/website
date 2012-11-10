@@ -5,9 +5,9 @@ var express = require('express')
   , port = env.port
   , secrets = env.secrets
   , EventEmitter = require('events').EventEmitter
-  , Stats = require('../models/stats');
+  , Stats = require('../models/stats')
+  , ratchetio = require('ratchetio');
 require('jadevu');
-
 
 // express
 var app = module.exports = express.createServer();
@@ -18,13 +18,16 @@ app.paths = {
   views: __dirname + '/../views'
 };
 
-// error handling
+// uncaught error handling
+ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
+
 var airbrake = require('airbrake').createClient('b76b10945d476da44a0eac6bfe1aeabd');
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
   if (env.node_env === 'production')
     airbrake.notify(e);
 });
+
 
 // utilities & hacks
 require('colors');
@@ -104,6 +107,9 @@ app.configure(function() {
   app.use(express.logger());
   app.use(auth.middleware());
   app.use(app.router);
+
+  // request error handling
+  app.use(ratchetio.errorHandler());
 
   app.use(function(e, req, res, next) {
     if (typeof(e) === 'number')
