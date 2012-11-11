@@ -2,28 +2,6 @@
   "name": "nko-website",
   "version": "2012.6.21",
   "dependencies": {
-    "airbrake": {
-      "version": "0.2.9",
-      "dependencies": {
-        "request": {
-          "version": "2.9.202"
-        },
-        "xmlbuilder": {
-          "version": "0.1.5"
-        },
-        "stack-trace": {
-          "version": "0.0.5"
-        },
-        "hashish": {
-          "version": "0.0.4",
-          "dependencies": {
-            "traverse": {
-              "version": "0.6.3"
-            }
-          }
-        }
-      }
-    },
     "async": {
       "version": "0.1.22"
     },
@@ -310,6 +288,25 @@
     },
     "nodemon": {
       "version": "0.6.18"
+    },
+    "node-inspector": {
+      "version": "0.2.0beta3",
+      "dependencies": {
+        "connect": {
+          "version": "1.8.7",
+          "dependencies": {
+            "qs": {
+              "version": "0.5.1"
+            },
+            "mime": {
+              "version": "1.2.7"
+            },
+            "formidable": {
+              "version": "1.0.11"
+            }
+          }
+        }
+      }
     }
   }
 }

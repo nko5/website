@@ -21,11 +21,8 @@ app.paths = {
 // uncaught error handling
 ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
 
-var airbrake = require('airbrake').createClient('b76b10945d476da44a0eac6bfe1aeabd');
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
-  if (env.node_env === 'production')
-    airbrake.notify(e);
 });
 
 
@@ -117,9 +114,6 @@ app.configure(function() {
 
     if (typeof(e) === 'string')
       e = Error(e);
-
-    if (env.node_env === 'production')
-      airbrake.notify(e);
 
     res.render2('errors/500', { error: e });
   });

@@ -19,7 +19,6 @@
     "node": "0.7.11"
   },
   "dependencies": {
-    "airbrake": "*",
     "async": "*",
     "coffee-script": "*",
     "colors": "*",
