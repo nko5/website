@@ -32,22 +32,40 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
         layout = req.header('x-pjax')? || !req.xhr
         res.render2 'teams', teams: teams, people: people, layout: layout
 
+
 # entries index
-# also services / possibly
 app.get /^\/(entries)?\/?$/, (req, res, next) ->
   page = (req.param('page') or 1) - 1
-  sort = if _.include(Vote.dimensions.concat('popularity'), req.param('sort')) then req.param('sort') else 'overall'
+  sort = if _.include(Vote.dimensions.concat('popularity', 'overall', 'solo'), req.param('sort')) then req.param('sort') else 'popularity'
   query = { 'entry.votable': true, lastDeploy: {$ne: null} }
-  query.search = new RegExp(req.param('q'), 'i') if req.param('q')
-  query.peopleIds = ($size: 1) if req.param('sort') == 'solo'
-  options = { sort: [["scores.#{sort}", -1]], limit: 30, skip: 30 * page }
-  Team.find query, {}, options, (err, teams) ->
-    return next err if err
-    Team.count query, (err, count) ->
+
+  renderEntries = ->
+    query.search = new RegExp(req.param('q'), 'i') if req.param('q')
+    query.peopleIds = ($size: 1) if req.param('sort') == 'solo'
+    options = { sort: [["scores.#{sort}", -1]], limit: 30, skip: 30 * page }
+    Team.find query, {}, options, (err, teams) ->
       return next err if err
-      teams.count = count
-      layout = req.header('x-pjax')? || !req.xhr
-      res.render2 'teams/entries', teams: teams, sort: sort, layout: layout
+      Team.count query, (err, count) ->
+        return next err if err
+        teams.count = count
+        layout = req.header('x-pjax')? || !req.xhr
+        res.render2 'teams/entries', teams: teams, sort: sort, layout: layout
+
+  # while voting is going on:
+  #   1. only allow sorting by popularity for non-contestants
+  #   2. only show contestants scores for teams they've voted on
+  # else, if voting is finished, show everybody everything
+  if app.enabled('voting')
+    if req.user?.contestant
+      req.user.votedOnTeamIds (err, teamIds) ->
+        return next(err) if err
+        query._id = ($in: teamIds)
+        renderEntries()
+    else
+      sort = 'popularity'
+      renderEntries()
+  else # voting is over
+    renderEntries()
 
 # new
 app.get '/teams/new', (req, res, next) ->

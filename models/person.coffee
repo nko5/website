@@ -200,9 +200,8 @@ PersonSchema.method 'nextTeam', (next) ->
   sort.push ['voteCounts.' + @role, 1] if @judge or @contestant
   sort.push ['updatedAt', -1]
 
-  Vote = mongoose.model 'Vote'
   Team = mongoose.model 'Team'
-  Vote.distinct 'teamId', personId: @id, (err, votedOn) =>
+  @votedOnTeamIds (err, votedOn) =>
     next err if err
 
     # every third vote should be for something good
@@ -215,6 +214,10 @@ PersonSchema.method 'nextTeam', (next) ->
       # findOne doesn't seem to work with sort
       next err if err
       next null, teams[0]
+
+PersonSchema.method 'votedOnTeamIds', (callback) ->
+  Vote = mongoose.model 'Vote'
+  Vote.distinct 'teamId', personId: @id, callback
 
 # callbacks
 
