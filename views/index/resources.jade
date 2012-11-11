@@ -153,6 +153,25 @@ if services.teleportd
   Email <dominic.szablewski@gmail.com> if you want to use Impact for your
   Knockout project.
 
+  ## <a name="pusher">Pusher</a>
+
+  Looking to build realtime awesomeness with WebSockets at Node Knockout? Want
+  to have scalable connection handling sorted out without any server
+  configuration? Want to get things like PubSub message filtering,
+  authentication, and presence for free? You should try out [Pusher](http://pusher.com/).
+
+if services.pusher
+  if !user
+    p
+      a(href="/login") Sign in
+      |  for a coupon to get 
+      strong one month of the 500 connection Startup plan
+      |  for free.
+  else if user && (user.contestant || user.judge)
+    b To get one month of the 500 connection Startup plan for free
+    != markdown(services.pusher)
+
+:markdown
   ## <a name="s3">Amazon S3</a>
 
   You can use your own Amazon S3 account during the competition for files. If
