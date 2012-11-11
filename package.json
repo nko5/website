@@ -40,7 +40,8 @@
     "underscore": "*",
     "irc": "*",
     "redis": "*",
-    "jadevu": "0.0.10"
+    "jadevu": "0.0.10",
+    "ntwitter": "~0.5.0"
   },
   "devDependencies": {
     "nodemon": "0.6.18",
