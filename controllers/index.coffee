@@ -68,12 +68,14 @@ app.get '/reload', (req, res, next) ->
   app.events.emit 'reload'
   res.redirect '/'
 
-app.get '/scores', [m.ensureAdmin], (req, res, next) ->
+app.get '/scores', (req, res, next) ->
+  return next(401) unless req.user?.admin or not app.enabled('voting')
   Team.sortedByScore (error, teams) ->
     return next error if error
     res.render2 'index/scores', teams: teams
 
-app.get '/scores/update', [m.ensureAdmin], (req, res, next) ->
+app.get '/scores/update', (req, res, next) ->
+  return next(401) unless req.user?.admin or (req.connection.remoteAddress is '127.0.0.1')
   Team.updateAllSavedScores (err) ->
     next err if err
     res.redirect '/scores'
