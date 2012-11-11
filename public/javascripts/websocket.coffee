@@ -24,11 +24,10 @@ load = ->
 
     $toRemove = $recentDeploys.find(".entry-info[data-team-id=#{team.id}]:first")
     if $toRemove.length is 0
-      $toRemove = $recentDeploys.find('.entry-info:first')
+      $toRemove = $recentDeploys.find('.entry-info:last')
 
-    $recentDeploys.append($toAdd)
-    $toRemove.animate width: 'hide', ->
-      $toRemove.remove()
+    $toRemove.remove()
+    $toAdd.hide().prependTo($recentDeploys).animate width: 'show'
 
   updateStats = ($el, stats) ->
     for k, v of stats
