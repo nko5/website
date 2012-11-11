@@ -218,9 +218,11 @@ TeamSchema.virtual('screenshot').get ->
 
 TeamSchema.method 'updateScreenshot', (callback) ->
   return unless @entry.url
-  r = request.get "#{@screenshot}&expire=1", (error, response, body) ->
-    throw error if error
-    # no callback
+  setTimeout =>
+    request.get "#{@screenshot}&expire=1", (error, response, body) ->
+      throw error if error
+      # no callback
+  , 8000
 
 TeamSchema.method 'incrementStats', (stats, callback) ->
   $inc = {}
