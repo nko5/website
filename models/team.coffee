@@ -74,6 +74,7 @@ TeamSchema = module.exports = new mongoose.Schema
     deploys:
       type: Number
       default: 0
+  judgeVisitedAt: Date
 TeamSchema.plugin require('../lib/use-timestamps')
 TeamSchema.index updatedAt: -1
 TeamSchema.index 'entry.url': 1
@@ -240,6 +241,15 @@ TeamSchema.method 'twitterScreenNames', (callback) ->
     twitterScreenNames = for p in people when p.twitterScreenName
       p.twitterScreenName
     callback null, twitterScreenNames
+
+TeamSchema.method 'entryInfoJSON', ->
+  id: @id
+  slug: @slug
+  screenshot: @screenshot
+  name: @name
+  entry:
+    url: @entry.url
+    name: @entry.name
 
 # associations
 TeamSchema.method 'people', (next) ->

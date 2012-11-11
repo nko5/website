@@ -232,18 +232,14 @@ else
             with an **average score of 3.5 stars**.
         else
           :markdown
-            ### Expert judging
+            ### Voting
 
-            Our experts are now analyzing entries. **See how your team is doing
-            on the [entries page](/entries).**
+            Voting is happening now. Here are some interesting entries to
+            to review. [See all entries&hellip;](/entries)
 
-            To ensure your best possible score:
-
-            1. Update your [entry info](/teams/mine/edit) to give judges tips
-            and warn them away from bugs.
-            2. If your app is multiplayer, make sure people are around to use
-            it with the judge.
-            3. Make sure you have a great pitch video.
+          #interesting-teams
+            each team in interestingTeams
+              include entry-info
 
     if req.user && req.user.judge
       tbody.minor

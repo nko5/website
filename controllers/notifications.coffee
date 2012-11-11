@@ -27,21 +27,25 @@ app.post '/notify', (req, res, next) ->
   Team.findOne 'entry.url': req.body.url, (err, team) ->
     return next(err) if err
 
-    # if the url doesn't belong to team, or the team is does not have alerts
-    # enabled, just ignore it
-    return res.send(200) unless team?.entry?.alert
-
-    # load the twitter handles for the team
-    team.twitterScreenNames (err, handles) ->
+    # save when the judge viewed the entry
+    team.judgeVisitedAt = new Date
+    team.save (err, res) ->
       return next(err) if err
 
-      util.log("NOTIFY #{team} (#{handles.join(', ')})".magenta)
+      app.events.emit 'judgeVisit', team
 
-      # DM the team with the message
+      # if the url doesn't belong to team, or the team is does not have alerts
+      # enabled, just ignore it
+      return res.send(200) unless team?.entry?.alert
 
-      app.twitter.dm handles, "#{message()} - join at #{url}", (err, result) ->
+      # load the twitter handles for the team
+      team.twitterScreenNames (err, handles) ->
         return next(err) if err
 
-        console.dir(result)
-        res.send(200)
+        util.log("NOTIFY #{team} (#{handles.join(', ')})".magenta)
 
+        # DM the team with the message
+        app.twitter.dm handles, "#{message()} - join at #{url}", (err, result) ->
+          return next(err) if err
+          console.dir(result)
+          res.send(200)

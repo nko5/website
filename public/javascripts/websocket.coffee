@@ -18,20 +18,25 @@ load = ->
 
   # update the deployed stuff
   ws.on 'deploy', (team) ->
-    $recentDeploys = $('#recent-deploys')
+    updateEntryInfo($('#recent-deploys'), team)
 
-    $toAdd = template 'entry-info', team: team
-
-    $toRemove = $recentDeploys.find(".entry-info[data-team-id=#{team.id}]:first")
-    if $toRemove.length is 0
-      $toRemove = $recentDeploys.find('.entry-info:last')
-
-    $toRemove.remove()
-    $toAdd.hide().prependTo($recentDeploys).animate width: 'show'
+  # update the interesting entrys on judge visit
+  ws.on 'judgeVisit', (team) ->
+    updateEntryInfo($('#interesting-teams'), team)
 
   updateStats = ($el, stats) ->
     for k, v of stats
       $el.find(".#{k} .number").text(v)
+
+  updateEntryInfo = ($el, team) ->
+    $toAdd = template 'entry-info', team: team
+
+    $toRemove = $el.find(".entry-info[data-team-id=#{team.id}]:first")
+    if $toRemove.length is 0
+      $toRemove = $el.find('.entry-info:last')
+
+    $toRemove.remove()
+    $toAdd.hide().prependTo($el).animate width: 'show'
 
 $(load)
 # note no pjax load here

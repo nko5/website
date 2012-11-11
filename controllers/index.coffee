@@ -28,11 +28,21 @@ loadRecentDeploys = (req, res, next) ->
       req.recentDeploys = teams
       next()
 
-app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys], (req, res, next) ->
+# load the teams that were most recently visited for judging (or, if nothing
+# has been judged, by popularity)
+loadInterestingTeams = (req, res, next) ->
+  Team.find { 'entry.votable': true }, {},
+    { limit: 12, sort: { 'judgeVisitedAt': -1, 'scores.popularity': -1 }}, (err, teams) ->
+      return next(err) if err
+      req.interestingTeams = teams
+      next()
+
+app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams], (req, res, next) ->
   res.render2 'index/index',
     team: req.team
     stats: app.stats
     recentDeploys: req.recentDeploys
+    interestingTeams: req.interestingTeams
 
 [ 'locations', 'prizes', 'rules', 'sponsors', 'scoring', 'jobs',
   'how-to-win', 'tell-me-a-story' ].forEach (p) ->
