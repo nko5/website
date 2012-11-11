@@ -44,15 +44,14 @@
     | What libraries, icons, web service APIs, and tools did you use?
   textarea( name='entry[colophon]', id='entryColophon' )= entry.colophon
 
-- if (admin)
-  .votable
-    input( type='hidden', name='entry[votable]', value=0 )
-    input( type='checkbox', name='entry[votable]', id='entryVotable', checked=entry.votable )
-    | &nbsp;
-    label( for='entryVotable' ) Yes! I want judges to vote on my entry.
-    p.note.more
-      | Uncheck this box if your entry isn't ready to be judged when the
-      | competition ends.
+.votable
+  input( type='hidden', name='entry[votable]', value=0 )
+  input( type='checkbox', name='entry[votable]', id='entryVotable', checked=entry.votable )
+  | &nbsp;
+  label( for='entryVotable' ) Yes! I want judges to vote on my entry.
+  p.note.more
+    | Uncheck this box if your entry isn't ready to be judged when the
+    | competition ends.
 
 .technical
   input( type='hidden', name='entry[technical]', value=0 )
