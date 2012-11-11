@@ -6,7 +6,7 @@ var express = require('express')
   , secrets = env.secrets
   , EventEmitter = require('events').EventEmitter
   , Stats = require('../models/stats')
-  , ratchetio = require('ratchetio');
+  // , ratchetio = require('ratchetio');
 require('jadevu');
 
 // express
@@ -19,7 +19,7 @@ app.paths = {
 };
 
 // uncaught error handling
-ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
+// ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
 
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
@@ -106,7 +106,7 @@ app.configure(function() {
   app.use(app.router);
 
   // request error handling
-  app.use(ratchetio.errorHandler());
+  // app.use(ratchetio.errorHandler());
 
   app.use(function(e, req, res, next) {
     if (typeof(e) === 'number')
