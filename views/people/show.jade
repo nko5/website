@@ -13,11 +13,12 @@ h1.name= title(person.name)
     a( href='/teams/' + team )= team.name
     | .
 
-- if (voting && req.user && (person.id === req.user.id) && req.user.judge)
-  p.instructions
-    | You've reviewed 
-    b #{votes.length} of 10 
-    | entries we'd like you to look at. 
+- if (voting && req.user && (person.id === req.user.id) && (req.user.judge || req.user.contestant))
+  p.instructions#instructions
+    if req.user.judge
+      | You've reviewed 
+      b #{votes.length} of 10 
+      | entries we'd like you to look at. 
     - if (votes.length)
       | See below for the entry we suggest you review next.
     - else
