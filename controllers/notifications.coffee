@@ -16,6 +16,9 @@ message = ->
 
 # notify teams when a judge visits
 app.post '/notify', (req, res, next) ->
+  # only notify during voting
+  return res.send(200) unless app.enabled('voting')
+
   # only notify when judges click through
   return res.send(200) unless req.user?.judge
 
