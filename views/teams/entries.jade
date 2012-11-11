@@ -5,14 +5,14 @@ form.search
   input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
 ul.sorts
-  li Order by:
-  - each k in [ 'Overall', 'Solo', 'Popularity', 'Utility / Fun', 'Design', 'Innovation', 'Completeness' ]
+  //- li Order by:
+  //- each k in [ 'Overall', 'Solo', 'Popularity', 'Utility / Fun', 'Design', 'Innovation', 'Completeness' ]
     - s = k.split(' ')[0].toLowerCase()
     li( class=(req.query.sort || 'overall') === s ? 'current' : '' )
       a( href=urlFor({ sort: s }) )= k
 
 ul.teams
-  - each team in teams
+  each team in teams
     li
       - url = team.entry.url
       a( href=url )
@@ -21,12 +21,13 @@ ul.teams
       h4 by 
         a( href='/teams/' + team )= team.name
       .description
-        - if (p = markdown(team.entry.description).match('<p>.+?</p>'))
+        if p = markdown(team.entry.description).match('<p>.+?</p>')
           != p
-      .score
-        a( href='/scores#' + team )
-          h3= team.scores[sort].toFixed(2)
-          .dimension= sort
+      //- team.scores
+        .score
+          a( href='/scores#' + team )
+            h3= team.scores[sort].toFixed(2)
+            .dimension= sort
       .clear
   - nextPage = (+req.query.page || 1) + 1
   .more: a( href=urlFor({ page: nextPage }) ) more
