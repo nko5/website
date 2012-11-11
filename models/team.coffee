@@ -233,6 +233,13 @@ TeamSchema.method 'incrementStats', (stats, callback) ->
     # return the reloaded the team (after the increment has been applied)
     Team.findOne _id: @id, callback
 
+TeamSchema.method 'twitterScreenNames', (callback) ->
+  @people (err, people) ->
+    return callback(err) if err
+    twitterScreenNames = for p in people when p.twitterScreenName
+      p.twitterScreenName
+    callback null, twitterScreenNames
+
 # associations
 TeamSchema.method 'people', (next) ->
   Person.find _id: { '$in': @peopleIds }, next

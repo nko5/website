@@ -6,6 +6,7 @@ var express = require('express')
   , secrets = env.secrets
   , EventEmitter = require('events').EventEmitter
   , Stats = require('../models/stats')
+  , Twitter = require('../models/twitter');
   // , ratchetio = require('ratchetio');
 require('jadevu');
 
@@ -46,6 +47,9 @@ app.stats = new Stats(app.db, function(err) {
 app.stats.on('change', function(stats) {
   app.events.emit('updateStats', stats);
 });
+
+// twitter
+app.twitter = new Twitter(secrets.twitterUser)
 
 
 // state (getting pretty gross)

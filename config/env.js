@@ -33,8 +33,10 @@ if (env.development) {
     postageapp: process.env.POSTAGEAPP_SECRET,
     session: process.env.EXPRESS_SESSION_KEY,
     twitterUser: {
-      accessToken: process.env.TWITTER_ACCESS_TOKEN,
-      accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+      consumer_key: process.env.TWITTER_USER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_USER_CONSUMER_SECRET,
+      access_token_key: process.env.TWITTER_USER_ACCESS_TOKEN_KEY,
+      access_token_secret: process.env.TWITTER_USER_ACCESS_TOKEN_SECRET
     }
   };
   env.irc = {

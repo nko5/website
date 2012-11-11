@@ -34,6 +34,12 @@ $.ajaxPrefilter (options, originalOptions, xhr) ->
 # speed up default jQuery animations
 $.fx.speeds._default = 200
 
+# notify team when judges click through
+$('a[href^=http]').live 'click', (e) ->
+  $.post "/notify", { url: this.href }, (args...) ->
+    console.log(args)
+  false
+
 load = ->
   $(':text:first').focus() # focus first input
 

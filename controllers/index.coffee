@@ -1,3 +1,4 @@
+util = require 'util'
 app = require '../config/app'
 Team = app.db.model 'Team'
 Person = app.db.model 'Person'
@@ -12,6 +13,7 @@ loadCurrentPersonWithTeam = (req, res, next) ->
     return next err if err
     req.team = team
     next()
+
 loadCanRegister = (req, res, next) ->
   Team.canRegister (err, canRegister, left) ->
     return next err if err
