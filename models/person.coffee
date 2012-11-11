@@ -190,7 +190,7 @@ PersonSchema.method 'nextTeam', (next) ->
     filter.technical = ($ne: true) if not @technical
 
     # judges focus on good stuff
-    filter['scores.overall'] = ($gt: 15)
+    #filter['scores.overall'] = ($gt: 15)
 
     # judges only see entries with pitch videos
     filter['entry.videoURL'] = /./
