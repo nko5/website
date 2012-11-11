@@ -76,6 +76,7 @@ TeamSchema = module.exports = new mongoose.Schema
       default: 0
 TeamSchema.plugin require('../lib/use-timestamps')
 TeamSchema.index updatedAt: -1
+TeamSchema.index 'entry.url': 1
 
 # class methods
 TeamSchema.static 'findBySlug', (slug, rest...) ->
