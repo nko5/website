@@ -1,5 +1,5 @@
 :markdown
-  Feel free to fill out this information any time before coding ends. Use
+  Feel free to fill out this information any time before judging begins. Use
   it to help judges get an idea of what you've accomplished. [Markdown][1] ok
   for all fields.
 
@@ -20,6 +20,10 @@
     != '~2 minute <a href="http://blog.nodeknockout.com/post/35353987436/protip-create-a-perfect-pitch-video-this-year">video demo</a> of your entry. '
     b.scary Required for expert judging.
   input( type='text', name='entry[videoURL]', id='videoURL', value=entry.videoURL, placeholder="http://youtu.be/nZf29IBoXGg" )
+  p.note.more
+    | You can add a pitch video any time between now and the end of
+    | judging. We recommend doing it as soon as you can after the
+    | coding ends.
 
 .description
   h3: label( for='entryDescription' ) Description
@@ -46,7 +50,7 @@
     input( type='checkbox', name='entry[votable]', id='entryVotable', checked=entry.votable )
     | &nbsp;
     label( for='entryVotable' ) Yes! I want judges to vote on my entry.
-    p.note
+    p.note.more
       | Uncheck this box if your entry isn't ready to be judged when the
       | competition ends.
 
@@ -55,7 +59,7 @@
   input( type='checkbox', name='entry[technical]', id='entryTechnical', checked=entry.technical )
   | &nbsp;
   label( for='entryTechnical' )!= "I'd prefer <a href='/judges/technical'>technical judges</a>."
-  p.note
+  p.note.more
     | Please only select this box if your entry cannot be evaluated fairly
     | by non-technical judges.
 
@@ -64,7 +68,7 @@
   input( type='checkbox', name='entry[alert]', id='entryAlert', checked=entry.alert )
   | &nbsp;
   label( for='entryAlert' ) Alert me when judges visit my site.
-  p.note
+  p.note.more
     | We will DM you on Twitter so you can join judges evaluating your site. 
     strong To receive tweets, ensure your profile has your
       != ' <a href="/people/me/edit">Twitter username</a> and that you'
