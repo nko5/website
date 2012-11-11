@@ -20,6 +20,12 @@
         .dimension overall
   .clear
   != markdown(team.entry.description)
+  - if (team.entry.videoURL)
+    - if (embed = youtubeEmbed(team.entry.videoURL))
+      p: iframe( width="540", height="304", src=embed, frameborder="0", allowfullscreen=true )
+    - else
+      h4 Screencast
+        p: a.button.small( href=team.entry.videoURL, target='screencast' ) ▶ Play
   - if (team.entry.instructions)
     h4 Judging Instructions
     != markdown(team.entry.instructions)
