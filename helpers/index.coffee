@@ -64,6 +64,12 @@ module.exports = (app) ->
 
     favicon: (sponsor) -> favicons[sponsor]
 
+    youtubeEmbed: (url) ->
+      if match = url.match(/youtube.com\/.*v=([^&]+).*/)
+        "//www.youtube.com/embed/#{match[1]}"
+      else if match = url.match(/youtu.be\/(.*)/)
+        "//www.youtube.com/embed/#{match[1]}"
+
   app.dynamicHelpers
 
     session: (req, res) -> req.session

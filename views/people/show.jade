@@ -49,6 +49,12 @@ h1.name= title(person.name)
           a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
         .clear
         != markdown(nextVote.team.entry.description)
+        - if (nextVote.team.entry.videoURL)
+          - if (embed = youtubeEmbed(nextVote.team.entry.videoURL))
+            p: iframe( width="560", height="315", src=embed, frameborder="0", allowfullscreen=true )
+          - else
+            h4 Screencast
+              p: a.button.small( href=nextVote.team.entry.videoURL, target='screencast' ) ▶ Play
         - if (nextVote.team.entry.instructions)
           h4 Judging Instructions
           != markdown(nextVote.team.entry.instructions)
