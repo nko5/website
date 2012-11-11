@@ -35,10 +35,8 @@ $.ajaxPrefilter (options, originalOptions, xhr) ->
 $.fx.speeds._default = 200
 
 # notify team when judges click through
-$('a[href^=http]').live 'click', (e) ->
-  $.post "/notify", { url: this.href }, (args...) ->
-    console.log(args)
-  false
+$('a[href^=http]').live 'mousedown', (e) ->
+  $.post "/notify", { url: this.href }
 
 load = ->
   $(':text:first').focus() # focus first input
