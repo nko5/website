@@ -55,7 +55,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   #   1. only allow sorting by popularity for non-contestants
   #   2. only show contestants scores for teams they've voted on
   # else, if voting is finished, show everybody everything
-  if app.enabled('voting') # && !req.user?.admin
+  if app.enabled('voting') and sort isnt 'popularity' # && !req.user?.admin
     if req.user?.contestant
       req.user.votedOnTeamIds (err, teamIds) ->
         return next(err) if err
