@@ -13,7 +13,7 @@
       |  You've voted for this entry
   - else if (voting)
     a.button.vote.scary( href='#votes' ) Vote
-  if team.scores.overall
+  if !voting && team.scores.overall
     .score
       a( href='/scores#' + team )
         h2= team.scores.overall.toFixed(2)
