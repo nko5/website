@@ -7,10 +7,10 @@ message = ->
     'psst, a judge is checking out your app'
     'your page is being attacked, erm judged'
     'batten down the hatches, a judge is coming'
-    'come quick! a judge is on the way'
+    'come quick, a judge is on the way'
     'the judge has entered the building, erm your app'
-    'come and play, you\'re being judged'
-    'judge dread? oh noes! your app is being judged'
+    'come and play, you are about to be judged'
+    'judgment day has come, a judge is visiting'
   ]
   messages[Math.floor(Math.random() * messages.length)]
 
