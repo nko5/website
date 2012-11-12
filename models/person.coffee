@@ -5,6 +5,7 @@ auth = require 'mongoose-auth'
 env = require '../config/env'
 ROLES = [ 'nomination', 'contestant', 'judge', 'voter' ]
 request = require('request')
+util = require('util')
 
 # auth decoration
 PersonSchema = module.exports = new mongoose.Schema
@@ -76,7 +77,9 @@ PersonSchema.plugin auth,
           role: { $in: [ 'judge', 'nomination' ] }
           (err, person) ->
             return promise.fail err if err
-            return promise.fulfill(id: null) unless person
+            if not person
+              util.error "ERROR: Twitter login failed. No judge login found for @#{twit.screen_name}.".red
+              return promise.fulfill(id: null)
             person.updateWithTwitter twit, accessTok, accessTokExtra,
               (err, updatedUser) ->
                 return promise.fail err if err
