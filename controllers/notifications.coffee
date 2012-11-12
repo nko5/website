@@ -26,6 +26,7 @@ app.post '/notify', (req, res, next) ->
   url = req.body.url
   Team.findOne 'entry.url': req.body.url, (err, team) ->
     return next(err) if err
+    return res.send(200) if not team
 
     # save when the judge viewed the entry
     team.judgeVisitedAt = new Date
@@ -36,7 +37,7 @@ app.post '/notify', (req, res, next) ->
 
       # if the url doesn't belong to team, or the team is does not have alerts
       # enabled, just ignore it
-      return res.send(200) unless team?.entry?.alert
+      return res.send(200) unless team.entry?.alert
 
       # load the twitter handles for the team
       team.twitterScreenNames (err, handles) ->
