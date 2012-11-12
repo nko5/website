@@ -88,4 +88,4 @@ app.delete '/votes/:id.iframe', [ensureVoting, m.loadVote, m.ensureAccess], (req
 app.delete '/votes/:id', [ensureVoting, m.loadVote, m.ensureAccess], (req, res, next) ->
   req.vote.remove (err) ->
     return next err if err
-    res.redirect 'back'
+    res.send 202
