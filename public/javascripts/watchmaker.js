@@ -1,5 +1,7 @@
 var nko = {};
 (function(nko) {
+  return;
+
   //// Vector
   nko.Vector = function(x, y) {
     if (typeof(x) === 'undefined') return
