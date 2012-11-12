@@ -9,7 +9,7 @@ module.exports = function(app) {
       route: /\/javascripts\/all-[a-z0-9]+\.js/,
       path: __dirname + '/../public/javascripts/',
       dataType: 'javascript',
-      debug: true, //env.node_env === 'development',
+      debug: env.node_env === 'development',
       preManipulate: {
         '^': [
           function(src, path, index, isLast, callback) {
