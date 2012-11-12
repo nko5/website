@@ -6,8 +6,8 @@ var express = require('express')
   , secrets = env.secrets
   , EventEmitter = require('events').EventEmitter
   , Stats = require('../models/stats')
-  , Twitter = require('../models/twitter');
-  // , ratchetio = require('ratchetio');
+  , Twitter = require('../models/twitter')
+  , ratchetio = require('ratchetio');
 require('jadevu');
 
 // express
@@ -20,7 +20,7 @@ app.paths = {
 };
 
 // uncaught error handling
-// ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
+ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
 
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
@@ -110,7 +110,14 @@ app.configure(function() {
   app.use(app.router);
 
   // request error handling
-  // app.use(ratchetio.errorHandler());
+  var ratchetErroHandler = ratchetio.errorHandler();
+  app.use(function(err, req, res, next) {
+    if (typeof(err) !== 'number') {
+      ratchetErroHandler(err, req, res, next);
+    } else {
+      next(err, req, res);
+    }
+  });
 
   app.use(function(e, req, res, next) {
     if (typeof(e) === 'number')
