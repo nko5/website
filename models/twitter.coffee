@@ -8,6 +8,9 @@ class Twitter
   dm: (users, text, callback) ->
     ret = {}
     i = users.length
+
+    return callback(null, ret) if i is 0
+
     for user in users
       do (user) =>
         @post '/direct_messages/new.json', { screen_name: user, text: text }, (err, data) ->
