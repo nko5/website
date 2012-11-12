@@ -56,7 +56,7 @@ app.twitter = new Twitter(secrets.twitterUser)
 app.disable('registration');  // months beforehand
 app.disable('pre-coding');     // week beforehand
 app.enable('coding');        // coding + several hours before
-app.disable('voting');        // after
+app.enable('voting');        // after
 
 app.configure(function() {
   var assetManager = require('./assetmanager')(app);
