@@ -191,7 +191,8 @@ var nko = {};
     this.frame = ((this.frame + 1) % frames);
     this.div.css('background-position', (-(this.frameOffset[this.state]+this.frame) * this.size.x) + 'px 0px');
 
-    if (this.bubble && this.bubble.is(':visible')) {
+    // if (this.bubble && this.bubble.is(':visible')) { // <-- visibile is an expensive operations
+    if (this.bubble && this.bubble.css('display') !== 'none') {
       this.bubbleFrame = (this.bubbleFrame + 1) % 3;
       self.bubble
         .removeClass('frame-0 frame-1 frame-2')

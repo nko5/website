@@ -26,8 +26,6 @@ module.exports = function(app) {
       },
       files: [ // order matters here
         'polyfills.js',
-        'vendor/hoptoad-notifier.js',
-        'vendor/hoptoad-key.js',
         'vendor/json2.js',
         'vendor/jquery-1.7.2.js',
         'vendor/jquery.ba-hashchange.js',
