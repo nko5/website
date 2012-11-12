@@ -209,8 +209,8 @@ PersonSchema.method 'nextTeam', (next) ->
     next err if err
 
     # every third vote should be for something good
-    if votedOn.length % 3 is 0
-      sort.unshift ['scores.overall', -1]
+    # if votedOn.length % 3 is 0
+    #   sort.unshift ['scores.overall', -1]
 
     # not already voted on or skipped
     filter._id = $nin: votedOn.concat @skippedTeamIds
