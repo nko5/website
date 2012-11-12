@@ -78,6 +78,7 @@ PersonSchema.plugin auth,
           (err, person) ->
             return promise.fail err if err
             if not person
+              session.twitterScreenName = twit.screen_name
               util.error "ERROR: Twitter login failed. No judge login found for @#{twit.screen_name}.".red
               return promise.fulfill(id: null)
             person.updateWithTwitter twit, accessTok, accessTokExtra,
