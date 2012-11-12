@@ -59,8 +59,10 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
     if req.user?.contestant
       req.user.votedOnTeamIds (err, teamIds) ->
         return next(err) if err
-        query._id = ($in: teamIds)
-        renderEntries()
+        req.user.team (err, team) ->
+          return next(err) if err
+          query._id = ($in: teamIds.concat(team.id))
+          renderEntries()
     else
       sort = 'popularity'
       renderEntries()
