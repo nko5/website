@@ -220,7 +220,6 @@ TeamSchema.virtual('screenshot').get ->
     url: url
     viewport: '1024x595'
     thumbnail_max_width: '320'
-    thumbnail_max_height: '186'
   md5 = crypto.createHash 'md5'
   md5.update qs.toString(), 'ascii'
   md5.update env.secrets.url2png, 'ascii'
