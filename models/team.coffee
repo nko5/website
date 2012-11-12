@@ -225,7 +225,7 @@ TeamSchema.virtual('screenshot').get ->
   md5.update qs.toString(), 'ascii'
   md5.update env.secrets.url2png, 'ascii'
   token = md5.digest 'hex'
-  "//beta.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
+  "//alpha.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
 
 TeamSchema.method 'updateScreenshot', (callback) ->
   return unless @entry.url
