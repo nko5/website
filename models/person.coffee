@@ -28,7 +28,7 @@ PersonSchema.plugin require('../lib/use-timestamps')
 PersonSchema.plugin auth,
   everymodule:
     everyauth:
-      moduleTimeout: 10000
+      moduleTimeout: 30000
       findUserById: (userId, fn) -> Person.findById(userId, fn)
       handleLogout: (req, res) ->
         req.logout()
