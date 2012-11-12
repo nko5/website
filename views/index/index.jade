@@ -165,8 +165,8 @@ else
 
     tbody
       tr.header
-        td.time( datetime='2012-11-12T01:30:00Z' )
-        td Deploy grace period; Demos
+        td.time( datetime='2012-11-12T00:30:00Z' )
+        td Demos
       tr: td( colspan=3 ): .details
         :markdown
           ### Demo Time!!
@@ -180,7 +180,28 @@ else
           [Email us](mailto:all@nodeknockout.com) if you would like to be
           included in the Google Hangout.
 
-    //- Presentations
+    tbody
+      tr.header
+        td.time( datetime='2012-11-12T02:00:00Z' )
+        td Deploy grace period extended
+      tr: td( colspan=3 ): .details
+        :markdown
+          ### Pencils down! Time's up!
+
+          <strong class="scary">Stop pushing to your GitHub repo now!</strong>
+
+          **Something horribly broken?** Use this grace period to activate any
+          snapshot you've previously deployed. Use `jitsu snapshots activate`
+          ([docs](http://handbook.jit.su/#Snapshots)) to do this.
+
+          **Everything peachy?** Make sure your app is submitted for voting.
+          The top of your [team page](/teams/mine) should look like this:
+
+        ul.steps
+          li.done: a( href='/teams/mine' ) Deploy
+          li.done: a( href='/teams/mine' ) Entry info
+          li.done: a( href='/teams/mine' ) Submit for voting
+
     tbody
       tr.header
         td.time( datetime='2012-11-12T02:00:00Z' )
