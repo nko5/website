@@ -31,6 +31,7 @@ if (env.development) {
     github: process.env.GITHUB_OAUTH_SECRET,
     twitter: process.env.TWITTER_OAUTH_SECRET,
     postageapp: process.env.POSTAGEAPP_SECRET,
+    url2png: process.env.URL2PNG_SECRET,
     session: process.env.EXPRESS_SESSION_KEY,
     twitterUser: {
       consumer_key: process.env.TWITTER_USER_CONSUMER_KEY,

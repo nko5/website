@@ -61,7 +61,7 @@ DeploySchema.post 'save', ->
     team.save (err) ->
       throw err if err
       team.prettifyURL()
-      team.updateScreenshot()
+      #team.updateScreenshot()  disable screenshot update after coding
 
 Deploy = mongoose.model 'Deploy', DeploySchema
 

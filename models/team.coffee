@@ -3,6 +3,7 @@ mongoose = require 'mongoose'
 crypto = require 'crypto'
 querystring = require 'querystring'
 request = require 'request'
+env = require '../config/env'
 
 InviteSchema = require './invite'
 [TeamLimit, Invite, Person, Deploy, Vote] = (mongoose.model m for m in ['TeamLimit', 'Invite', 'Person', 'Deploy', 'Vote'])
@@ -215,8 +216,16 @@ TeamSchema.method 'prettifyURL', ->
 
 TeamSchema.virtual('screenshot').get ->
   return unless url = @entry.url
-  qs = querystring.stringify url: url, resize: '320x186', 'out-format': 'png'
-  "http://pinkyurl.com/i?#{qs}"
+  qs = querystring.stringify
+    url: url
+    viewport: '1024x595'
+    thumbnail_max_width: '320'
+    thumbnail_max_height: '186'
+  md5 = crypto.createHash 'md5'
+  md5.update qs.toString(), 'ascii'
+  md5.update env.secrets.url2png, 'ascii'
+  token = md5.digest 'hex'
+  "//beta.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
 
 TeamSchema.method 'updateScreenshot', (callback) ->
   return unless @entry.url
