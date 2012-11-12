@@ -34,7 +34,11 @@ ul.teams
           != p
       team.scores
         .score
-          a( href='/scores#' + team )
+          if !voting
+            a( href='/scores#' + team )
+              h3= team.scores[sort] != null ? team.scores[sort].toFixed(2) : '?'
+              .dimension= sort
+          else
             h3= team.scores[sort] != null ? team.scores[sort].toFixed(2) : '?'
             .dimension= sort
       .clear
