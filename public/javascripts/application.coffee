@@ -78,12 +78,10 @@ load = ->
 
       # prompt if no comment
       $note = $this.find('textarea')
-      ###
-      if not $note.val()
+      if $note.length > 0 and not $note.val()
         unless confirm "Are you sure you want to vote without leaving any feedback?"
           e.stopImmediatePropagation()
           return false
-      ###
 
       true
     .delegate 'a.change', 'click', (e) ->
