@@ -31,122 +31,124 @@ else
 
   table.timeline
     thead: tr: th.time Local Time
-    tbody
-      tr.header
-        td.time( datetime='2012-11-03T00:00:00Z' )
-        td Registration closes
-      tr: td( colspan=3 ): .details
-        :markdown
-          ### GET READY&hellip; NKO3 starts soon
 
-          Here are some things to think about before the competition begins:
-
-          1. **Where are you coding?** The [locations page] has great options.
-          2. **What tools should you use?** Check out our [tutorials] and
-          [free services] provided by sponsors.
-          3. **How are you going to win?** See the [rules] and [scoring page].
-
-          **Keep an eye out.** We'll set up [GitHub repos] and [Nodejitsu]
-          accounts for teams soon.
-
-          [locations page]: /locations
-          [tutorials]: /resources#tutorials
-          [free services]: /resources#services
-          [rules]: /rules
-          [scoring page]: /scoring
-          [GitHub repos]: https://github.com/nko3
-          [Nodejitsu]: http://nodejitsu.com/
-
-    tbody
-      tr.header
-        td.time( datetime='2012-11-10T00:00:00Z' )
-        td Competition starts
-      tr: td( colspan=3 ): .details
-        h3 START CODING
-        if coding
-          if req.team
-            :markdown
-              NKO3 is underway! Here&rsquo;s how to get started:
-              ```sh
-              $ git clone git@github.com:nko3/#{team}.git
-              $ cd #{team}/
-              $ npm install -g jitsu
-              $ jitsu login --username nko3-#{team} --password #{team.code}
-              $ jitsu deploy
-              ```
-
-              Visit [your team page](/teams/mine) for more.
-          else
-            :markdown
-              NKO3 is underway! GO GO GO!
-
-              Visit [your team page](/teams/mine) for deploy instructions.
-        else
-          p Stay tuned for deploy instructions.
-
-    tbody.minor
-      tr.header
-        td.time( datetime='2012-11-10T02:30:00Z' )
-        td Organizers&rsquo; welcome
-      tr: td( colspan=3 ): .details
-        :markdown
-          ### Welcome to NKO
-
-          NKO organizers [Gerad] and [Visnu] will welcome contestants, then
-          node.js benevolent dictator [Isaac Schlueter] will speak.
-
-          [Gerad]: /people/5081a809900f17fc54000005
-          [Visnu]: /people/50873a56cd668ae92300005f
-          [Isaac Schlueter]: /people/50835324a9f1fbd123eef7cb
-
-          <!---
-          <iframe src="http://www.ustream.tv/embed/12535757" width="558" height="330" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Live Video streaming by Ustream</a>
-          -->
-
-    tbody.minor
-      tr.header
-        td.time( datetime='2012-11-10T03:00:00Z' )
-        td Competition continues
-      tr: td( colspan=3 ): .details
-        ul#overall-stats
-          li.commits
-            .number= stats.commits
-            .name Commits
-          li.pushes
-            .number= stats.pushes
-            .name Pushes
-          li.deploys
-            .number= stats.deploys
-            .name Deploys
-        if req.user && req.user.contestant
+    if !voting
+      tbody
+        tr.header
+          td.time( datetime='2012-11-03T00:00:00Z' )
+          td Registration closes
+        tr: td( colspan=3 ): .details
           :markdown
-            ### Keep Hacking
-            Visit [your team page](/teams/mine) for instructions.
-        else
-          h2 What&rsquo;s happening
+            ### GET READY&hellip; NKO3 starts soon
 
-        #recent-deploys
-          each team in recentDeploys
+            Here are some things to think about before the competition begins:
+
+            1. **Where are you coding?** The [locations page] has great options.
+            2. **What tools should you use?** Check out our [tutorials] and
+            [free services] provided by sponsors.
+            3. **How are you going to win?** See the [rules] and [scoring page].
+
+            **Keep an eye out.** We'll set up [GitHub repos] and [Nodejitsu]
+            accounts for teams soon.
+
+            [locations page]: /locations
+            [tutorials]: /resources#tutorials
+            [free services]: /resources#services
+            [rules]: /rules
+            [scoring page]: /scoring
+            [GitHub repos]: https://github.com/nko3
+            [Nodejitsu]: http://nodejitsu.com/
+
+      tbody
+        tr.header
+          td.time( datetime='2012-11-10T00:00:00Z' )
+          td Coding starts
+        tr: td( colspan=3 ): .details
+          h3 START CODING
+          if coding
+            if req.team
+              :markdown
+                NKO3 is underway! Here&rsquo;s how to get started:
+                ```sh
+                $ git clone git@github.com:nko3/#{team}.git
+                $ cd #{team}/
+                $ npm install -g jitsu
+                $ jitsu login --username nko3-#{team} --password #{team.code}
+                $ jitsu deploy
+                ```
+
+                Visit [your team page](/teams/mine) for more.
+            else
+              :markdown
+                NKO3 is underway! GO GO GO!
+
+                Visit [your team page](/teams/mine) for deploy instructions.
+          else
+            p Stay tuned for deploy instructions.
+
+      tbody.minor
+        tr.header
+          td.time( datetime='2012-11-10T02:30:00Z' )
+          td Organizers&rsquo; welcome
+        tr: td( colspan=3 ): .details
+          :markdown
+            ### Welcome to NKO
+
+            NKO organizers [Gerad] and [Visnu] will welcome contestants, then
+            node.js benevolent dictator [Isaac Schlueter] will speak.
+
+            [Gerad]: /people/5081a809900f17fc54000005
+            [Visnu]: /people/50873a56cd668ae92300005f
+            [Isaac Schlueter]: /people/50835324a9f1fbd123eef7cb
+
+            <!---
+            <iframe src="http://www.ustream.tv/embed/12535757" width="558" height="330" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Live Video streaming by Ustream</a>
+            -->
+
+      tbody.minor
+        tr.header
+          td.time( datetime='2012-11-10T03:00:00Z' )
+          td Coding continues
+        tr: td( colspan=3 ): .details
+          ul#overall-stats
+            li.commits
+              .number= stats.commits
+              .name Commits
+            li.pushes
+              .number= stats.pushes
+              .name Pushes
+            li.deploys
+              .number= stats.deploys
+              .name Deploys
+          if req.user && req.user.contestant
+            :markdown
+              ### Keep Hacking
+              Visit [your team page](/teams/mine) for instructions.
+          else
+            h2 What&rsquo;s happening
+
+          #recent-deploys
+            each team in recentDeploys
+              include entry-info
+          template( id="entry-info" ):
             include entry-info
-        template( id="entry-info" ):
-          include entry-info
 
-    tbody.minor
-      tr.header
-        td.time( datetime='2012-11-11T22:00:00Z' )
-        td Almost over
-      tr: td( colspan=3 ): .details
-        :markdown
-          ### Almost over, Deploy now!
+      tbody.minor
+        tr.header
+          td.time( datetime='2012-11-11T22:00:00Z' )
+          td Almost over
+        tr: td( colspan=3 ): .details
+          :markdown
+            ### Almost over, Deploy now!
 
-          You really, really should have deployed by now, but if you haven't
-          <strong class="scary">please deploy right now</strong>. Visit
-          [your team page](/teams/mine) for instructions.
+            You really, really should have deployed by now, but if you haven't
+            <strong class="scary">please deploy right now</strong>. Visit
+            [your team page](/teams/mine) for instructions.
 
     tbody
       tr.header
         td.time( datetime='2012-11-12T00:00:00Z' )
-        td Competition ends
+        td Coding ends
       tr: td( colspan=3 ): .details
         :markdown
           ### Pencils down! Time's up!
@@ -224,7 +226,8 @@ else
           Also, don't forget to share your work with friends. They can help
           you win the popular vote. Just point them to your
           [team page](/teams/mine).
-    tbody
+
+    tbody#expert-judging
       tr.header
         td.time( datetime='2012-11-12T12:00:00Z' )
         td Expert judging starts
