@@ -29,7 +29,7 @@ app.post '/notify', (req, res, next) ->
 
     # save when the judge viewed the entry
     team.judgeVisitedAt = new Date
-    team.save (err, res) ->
+    team.save (err, saved) ->
       return next(err) if err
 
       app.events.emit 'judgeVisit', team
