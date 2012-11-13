@@ -21,7 +21,7 @@
   .clear
   != markdown(team.entry.description)
   - if (team.entry.videoURL)
-    - if (embed = youtubeEmbed(team.entry.videoURL))
+    - if (embed = embedVideo(team.entry.videoURL))
       p: iframe( width="540", height="304", src=embed, frameborder="0", allowfullscreen=true )
     - else
       h4 Screencast

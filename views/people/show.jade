@@ -50,7 +50,7 @@ h1.name= title(person.name)
         .clear
         != markdown(nextVote.team.entry.description)
         - if (nextVote.team.entry.videoURL)
-          - if (embed = youtubeEmbed(nextVote.team.entry.videoURL))
+          - if (embed = embedVideo(nextVote.team.entry.videoURL))
             p: iframe( width="560", height="315", src=embed, frameborder="0", allowfullscreen=true )
           - else
             h4 Screencast
