@@ -217,11 +217,10 @@ PersonSchema.method 'nextTeam', (next) ->
       ]
 
     # every third vote should be for something good
-    if votedOn.length % 3 is 0
-      dimensions = Vote.dimensions.concat('overall')
-      dimension = dimensions[Math.floor(Math.random() * dimensions.length)]
-
-      sort.unshift ["scores.#{dimension}", -1]
+    # if votedOn.length % 3 is 0
+    #   dimensions = Vote.dimensions.concat('overall')
+    #   dimension = dimensions[Math.floor(Math.random() * dimensions.length)]
+    #   sort.unshift ["scores.#{dimension}", -1]
 
     # not already voted on or skipped
     filter._id = $nin: votedOn.concat @skippedTeamIds
