@@ -206,9 +206,8 @@ PersonSchema.method 'nextTeam', (next) ->
   @votedOnTeamIds (err, votedOn) =>
     next err if err
 
-
+    # judges focus on good stuff
     if @judge and votedOn.length < 15
-      # judges focus on good stuff
       filter['$or'] = [
         'scores.judge_count': { $lt: 4 }
         'scores.judge_utility': { $gt: 3 }
@@ -216,7 +215,6 @@ PersonSchema.method 'nextTeam', (next) ->
         'scores.judge_innovation': { $gt: 3 }
         'scores.judge_completeness': { $gt: 3 }
       ]
-
 
     # every third vote should be for something good
     if votedOn.length % 3 is 0
