@@ -4,16 +4,14 @@ h1 Entries (#{teams.count})
 form.search
   input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-if voting && !(req.user && req.user.contestant)
-  p Only popularity rankings are shown while voting is taking place.
-else
+if (req.user && req.user.contestant) || !voting
   ul.sorts
     li Order by:
     each k in [ 'Overall', 'Solo', 'Popularity', 'Utility / Fun', 'Design', 'Innovation', 'Completeness' ]
       - s = k.split(' ')[0].toLowerCase()
       li( class= sort === s ? 'current' : '' )
         a( href=urlFor({ sort: s }) )= k
-  if voting && sort !== 'popularity'
+  if voting && sort && (req.user && req.user.contestant)
     p
       strong.scary This list only shows teams that you've voted on.
       |  
@@ -32,14 +30,10 @@ ul.teams
       .description
         if p = markdown(team.entry.description).match(/<p>[\s\S]+?<\/p>/)
           != p
-      team.scores
-        .score
-          if !voting
-            a( href='/scores#' + team )
-              h3= team.scores[sort] != null ? team.scores[sort].toFixed(2) : '?'
-              .dimension= sort
-          else
-            h3= team.scores[sort] != null ? team.scores[sort].toFixed(2) : '?'
+      if sort && score
+        team.scores
+          .score
+            h3= team.scores[score] != null ? team.scores[score].toFixed(2) : '?'
             .dimension= sort
       .clear
   - nextPage = (+req.query.page || 1) + 1

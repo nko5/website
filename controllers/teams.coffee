@@ -35,38 +35,57 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
 
 # entries index
 app.get /^\/(entries)?\/?$/, (req, res, next) ->
-  page = (req.param('page') or 1) - 1
-  sort = if _.include(Vote.dimensions.concat('popularity', 'overall', 'solo'), req.param('sort')) then req.param('sort') else 'popularity'
+  voting = app.enabled('voting')
+
+  # only show entries that are deployed and marked votable
   query = { 'entry.votable': true, lastDeploy: {$ne: null} }
+  query.search = new RegExp(req.param('q'), 'i') if req.param('q')
+
+  # determine what category to show
+  sort = if _.include(Vote.dimensions.concat('popularity', 'overall', 'solo'), req.param('sort'))
+      req.param('sort')
+    else
+      null
+
+  # during voting, only contestants can sort by category
+  if voting and not req.user?.contestant
+    sort = null
+
+  # handle overall vs solo (TODO should be team, not overall)
+  score = sort
+  if sort is 'solo'
+    query.peopleIds = ($size: 1)
+    score = 'overall'
+
+  # pagination
+  page = (req.param('page') or 1) - 1
+  options = { limit: 30, skip: 30 * page }
+
+  # if there is sorting, then use it, otherwise sort by something arbitrary
+  if score
+    options.sort = [["scores.#{score}", -1]]
+  else
+    options.sort = [["judgeVisitedAt", -1]]
 
   renderEntries = ->
-    query.search = new RegExp(req.param('q'), 'i') if req.param('q')
-    query.peopleIds = ($size: 1) if req.param('sort') == 'solo'
-    options = { sort: [["scores.#{sort}", -1]], limit: 30, skip: 30 * page }
     Team.find query, {}, options, (err, teams) ->
       return next err if err
       Team.count query, (err, count) ->
         return next err if err
         teams.count = count
         layout = req.header('x-pjax')? || !req.xhr
-        res.render2 'teams/entries', teams: teams, sort: sort, layout: layout
+        res.render2 'teams/entries', teams: teams, sort: sort, score: score, layout: layout
 
-  # while voting is going on:
-  #   1. only allow sorting by popularity for non-contestants
-  #   2. only show contestants scores for teams they've voted on
-  # else, if voting is finished, show everybody everything
-  if app.enabled('voting') and sort isnt 'popularity' # && !req.user?.admin
-    if req.user?.contestant
-      req.user.votedOnTeamIds (err, teamIds) ->
+  # while voting is going on, only allow sorting for teams that the user is on
+  # or has voted on
+  if voting && score
+    req.user.votedOnTeamIds (err, teamIds) ->
+      return next(err) if err
+      req.user.team (err, team) ->
         return next(err) if err
-        req.user.team (err, team) ->
-          return next(err) if err
-          query._id = ($in: teamIds.concat(team.id))
-          renderEntries()
-    else
-      sort = 'popularity'
-      renderEntries()
-  else # voting is over
+        query._id = ($in: teamIds.concat(team.id))
+        renderEntries()
+  else # voting is over, allow everything to be seen
     renderEntries()
 
 # new
