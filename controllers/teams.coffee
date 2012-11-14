@@ -67,7 +67,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   # if there is sorting, then use it, otherwise sort by something arbitrary
   if score
     options.sort = [["scores.#{score}", -1]]
-  else if req.user.contestant
+  else if req.user?.contestant
     options.sort = [["scores.random", 1]]
   else
     options.sort = [["judgeVisitedAt", -1]]
