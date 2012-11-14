@@ -60,7 +60,7 @@ DeploySchema.post 'save', ->
     team.entry.url = @urlForTeam team unless team.entry.votable
     team.save (err) ->
       throw err if err
-      team.prettifyURL()
+      team.prettifyURL() unless team.entry.votable
       #team.updateScreenshot()  disable screenshot update after coding
 
 Deploy = mongoose.model 'Deploy', DeploySchema
