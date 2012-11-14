@@ -199,6 +199,7 @@ PersonSchema.method 'nextTeam', (next) ->
   sort = []
   # sort by minimum vote count for your type
   sort.push ['voteCounts.' + @role, 1] if @judge or @contestant
+  sort.push ['scores.overall', -1]
   sort.push ['updatedAt', -1]
 
   Team = mongoose.model 'Team'
