@@ -45,6 +45,8 @@ TeamSchema = module.exports = new mongoose.Schema
   linode: {}
   search: String
   scores:
+    random: Number
+    team_size: Number
     contestant_utility: Number
     contestant_design: Number
     contestant_innovation: Number
@@ -198,6 +200,8 @@ TeamSchema.static 'updateAllSavedScores', (next) ->
           judge: scores.judge_count
           contestant: scores.contestant_count
           voter: scores.popularity_count
+        scores.random = Math.random()
+        scores.team_size = team.peopleIds.length
         team.save()
     next()
 

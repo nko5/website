@@ -4,14 +4,17 @@ h1 Entries (#{teams.count})
 form.search
   input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-if (req.user && req.user.contestant) || !voting
+if (req.user && (req.user.contestant || req.user.admin)) || !voting
   ul.sorts
     li Order by:
-    each k in [ 'Overall', 'Solo', 'Popularity', 'Utility / Fun', 'Design', 'Innovation', 'Completeness' ]
-      - s = k.split(' ')[0].toLowerCase()
+    if voting
+      li( class=(!sort ? 'current': '' ) )
+        a( href='/entries' ) Random
+    each k in [ 'Team', 'Solo', 'Popularity', 'Utility/Fun', 'Design', 'Innovation', 'Completeness' ]
+      - s = k.split(/\W/)[0].toLowerCase()
       li( class= sort === s ? 'current' : '' )
         a( href=urlFor({ sort: s }) )= k
-  if voting && sort && (req.user && req.user.contestant)
+  if voting && sort && (req.user && req.user.contestant && !req.user.admin)
     p
       strong.scary This list only shows teams that you've voted on.
       |  

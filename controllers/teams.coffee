@@ -42,19 +42,22 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   query.search = new RegExp(req.param('q'), 'i') if req.param('q')
 
   # determine what category to show
-  sort = if _.include(Vote.dimensions.concat('popularity', 'overall', 'solo'), req.param('sort'))
+  sort = if _.include(Vote.dimensions.concat('popularity', 'team', 'solo'), req.param('sort'))
       req.param('sort')
     else
       null
 
   # during voting, only contestants can sort by category
-  if voting and not req.user?.contestant
+  if voting and not req.user?.contestant and not req.user?.admin
     sort = null
 
   # handle overall vs solo (TODO should be team, not overall)
   score = sort
   if sort is 'solo'
-    query.peopleIds = ($size: 1)
+    query['scores.team_size'] = 1
+    score = 'overall'
+  else if sort is 'team'
+    query['scores.team_size'] = { $gt: 1 }
     score = 'overall'
 
   # pagination
@@ -64,6 +67,8 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   # if there is sorting, then use it, otherwise sort by something arbitrary
   if score
     options.sort = [["scores.#{score}", -1]]
+  else if req.user.contestant
+    options.sort = [["scores.random", 1]]
   else
     options.sort = [["judgeVisitedAt", -1]]
 
@@ -78,7 +83,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
 
   # while voting is going on, only allow sorting for teams that the user is on
   # or has voted on
-  if voting && score
+  if voting and score and not req.user?.admin
     req.user.votedOnTeamIds (err, teamIds) ->
       return next(err) if err
       req.user.team (err, team) ->
