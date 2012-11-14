@@ -213,11 +213,7 @@ PersonSchema.method 'nextTeam', (next) ->
         { 'scores.judge_utility': { $gt: 3 }},
         { 'scores.judge_design': { $gt: 3 }},
         { 'scores.judge_innovation': { $gt: 3 }},
-        { 'scores.judge_completeness': { $gt: 3 }},
-        { 'scores.contestant_utility': { $gt: 4 }},
-        { 'scores.contestant_design': { $gt: 4 }},
-        { 'scores.contestant_innovation': { $gt: 4 }},
-        { 'scores.contestant_completeness': { $gt: 4 }}
+        { 'scores.judge_completeness': { $gt: 3 }}
       ]
 
     # every third vote should be for something good
