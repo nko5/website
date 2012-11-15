@@ -3,19 +3,34 @@ env = require '../config/env'
 mongoose = require('../models')(env.mongo_url)
 util = require 'util'
 postageapp = require('postageapp')(env.secrets.postageapp)
+_ = require('underscore')
+async = require('async')
 
 Vote = mongoose.model 'Vote'
 Person = mongoose.model 'Person'
 
-Person.find { role: 'judge', email: /@/, twitterScreenName: /\w/ }, (err, judges) ->
+nag = (judge, callback) ->
+  email = judge.email.replace(/\.nodeknockout\.com$/, '')
+
+  alreadySent = _.include([
+    # redacted
+  ], email)
+
+  if !alreadySent
+    util.log "Sending 'judge_nag_two' to '#{email}'".yellow
+    postageapp.sendMessage
+      recipients: email,
+      template: 'judge_nag_two'
+      variables:
+        first_name: judge.name.split(/\s/)[0]
+      , callback
+  else
+    util.log "Skipping '#{email}'"
+    callback()
+
+Person.find { role: 'judge', email: /@/ }, (err, judges) ->
   throw err if err
-  judges.forEach (judge) ->
-    Vote.count { personId: judge.id }, (err, count) ->
-      throw err if err
-      votes_left = 10 - count
-      if votes_left > 0
-        util.log "Sending 'judge_nag_two' to '#{judge.email}' (#{count})".yellow
-        postageapp.apiCall judge.email, 'judge_nag_two', null, null,
-          first_name: judge.name.split(/\s/)[0]
-          votes_left: if votes_left is 1 then '1 vote' else "#{votes_left} votes"
-      else util.log "Skipping '#{judge.email}' (#{count})"
+
+  async.forEachSeries judges, nag, (err) ->
+    util.error(err) if err
+    mongoose.connection.close()
