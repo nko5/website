@@ -16,8 +16,8 @@ nag = (judge, callback) ->
     email = judge.email.replace(/\.nodeknockout\.com$/, '')
 
     alreadySent = _.include([
-        # redacted
-      ], email)
+      # redacted
+    ], email)
 
     if !alreadySent and count is 0
       util.log "Sending 'judge_nag_one' to '#{email}' (#{count})".yellow
