@@ -191,7 +191,7 @@ PersonSchema.method 'nextTeam', (next) ->
   # if you're a judge
   if @judge
     # non-technical judges don't see technical entries
-    filter.technical = ($ne: true) if not @technical
+    filter['entry.technical'] = false if not @technical
 
     # judges only see entries with pitch videos
     filter['entry.videoURL'] = /./
