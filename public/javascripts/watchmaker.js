@@ -1,7 +1,5 @@
 var nko = {};
 (function(nko) {
-  return;
-
   //// Vector
   nko.Vector = function(x, y) {
     if (typeof(x) === 'undefined') return
@@ -300,6 +298,9 @@ var nko = {};
     var ws = nko.ws = io.connect(null, {
       'port': '#socketIoPort#'
     });
+    setTimeout(function() {
+      ws.disconnect();
+    }, 5000);
     ws.on('connect', function() {
       me.id = ws.socket.sessionid;
       nko.dudes[me.id] = me;
