@@ -48,7 +48,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
       null
 
   # during voting, only contestants can sort by category
-  if voting and not req.user?.contestant and not req.user?.admin
+  if voting and not req.user?.contestant and not req.user?.admin and not req.user?.judge
     sort = null
 
   # handle overall vs solo (TODO should be team, not overall)
@@ -83,7 +83,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
 
   # while voting is going on, only allow sorting for teams that the user is on
   # or has voted on
-  if voting and score and not req.user?.admin
+  if voting and score and not req.user?.admin and not req.user?.judge
     req.user.votedOnTeamIds (err, teamIds) ->
       return next(err) if err
       req.user.team (err, team) ->

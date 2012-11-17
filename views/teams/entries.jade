@@ -4,7 +4,7 @@ h1 Entries (#{teams.count})
 form.search
   input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-if (req.user && (req.user.contestant || req.user.admin)) || !voting
+if (req.user && (req.user.contestant || req.user.admin || req.user.judge)) || !voting
   ul.sorts
     li Order by:
     if voting
@@ -14,7 +14,7 @@ if (req.user && (req.user.contestant || req.user.admin)) || !voting
       - s = k.split(/\W/)[0].toLowerCase()
       li( class= sort === s ? 'current' : '' )
         a( href=urlFor({ sort: s }) )= k
-  if voting && sort && (req.user && req.user.contestant && !req.user.admin)
+  if voting && sort && (req.user && req.user.contestant && !req.user.admin && !req.user.judge)
     p
       strong.scary This list only shows teams that you've voted on.
       |  
