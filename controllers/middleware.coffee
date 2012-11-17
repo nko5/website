@@ -76,8 +76,12 @@ module.exports =
   loadTeamVotes: (req, res, next) ->
     query = teamId: req.team.id
     # exclude my vote from the vote list on the team page
-    if req.user
+    if req.user && !req.user.voter
       query.personId = $ne: req.user.id
+    else
+      req.publicVotes = []
+      req.votes = []
+      return next()
     Vote.find query, {}, { sort: [['updatedAt', -1]] }, (err, votes) ->
       return next err if err
       publicVotes = []

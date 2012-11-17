@@ -8,24 +8,25 @@ h2 Your Vote
   - if (req.user)
     p: a( href='/people/' + req.user + '#votes' )  View all your votes &rarr;
 
-h2 Other Votes
-if publicVotes.length
-  ul.votes
-    li.vote
-      .info.hearts
-        - each vote in publicVotes
-          img.heart( src='/images/iframe/heart.png' )
-        |  (#{publicVotes.length})
-      .people
-        - each vote in publicVotes
-          - if (vote.person)
-            a( href='/people/' + vote.person, title=vote.person.login )
-              img.avatar( src=avatar_url(vote.person, 30) )
-if shouldShowVoteList
-  ul.votes
-    if canSeeVotes
-      != partial('votes/vote', votes)
-    else
-      li Votes are hidden. 
-        a( href='#votes' ) Vote on this entry
-        |  to reveal them.
+if votes.length || publicVotes.length
+  h2 Other Votes
+  if publicVotes.length
+    ul.votes
+      li.vote
+        .info.hearts
+          - each vote in publicVotes
+            img.heart( src='/images/iframe/heart.png' )
+          |  (#{publicVotes.length})
+        .people
+          - each vote in publicVotes
+            - if (vote.person)
+              a( href='/people/' + vote.person, title=vote.person.login )
+                img.avatar( src=avatar_url(vote.person, 30) )
+  if shouldShowVoteList
+    ul.votes
+      if canSeeVotes
+        != partial('votes/vote', votes)
+      else
+        li Votes are hidden. 
+          a( href='#votes' ) Vote on this entry
+          |  to reveal them.
