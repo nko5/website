@@ -54,6 +54,7 @@ module.exports = (app) ->
     preCoding: app.enabled 'pre-coding'
     coding: app.enabled 'coding'
     voting: app.enabled 'voting'
+    winners: app.enabled 'winners'
 
     Vote: mongoose.model 'Vote'
     stars: (count) ->
