@@ -3,28 +3,29 @@
 :markdown
   Node.js Knockout is a 48-hour node.js hackathon. [Learn more](/about)
 
-if registration
+if registration || preRegistration
   section.when
-    h3 node.js knockout 2012 is
+    h3 node.js knockout 2013 is
       .dates
-        a( href="http://bit.ly/MoVN39" )
-          time.start( datetime="2012-11-10T00:00:00Z" ) Nov 10
+        a( href="#" )
+          time.start( datetime="2013-09-07T00:00:00Z" ) Sep 7, 2013
         |  - 
-        a( href="http://bit.ly/MoW3Pp" )
-          time.end( datetime="2012-11-12T00:00:00Z" ) Nov 12, 2012
+        a( href="#" )
+          time.end( datetime="2013-09-09T00:00:00Z" ) Sep 9, 2013
         |  UTC
     #countdown from now
 
-    if req.canRegister
-      h1 Registration is Open
-      if req.team
-        p Your team: <a href="/teams/#{team}">#{team.name}</a>
+    if registration
+      if req.canRegister
+        h1 Registration is Open
+        if req.team
+          p Your team: <a href="/teams/#{team}">#{team.name}</a>
+        else
+          p: a.register.button( href="/teams/new" ) Register Now
+        p: i= req.teamsLeft + " spots remaining"
       else
-        p: a.register.button( href="/teams/new" ) Register Now
-      p: i= req.teamsLeft + " spots remaining"
-    else
-      h1 Registration is Full
-      p: a( href="/teams/new" ) More spots on Nov 1 at 0:00 & 12:00 UTC
+        h1 Registration is Full
+        p: a( href="/teams/new" ) More spots on Nov 1 at 0:00 & 12:00 UTC
 else if winners
   != partial('winners')
 else

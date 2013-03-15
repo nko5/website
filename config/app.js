@@ -53,11 +53,12 @@ app.twitter = new Twitter(secrets.twitterUser)
 
 
 // state (getting pretty gross)
+app.enable('pre-registration');  // just the countdown
 app.disable('registration');  // months beforehand
 app.disable('pre-coding');     // week beforehand
-app.enable('coding');        // coding + several hours before
+app.disable('coding');        // coding + several hours before
 app.disable('voting');        // after
-app.enable('winners');        // after winners are selected
+app.disable('winners');        // after winners are selected
 
 app.configure(function() {
   var assetManager = require('./assetmanager')(app);

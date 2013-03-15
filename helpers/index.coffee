@@ -50,6 +50,7 @@ module.exports = (app) ->
       </a>
       """
 
+    preRegistration: app.enabled 'pre-registration'
     registration: app.enabled 'registration'
     preCoding: app.enabled 'pre-coding'
     coding: app.enabled 'coding'
