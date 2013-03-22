@@ -18,15 +18,15 @@ html
   body
     #page( class=view.replace(/\//g,'-') )
       aside
-        .login
-          - if (user)
-            img.avatar( src=avatar_url(user) )
-            a( href='/people/me' )= user.login
-            |  (
-            a( href='/logout' ) Sign out
-            | )
-          - else
-            a.button( href='/login' ) Sign in
+        //- .login
+        //-   - if (user)
+        //-     img.avatar( src=avatar_url(user) )
+        //-     a( href='/people/me' )= user.login
+        //-     |  (
+        //-     a( href='/logout' ) Sign out
+        //-     | )
+        //-   - else
+        //-     a.button( href='/login' ) Sign in
 
         h3 Important dates
         table.important-dates
@@ -42,22 +42,22 @@ html
           tr
             th.asterisk( colspan=2 ) *space permitting
 
-        ul.sponsors
-          - _.shuffle(sponsors).forEach(function(sponsor) {
-            li: a( href=sponsor.url )
-              img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
-          - });
-          li.interested
-            a( href='/sponsors#interested' ) Interested in sponsoring?
-          li.icons Services: 
-            each sponsor in [ 'ratchetio', 'teleportd', 'mongolab', 'mongohq', 'monitaur', 'apigee' ]
-              a( href='/resources#services' ): img( src=favicon(sponsor) )
-          li.icons Jobs: 
-            each sponsor in [ 'joyent', 'nodejitsu', 'bislr', 'sequoia', 'nomic', 'voxer', 'ensighten', 'trifacta' ]
-              a( href='/jobs##{sponsor}' ): img( src=favicon(sponsor) )
-          li.icons Prizes: 
-            each sponsor in [ 'joyent', 'dropbox', 'heroku', 'github', 'mongolab', 'mongohq', 'nodetime', 'nodeconf', 'coderwall' ]
-              a( href='/prizes' ): img( src=favicon(sponsor) )
+        //- ul.sponsors
+        //-   - _.shuffle(sponsors).forEach(function(sponsor) {
+        //-     li: a( href=sponsor.url )
+        //-       img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+        //-   - });
+        //-   li.interested
+        //-     a( href='/sponsors#interested' ) Interested in sponsoring?
+        //-   li.icons Services: 
+        //-     each sponsor in [ 'ratchetio', 'teleportd', 'mongolab', 'mongohq', 'monitaur', 'apigee' ]
+        //-       a( href='/resources#services' ): img( src=favicon(sponsor) )
+        //-   li.icons Jobs: 
+        //-     each sponsor in [ 'joyent', 'nodejitsu', 'bislr', 'sequoia', 'nomic', 'voxer', 'ensighten', 'trifacta' ]
+        //-       a( href='/jobs##{sponsor}' ): img( src=favicon(sponsor) )
+        //-   li.icons Prizes: 
+        //-     each sponsor in [ 'joyent', 'dropbox', 'heroku', 'github', 'mongolab', 'mongohq', 'nodetime', 'nodeconf', 'coderwall' ]
+        //-       a( href='/prizes' ): img( src=favicon(sponsor) )
 
       #inner
         header
@@ -65,13 +65,13 @@ html
             | node.js 
             span.ko ko
           nav: ul
-            li: a( href='/entries' ) Entries
-            li: a( href='/rules' ) Rules
-            li: a( href='/prizes' ) Prizes
-            li: a( href='/resources' ) Resources
-            li: a( href='/judges' ) Judges
-            li: a( href='/jobs' ) Jobs
-            li: a( href='/locations' ) Locations
+            //- li: a( href='/entries' ) Entries
+            //- li: a( href='/rules' ) Rules
+            //- li: a( href='/prizes' ) Prizes
+            //- li: a( href='/resources' ) Resources
+            //- li: a( href='/judges' ) Judges
+            //- li: a( href='/jobs' ) Jobs
+            //- li: a( href='/locations' ) Locations
             //- if (req.user && (admin || req.user.contestant || req.user.judge))
               //- li: a( href='/services' ) Services
 
