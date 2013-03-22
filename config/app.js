@@ -11,7 +11,7 @@ var express = require('express')
 require('jadevu');
 
 // express
-var app = module.exports = express.createServer();
+var app = module.exports = express();
 
 // some paths
 app.paths = {
@@ -65,7 +65,7 @@ app.configure(function() {
 
   app.use(express.compress());
   app.use(assetManager);
-  app.helpers({ assetManager: assetManager });
+  app.locals({ assetManager: assetManager });
 });
 
 app.configure('development', function() {
@@ -107,6 +107,10 @@ app.configure(function() {
     next();
   });
 
+  // helpers
+  // auth.helpExpress(app);
+  require('../helpers')(app);
+
   app.use(express.logger());
   app.use(auth.middleware());
   app.use(app.router);
@@ -134,10 +138,6 @@ app.configure(function() {
   app.set('views', app.paths.views);
   app.set('view engine', 'jade');
 });
-
-// helpers
-auth.helpExpress(app);
-require('../helpers')(app);
 
 app.listen(port);
 app.ws = require('socket.io').listen(app);

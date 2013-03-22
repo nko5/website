@@ -5,7 +5,7 @@ mongoose = require 'mongoose'
 
 module.exports = (app) ->
 
-  app.helpers
+  app.locals
 
     inspect: require('util').inspect
     qs: qs
@@ -74,7 +74,9 @@ module.exports = (app) ->
       else if match = url.match(/vimeo.com\/(\d+)/)
         "//player.vimeo.com/video/#{match[1]}"
 
-  app.dynamicHelpers
+  dynamicHelpers =
+    user: (req, res) ->
+      req.user
 
     session: (req, res) -> req.session
 
@@ -90,7 +92,7 @@ module.exports = (app) ->
 
     admin: (req, res) -> req.user?.admin
 
-    flash: (req, res) -> req.flash()
+    flash: (req, res) -> {} # req.flash()
 
     canEdit: (req, res) ->
       (thing) ->
@@ -110,6 +112,13 @@ module.exports = (app) ->
     shouldShowVoteList: (req, res) ->
       not app.enabled('voting') or
         (req.user?.contestant or req.user?.judge)
+
+  # add in the dynamic helpers
+  for name, fn of dynamicHelpers
+    do (name, fn) ->
+      app.use (req, res, next) ->
+        res.locals[name] = fn(req, res)
+        next()
 
 favicons =
   ratchetio: '''

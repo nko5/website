@@ -127,7 +127,7 @@ app.get '/teams/:id', [m.loadTeam, m.loadTeamPeople, m.loadTeamVotes, m.loadMyVo
   vote = req.vote or new Vote
   vote.team = req.team
   vote.person = req.user
-  res.render2 'teams/show'
+  res.render2 'teams/show',
     team: req.team
     people: req.people
     publicVotes: req.publicVotes
