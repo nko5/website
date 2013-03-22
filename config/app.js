@@ -102,11 +102,11 @@ app.configure(function() {
   // app.use(require('../controllers/deploys')(app));
 
   // csrf protection
-  // app.use(express.csrf());
-  // app.use(function(req, res, next) {
-  //   if (req.body) delete req.body._csrf;
-  //   next();
-  // });
+  app.use(express.csrf());
+  app.use(function(req, res, next) {
+    if (req.body) delete req.body._csrf;
+    next();
+  });
 
   // helpers
   // auth.helpExpress(app);
