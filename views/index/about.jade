@@ -1,71 +1,78 @@
+extends ../layout
 - title('About')
-:markdown
-  # About
 
-  Node.js Knockout is a 48-hour hackathon featuring [node.js]. It's an online,
-  virtual competition with [contestants worldwide].
+block body
+  :markdown
+    # About
 
-  Coding takes place from November 10, 2012 0:00 UTC to November 12, 2012 0:00
-  UTC. Judging and public voting take place the following week.
+    Node.js Knockout is a 48-hour hackathon featuring [node.js]. It's an online,
+    virtual competition with [contestants worldwide].
 
-  This is the third year it's been held.
+    Coding takes place from November 10, 2012 0:00 UTC to November 12, 2012 0:00
+    UTC. Judging and public voting take place the following week.
 
-  Check out the [NodeConf 2012 Slides][nodeconf].
+    This is the third year it's been held.
 
-  ### Credits
+    Check out the [NodeConf 2012 Slides][nodeconf].
 
-  - Core organizers: [gerad], [visnup]
-  - Design: [Team 734m] = [burnto] + [huned] + ([visnup] + [gerad])
-  - Design inspiration: [#sworcery], [the1console]
-  - Additional help: ♥  [mape], [miksago], [dshaw], [antiserf], [operaqueenie] ♥
-  - Original inspiration: [Rails Rumble]
-  - Props: [Node.js] is a trademark of [Joyent, Inc.]
+    ### Credits
 
-  ### Logos
+    - Core organizers: [gerad], [visnup]
+    - Design: [Team 734m] = [burnto] + [huned] + ([visnup] + [gerad])
+    - Design inspiration: [#sworcery], [the1console]
+    - Additional help: ♥  [mape], [miksago], [dshaw], [antiserf], [operaqueenie] ♥
+    - Original inspiration: [Rails Rumble]
+    - Props: [Node.js] is a trademark of [Joyent, Inc.]
 
-  [PNG 3700x1000](/designs/exports/png/nko-logo-3700x1000.png) /
-  [PDF](/designs/exports/pdf/nko-logo.pdf) /
-  [Adobe Illustrator](/designs/nko-logo.ai)
+    ### Logos
 
-  ### <a href="#stats"></a>Key Stats
+    [PNG 3700x1000](/designs/exports/png/nko-logo-3700x1000.png) /
+    [PDF](/designs/exports/pdf/nko-logo.pdf) /
+    [Adobe Illustrator](/designs/nko-logo.ai)
 
-  <table>
-    <tr><th>Contestants</th> <td>#{people}</td></tr>
-    <tr><th>Teams</th>       <td>#{teams}</td></tr>
-    <tr><th>Entries</th>     <td>#{entries}</td></tr>
-  </table>
+    [node.js]: http://nodejs.org/
+    [contestants worldwide]: /teams
+    [nodeconf]: /tell-me-a-story
 
-  ### Colophon
+    [Rails Rumble]: http://railsrumble.com/
+    [Team 734m]: http://2010.nodeknockout.com/teams/734m
+    [Joyent, Inc.]: http://www.joyent.com/
+    [GitHub]: https://github.com/nko3/website
 
-  All code for this website is available on [GitHub].
+    [burnto]: https://twitter.com/burnto
+    [huned]: https://twitter.com/huned
+    [visnup]: https://twitter.com/visnup
+    [gerad]: https://twitter.com/gerad
+    [mape]: https://twitter.com/mape
+    [miksago]: https://twitter.com/miksago
+    [dshaw]: https://twitter.com/dshaw
+    [antiserf]: https://twitter.com/antiserf
+    [operaqueenie]: https://twitter.com/operaqueenie
 
-  Headings are in [04b_03] and the body font is [Droid Sans]. Droid is a
-  trademark of Lucasfilm, Ltd. and its related companies. Sans is just a French
-  preposition that means "[without]".
+    [#sworcery]: http://www.swordandsworcery.com/
 
-  [node.js]: http://nodejs.org/
-  [contestants worldwide]: /teams
-  [nodeconf]: /tell-me-a-story
+  if registration
+    :markdown
+      ### <a href="#stats"></a>Key Stats
 
-  [Rails Rumble]: http://railsrumble.com/
-  [Team 734m]: http://2010.nodeknockout.com/teams/734m
-  [Joyent, Inc.]: http://www.joyent.com/
-  [GitHub]: https://github.com/nko3/website
+      <table>
+        <tr><th>Contestants</th> <td>#{people}</td></tr>
+        <tr><th>Teams</th>       <td>#{teams}</td></tr>
+        <tr><th>Entries</th>     <td>#{entries}</td></tr>
+      </table>
 
-  [burnto]: https://twitter.com/burnto
-  [huned]: https://twitter.com/huned
-  [visnup]: https://twitter.com/visnup
-  [gerad]: https://twitter.com/gerad
-  [mape]: https://twitter.com/mape
-  [miksago]: https://twitter.com/miksago
-  [dshaw]: https://twitter.com/dshaw
-  [antiserf]: https://twitter.com/antiserf
-  [operaqueenie]: https://twitter.com/operaqueenie
+  :markdown
+    ### Colophon
 
-  [#sworcery]: http://www.swordandsworcery.com/
-  [@the1console]: https://twitter.com/the1console
+    All code for this website is available on [GitHub].
 
-  [04b_03]: http://www.04.jp.org
-  [Inconsolata]: http://www.google.com/webfonts/specimen/Inconsolata
-  [Droid Sans]: http://www.google.com/webfonts/specimen/Droid+Sans
-  [without]: http://en.wikipedia.org/wiki/Sans-serif
+    Headings are in [04b_03] and the body font is [Droid Sans]. Droid is a
+    trademark of Lucasfilm, Ltd. and its related companies. Sans is just a French
+    preposition that means "[without]".
+
+    [@the1console]: https://twitter.com/the1console
+
+    [04b_03]: http://www.04.jp.org
+    [Inconsolata]: http://www.google.com/webfonts/specimen/Inconsolata
+    [Droid Sans]: http://www.google.com/webfonts/specimen/Droid+Sans
+    [without]: http://en.wikipedia.org/wiki/Sans-serif
