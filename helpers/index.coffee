@@ -83,7 +83,8 @@ module.exports = (app) ->
     req: (req, res) -> req
 
     _csrf: (req, res) ->
-      """<input type="hidden" name="_csrf" value="#{req.session._csrf}"/>"""
+      ""
+      # """<input type="hidden" name="_csrf" value="#{req.session._csrf}"/>"""
 
     title: (req, res) ->
       (title) ->
