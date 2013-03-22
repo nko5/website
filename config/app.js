@@ -132,6 +132,7 @@ app.configure(function() {
     if (typeof(e) === 'string')
       e = Error(e);
 
+    console.error(e.stack);
     res.render2('errors/500', { error: e });
   });
 
