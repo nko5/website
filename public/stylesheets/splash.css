@@ -29,32 +29,43 @@ body a:hover {
   cursor: pointer;
 }
 
+.clear-both {
+  clear: both;
+}
+
 #splash {
   margin: auto;
   position: relative;
   z-index: 100;
 }
 
-#splash-bg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-
-  background: url("/images/splash/bg.jpg") no-repeat center 180px;
-}
 
 #splash-content {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 60px;
-  width: 597px;
-  margin: auto;
 }
+
+@media (min-width: 768px) {
+
+  #splash-content {
+    width: 597px;
+    margin: auto;
+  }
+  #splash-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    background: url("/images/splash/bg.jpg") no-repeat center 180px;
+  }
+}
+
 
 #splash h1.logo {
   text-indent: -9999px;
@@ -65,8 +76,8 @@ body a:hover {
   background: url("/images/splash/logo.png") no-repeat;
 }
 
-#splash .date {
 
+#splash .date {
   text-indent: -9999px;
   width: 261px;
   height: 84px;
@@ -82,22 +93,42 @@ body a:hover {
 }
 
 #splash .intro {
-  font-family: Arial;
+  font-family: helvetica, arial, sans-serif;
   /*font-family: "franklin-gothic-urw";*/
-  color: #D0D0D0;
+  color: #efefef;
   font-size: 20px;
   line-height: 1.5;
 
-  margin: auto;
-  margin-top: 40px;
-  width: 400px;
-  background: rgba(0,0,0,0.7);
   padding: 15px 30px;
   border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 40px;
+  background: rgba(0,0,0,0.7);
 }
 
 #splash .intro p {
   margin: 0;
+}
+
+
+@media (max-width: 480px) {
+  #splash h1.logo {
+    width: 223px;
+    height: 45px;
+    background-size: 100%;
+  }
+
+  #splash .date {
+    width: 130px;
+    height: 42px;
+    background-size: 100%;
+  }
+
+  #splash .intro {
+    font-size: 16px;
+    margin-top: 10px;
+  }
 }
 
 
@@ -106,17 +137,14 @@ body a:hover {
   position: relative;
   z-index: 100;
   margin: auto;
-  position: fixed;
-  bottom: 5px;
-  left: 0;
-  right: 0;
-  padding: 5px;
+  padding: 8px;
+  text-align: center;
 
-  width: 700px;
-
-  border-radius: 8px;
   background: rgba(0,0,0,0.5);
 }
+
+
+
 #footer a {
   color: #DBB74E;
 }
@@ -124,26 +152,41 @@ body a:hover {
   text-decoration: none;
 }
 
-#footer .row > div {
-  text-align: center;
+
+@media (min-width: 768px) {
+  #footer {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    padding: 5px;
+
+    width: 700px;
+    border-radius: 8px;
+
+  }
+  #footer .row > div {
+    text-align: center;
+  }
+
+  #footer .footer-left,
+  #footer .footer-center,
+  #footer .footer-right {
+    float: left;
+    text-align: center;
+  }
+
+  #footer .footer-left {
+    width: 225px;
+  }
+  #footer .footer-center {
+    width: 225px;
+  }
+  #footer .footer-right {
+    width: 225px;
+  }
 }
 
-#footer .footer-left,
-#footer .footer-center,
-#footer .footer-right {
-  float: left;
-  text-align: center;
-}
-
-#footer .footer-left {
-  width: 225px;
-}
-#footer .footer-center {
-  width: 225px;
-}
-#footer .footer-right {
-  width: 225px;
-}
 
 #footer .icon-email {
   width: 20px;
@@ -174,4 +217,6 @@ body a:hover {
   vertical-align: middle;
   margin-right: 3px;
 }
+
+
 
