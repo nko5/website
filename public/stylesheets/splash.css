@@ -16,6 +16,7 @@ html, body {
 body {
   background: #000;
   color: #fff;
+  position: relative;
 }
 
 body a {
@@ -50,7 +51,7 @@ body a:hover {
 #splash-content {
   text-align: center;
   padding-top: 40px;
-
+  padding-bottom: 60px;
   width: 597px;
   margin: auto;
 }
@@ -105,7 +106,7 @@ body a:hover {
   position: relative;
   z-index: 100;
   margin: auto;
-  position: absolute;
+  position: fixed;
   bottom: 5px;
   left: 0;
   right: 0;
