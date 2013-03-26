@@ -97,7 +97,7 @@ body a:hover {
   margin: auto;
   margin-top: 40px;
 }
-#splash form.signup input[type=text] {
+#splash form.signup .email-field {
   width: 80%;
   margin: auto;
   margin-bottom: 10px;
@@ -115,7 +115,7 @@ body a:hover {
     position: relative;
   }
 
-  #splash form.signup input[type=text] {
+  #splash form.signup .email-field {
     border: 0;
     background: none;
     position: absolute;
