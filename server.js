@@ -1,16 +1,16 @@
 require('coffee-script');
 
-[ 'login',
+[ // 'login',
   'index',
-  'iframe',
-  'people',
-  'judges',
-  'teams',
-  'votes',
-  'websocket',
-  'live',
-  'redirect',
-  'notifications'
+  // 'iframe',
+  // 'people',
+  // 'judges',
+  // 'teams',
+  // 'votes',
+  // 'websocket',
+  // 'live',
+  // 'redirect',
+  // 'notifications'
 ].forEach(function(controller) {
   require('./controllers/' + controller);
 });

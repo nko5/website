@@ -37,60 +37,63 @@ loadInterestingTeams = (req, res, next) ->
       req.interestingTeams = teams
       next()
 
-app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams], (req, res, next) ->
-  res.render2 'index/index',
-    team: req.team
-    stats: app.stats
-    recentDeploys: req.recentDeploys
-    interestingTeams: req.interestingTeams
+app.get '/', (req, res, next) ->
+  res.render2 'index/index'
 
-[ 'locations', 'prizes', 'rules', 'sponsors', 'scoring', 'jobs',
-  'how-to-win', 'tell-me-a-story' ].forEach (p) ->
-  app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
+# app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams], (req, res, next) ->
+#   res.render2 'index/index',
+#     team: req.team
+#     stats: app.stats
+#     recentDeploys: req.recentDeploys
+#     interestingTeams: req.interestingTeams
 
-app.get '/about', (req, res) ->
-  Team.count {}, (err, teams) ->
-    return next err if err
-    Person.count { role: 'contestant' }, (err, people) ->
-      return next err if err
-      Team.count 'entry.votable': true, lastDeploy: {$ne: null}, (err, entries) ->
-        return next err if err
-        Vote.count {}, (err, votes) ->
-          return next err if err
-          res.render2 'index/about',
-            teams: teams - 1   # compensate for team fortnight
-            people: people - 4
-            entries: entries
-            votes: votes
+# [ 'locations', 'prizes', 'rules', 'sponsors', 'scoring', 'jobs',
+#   'how-to-win', 'tell-me-a-story' ].forEach (p) ->
+#   app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
 
-app.get '/judging', (req, res) ->
-  res.redirect '/judges/new'
+# app.get '/about', (req, res) ->
+#   Team.count {}, (err, teams) ->
+#     return next err if err
+#     Person.count { role: 'contestant' }, (err, people) ->
+#       return next err if err
+#       Team.count 'entry.votable': true, lastDeploy: {$ne: null}, (err, entries) ->
+#         return next err if err
+#         Vote.count {}, (err, votes) ->
+#           return next err if err
+#           res.render2 'index/about',
+#             teams: teams - 1   # compensate for team fortnight
+#             people: people - 4
+#             entries: entries
+#             votes: votes
 
-app.get '/now', (req, res) ->
-  res.send Date.now().toString()
-  #res.send Date.UTC(2012, 10, 9, 23, 59, 55).toString()     # 0 days left
-  #res.send Date.UTC(2012, 10, 10, 0, 59, 55).toString()     # go!
-  #res.send Date.UTC(2012, 10, 8, 23, 59, 55).toString() # 1 -> 0 days left
+# app.get '/judging', (req, res) ->
+#   res.redirect '/judges/new'
 
-app.get '/reload', (req, res, next) ->
-  # only allow this to be called from localhost
-  return next(401) unless req.connection.remoteAddress is '127.0.0.1'
-  app.events.emit 'reload'
-  res.redirect '/'
+# app.get '/now', (req, res) ->
+#   res.send Date.now().toString()
+#   #res.send Date.UTC(2012, 10, 9, 23, 59, 55).toString()     # 0 days left
+#   #res.send Date.UTC(2012, 10, 10, 0, 59, 55).toString()     # go!
+#   #res.send Date.UTC(2012, 10, 8, 23, 59, 55).toString() # 1 -> 0 days left
 
-app.get '/scores', (req, res, next) ->
-  return next(401) unless req.user?.admin or not app.enabled('voting')
-  Team.sortedByScore (error, teams) ->
-    return next error if error
-    res.render2 'index/scores', teams: teams
+# app.get '/reload', (req, res, next) ->
+#   # only allow this to be called from localhost
+#   return next(401) unless req.connection.remoteAddress is '127.0.0.1'
+#   app.events.emit 'reload'
+#   res.redirect '/'
 
-app.get '/scores/update', (req, res, next) ->
-  return next(401) unless req.user?.admin or (req.connection.remoteAddress is '127.0.0.1')
-  Team.updateAllSavedScores (err) ->
-    next err if err
-    res.redirect '/scores'
+# app.get '/scores', (req, res, next) ->
+#   return next(401) unless req.user?.admin or not app.enabled('voting')
+#   Team.sortedByScore (error, teams) ->
+#     return next error if error
+#     res.render2 'index/scores', teams: teams
 
-app.get '/resources', (req, res, next) ->
-  Service.asObject (error, services) ->
-    next error if error
-    res.render2 'index/resources', services: services
+# app.get '/scores/update', (req, res, next) ->
+#   return next(401) unless req.user?.admin or (req.connection.remoteAddress is '127.0.0.1')
+#   Team.updateAllSavedScores (err) ->
+#     next err if err
+#     res.redirect '/scores'
+
+# app.get '/resources', (req, res, next) ->
+#   Service.asObject (error, services) ->
+#     next error if error
+#     res.render2 'index/resources', services: services
