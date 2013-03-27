@@ -116,10 +116,10 @@ app.configure(function() {
   app.use(app.router);
 
   // request error handling
-  var ratchetErroHandler = ratchetio.errorHandler();
+  var ratchetErrorHandler = ratchetio.errorHandler();
   app.use(function(err, req, res, next) {
     if (typeof(err) !== 'number') {
-      ratchetErroHandler(err, req, res, next);
+      ratchetErrorHandler(err, req, res, next);
     } else {
       next(err, req, res);
     }
