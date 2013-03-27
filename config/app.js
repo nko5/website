@@ -20,7 +20,7 @@ app.paths = {
 };
 
 // uncaught error handling
-ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
+ratchetio.handleUncaughtExceptions(secrets.rollbar);
 
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
