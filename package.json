@@ -28,7 +28,6 @@
     "jade": "*",
     "marked": "*",
     "mongoose": "*",
-    "mongoose-auth": "git://github.com/nko3/mongoose-auth.git#master",
     "mongoose-types": "*",
     "postageapp": "*",
     "ratchetio": "*",
