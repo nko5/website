@@ -1,5 +1,4 @@
 var express = require('express')
-  , auth = require('mongoose-auth')
   , env = require('./env')
   , util = require('util')
   , port = env.port
@@ -20,7 +19,7 @@ app.paths = {
 };
 
 // uncaught error handling
-ratchetio.handleUncaughtExceptions('a99bad94e4ba4ec0b78dc90e033743b1');
+ratchetio.handleUncaughtExceptions(secrets.rollbar);
 
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
@@ -113,7 +112,7 @@ app.configure(function() {
   require('../helpers')(app);
 
   app.use(express.logger());
-  app.use(auth.middleware());
+  // app.use(auth.middleware());
   app.use(app.router);
 
   // request error handling
@@ -140,6 +139,10 @@ app.configure(function() {
   app.set('views', app.paths.views);
   app.set('view engine', 'jade');
 });
+
+// helpers
+// auth.helpExpress(app);
+require('../helpers')(app);
 
 app.listen(port);
 app.ws = require('socket.io').listen(app);

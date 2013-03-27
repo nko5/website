@@ -1,7 +1,6 @@
 crypto = require 'crypto'
 _ = require 'underscore'
 mongoose = require 'mongoose'
-auth = require 'mongoose-auth'
 env = require '../config/env'
 ROLES = [ 'nomination', 'contestant', 'judge', 'voter' ]
 request = require('request')
@@ -25,6 +24,9 @@ PersonSchema = module.exports = new mongoose.Schema
     index: true
   skippedTeamIds: [ mongoose.Schema.ObjectId ]
 PersonSchema.plugin require('../lib/use-timestamps')
+
+###
+auth = require 'mongoose-auth'
 PersonSchema.plugin auth,
   everymodule:
     everyauth:
@@ -103,6 +105,7 @@ PersonSchema.plugin auth,
                 return promise.fail err if err
                 promise.fulfill updatedUser
         promise
+###
 
 # validations
 twitterValidator = (twitterHandle, callback) ->
