@@ -37,6 +37,7 @@ body a:hover {
   margin: auto;
   position: relative;
   z-index: 100;
+
 }
 
 
@@ -79,14 +80,25 @@ body a:hover {
 
 
 #splash .date {
-  text-indent: -9999px;
   width: 261px;
   height: 84px;
   margin: auto;
-
   margin-top: 40px;
+}
 
-  background: url("/images/splash/date.png") no-repeat;
+#splash .date h2{
+  color: #fff;
+  font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  margin: 4px 0;
+  line-height: 1.2;
+}
+#splash .date h3{
+  color: #fff;
+  font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
+  font-weight: 400;
+
 }
 
 #splash .date hr {
@@ -107,51 +119,31 @@ body a:hover {
 
 @media (min-width: 768px) {
 
-  #splash form.signup {
-    background-image: url("/images/splash/email-field.png");
-    background-repeat: no-repeat;
-    width: 512px;
-    height: 90px;
+  #splash form.signup{
     position: relative;
   }
 
-  #splash form.signup .email-field {
-    border: 0;
-    background: none;
+  #splash form.signup .email-field{
+    border-radius: 8px;
+    padding: 22px 25px;
+    width: 60%;
+    border: none;
+
+  }
+
+  #splash form.signup .signup-btn{
     position: absolute;
-    left: 13px;
-    top: 13px;
-    bottom: 0;
-    font-size: 24px;
-    color: #333;
-    text-indent: 5px;
-    box-shadow: none;
-    width: 336px;
-    height: 56px;
-    line-height: 56px;
-    margin: 0;
-    padding: auto;
+    right: 60px;
+    padding: 23px 20px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+    background-color: #F35747;
+    text-transform: uppercase;
+    font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
+    font-weight: bold;
   }
 
-  #splash form.signup input[type=text]::-webkit-input-placeholder,
-  #splash form.signup input[type=text]::-moz-placeholder {
-    color: #878787;
-
-  }
-
-  #splash form.signup .signup-btn {
-    background: none;
-    background-image: url("/images/splash/signup-btn.png");
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    bottom: 0;
-    width: 150px;
-    height: 73px;
-    text-indent: -9999px;
-    border: 0;
-  }
 }
 
 #splash .intro {
@@ -216,7 +208,7 @@ body a:hover {
 
 
 #footer a {
-  color: #DBB74E;
+  color: rgba(#fff, .3);
 }
 #footer a:hover {
   text-decoration: none;

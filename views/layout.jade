@@ -8,8 +8,15 @@ html
     title
       - if (title())
         = title()
-        |  &mdash; 
+        |  &mdash;
       | Node.js Knockout
+
+    //- for typekit
+
+    script( type="text/javascript", src="//use.typekit.net.jli5nqs.js")
+    script( type="text/javascript")
+      try{Typekit.load();}catch(e){}
+
     link( href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Inconsolata:400,700', rel='stylesheet', type='text/css' )
     link( rel='stylesheet', href='/stylesheets/all-'+(assetManager.cacheHashes.css || '007')+'.css' )
     script _gaq = [['_setAccount', 'UA-16773586-1'], ['_trackPageview']];
@@ -49,20 +56,20 @@ html
         //-   - });
         //-   li.interested
         //-     a( href='/sponsors#interested' ) Interested in sponsoring?
-        //-   li.icons Services: 
+        //-   li.icons Services:
         //-     each sponsor in [ 'ratchetio', 'teleportd', 'mongolab', 'mongohq', 'monitaur', 'apigee' ]
         //-       a( href='/resources#services' ): img( src=favicon(sponsor) )
-        //-   li.icons Jobs: 
+        //-   li.icons Jobs:
         //-     each sponsor in [ 'joyent', 'nodejitsu', 'bislr', 'sequoia', 'nomic', 'voxer', 'ensighten', 'trifacta' ]
         //-       a( href='/jobs##{sponsor}' ): img( src=favicon(sponsor) )
-        //-   li.icons Prizes: 
+        //-   li.icons Prizes:
         //-     each sponsor in [ 'joyent', 'dropbox', 'heroku', 'github', 'mongolab', 'mongohq', 'nodetime', 'nodeconf', 'coderwall' ]
         //-       a( href='/prizes' ): img( src=favicon(sponsor) )
 
       #inner
         header
           h1: a( href='/' )
-            | node.js 
+            | node.js
             span.ko ko
           nav: ul
             //- li: a( href='/entries' ) Entries
@@ -83,7 +90,7 @@ html
         footer: ul
           li
             a( href="http://2010.nodeknockout.com" ) 2010
-            | 
+            |
             a( href="http://2011.nodeknockout.com" ) 2011
           li: a( href='mailto:all@nodeknockout.com' ) all@nodeknockout.com
           li: a( href='http://twitter.com/node_knockout' ) @node_knockout
