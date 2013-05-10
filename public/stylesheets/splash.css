@@ -88,16 +88,18 @@ body a:hover {
 
 #splash .date h2{
   color: #fff;
-  font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
-  font-weight: 500;
+  font-family: "tablet-gothic-semi-condensed",sans-serif;
+  font-style: normal;
+  font-weight: 800;
   font-size: 36px;
   margin: 4px 0;
   line-height: 1.2;
 }
 #splash .date h3{
   color: #fff;
-  font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
-  font-weight: 400;
+  font-family: "tablet-gothic-semi-condensed",sans-serif;
+  font-style: normal;
+  font-weight: 800;
 
 }
 
@@ -125,33 +127,36 @@ body a:hover {
 
   #splash form.signup .email-field{
     border-radius: 8px;
-    padding: 22px 25px;
-    width: 60%;
-    border: none;
+    padding:       20px 22px;
+    width:         424px;
+    border:        6px solid #F86F58;
+    outline:       none;
 
   }
 
   #splash form.signup .signup-btn{
     position: absolute;
     right: 60px;
+    top: 2px;
     padding: 23px 20px;
     border: none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 8px 8px 0;
     color: #fff;
-    background-color: #F35747;
+    background-color: #F86F58;
     text-transform: uppercase;
-    font-family: "franklin-gothic-urw", Helvetica, arial, sans-serif;
-    font-weight: bold;
+    font-family: "tablet-gothic-semi-condensed",sans-serif;
+    font-style: normal;
+    font-weight: 800;
   }
 
 }
 
 #splash .intro {
-  font-family: helvetica, arial, sans-serif;
-  /*font-family: "franklin-gothic-urw";*/
+  font-family: "tablet-gothic-semi-condensed",sans-serif;
+  font-style: normal;
+  font-weight: 800;
   color: #efefef;
   font-size: 20px;
-  font-weight: 300;
   line-height: 1.5;
   text-align: justify;
 
