@@ -37,10 +37,10 @@ loadInterestingTeams = (req, res, next) ->
       req.interestingTeams = teams
       next()
 
-app.get '/', (req, res, next) ->
-  res.render2 'index/index'
+# app.get '/', (req, res, next) ->
+#   res.render2 'index/index'
 
-###
+
 app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams], (req, res, next) ->
   res.render2 'index/index',
     team: req.team
@@ -98,4 +98,3 @@ app.get '/resources', (req, res, next) ->
   Service.asObject (error, services) ->
     next error if error
     res.render2 'index/resources', services: services
-###
