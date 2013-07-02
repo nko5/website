@@ -55,7 +55,7 @@ module.exports = function(app) {
       return false;
     }
     var TwitterNode = require('twitter-node').TwitterNode;
-    
+
     var stickyUser = '148922824'; // @node_knockout
 
     var searchBacklog = new Backlog('twitter', 30);
@@ -66,7 +66,7 @@ module.exports = function(app) {
       , 'track': ['node knockout', 'nodeknockout', 'node_knockout', 'nodeko', '#nko']
       , 'follow': [stickyUser]
     });
-    
+
     twitterSearchStream.on('tweet', function(tweet) {
       if (tweet.user.id_str === stickyUser) {
         userBacklog.add(tweet);
@@ -142,10 +142,14 @@ module.exports = function(app) {
 }
 
 var redis = require('redis');
-var redisClient = redis.createClient();
+var url = require('url');
+var redisURL = url.parse(process.env.REDISCLOUD_URL || '127.0.0.1:6379');
+var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+redisClient.auth(redisURL.auth.split(":")[1]);
+
 var Backlog = function(key, maxCount) {
   key = 'dashboard-'+key;
-  
+
   var cache = [];
   redisClient.get(key, function(err, result) {
     if (result) {
