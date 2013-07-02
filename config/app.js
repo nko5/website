@@ -85,11 +85,24 @@ app.configure('production', function() {
 app.configure(function() {
   var RedisStore = require('connect-redis')(express);
 
+  // setup redis client
+  var redis = require('redis');
+  var url = require('url');
+
+  var redisClient;
+  if (process.env.REDISCLOUD_URL) {
+    var redisURL = url.parse(process.env.REDISCLOUD_URL);
+    redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+    redisClient.auth(redisURL.auth.split(":")[1]);
+  } else {
+    redisClient.createClient()
+  }
+
   // cookies and sessions
   app.use(express.cookieParser());
   app.use(express.session({
     secret: secrets.session,
-    store: new RedisStore,
+    store: new RedisStore({ client: redisClient}),
     cookie: { path: '/', httpOnly: true, maxAge: 1000*60*60*24*28 }
   }));
 

@@ -143,9 +143,15 @@ module.exports = function(app) {
 
 var redis = require('redis');
 var url = require('url');
-var redisURL = url.parse(process.env.REDISCLOUD_URL || '127.0.0.1:6379');
-var redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
-redisClient.auth(redisURL.auth.split(":")[1]);
+
+var redisClient;
+if (process.env.REDISCLOUD_URL) {
+  var redisURL = url.parse(process.env.REDISCLOUD_URL);
+  redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+  redisClient.auth(redisURL.auth.split(":")[1]);
+} else {
+  redisClient.createClient()
+}
 
 var Backlog = function(key, maxCount) {
   key = 'dashboard-'+key;
