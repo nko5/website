@@ -95,7 +95,7 @@ app.configure(function() {
     redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
     redisClient.auth(redisURL.auth.split(":")[1]);
   } else {
-    redisClient.createClient()
+    redisClient = redis.createClient()
   }
 
   // cookies and sessions

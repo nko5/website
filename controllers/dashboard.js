@@ -150,7 +150,7 @@ if (process.env.REDISCLOUD_URL) {
   redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
   redisClient.auth(redisURL.auth.split(":")[1]);
 } else {
-  redisClient.createClient()
+  redisClient = redis.createClient()
 }
 
 var Backlog = function(key, maxCount) {
