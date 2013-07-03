@@ -1,8 +1,8 @@
 h1 Create Person
 
 form.person( method='POST', action='/people' )
-  != partial('form')
+  include form
   p
     input( type='submit', value='Create' )
-    | 
+    |
     a( href='/people' ) Cancel

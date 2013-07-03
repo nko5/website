@@ -5,20 +5,20 @@
   img.avatar( src=avatar_url(person, 80) )
   .role= person.role
 h1.name= title(person.name)
-!= partial('details')
+include details
 
 - if (team)
   p.team
-    | Contestant on 
+    | Contestant on
     a( href='/teams/' + team )= team.name
     | .
 
 - if (voting && req.user && (person.id === req.user.id) && (req.user.judge || req.user.contestant))
   p.instructions#instructions
     if req.user.judge
-      | You've reviewed 
-      b #{votes.length} of 10 
-      | entries we'd like you to look at. 
+      | You've reviewed
+      b #{votes.length} of 10
+      | entries we'd like you to look at.
     - if (votes.length)
       | See below for the entry we suggest you review next.
     - else
@@ -34,7 +34,7 @@ h1.name= title(person.name)
   - if (nextVote.team)
     h1#next-vote Suggested Entry to Review
     p
-      | We think you should take a look at 
+      | We think you should take a look at
       a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
       |  below.
 
@@ -43,7 +43,7 @@ h1.name= title(person.name)
         a( href=nextVote.team.entry.url, target='entry' ): img.screenshot( src=nextVote.team.screenshot )
         h2: a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
         h3
-          | by 
+          | by
           a( href='/teams/' + nextVote.team, target='team' )= nextVote.team.name
         .buttons
           a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
@@ -59,7 +59,8 @@ h1.name= title(person.name)
           h4 Judging Instructions
           != markdown(nextVote.team.entry.instructions)
 
-      != partial('votes/form', { vote: nextVote })
+      vote = nextVote
+      include ../votes/form
       form.skip-vote( action='/people/' + user, method='POST' )
         input( type='hidden', name='_method', value='PUT' )
         != _csrf
@@ -71,11 +72,13 @@ h1.name= title(person.name)
     h1#votes Your Votes (#{votes.length})
     .votes
       - each vote in votes
-        != partial('votes/form', { vote: vote })
+        include ../votes/form
   - else if (shouldShowVoteList)
     h1#votes Votes (#{votes.length})
     if canSeeVotes
-      ul.votes!= partial('votes/vote', votes)
+      ul.votes
+        each vote in votes
+          include ../votes/vote
     else
       p Votes are hidden until this person votes for your entry.
 

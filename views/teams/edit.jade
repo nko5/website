@@ -5,15 +5,18 @@ form( method='POST', action='/teams/' + team )
 
   if coding
     h1 Entry
-    #entry!= partial('entries/form', { entry: team.entry })
+    #entry
+      entry = team.entry
+      include ../entries/form
 
   h1 Team
-  #team!= partial('form')
+  #team
+    include form
 
   input( type='submit', value='Update' )
-  | 
+  |
   a( href='/teams/' + team ) Cancel
-  |  or 
+  |  or
   a.scary.remove( href='#' ) Delete?
 
 form.delete( method='POST', action='/teams/' + team )
@@ -21,5 +24,5 @@ form.delete( method='POST', action='/teams/' + team )
   input( type='hidden', name='_method', value='DELETE' )
   p Are you sure? This can't be undone.
   input.scary( type='submit', value='Delete' )
-  | 
+  |
   a( href='#' ) Cancel

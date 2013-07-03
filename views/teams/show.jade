@@ -21,15 +21,15 @@ if coding || team.stats.pushes || team.stats.deploys
   h2 You're invited to this team!
   p.accept
     a.button.scary( href='/login/github' ) Accept Invitation
-    |  via 
+    |  via
     i.icon-github
     |  github
 
 - if (coding && (admin || team.includes(user)))
-  != partial('steps')
+  include steps
 
 - if (team.entry.name)
-  != partial('entry')
+  include entry
 
 - if (people.length)
   h2 Who
@@ -41,7 +41,7 @@ if coding || team.stats.pushes || team.stats.deploys
         img.avatar( src=avatar_url(person) )
         a( href='/people/' + person )= person.github.login
         - if (person.location)
-          |  &mdash; 
+          |  &mdash;
           = person.location
 
 - if (team.invites.length)
@@ -55,7 +55,7 @@ if coding || team.stats.pushes || team.stats.deploys
       - each invite in team.invites
         li
           = invite.email
-          |  &mdash; 
+          |  &mdash;
           a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' ) resend
           span.sending
 
@@ -64,4 +64,4 @@ if coding || team.stats.pushes || team.stats.deploys
   != markdown(team.entry.colophon)
 
 - if (voting || publicVotes && publicVotes.length || votes && votes.length)
-  != partial('votes')
+  include votes

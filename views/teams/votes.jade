@@ -4,7 +4,7 @@ h2 Your Vote
 - if (req.user && team.includes(req.user))
   p.sorry Team members may not vote on their own teams.
 - else
-  != partial('votes/form', { vote: vote })
+  include ../votes/form
   - if (req.user)
     p: a( href='/people/' + req.user + '#votes' )  View all your votes &rarr;
 
@@ -25,8 +25,9 @@ if votes.length || publicVotes.length
   if shouldShowVoteList
     ul.votes
       if canSeeVotes
-        != partial('votes/vote', votes)
+        each vote in votes
+          include ../votes/vote
       else
-        li Votes are hidden. 
+        li Votes are hidden.
           a( href='#votes' ) Vote on this entry
           |  to reveal them.

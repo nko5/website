@@ -1,5 +1,6 @@
 != _csrf
-!= partial('errors', { errors: person.errors })
+errors = person.errors
+include ../errors
 
 .name.tabular
   label( for='name' ) Name

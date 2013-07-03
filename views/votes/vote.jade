@@ -1,5 +1,5 @@
 li.vote( id=vote.id )
-  != partial('info', { vote: vote })
+  include info
   - if (vote.type === 'voter')
     .voter
       img.heart( src='/images/iframe/heart.png' )
@@ -17,6 +17,8 @@ li.vote( id=vote.id )
         .comment!= markdown(vote.comment)
     .clear
     - if (vote.replies && vote.replies.length)
-      ul.replies!= partial('replies/reply', vote.replies)
+      ul.replies
+        each reply in vote.replies
+        include ../replies/reply
     - if (voting && user && vote.replyable(user))
-      != partial('replies/form')
+      include ../replies/form

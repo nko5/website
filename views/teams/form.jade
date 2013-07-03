@@ -1,5 +1,6 @@
 != _csrf
-!= partial('errors', { errors: team.errors })
+errors = team.errors
+include ../errors
 
 .name
   h3: label( for='name' ) Name
@@ -21,7 +22,7 @@
         img.avatar( src=avatar_url(person) )
         a( href='/people/' + person )= person.github.login
         input( name='peopleIds[]', type='hidden', value=person.id )
-        | 
+        |
         a.scary.pull( href='#' ) &#x2a2f;
     - for (var i = 0; i < 4 - people.length; i++)
       li

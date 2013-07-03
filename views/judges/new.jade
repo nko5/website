@@ -16,8 +16,8 @@
 h1 Nomination
 
 form.person( method='POST', action='/judges' )
-  != partial('people/form')
+  include ../people/form
   p
     input( type='submit', value='Nominate' )
-    | 
+    |
     a( href='/judges' ) Cancel

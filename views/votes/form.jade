@@ -1,6 +1,6 @@
 - if (!voting)
   - if (!vote.isNew)
-    != partial('votes/vote', { vote: vote })
+    include vote
   - else if (user)
     p You have not voted for this entry. Voting is now closed.
   - else
@@ -10,13 +10,13 @@
     - var returnTo = '?returnTo=' + encodeURIComponent(req.url + '#votes');
     .sign-in
       a.scary.button( href='/login/facebook' + returnTo )
-        | Sign in with 
+        | Sign in with
         i.icon-facebook
         | Facebook
       .or
-        | or sign in as a 
+        | or sign in as a
         a( href='/login/github' + returnTo ) contestant
-        |  or 
+        |  or
         a( href='/login/twitter' + returnTo ) expert judge
   - else
     .vote.my
@@ -38,15 +38,18 @@
         - each f in [ 'requestAt', 'hoverAt' ]
           input( type='hidden', name='audit[' + f + ']', class=f )
 
-        != partial('info', { vote: vote, form: true })
+        form = true
+        include info
 
         - if (user.voter)
-          != partial('form-voter', { vote: vote })
+          include form-voter
         - else if (user.contestant || user.judge)
-          != partial('form-judge', { vote: vote })
+          include form-judge
 
       - if (vote.replies.length)
         .clear
-        ul.replies!= partial('replies/reply', vote.replies)
+        ul.replies
+          each reply in vote.replies
+          include ../replies/reply
         - if (user && vote.replyable(user))
-          != partial('replies/form')
+          include ../replies/form
