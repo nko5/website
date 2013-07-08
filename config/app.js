@@ -158,7 +158,10 @@ app.configure(function() {
 require('../helpers')(app);
 
 app.listen(port);
-app.ws = require('socket.io').listen(app);
+
+// express 3 requires instantiating a http.Server to attach socket.io to
+var server = require('http').createServer(app)
+app.ws = require('socket.io').listen(server);
 app.ws.set('log level', 1);
 app.ws.set('browser client minification', true);
 
