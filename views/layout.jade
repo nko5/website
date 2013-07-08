@@ -13,7 +13,7 @@ html
 
     //- for typekit
 
-    script( type="text/javascript", src="//use.typekit.net.jli5nqs.js")
+    script( type="text/javascript", src="//use.typekit.net/ufz6ztx.js")
     script( type="text/javascript")
       try{Typekit.load();}catch(e){}
 
@@ -23,7 +23,14 @@ html
     script( async=true, src='//www.google-analytics.com/ga.js' )
     script( src='/javascripts/vendor/modernizr-2.5.3.min.js' )
   body
+    header.site
+      .container
+        h1
+          a.title-block(href='/') Node Knockout
+        h2.subhead {2013}
+
     #page( class=view.replace(/\//g,'-') )
+
       aside
         //- .login
         //-   - if (user)
@@ -67,20 +74,20 @@ html
         //-       a( href='/prizes' ): img( src=favicon(sponsor) )
 
       #inner
-        header
-          h1: a( href='/' )
-            | node.js
-            span.ko ko
-          nav: ul
-            //- li: a( href='/entries' ) Entries
-            //- li: a( href='/rules' ) Rules
-            //- li: a( href='/prizes' ) Prizes
-            //- li: a( href='/resources' ) Resources
-            //- li: a( href='/judges' ) Judges
-            //- li: a( href='/jobs' ) Jobs
-            //- li: a( href='/locations' ) Locations
-            //- if (req.user && (admin || req.user.contestant || req.user.judge))
-              //- li: a( href='/services' ) Services
+        //- header
+        //-   h1: a( href='/' )
+        //-     | node.js
+        //-     span.ko ko
+        //-   nav: ul
+        //-     //- li: a( href='/entries' ) Entries
+        //-     //- li: a( href='/rules' ) Rules
+        //-     //- li: a( href='/prizes' ) Prizes
+        //-     //- li: a( href='/resources' ) Resources
+        //-     //- li: a( href='/judges' ) Judges
+        //-     //- li: a( href='/jobs' ) Jobs
+        //-     //- li: a( href='/locations' ) Locations
+        //-     //- if (req.user && (admin || req.user.contestant || req.user.judge))
+        //-       //- li: a( href='/services' ) Services
 
         #flash
           - if (flash.info)

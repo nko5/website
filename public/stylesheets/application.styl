@@ -70,6 +70,7 @@ h1, h2, h3, h4, h5, h6
 body
   text-align center
   background hsl(200, 10%, 80%) url('/images/noise.png') repeat
+  background-color: #000
   text-shadow 0px 1px 0px hsla(0, 100%, 100%, 0.6)
   overflow scroll
   min-width 1024px
@@ -188,12 +189,61 @@ img.avatar
 ul.errors
   color hsl(0, 60%, 60%)
 
+header.site
+  width: 902px
+  margin: auto
+  margin-top: -10px
+  position: relative
+  z-index: 1000
+
+  background: black url("/images/gloves-large.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 88%;
+  height: 200px;
+  color: white;
+  text-align: left
+
+  h1
+    color: #4d4d4d;
+    font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 10px 0 0;
+    padding-left: 30px
+    padding-top: 12px
+    text-shadow: none
+
+    a.title-block
+      display: inline-block;
+      border: 4px solid white;
+      padding: 10px 11px;
+      margin: 10px 0;
+      color: white;
+      text-transform: uppercase;
+      font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+
+  h2
+    font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 52px;
+
+
 aside
   display block
   float right
   width 260px
-  margin-top 20px
   text-align center
+  background: #F1F1F1
+  padding-bottom: 22px
+  position: relative
+  z-index: 10000
+  margin-top: 0
   .login
     position relative
     z-index 1000
@@ -358,44 +408,22 @@ form.vote
   width 900px
   margin 30px auto 0
   text-align left
+  margin-top: 0
   #inner
-    background-color hsl(0, 0%, 98%)
-    background-color hsla(0, 0%, 100%, 0.9)
+    background: #fff
     border solid 1px hsla(0, 0%, 0%, 0.1)
     border-radius 2px
     box-shadow 0 0 5px hsla(0, 0%, 0%, 0.1)
     z-index 10000
     position relative
-    padding 10px 20px
+    padding 0px 20px
     width 580px
     transition color 100ms linear
     &.pjax
       color: hsla(0, 0%, 0%, 0.5)
       a:link, a:visited
         color hsla(200, 30%, 50%, 0.5)
-    header
-      text-align center
-      h1
-        font-size xx-large
-        word-spacing -0.5ex
-        a
-          color black !important
-          &:hover
-            text-decoration none
-        .ko
-          inverted()
-          border-radius 2px
-      nav
-        margin 1em 0
-        border-bottom dotted 2px hsl(0, 0%, 80%)
-        border-bottom dotted 2px hsla(0, 0%, 0%, 0.2)
-        width 600px
-        margin-left -10px
-        ul
-          margin 5px 0
-        li
-          display inline
-          margin 0 1ex
+
     > h1, form > h1, .winners > h1
       inverted()
       margin 0 0 0 -23px
@@ -411,6 +439,13 @@ form.vote
       margin-top 2em
       color hsla(0, 0%, 0%, 0.3)
       text-align center
+      background: #D9D9D9;
+      margin-left: -21px;
+      margin-right: -21px;
+      width: 622px;
+      padding-bottom: 7px;
+      margin-bottom: -11px;
+      padding-top: 8px;
       ul
         margin 5px 0
       li
@@ -464,10 +499,6 @@ form.vote
       margin-bottom 0
     h4
       margin-top 5px
-  header h1
-    font-size xxx-large !important
-    .ko
-      padding 10px 10px 0 25px !important
   section
     margin 2em 0px
     p, ul
@@ -508,8 +539,7 @@ form.vote
           color green
         a
           padding-bottom 9px
-    .header
-      cursor pointer
+
     .time
       text-align center
       padding-right 1em
@@ -1209,6 +1239,8 @@ form.person
 
 body.fullscreen
   overflow hidden
+
+
 #page #inner.fullscreen
   position fixed
   top 0
