@@ -1,3 +1,4 @@
+
 .info( class=vote.person ? 'person' : 'team' )
   - if (vote.nextVote)
     h3 Your Vote
@@ -8,7 +9,7 @@
     .role= vote.person.role
   - else if (vote.team)
     a( href=vote.team.entry.url )= vote.team.entry.name
-    .by by 
+    .by by
       a( href='/teams/' + vote.team )= vote.team.name
 
   - if (!vote.isNew)

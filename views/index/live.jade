@@ -1,53 +1,57 @@
-#dashboards
-  div.twitter-dashboard
-    h2: a( href='https://twitter.com/search/realtime/node%20knockout%20OR%20nodeknockout%20OR%20node_knockout%20OR%20nodeko' ) Tweets
-    ul.user
-    ul.search
-  div.irc-dashboard
-    h2: a( href='http://webchat.freenode.net/') #nodeknockout&nbsp;#node.js
+extends ../layout
+
+block body
+
+  #dashboards
+    div.twitter-dashboard
+      h2: a( href='https://twitter.com/search/realtime/node%20knockout%20OR%20nodeknockout%20OR%20node_knockout%20OR%20nodeko' ) Tweets
+      ul.user
+      ul.search
+    div.irc-dashboard
+      h2: a( href='http://webchat.freenode.net/') #nodeknockout&nbsp;#node.js
+      ul
+
+  h1#commits Commits
+  .commits-dashboard
     ul
 
-h1#commits Commits
-.commits-dashboard
-  ul
+  script#tweet.template(type="text/html")
+    li
+      img.avatar
+      a.name
+      .msg
 
-script#tweet.template(type="text/html")
-  li
-    img.avatar
-    a.name
-    .msg
+  script#irc.template(type="text/html")
+    li
+      .name
+      .msg
 
-script#irc.template(type="text/html")
-  li
-    .name
-    .msg
+  script#team.template(type="text/html")
+    li
+      a.teamname
+      .bar
+        .progress
+        .count
+      .message
 
-script#team.template(type="text/html")
-  li
-    a.teamname
-    .bar
-      .progress
-      .count
-    .message
+  script#deploy.template(type="text/html")
+    li
+      a: img.screenshot
+      h3: a.name
+      .by by
+        a.team
+      .when
+        a.url
+        |
+        span.date
 
-script#deploy.template(type="text/html")
-  li
-    a: img.screenshot
-    h3: a.name
-    .by by 
-      a.team
-    .when
-      a.url
-      | 
+  script#commit.template(type="text/html")
+    li
       span.date
+      h3: a.name
+      .by by
+        a.team
+      .when
+        a.url
+      .commit
 
-script#commit.template(type="text/html")
-  li
-    span.date
-    h3: a.name
-    .by by 
-      a.team
-    .when
-      a.url
-    .commit
-  

@@ -1,9 +1,13 @@
-h1= title('Not Found (404)')
-p We couldn't find what you were looking for. Maybe you typed it in wrong?
-p: b
-  | If you were following a link, you might try the 
-  a( href='http://2011.nodeknockout.com' + req.originalUrl ) old 2011 
-  | or 
-  a( href='http://2010.nodeknockout.com' + req.originalUrl ) even older 2010 
-  | sites.
-.troll: img( src='/images/734m/dancingtroll.gif' )
+extends ../layout
+
+block body
+
+  h1= title('Not Found (404)')
+  p We couldn't find what you were looking for. Maybe you typed it in wrong?
+  p: b
+    | If you were following a link, you might try the
+    a( href='http://2011.nodeknockout.com' + req.originalUrl ) old 2011
+    | or
+    a( href='http://2010.nodeknockout.com' + req.originalUrl ) even older 2010
+    | sites.
+  .troll: img( src='/images/734m/dancingtroll.gif' )

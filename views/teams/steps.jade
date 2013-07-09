@@ -14,21 +14,21 @@ ul.steps
         time( datetime=lastDeployedAt.toISOString(),
               title=lastDeployedAt.toISOString() )
           = relativeDate(lastDeployedAt)
-        |  &mdash; 
+        |  &mdash;
         a( href=team.entry.url )= team.entry.url
   else
     h2.pending Not Yet Deployed
 
-  h4 GitHub &mdash; 
+  h4 GitHub &mdash;
     a( href='https://github.com/organizations/nko3/teams/#{team.github && team.github.id}' ) Team
-    | , 
+    | ,
     a( href='https://github.com/nko3/#{team.slug}' ) Repo
   pre: code.
     $ git clone <b>git@github.com:nko3/#{team.slug}.git</b>
 
-  h4 Nodejitsu &mdash; 
+  h4 Nodejitsu &mdash;
     a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
-    | , 
+    | ,
     a( href='http://handbook.jit.su' ) Handbook
   pre: code.
     $ npm install -g jitsu
@@ -54,7 +54,7 @@ ul.steps
       h2.pending Not Officially Submitted
       p
         | Your app is not yet officially submitted for voting. When you
-        | submit it for voting, judges will review it at: 
+        | submit it for voting, judges will review it at:
         a( href=team.entry.url )= team.entry.url
         | .
 
@@ -64,7 +64,7 @@ ul.steps
       p.note
         | You can submit your app for voting any time between now and the end
         | of judging. You can also change your mind and remove it from voting
-        | at any time. 
+        | at any time.
       p.note
         strong You may submit your app for voting without a pitch video,
         |  but it will not be visible to expert judges until you add a video.
@@ -72,7 +72,7 @@ ul.steps
       h2.pending Not Ready for Expert Review
 
       p
-        | Your app is submitted for public and contestant voting. But, it is 
+        | Your app is submitted for public and contestant voting. But, it is
         b not ready for expert review, as it doesn't have a pitch video.
 
       .buttons: a.button.scary( href='/teams/mine/edit#pitch' ) Add a Video &raquo;
@@ -84,7 +84,7 @@ ul.steps
 
     else
       h2.done Submitted for Voting
-      p Judges will review your app at: 
+      p Judges will review your app at:
         a( href=team.entry.url)= team.entry.url
         | .
 

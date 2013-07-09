@@ -1,56 +1,60 @@
-h1= title('Preliminary Scores')
+extends ../layout
 
-:markdown
-  The score calculation is described on [our scoring page](/scoring).  The actual implementation of scoring is [available on GitHub](https://github.com/nko3/website/blob/master/models/team.coffee).
-  ### These results are preliminary.
-  
-table
-  - each team in teams
-    - if (!team.scores.overall) continue; // If this field exists, all necessary fields should exist.
-    tbody
-      tr.header
-        th.teamName
-          a(href='/teams/'+team.slug,name=team.slug)=team.name
-        th Overall
-        th Utility/Fun
-        th Design
-        th Innovation
-        th Completeness
-        th Popularity
-        th Count
-      tr
-        td Contestants
-        td
-        td= team.scores.contestant_utility.toFixed(2)
-        td= team.scores.contestant_design.toFixed(2)
-        td= team.scores.contestant_innovation.toFixed(2)
-        td= team.scores.contestant_completeness.toFixed(2)
-        td
-        td= team.scores.contestant_count
-      tr
-        td Judges
-        td
-        td= team.scores.judge_utility.toFixed(2)
-        td= team.scores.judge_design.toFixed(2)
-        td= team.scores.judge_innovation.toFixed(2)
-        td= team.scores.judge_completeness.toFixed(2)
-        td
-        td= team.scores.judge_count
-      tr
-        td Public
-        td
-        td
-        td
-        td
-        td
-        td= team.scores.popularity.toFixed(2)
-        td= team.scores.popularity_count
-      tr.final
-        td Total
-        td.overall= team.scores.overall.toFixed(2)
-        td= team.scores.utility.toFixed(2)
-        td= team.scores.design.toFixed(2)
-        td= team.scores.innovation.toFixed(2)
-        td= team.scores.completeness.toFixed(2)
-        td= team.scores.popularity.toFixed(2)
-        td
+block body
+
+    h1= title('Preliminary Scores')
+
+    :markdown
+      The score calculation is described on [our scoring page](/scoring).  The actual implementation of scoring is [available on GitHub](https://github.com/nko3/website/blob/master/models/team.coffee).
+      ### These results are preliminary.
+
+    table
+      - each team in teams
+        - if (!team.scores.overall) continue; // If this field exists, all necessary fields should exist.
+        tbody
+          tr.header
+            th.teamName
+              a(href='/teams/'+team.slug,name=team.slug)=team.name
+            th Overall
+            th Utility/Fun
+            th Design
+            th Innovation
+            th Completeness
+            th Popularity
+            th Count
+          tr
+            td Contestants
+            td
+            td= team.scores.contestant_utility.toFixed(2)
+            td= team.scores.contestant_design.toFixed(2)
+            td= team.scores.contestant_innovation.toFixed(2)
+            td= team.scores.contestant_completeness.toFixed(2)
+            td
+            td= team.scores.contestant_count
+          tr
+            td Judges
+            td
+            td= team.scores.judge_utility.toFixed(2)
+            td= team.scores.judge_design.toFixed(2)
+            td= team.scores.judge_innovation.toFixed(2)
+            td= team.scores.judge_completeness.toFixed(2)
+            td
+            td= team.scores.judge_count
+          tr
+            td Public
+            td
+            td
+            td
+            td
+            td
+            td= team.scores.popularity.toFixed(2)
+            td= team.scores.popularity_count
+          tr.final
+            td Total
+            td.overall= team.scores.overall.toFixed(2)
+            td= team.scores.utility.toFixed(2)
+            td= team.scores.design.toFixed(2)
+            td= team.scores.innovation.toFixed(2)
+            td= team.scores.completeness.toFixed(2)
+            td= team.scores.popularity.toFixed(2)
+            td

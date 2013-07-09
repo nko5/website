@@ -67,6 +67,7 @@ app.get '/about', (req, res) ->
             votes: votes
 
 app.get '/judging', (req, res) ->
+  # res.render2 'index/judging'
   res.redirect '/judges/new'
 
 app.get '/now', (req, res) ->

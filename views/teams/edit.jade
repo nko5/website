@@ -1,28 +1,31 @@
 - title(team.name)
+extends ../layout
 
-form( method='POST', action='/teams/' + team )
-  input( type='hidden', name='_method', value='PUT' )
+block body
 
-  if coding
-    h1 Entry
-    #entry
-      entry = team.entry
-      include ../entries/form
+  form( method='POST', action='/teams/' + team )
+    input( type='hidden', name='_method', value='PUT' )
 
-  h1 Team
-  #team
-    include form
+    if coding
+      h1 Entry
+      #entry
+        entry = team.entry
+        include ../entries/form
 
-  input( type='submit', value='Update' )
-  |
-  a( href='/teams/' + team ) Cancel
-  |  or
-  a.scary.remove( href='#' ) Delete?
+    h1 Team
+    #team
+      include form
 
-form.delete( method='POST', action='/teams/' + team )
-  != _csrf
-  input( type='hidden', name='_method', value='DELETE' )
-  p Are you sure? This can't be undone.
-  input.scary( type='submit', value='Delete' )
-  |
-  a( href='#' ) Cancel
+    input( type='submit', value='Update' )
+    |
+    a( href='/teams/' + team ) Cancel
+    |  or
+    a.scary.remove( href='#' ) Delete?
+
+  form.delete( method='POST', action='/teams/' + team )
+    != _csrf
+    input( type='hidden', name='_method', value='DELETE' )
+    p Are you sure? This can't be undone.
+    input.scary( type='submit', value='Delete' )
+    |
+    a( href='#' ) Cancel

@@ -1,164 +1,168 @@
-- title('Tell me a story')
-h2: a( href="#slide-0" ) Let's take a short hike &rarr;
+extends ../layout
 
-.slide#slide-0
-  h1 story time
+block body
 
-  p.note (alt-left, alt-right to move through slides)
+  - title('Tell me a story')
+  h2: a( href="#slide-0" ) Let's take a short hike &rarr;
 
-.slide#slide-1
-  :markdown
-    # Rails Rumble 2008
+  .slide#slide-0
+    h1 story time
 
-    - [craigslist][1] + google maps + yelp
-    - [dive bars][2], [cannabis clubs][3], [dog walkers][4]
-    - [gentrify][5]
+    p.note (alt-left, alt-right to move through slides)
 
-    [1]: http://f.cl.ly/items/0u07031d1Q3w0S0i402B/gentrify-6.png
-    [2]: http://f.cl.ly/items/3r2j0x143T3w2E1F3C0i/gentrify-11.png
-    [3]: http://f.cl.ly/items/1d3B0b1A452o1J0X0x0W/gentrify-7.png
-    [4]: http://f.cl.ly/items/341P2D0Y322e2j0I2J08/gentrify-8.png
-    [5]: http://f.cl.ly/items/0S0x2b1o230U1E2d0l05/gentrify-1.png
+  .slide#slide-1
+    :markdown
+      # Rails Rumble 2008
 
-.slide#slide-2
-  :markdown
-    # <3 hackathons
+      - [craigslist][1] + google maps + yelp
+      - [dive bars][2], [cannabis clubs][3], [dog walkers][4]
+      - [gentrify][5]
 
-    - written up by [venturebeat][1]
-    - concerned yelp email
-    - too much traffic
-    - lost to [meetinbetween.us][2]
-    - among another 100+ entries
+      [1]: http://f.cl.ly/items/0u07031d1Q3w0S0i402B/gentrify-6.png
+      [2]: http://f.cl.ly/items/3r2j0x143T3w2E1F3C0i/gentrify-11.png
+      [3]: http://f.cl.ly/items/1d3B0b1A452o1J0X0x0W/gentrify-7.png
+      [4]: http://f.cl.ly/items/341P2D0Y322e2j0I2J08/gentrify-8.png
+      [5]: http://f.cl.ly/items/0S0x2b1o230U1E2d0l05/gentrify-1.png
 
-    [1]: http://www.nytimes.com/external/venturebeat/2008/10/31/31venturebeat-99853-99853.html
-    [2]: http://meetinbetween.us
+  .slide#slide-2
+    :markdown
+      # <3 hackathons
 
-.slide#slide-3
-  :markdown
-    # Rails Rumble 2009
+      - written up by [venturebeat][1]
+      - concerned yelp email
+      - too much traffic
+      - lost to [meetinbetween.us][2]
+      - among another 100+ entries
 
-    - [LAZEROIDS!][1]
-    - asteroids + multiplayer
+      [1]: http://www.nytimes.com/external/venturebeat/2008/10/31/31venturebeat-99853-99853.html
+      [2]: http://meetinbetween.us
 
-    [1]: http://lazeroids.com
+  .slide#slide-3
+    :markdown
+      # Rails Rumble 2009
 
-.slide#slide-4
-  :markdown
-    # forcing 2009 to be realtime
+      - [LAZEROIDS!][1]
+      - asteroids + multiplayer
 
-    - XHR long-polling
-    - [Orbited][1]: Python twisted package
+      [1]: http://lazeroids.com
 
-    [1]: https://bitbucket.org/desmaj/orbited
+  .slide#slide-4
+    :markdown
+      # forcing 2009 to be realtime
 
-.slide#slide-5
-  :markdown
-    # "Rails"?
+      - XHR long-polling
+      - [Orbited][1]: Python twisted package
 
-    - 1,185 lines of JavaScript
-    - [12 lines][1] of Ruby
+      [1]: https://bitbucket.org/desmaj/orbited
 
-    [1]: https://github.com/visnup/lazeroids/blob/master/app/metal/update.rb
+  .slide#slide-5
+    :markdown
+      # "Rails"?
 
-.slide#slide-6
-  :markdown
-    # omg node
+      - 1,185 lines of JavaScript
+      - [12 lines][1] of Ruby
 
-    - yay websockets!
-    - yay 100% javascript!
+      [1]: https://github.com/visnup/lazeroids/blob/master/app/metal/update.rb
 
-.slide#slide-7.rain
-  :markdown
-    # omg dilemma
+  .slide#slide-6
+    :markdown
+      # omg node
 
-    - rails rumble </3 node.js
+      - yay websockets!
+      - yay 100% javascript!
 
-.slide#slide-8
-  h1 reenactment
+  .slide#slide-7.rain
+    :markdown
+      # omg dilemma
 
-.slide#slide-9
-  :markdown
-    # node.js knockout #1
+      - rails rumble </3 node.js
 
-    - node v0.1, v0.2.4 (no package.json)
-    - 100 entries, 200 teams (arbitrary limit)
-    - **sponsors** Palm, Sencha, Yahoo!, CouchDB, 10gen, Smule, JSConf, npm(??)
-    - **judges** Brendan Eich, John Resig, Ryan Dahl, Isaac Schlueter, Mikeal
-      Rogers, Guillermo Rauch, TJ Holowaychuk, ...
-    - **locations** SF, NYC, Boston, Berlin, Cologne, Dresden, Paris, Vancouver
+  .slide#slide-8
+    h1 reenactment
 
-.slide#slide-10
-  :markdown
-    # [2010 winners][1]
+  .slide#slide-9
+    :markdown
+      # node.js knockout #1
 
-    - Swarmation
-      <span class="note">(*realtime* *multiplayer* shape-making game)</span>
-    - Blädderblock
-      <span class="note">(*realtime* *multiplayer* pictionary)</span>
-    - Wrath
-      <span class="note">(REST API testing)</span>
-    - GIANT ROBOTS...
-      <span class="note">(*realtime* *multiplayer* tower defense)</span>
-    - Serrano
-      <span class="note">(*realtime* multi-browser session sharing)</span>
-    - Gabber
-      <span class="note">(cross-site *shared* chat room)</span>
-    - Scrabb.ly
-      <span class="note">(*multiplayer* collaborative crossword game)</span>
+      - node v0.1, v0.2.4 (no package.json)
+      - 100 entries, 200 teams (arbitrary limit)
+      - **sponsors** Palm, Sencha, Yahoo!, CouchDB, 10gen, Smule, JSConf, npm(??)
+      - **judges** Brendan Eich, John Resig, Ryan Dahl, Isaac Schlueter, Mikeal
+        Rogers, Guillermo Rauch, TJ Holowaychuk, ...
+      - **locations** SF, NYC, Boston, Berlin, Cologne, Dresden, Paris, Vancouver
 
-    [1]: http://2010.nodeknockout.com
+  .slide#slide-10
+    :markdown
+      # [2010 winners][1]
 
-.slide#slide-11
-  :markdown
-    # [2011 winners][1]
+      - Swarmation
+        <span class="note">(*realtime* *multiplayer* shape-making game)</span>
+      - Blädderblock
+        <span class="note">(*realtime* *multiplayer* pictionary)</span>
+      - Wrath
+        <span class="note">(REST API testing)</span>
+      - GIANT ROBOTS...
+        <span class="note">(*realtime* *multiplayer* tower defense)</span>
+      - Serrano
+        <span class="note">(*realtime* multi-browser session sharing)</span>
+      - Gabber
+        <span class="note">(cross-site *shared* chat room)</span>
+      - Scrabb.ly
+        <span class="note">(*multiplayer* collaborative crossword game)</span>
 
-    - Observer
-      <span class="note">(*realtime* session spying)</span>
-    - Eight Bit Beats
-      <span class="note">(*realtime multiplayer* music generation)</span>
-    - Driv.in
-      <span class="note">(*shared* simultaneous youtube viewing)</span>
-    - Doodle or Die
-      <span class="note">(*multiplayer* doodle telephone game)</span>
-    - ACROnode
-      <span class="note">(*multiplayer realtime* acronym game)</span>
-    - GPU Lava
-      <span class="note">(node+webgl bindings on an HP TouchPad)</span>
-    - Chess@home
-      <span class="note">(SETI@Home for chess AI)</span>
+      [1]: http://2010.nodeknockout.com
 
-    [1]: http://2011.nodeknockout.com
+  .slide#slide-11
+    :markdown
+      # [2011 winners][1]
 
-.slide#slide-12
-  :markdown
-    # 2012!
+      - Observer
+        <span class="note">(*realtime* session spying)</span>
+      - Eight Bit Beats
+        <span class="note">(*realtime multiplayer* music generation)</span>
+      - Driv.in
+        <span class="note">(*shared* simultaneous youtube viewing)</span>
+      - Doodle or Die
+        <span class="note">(*multiplayer* doodle telephone game)</span>
+      - ACROnode
+        <span class="note">(*multiplayer realtime* acronym game)</span>
+      - GPU Lava
+        <span class="note">(node+webgl bindings on an HP TouchPad)</span>
+      - Chess@home
+        <span class="note">(SETI@Home for chess AI)</span>
 
-    - November 10-12, 2012 UTC
-    - Registration open soon
-    - [@node_knockout][1]
-    
-    [1]: https://twitter.com/node_knockout/
+      [1]: http://2011.nodeknockout.com
 
-.slide#slide-13
-  :markdown
-    # nko3 changes
+  .slide#slide-12
+    :markdown
+      # 2012!
 
-    - no prizes
-    - come talk to me if you disagree
-    - **nodejitsu only**
-    - HQ - new joyent offices
+      - November 10-12, 2012 UTC
+      - Registration open soon
+      - [@node_knockout][1]
 
-.slide#slide-14
-  :markdown
-    # thanks
+      [1]: https://twitter.com/node_knockout/
 
-    - [@node_knockout][1]
-    - [@visnup][2], [@gerad][3]
+  .slide#slide-13
+    :markdown
+      # nko3 changes
 
-    credits to [@burnto][4], [@huned][5] for graphics
+      - no prizes
+      - come talk to me if you disagree
+      - **nodejitsu only**
+      - HQ - new joyent offices
 
-    [1]: https://twitter.com/node_knockout/
-    [2]: https://twitter.com/visnup/
-    [3]: https://twitter.com/gerad/
-    [4]: https://twitter.com/burnto/
-    [5]: https://twitter.com/huned/
+  .slide#slide-14
+    :markdown
+      # thanks
+
+      - [@node_knockout][1]
+      - [@visnup][2], [@gerad][3]
+
+      credits to [@burnto][4], [@huned][5] for graphics
+
+      [1]: https://twitter.com/node_knockout/
+      [2]: https://twitter.com/visnup/
+      [3]: https://twitter.com/gerad/
+      [4]: https://twitter.com/burnto/
+      [5]: https://twitter.com/huned/

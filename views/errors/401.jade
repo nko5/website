@@ -1,38 +1,42 @@
-h1= title('Unauthorized (401)')
-if !req.user && req.session && req.session.twitterScreenName
-  - var twitterScreenName = req.session.twitterScreenName;
-  - delete req.session.twitterScreenName;
-  :markdown
-    ## Oops!
+extends ../layout
 
-    It looks like you tried to login as an [expert judge] with the Twitter
-    login **[@#{twitterScreenName}]**.
+block body
 
-    Unfortunately, that Twitter login was not found in our list of
-    [expert judges][expert judge].
+  h1= title('Unauthorized (401)')
+  if !req.user && req.session && req.session.twitterScreenName
+    - var twitterScreenName = req.session.twitterScreenName;
+    - delete req.session.twitterScreenName;
+    :markdown
+      ## Oops!
 
-    Perhaps you meant to sign in as a [public voter]? Otherwise, if you think
-    you should be an [expert judge], please [email us].
+      It looks like you tried to login as an [expert judge] with the Twitter
+      login **[@#{twitterScreenName}]**.
 
-    [expert judge]: /judges
-    [public voter]: /login/facebook
-    [email us]: mailto:all@nodeknockout.com
-    [@#{twitterScreenName}]: http://twitter.com/#{twitterScreenName}
-else
-  :markdown
-    You're not authorized to do whatever it is you were doing.
+      Unfortunately, that Twitter login was not found in our list of
+      [expert judges][expert judge].
 
-    **Did you mean to sign in as a [public voter]?** If you think you should be
-    an [expert judge](/judges), please [email us].
+      Perhaps you meant to sign in as a [public voter]? Otherwise, if you think
+      you should be an [expert judge], please [email us].
 
-    If you think you should be able to do something here, [email us] and we'll
-    figure it out together.
+      [expert judge]: /judges
+      [public voter]: /login/facebook
+      [email us]: mailto:all@nodeknockout.com
+      [@#{twitterScreenName}]: http://twitter.com/#{twitterScreenName}
+  else
+    :markdown
+      You're not authorized to do whatever it is you were doing.
 
-    If you were being sneaky, then you might want peruse the [source code] first
-    and if you find anything sneaky-able, send us an [issue].
+      **Did you mean to sign in as a [public voter]?** If you think you should be
+      an [expert judge](/judges), please [email us].
 
-    [public voter]: /login/facebook
-    [expert judge]: /judges
-    [email us]: mailto:all@nodeknockout.com
-    [source code]: https://github.com/nko3/website
-    [issue]: https://github.com/nko3/website/issues
+      If you think you should be able to do something here, [email us] and we'll
+      figure it out together.
+
+      If you were being sneaky, then you might want peruse the [source code] first
+      and if you find anything sneaky-able, send us an [issue].
+
+      [public voter]: /login/facebook
+      [expert judge]: /judges
+      [email us]: mailto:all@nodeknockout.com
+      [source code]: https://github.com/nko3/website
+      [issue]: https://github.com/nko3/website/issues

@@ -1,96 +1,100 @@
-- title('Sponsors')
+extends ../layout
 
-h1 Platinum Sponsors
+block body
 
-p.
-  These guys are awesome. We wouldn't be able to do this without them, so give
-  them some love.
+  - title('Sponsors')
 
-ul.sponsors
-  - _.shuffle(sponsors).forEach(function(sponsor) {
-    - if (!sponsor.description) return;
-    li
-      a( href=sponsor.url )
-        img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
-      != markdown(sponsor.description)
-  - });
+  h1 Platinum Sponsors
 
-:markdown
-  # <a name="interested">Be a sponsor</a>
+  p.
+    These guys are awesome. We wouldn't be able to do this without them, so give
+    them some love.
 
-  ## <a name="platinum">Platinum Sponsorship</a>
+  ul.sponsors
+    - _.shuffle(sponsors).forEach(function(sponsor) {
+      - if (!sponsor.description) return;
+      li
+        a( href=sponsor.url )
+          img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+        != markdown(sponsor.description)
+    - });
 
-  We'd like to thank [Joyent] and [Nodejitsu] for being platinum sponsors.
+  :markdown
+    # <a name="interested">Be a sponsor</a>
 
-  Platinum sponsors cover the vast majority of the cost of putting on Node
-  Knockout. Without our platinum sponsors, this competition could not take
-  place.
+    ## <a name="platinum">Platinum Sponsorship</a>
 
-  In addition to unlimited access to the items described in the
-  [a la carte](#a-la-carte) options below, platinum sponsors **get their logo
-  on every page** of the website.
+    We'd like to thank [Joyent] and [Nodejitsu] for being platinum sponsors.
 
-  We work closely with platinum sponsors to integrate their services
-  seemlessly into Node Knockout in ways that benefit the competition as a
-  whole.
+    Platinum sponsors cover the vast majority of the cost of putting on Node
+    Knockout. Without our platinum sponsors, this competition could not take
+    place.
 
-  We have _just one_ remaining platinum sponsorship opportunity available.
-  [Contact us] if you're interested.
+    In addition to unlimited access to the items described in the
+    [a la carte](#a-la-carte) options below, platinum sponsors **get their logo
+    on every page** of the website.
 
-  ## <a name="a-la-carte">A La Carte Sponsorship</a>
+    We work closely with platinum sponsors to integrate their services
+    seemlessly into Node Knockout in ways that benefit the competition as a
+    whole.
 
-  Companies who do not take advantage of a [platinum sponsorship](#platinum)
-  opportunity may elect to take advantage of one of the a la carte sponsorship
-  options outlined below.
+    We have _just one_ remaining platinum sponsorship opportunity available.
+    [Contact us] if you're interested.
 
-  A la carte sponsors **do not get logos** on the sidebar of the website. This
-  is reserved for our limited set of [platinum sponsors](#platinum).
+    ## <a name="a-la-carte">A La Carte Sponsorship</a>
 
-  #### <a name="services">Service sponsorship - __$500__</a>
+    Companies who do not take advantage of a [platinum sponsorship](#platinum)
+    opportunity may elect to take advantage of one of the a la carte sponsorship
+    options outlined below.
 
-  During the competition, contestants will be looking for infrastructure and
-  software as a service products to accelerate their projects. They need
-  anything from databases and fast key-value stores to message queues and
-  continuous integration.
+    A la carte sponsors **do not get logos** on the sidebar of the website. This
+    is reserved for our limited set of [platinum sponsors](#platinum).
 
-  Offering your service to contestants during the competition and judging is a
-  great way to get developers using your product.
+    #### <a name="services">Service sponsorship - __$500__</a>
 
-  When you sponsor a service, we will promote it to developers for the
-  competition and work with you to ensure that developers are able to use the
-  service during the competition and judging.
+    During the competition, contestants will be looking for infrastructure and
+    software as a service products to accelerate their projects. They need
+    anything from databases and fast key-value stores to message queues and
+    continuous integration.
 
-  In addition, if you provide an article about how to get started using your
-  service, we will publish it on [our blog]. Here's an
-  [example from last year](http://blog.nodeknockout.com/post/9432191556/countdown-to-ko-25-mongohq).
+    Offering your service to contestants during the competition and judging is a
+    great way to get developers using your product.
 
-  #### <a name="jobs">Job listing - __$500__</a>
+    When you sponsor a service, we will promote it to developers for the
+    competition and work with you to ensure that developers are able to use the
+    service during the competition and judging.
 
-  Want to let Node Knockout participants know that you're hiring? Then get a
-  spot on our job list. Participants will receive an email after the
-  competition with information about the available jobs.
+    In addition, if you provide an article about how to get started using your
+    service, we will publish it on [our blog]. Here's an
+    [example from last year](http://blog.nodeknockout.com/post/9432191556/countdown-to-ko-25-mongohq).
 
-  In addition, any [expert judges] from your company will have a badge on
-  their votes that lets participants know they are hiring. This is a great way
-  to start a relationship with developers who may be looking for new
-  opportunities.
+    #### <a name="jobs">Job listing - __$500__</a>
 
-  #### <a name="prizes">Prize sponsorship - __$500__</a>
+    Want to let Node Knockout participants know that you're hiring? Then get a
+    spot on our job list. Participants will receive an email after the
+    competition with information about the available jobs.
 
-  The [prize page] is one of the most visted pages on the website.
+    In addition, any [expert judges] from your company will have a badge on
+    their votes that lets participants know they are hiring. This is a great way
+    to start a relationship with developers who may be looking for new
+    opportunities.
 
-  If you've got a product that contestants would love to use after they're
-  done coding, what better way to promote it than awarding it as a prize to
-  winners?
+    #### <a name="prizes">Prize sponsorship - __$500__</a>
 
-  When you sponsor a prize, we'll work with you to get the prize that you're
-  providing on the prize page ([example prizes from last year]).
+    The [prize page] is one of the most visted pages on the website.
 
-  [Contact us]: mailto:all@nodeknockout.com
-  [Joyent]: http://www.joyent.com
-  [Nodejitsu]: http://www.nodejitsu.com
-  [sponsors page]: /sponsors
-  [prize page]: /prizes
-  [example prizes from last year]: http://2011.nodeknockout.com/prizes
-  [expert judges]: /judges
-  [our blog]: http://blog.nodeknockout.com
+    If you've got a product that contestants would love to use after they're
+    done coding, what better way to promote it than awarding it as a prize to
+    winners?
+
+    When you sponsor a prize, we'll work with you to get the prize that you're
+    providing on the prize page ([example prizes from last year]).
+
+    [Contact us]: mailto:all@nodeknockout.com
+    [Joyent]: http://www.joyent.com
+    [Nodejitsu]: http://www.nodejitsu.com
+    [sponsors page]: /sponsors
+    [prize page]: /prizes
+    [example prizes from last year]: http://2011.nodeknockout.com/prizes
+    [expert judges]: /judges
+    [our blog]: http://blog.nodeknockout.com

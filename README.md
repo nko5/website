@@ -11,3 +11,12 @@ owes its roots to [rails rumble]. holla.
 [node.js knockout]:http://nodeknockout.com/
 [node.js]:http://nodejs.org/
 [rails rumble]:http://railsrumble.com/
+
+
+to install
+
+    npm install
+
+to start:
+
+    PORT=3000 nodemon server.js

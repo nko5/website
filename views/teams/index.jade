@@ -1,26 +1,30 @@
 - title('Teams')
-h1 Teams (#{teams.count})
-form.search
-  input( type='search', name='q', value=req.query.q, placeholder='Search' )
-ul.teams
-  - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
-  - each team in teams
-    - members = toPeople(team)
-    li
-      h3: a( href='/teams/' + team )= team.name
-      .members
-        ul.members
-          - if (team.invites.length > 0)
-            li.invites (#{team.invites.length} invited)
-          - each m in members
-            - if (m)
-              li: a( href='/people/' + m )
-                img.avatar( src=avatar_url(m), title=m.login )
-        ul.members
-          - each m in members
-            - if (m)
-              li: a( href='/people/' + m )= m.login
-      .location= locations(members)
-      .description!= markdown(team.description)
-  - nextPage = (+req.query.page || 1) + 1
-  .more: a( href=urlFor({ page: nextPage }) ) more
+extends ../layout
+
+block body
+
+  h1 Teams (#{teams.count})
+  form.search
+    input( type='search', name='q', value=req.query.q, placeholder='Search' )
+  ul.teams
+    - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
+    - each team in teams
+      - members = toPeople(team)
+      li
+        h3: a( href='/teams/' + team )= team.name
+        .members
+          ul.members
+            - if (team.invites.length > 0)
+              li.invites (#{team.invites.length} invited)
+            - each m in members
+              - if (m)
+                li: a( href='/people/' + m )
+                  img.avatar( src=avatar_url(m), title=m.login )
+          ul.members
+            - each m in members
+              - if (m)
+                li: a( href='/people/' + m )= m.login
+        .location= locations(members)
+        .description!= markdown(team.description)
+    - nextPage = (+req.query.page || 1) + 1
+    .more: a( href=urlFor({ page: nextPage }) ) more

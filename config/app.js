@@ -52,8 +52,8 @@ app.twitter = new Twitter(secrets.twitterUser)
 
 
 // state (getting pretty gross)
-app.disable('pre-registration');  // just the countdown
-app.enable('registration');  // months beforehand
+app.enable('pre-registration');  // just the countdown
+app.disable('registration');  // months beforehand
 app.disable('pre-coding');     // week beforehand
 app.disable('coding');        // coding + several hours before
 app.disable('voting');        // after
