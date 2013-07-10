@@ -240,7 +240,6 @@ header.site {
 }
 header.site h1 {
   color: #4d4d4d;
-  font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -254,13 +253,12 @@ header.site h1 a.title-block {
   margin: 10px 0;
   color: #fff;
   text-transform: uppercase;
-  font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+  font-family: '04b_03', monospace;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
 }
 header.site h2 {
-  font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
   color: #fff;
   font-size: 52px;
 }

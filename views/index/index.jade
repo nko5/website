@@ -2,8 +2,9 @@ extends ../layout
 
 block body
 
-  :markdown
-    Node.js Knockout is a 48-hour node.js hackathon. [Learn more](/about)
+  .about
+    :markdown
+      Node Knockout is a 48-hour hackathon featuring Node.js. It's an online, virtual competition with contestants worldwide. [Learn more](/about)
 
   if registration || preRegistration
     section.when
@@ -11,11 +12,11 @@ block body
         .dates
           a( href="#" )
             time.start( datetime="2013-09-06T00:00:00Z" ) Sep 6, 2013
-          |  -
+          | &nbsp;-&nbsp;
           a( href="#" )
             time.end( datetime="2013-09-08T00:00:00Z" ) Sep 8, 2013
           |  UTC
-      #countdown from now
+      //- #countdown from now
 
       if registration
         if req.canRegister

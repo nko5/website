@@ -399,7 +399,17 @@ var nko = {};
 
     // enter watchmaker land
     $('.thing.streetlamp').live('click touchend', function() {
-      $('#inner').fadeToggle()
+
+      $('#inner').toggleClass("fadeHide")
+      if($("#inner").is(".fadeHide")){
+        $("#inner").animate({opacity: "0.1"})
+        $("header.site").animate({opacity: "0.3"})
+      }
+      else {
+        $("#inner").animate({opacity: "1.0"})
+        $("header.site").animate({opacity: "1.0"})
+      }
+
     });
 
     // movement

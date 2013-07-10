@@ -209,7 +209,6 @@ header.site
 
   h1
     color: #4d4d4d;
-    font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 1.5em;
     text-transform: uppercase;
@@ -222,14 +221,16 @@ header.site
     a.title-block
       display: inline-block;
       border: 4px solid white;
-      padding: 3px 11px;
+      padding: 0px 11px;
       margin: 10px 0;
       color: white;
       text-transform: uppercase;
-      font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
+      font-family: '04b_03', monospace
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
+      padding-top: 2px
+      line-height: 36px
       &:hover
         background: #F62051
         border-color: transparent
@@ -237,11 +238,12 @@ header.site
 
 
   h2
-    font-family: "franklin-gothic-urw", Helvetica, Arial, sans-serif;
     color: white;
-    font-size: 52px;
-    padding-left: 29px
-    letter-spacing: 6px
+    font-family: Helvetica, Arial, sans-serif;
+
+    font-size: 48px;
+    padding-left: 42px
+    letter-spacing: 3px
     margin: 0
     margin-top: 3px
 
@@ -432,10 +434,10 @@ form.vote
     padding 0px 20px
     width 598px
     transition color 100ms linear
-    &.pjax
-      color: hsla(0, 0%, 0%, 0.5)
-      a:link, a:visited
-        color hsla(200, 30%, 50%, 0.5)
+    color: #444
+    // &.pjax
+    //   a:link, a:visited
+    //     color hsla(200, 30%, 50%, 0.5)
 
     > h1, form > h1, .winners > h1
       inverted()
