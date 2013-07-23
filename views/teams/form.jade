@@ -1,6 +1,8 @@
 errors = team.errors
 include ../errors
 
+!= _csrf
+
 .name
   h3: label( for='name' ) Name
   input( type='text', name='name', id='name', placeholder='Witty Team Name',
