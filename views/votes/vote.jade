@@ -19,6 +19,6 @@ li.vote( id=vote.id )
     - if (vote.replies && vote.replies.length)
       ul.replies
         each reply in vote.replies
-        include ../replies/reply
+          include ../replies/reply
     - if (voting && user && vote.replyable(user))
       include ../replies/form

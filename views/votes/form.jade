@@ -50,6 +50,6 @@
         .clear
         ul.replies
           each reply in vote.replies
-          include ../replies/reply
+            include ../replies/reply
         - if (user && vote.replyable(user))
           include ../replies/form
