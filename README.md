@@ -17,6 +17,8 @@ to install
 
     npm install
 
-to start:
+to start server:
 
     PORT=3000 nodemon server.js
+
+to start console:
