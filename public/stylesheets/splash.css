@@ -69,6 +69,42 @@ body a:hover {
 }
 
 
+#splash .nav {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #555;
+}
+
+#splash .nav ul {
+  list-style: none;
+  text-align: center;
+  margin-left: -20px;
+}
+
+#splash .nav ul li {
+  display: inline-block;
+
+
+}
+
+#splash .nav ul li a {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'franklin-gothic-urw',Helvetica,Arial,sans-serif;
+}
+#splash .nav ul li a:hover {
+  color: rgba(255,255,255,1.0);
+}
+
+#splash .nav .clear {
+  clear: both;
+}
+
+
 #splash h1.logo {
   text-indent: -9999px;
   width: 447px;
