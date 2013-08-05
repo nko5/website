@@ -231,7 +231,7 @@ body a:hover {
   }
 
   #splash .date {
-    width: 130px;
+    width: 280px;
     height: 42px;
     background-size: 100%;
   }
@@ -240,6 +240,30 @@ body a:hover {
     font-size: 16px;
     margin-top: 10px;
   }
+
+  #splash form.signup .email-field{
+    margin-top: 14px;
+  }
+
+  h1,h2,h3{
+    margin: 0;
+    line-height: 1;
+  }
+
+  #splash form.signup .signup-btn{
+    border: none;
+    background-color: #C83942;
+    color: #fff;
+    padding: 20px;
+    font-family: "freight-sans-pro",arial,sans-serif;
+    font-size: 20px;
+    border-radius: 4px;
+  }
+
+  #splash form.signup .signup-btn:hover{
+    background-color: #AF323A;
+  }
+
 }
 
 
