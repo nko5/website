@@ -25,7 +25,6 @@ PersonSchema = module.exports = new mongoose.Schema
   skippedTeamIds: [ mongoose.Schema.ObjectId ]
 PersonSchema.plugin require('../lib/use-timestamps')
 
-###
 auth = require 'mongoose-auth'
 PersonSchema.plugin auth,
   everymodule:
@@ -105,7 +104,6 @@ PersonSchema.plugin auth,
                 return promise.fail err if err
                 promise.fulfill updatedUser
         promise
-###
 
 # validations
 twitterValidator = (twitterHandle, callback) ->

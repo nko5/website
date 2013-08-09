@@ -1,4 +1,5 @@
 var express = require('express')
+  , auth = require('mongoose-auth')
   , env = require('./env')
   , util = require('util')
   , port = env.port
@@ -31,6 +32,7 @@ require('colors');
 require('../lib/render2');
 require('../lib/underscore.shuffle');
 require('../lib/regexp-extensions');
+app.dynamicHelpers = require('../lib/dynamic-helpers');
 
 // events
 app.events = new EventEmitter();
@@ -125,7 +127,7 @@ app.configure(function() {
   require('../helpers')(app);
 
   app.use(express.logger());
-  // app.use(auth.middleware());
+  app.use(auth.middleware());
   app.use(app.router);
 
   // request error handling
@@ -154,7 +156,7 @@ app.configure(function() {
 });
 
 // helpers
-// auth.helpExpress(app);
+auth.helpExpress(app);
 require('../helpers')(app);
 
 // express 3 requires instantiating a http.Server to attach socket.io to

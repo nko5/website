@@ -40,7 +40,8 @@
     "irc": "*",
     "redis": "*",
     "jadevu": "*",
-    "ntwitter": "*"
+    "ntwitter": "*",
+    "mongoose-auth": "0.0.12"
   },
   "devDependencies": {
     "nodemon": "*",
