@@ -1,32 +1,36 @@
-h1= title('Sign in as a&hellip;')
+extends ../layout
 
-ul.options
-  li
-    a( href='/login/github'): div.dude.beast
-    a.button( href='/login/github' ) Competitor
-    .via via 
-      i.icon-github
-      |  github
+block body
 
-  li
-    a( href='/login/twitter'): div.dude.suit
-    a.button( href='/login/twitter' ) Expert Judge
-    .via via 
-      i.icon-twitter
-      |  Twitter
+  h1= title('Sign in as a&hellip;')
 
-  li
-    a( href='/login/facebook'): div.dude.littleguy
-    a.button.scary( href='/login/facebook' ) Public Voter
-    .via via 
-      i.icon-facebook
-      |  Facebook
+  ul.options
+    li
+      a( href='/login/github'): div.dude.beast
+      a.button( href='/login/github' ) Competitor
+      .via via
+        i.icon-github
+        |  github
 
-:markdown
-  ## Who do I sign in as?
+    li
+      a( href='/login/twitter'): div.dude.suit
+      a.button( href='/login/twitter' ) Expert Judge
+      .via via
+        i.icon-twitter
+        |  Twitter
 
-  - **Competitor** — if you participated in creating an app
-  - **Expert Judge** — if you were accepted as an [expert judge](/judges)
-  - **Public Voter** — if you aren't a competitor nor an expert judge
+    li
+      a( href='/login/facebook'): div.dude.littleguy
+      a.button.scary( href='/login/facebook' ) Public Voter
+      .via via
+        i.icon-facebook
+        |  Facebook
 
-  _Questions? Issues? Email <all@nodeknockout.com>_
+  :markdown
+    ## Who do I sign in as?
+
+    - **Competitor** — if you participated in creating an app
+    - **Expert Judge** — if you were accepted as an [expert judge](/judges)
+    - **Public Voter** — if you aren't a competitor nor an expert judge
+
+    _Questions? Issues? Email <all@nodeknockout.com>_

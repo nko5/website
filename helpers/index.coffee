@@ -114,11 +114,7 @@ module.exports = (app) ->
         (req.user?.contestant or req.user?.judge)
 
   # add in the dynamic helpers
-  for name, fn of dynamicHelpers
-    do (name, fn) ->
-      app.use (req, res, next) ->
-        res.locals[name] = fn(req, res)
-        next()
+  app.dynamicHelpers(dynamicHelpers)
 
 favicons =
   ratchetio: '''
