@@ -126,12 +126,14 @@ app.configure(function() {
     next();
   });
 
+  // auth middleware needs to be pretty high up here
+  app.use(auth.middleware());
+
   // helpers
-  // auth.helpExpress(app);
+  auth.helpExpress(app);
   require('../helpers')(app);
 
   app.use(express.logger());
-  app.use(auth.middleware());
   app.use(app.router);
 
   // request error handling

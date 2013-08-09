@@ -1,8 +1,8 @@
-if locals.errors
+if errors
   ul.errors
     each error in errors
       if error.message
-        - parsed = error.message.match(/^Validator "([^"]*)" failed for path (\w+)$/);
+        - parsed = error.message.match(/^Validator "([^"]*)" failed for path (\w+)/);
         - field = parsed[2].replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase().replace(/^([a-z])/, function(m, $1) { return $1.toUpperCase(); });
         - message = parsed[1]
         li #{field} #{message}
