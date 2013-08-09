@@ -34,6 +34,8 @@ require('../lib/underscore.shuffle');
 require('../lib/regexp-extensions');
 app.dynamicHelpers = require('../lib/dynamic-helpers');
 
+flash = require("connect-flash");
+
 // events
 app.events = new EventEmitter();
 
@@ -67,6 +69,8 @@ app.configure(function() {
   app.use(express.compress());
   app.use(assetManager);
   app.locals({ assetManager: assetManager });
+
+  app.use(flash());
 });
 
 app.configure('development', function() {

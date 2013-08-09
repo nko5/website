@@ -41,7 +41,8 @@
     "redis": "*",
     "jadevu": "*",
     "ntwitter": "*",
-    "mongoose-auth": "0.0.12"
+    "mongoose-auth": "0.0.12",
+    "connect-flash": "~0.1.1"
   },
   "devDependencies": {
     "nodemon": "*",

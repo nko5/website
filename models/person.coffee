@@ -108,11 +108,12 @@ PersonSchema.plugin auth,
 # validations
 twitterValidator = (twitterHandle, callback) ->
   return callback(true) unless @nomination
+
   request
-    url: 'http://api.twitter.com/1/users/show.json'
-    qs: { screen_name: twitterHandle }
+    url: "http://twitter.com/#{twitterHandle}"
     callback: (error, res) ->
       callback(not error and res.statusCode is 200)
+
 PersonSchema.path('twitterScreenName').validate twitterValidator,
   'is required to exist and be valid for judges'
 
