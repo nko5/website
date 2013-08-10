@@ -17,7 +17,7 @@ module.exports = (app) ->
 
     try
       req.session.destroy()
-      slug = req.body.user.replace('nko3-', '')
+      slug = req.body.user.replace('nko4-', '')
     catch err
       return error(err)
 

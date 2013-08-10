@@ -17,14 +17,14 @@ cat <<EOF >README.md
 ### GitHub — [Team][2], [Repo][3]
 
 ~~~sh
-git clone git@github.com:nko3/${slug}.git
+git clone git@github.com:nko4/${slug}.git
 ~~~
 
 ### Nodejitsu — [More details][5], [Handbook][4]
 
 ~~~sh
 npm install -g jitsu
-jitsu login --username nko3-${slug} --password ${code}
+jitsu login --username nko4-${slug} --password ${code}
 jitsu deploy
 ~~~
 
@@ -73,15 +73,15 @@ If you have any issues, we're on IRC in #nodeknockout and #nodejitsu on
 freenode, email us at <all@nodeknockout.com>, or tweet
 [@node_knockout](https://twitter.com/node_knockout).
 
-[2]: https://github.com/organizations/nko3/teams/${github}
-[3]: https://github.com/nko3/${slug}
+[2]: https://github.com/organizations/nko4/teams/${github}
+[3]: https://github.com/nko4/${slug}
 [4]: http://handbook.jit.su
 [5]: http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment
 EOF
 
 cat <<EOF >package.json
 {
-  "name": "nko3-${slug}",
+  "name": "nko4-${slug}",
   "version": "0.0.0",
   "description": "${name}",
   "main": "server.js",
@@ -90,14 +90,14 @@ cat <<EOF >package.json
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nko3/${slug}.git"
+    "url": "git@github.com:nko4/${slug}.git"
   },
   "dependencies": {
   },
   "engines": {
     "node": "0.8.x"
   },
-  "subdomain": "${slug}.nko3"
+  "subdomain": "${slug}.nko4"
 }
 EOF
 
@@ -113,5 +113,5 @@ EOF
 
 git add .
 git commit -m Instructions
-git remote add origin git@github.com:nko3/${slug}.git
+git remote add origin git@github.com:nko4/${slug}.git
 git push origin master

@@ -22,10 +22,10 @@ createTeam = (team, next) ->
     (next) ->                 # create repo
       console.log team.slug, 'create repo'
       request.post
-        url: github 'orgs/nko3/repos'
+        url: github 'orgs/nko4/repos'
         json:
           name: team.slug
-          homepage: "http://2012.nodeknockout.com/teams/#{team}"
+          homepage: "http://2013.nodeknockout.com/teams/#{team}"
           private: true
       , next
     (res, body, next) ->      # create push hook
@@ -33,7 +33,7 @@ createTeam = (team, next) ->
 
       console.log team.slug, 'create hook'
       request.post
-        url: github "repos/nko3/#{team.slug}/hooks"
+        url: github "repos/nko4/#{team.slug}/hooks"
         json:
           name: 'web'
           active: true
@@ -46,10 +46,10 @@ createTeam = (team, next) ->
 
       console.log team.slug, 'create team'
       request.post
-        url: github 'orgs/nko3/teams'
+        url: github 'orgs/nko4/teams'
         json:
           name: team.name
-          repo_names: [ "nko3/#{team.slug}" ]
+          repo_names: [ "nko4/#{team.slug}" ]
           permission: 'admin'
       , next
     (res, body, next) ->      # save team id
