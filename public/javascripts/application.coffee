@@ -13,7 +13,7 @@ $('a[href^="/"]').live 'click', (e) ->
       if location.hash
         [h, location.hash] = [location.hash, null]
         location.hash = h
-      else if $('#inner nav').offset().top < $(window).scrollTop()
+      else if $('#inner nav').length > 0 and $('#inner nav').offset().top < $(window).scrollTop()
         $(window).scrollTop 0
 
 $(document).bind 'pjax', (e, xhr, options) ->
