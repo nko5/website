@@ -10,6 +10,8 @@ var express = require('express')
   , ratchetio = require('ratchetio');
 require('jadevu');
 
+console.log("AND THE PORT IS: ",port)
+
 // express
 var app = module.exports = express();
 
