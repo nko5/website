@@ -13,6 +13,13 @@ owes its roots to [rails rumble]. holla.
 [rails rumble]:http://railsrumble.com/
 
 
+dependencies:
+
+
+    brew install redis
+
+
+
 to install
 
     npm install
@@ -22,3 +29,4 @@ to start server:
     PORT=8003 nodemon server.js
 
 to start console:
+
