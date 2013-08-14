@@ -26,7 +26,7 @@ to install
 
 to start server:
 
-    PORT=8003 nodemon server.js
+    PORT=8000 nodemon server.js
 
 to start console:
 

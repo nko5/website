@@ -10,7 +10,6 @@ var express = require('express')
   , ratchetio = require('ratchetio');
 require('jadevu');
 
-console.log("AND THE PORT IS: ",port)
 
 // express
 var app = module.exports = express();
@@ -60,9 +59,9 @@ app.twitter = new Twitter(secrets.twitterUser)
 // state (getting pretty gross)
 app.disable('pre-registration');  // just the countdown
 app.enable('registration');       // months beforehand
-app.disable('pre-coding');     // week beforehand
-app.disable('coding');        // coding + several hours before
-app.disable('voting');        // after
+app.disable('pre-coding');        // week beforehand
+app.disable('coding');            // coding + several hours before
+app.disable('voting');            // after
 app.disable('winners');        // after winners are selected
 
 app.configure(function() {
@@ -138,25 +137,36 @@ app.configure(function() {
   app.use(express.logger());
   app.use(app.router);
 
-  // request error handling
-  var ratchetErrorHandler = ratchetio.errorHandler();
-  app.use(function(err, req, res, next) {
-    if (typeof(err) !== 'number') {
-      ratchetErrorHandler(err, req, res, next);
-    } else {
-      next(err, req, res);
+  // error handling
+  app.use(function(req, res, next){ // If it arrives here, it's because it didn't matched with the rest
+    res.status(404);
+    if (req.accepts('html')) {
+      res.render2('errors/404', { status: 404 });
+      return;
     }
+    if (req.accepts('json')) {
+      res.send({ error: 'Not found' });
+      return;
+    }
+    res.type('txt').send('Not found');
   });
 
-  app.use(function(e, req, res, next) {
-    if (typeof(e) === 'number')
-      return res.render2('errors/' + e, { status: e });
+  // var ratchetErrorHandler = ratchetio.errorHandler(); No key for this thing around here  
+  // app.use(function(err, req, res, next) {
+  //   if (typeof(err) !== 'number') {
+  //     ratchetErrorHandler(err, req, res, next);
+  //   } else {
+  //     next(err, req, res);
+  //   }
+  // });
 
-    if (typeof(e) === 'string')
-      e = Error(e);
-
-    console.error(e.stack);
-    res.render2('errors/500', { error: e });
+  app.use(function (err, req, res, next) { 
+    if (typeof(err) === 'number')
+      return res.render2('errors/' + err, { status: err });
+    if (typeof(err) === 'string')
+      err = Error(err);
+    console.error(err.stack);
+    res.render2('errors/500', { error: err });
   });
 
   app.set('views', app.paths.views);

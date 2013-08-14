@@ -5,3 +5,4 @@ node_modules
 tmp/*
 config/secrets.coffee
 config/secrets.js
+.npm-debug.log
