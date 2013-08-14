@@ -161,10 +161,15 @@ app.configure(function() {
   // });
 
   app.use(function (err, req, res, next) { 
-    if (typeof(err) === 'number')
+    if (err) {
+      return res.render2('errors/' + err.status, { status: err.status });
+    }
+    if (typeof(err) === 'number'){
       return res.render2('errors/' + err, { status: err });
-    if (typeof(err) === 'string')
+    }
+    if (typeof(err) === 'string'){
       err = Error(err);
+    }  
     console.error(err.stack);
     res.render2('errors/500', { error: err });
   });
