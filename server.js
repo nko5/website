@@ -9,7 +9,7 @@ require('coffee-script');
   'votes',
   'websocket',
   'live',
-  // 'redirect',
+  'redirect',
   'notifications'
 ].forEach(function(controller) {
   require('./controllers/' + controller);

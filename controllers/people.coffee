@@ -47,14 +47,6 @@ app.get '/people/:id', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes, m.loa
   else
     render()
 
-
-# USER PANEL TEST ROUTE http://localhost:8000/people/gjohnson/edit
-# app.get '/people/gjohnson/edit', [m.loadPerson], (req, res, next) ->
-#   req
-#   res.render2 'people/edit', person: req.person
-# # ---
-
-
 # edit
 app.get '/people/:id/edit', [m.loadPerson, m.ensureAccess], (req, res, next) ->
   res.render2 'people/edit', person: req.person

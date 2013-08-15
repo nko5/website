@@ -10,7 +10,4 @@ app.get /\/(.*)/, (req, res, next) ->
     util.log('redirecting to http://2012.nodeknockout.com' + req.url)
     res.redirect('http://2012.nodeknockout.com' + req.url, 301)
 
-###
-app.get /^/, (req, res, next) ->
-  next 404
-###
+

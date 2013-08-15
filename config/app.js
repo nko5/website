@@ -191,7 +191,7 @@ server.listen(port);
 app.ws.set('log level', 1);
 app.ws.set('browser client minification', true);
 
-app.on('listening', function() {
+server.on('listening', function() { 
   require('util').log('listening on ' + ('0.0.0.0:' + port).cyan);
 
   // if run as root, downgrade to the owner of this file
