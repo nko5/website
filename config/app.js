@@ -57,8 +57,8 @@ app.twitter = new Twitter(secrets.twitterUser)
 
 
 // state (getting pretty gross)
-app.enable('pre-registration');  // just the countdown
-app.disable('registration');       // months beforehand
+app.disable('pre-registration');  // just the countdown
+app.enable('registration');       // months beforehand
 app.disable('pre-coding');        // week beforehand
 app.disable('coding');            // coding + several hours before
 app.disable('voting');            // after
@@ -141,13 +141,6 @@ app.configure(function() {
 
   // error handling
   app.use(function(req, res, next){ // If it arrives here, it's because it didn't matched with the rest
-    if(app.enabled('pre-registration')){ 
-      util.log('redirecting to http://2012.nodeknockout.com' + req.url)
-      res.redirect('http://2012.nodeknockout.com' + req.url, 301)
-      return;
-    } 
-
-
     res.status(404);
     if (req.accepts('html')) {
       res.render2('errors/404', { status: 404 });
