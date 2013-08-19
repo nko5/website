@@ -162,21 +162,7 @@ app.configure(function() {
   //   }
   // });
 
-  app.use(function (err, req, res, next) { 
-    if (typeof(err) === 'number'){
-      return res.render2('errors/' + err, { status: err });
-    }
-    if (typeof(err) === 'string'){
-      err = Error(err);
-    }  
-    if (err) {
-      return res.render2('errors/' + err.status, { status: err.status });
-    }
-
-    console.error(err.stack);
-    res.render2('errors/500', { error: err });
-  });
-
+  require('./../controllers/errors.js')
   app.set('views', app.paths.views);
   app.set('view engine', 'jade');
 });
