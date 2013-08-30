@@ -429,23 +429,26 @@
       }
     },
     "stylus": {
-      "version": "0.32.1",
-      "from": "https://registry.npmjs.org/stylus/-/stylus-0.32.1.tgz",
-      "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.32.1.tgz",
+      "version": "0.37.0",
+      "from": "stylus@0.37.0",
+      "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.37.0.tgz",
       "dependencies": {
         "cssom": {
           "version": "0.2.5",
-          "from": "cssom@0.2.5"
+          "from": "cssom@0.2.x"
         },
         "mkdirp": {
           "version": "0.3.5",
-          "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz",
-          "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz"
+          "from": "mkdirp@0.3.x"
         },
         "debug": {
           "version": "0.7.2",
-          "from": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz"
+          "from": "debug@*"
+        },
+        "sax": {
+          "version": "0.5.5",
+          "from": "sax@0.5.x",
+          "resolved": "https://registry.npmjs.org/sax/-/sax-0.5.5.tgz"
         }
       }
     },

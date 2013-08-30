@@ -1,14 +1,14 @@
 var util = require('util')
   , app = require('../config/app')
 
-app.use(function (err, req, res, next) { 
+app.use(function (err, req, res, next) {
   if (typeof(err) === 'number'){
     return res.render2('errors/' + err, { status: err });
   }
   if (typeof(err) === 'string'){
     err = Error(err);
-  }  
-  if (err) {
+  }
+  if (err && err.status) {
     return res.render2('errors/' + err.status, { status: err.status });
   }
 

@@ -3,18 +3,18 @@ global.nap = require('nap');
 
 nap({
   publicDir: '/public',
-  mode: "production",
+  mode: env.node_env === 'production' ? 'production' : 'development',
   assets: {
     js: {
-      'new-js': [
+      '2013': [
         "/public/javascripts/vendor/bootstrap.js",
-        "/public/javascripts/new-js.coffee"
+        "/public/javascripts/2013.coffee"
       ]
     },
     css: {
-      'new-styles': [
+      '2013': [
         "/public/stylesheets/vendor/bootstrap.css",
-        "/public/stylesheets/new-styles.styl"
+        "/public/stylesheets/2013.styl"
       ]
     },
     jst: {}
