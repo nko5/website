@@ -639,6 +639,76 @@
       "version": "0.1.1",
       "from": "connect-flash@~0.1.1"
     },
+    "nap": {
+      "version": "0.7.8",
+      "from": "nap@",
+      "resolved": "https://registry.npmjs.org/nap/-/nap-0.7.8.tgz",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.4.0",
+          "from": "coffee-script@~1.4.0"
+        },
+        "underscore.string": {
+          "version": "2.3.3",
+          "from": "underscore.string@~2.3.0",
+          "resolved": "https://registry.npmjs.org/underscore.string/-/underscore.string-2.3.3.tgz"
+        },
+        "sqwish": {
+          "version": "0.2.1",
+          "from": "sqwish@~0.2.0",
+          "resolved": "https://registry.npmjs.org/sqwish/-/sqwish-0.2.1.tgz"
+        },
+        "mkdirp": {
+          "version": "0.3.5",
+          "from": "mkdirp@~0.3.4"
+        },
+        "file": {
+          "version": "0.2.1",
+          "from": "file@~0.2.1",
+          "resolved": "https://registry.npmjs.org/file/-/file-0.2.1.tgz"
+        },
+        "glob": {
+          "version": "3.1.21",
+          "from": "glob@~3.1.14",
+          "dependencies": {
+            "minimatch": {
+              "version": "0.2.12",
+              "from": "minimatch@~0.2.11",
+              "dependencies": {
+                "lru-cache": {
+                  "version": "2.3.1",
+                  "from": "lru-cache@2",
+                  "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.3.1.tgz"
+                },
+                "sigmund": {
+                  "version": "1.0.0",
+                  "from": "sigmund@~1.0.0"
+                }
+              }
+            },
+            "graceful-fs": {
+              "version": "1.2.3",
+              "from": "graceful-fs@~1.2.0",
+              "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-1.2.3.tgz"
+            },
+            "inherits": {
+              "version": "1.0.0",
+              "from": "inherits@1"
+            }
+          }
+        },
+        "rimraf": {
+          "version": "2.0.3",
+          "from": "rimraf@~2.0.2",
+          "dependencies": {
+            "graceful-fs": {
+              "version": "1.1.14",
+              "from": "graceful-fs@~1.1"
+            }
+          }
+        }
+      }
+    },
     "nodemon": {
       "version": "0.6.18",
       "from": "https://registry.npmjs.org/nodemon/-/nodemon-0.6.18.tgz",

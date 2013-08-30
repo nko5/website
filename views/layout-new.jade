@@ -1,0 +1,26 @@
+!!! 5
+html
+  head
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge,chrome=1' )
+    meta( name='viewport', content='width=1024' )
+    meta( name='_csrf', content=req.session._csrf )
+    title
+      - if (title())
+        = title()
+        |  &mdash;
+      | Node.js Knockout
+
+    != nap.css('new-styles')
+
+    script _gaq = [['_setAccount', 'UA-16773586-1'], ['_trackPageview']];
+    script( async=true, src='//www.google-analytics.com/ga.js' )
+    script( src='/javascripts/vendor/modernizr-2.5.3.min.js' )
+    script( src='//use.typekit.net/ufz6ztx.js' )
+    script( type='text/javascript' )
+      try{Typekit.load();}catch(e){}
+
+  body
+    block body
+
+    != nap.js('new-js')
