@@ -81,40 +81,22 @@ block body
         .sponsor-grid
 
           .row
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://joyent.com")
-                img(src="/logos/joyent.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://nodejitsu.com")
-                img(src="/logos/nodejitsu.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://heroku.com")
-                img(src="/logos/heroku.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://google.com")
-                img(src="/logos/google.jpg")
-          .row
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://dropbox.com")
-                img(src="/logos/dropbox.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://github.com")
-                img(src="/logos/github.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              a(href="http://coderwall.com")
-                img(src="/logos/coderwall.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              //- img(src="/logos/google.jpg")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://joyent.com", style="background-image:url(/logos/joyent.jpg);")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://nodejitsu.com", style="background-image:url('/logos/nodejitsu.jpg');")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://heroku.com", style="background-image:url('/logos/heroku.jpg');")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://google.com", style="background-image:url('/logos/google.jpg');")
 
           .row
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              //- img(src="/logos/joyent.png")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              //- img(src="/logos/nodejitsu.png")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              //- img(src="/logos/heroku.jpg")
-            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
-              //- img(src="/logos/google.jpg")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://dropbox.com", style="background-image:url('/logos/dropbox.jpg');")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://github.com", style="background-image:url('/logos/github.jpg');")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://coderwall.com", style="background-image:url('/logos/coderwall.jpg');")
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+
+          .row
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
 
     .prizes-section.landing-section.row
       hr
@@ -126,8 +108,91 @@ block body
     .judges-section.landing-section.row
       hr
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+        p.nominate-msg
+          | Nominate a judge by filling out <a href="/">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
         h3 JUDGES
-        //- TODO: JUDGES SECTION
+        .judges-grid.row
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+            .person
+              a(href="http://twitter.com/dshaw")
+                .avatar(style="background-image:url('/avatars/dshaw.png');")
+                  img(src="/images/2013/transparent.png")
+                label Daniel Shaw
+              ul.links
+                li
+                  a(href="http://twitter.com/dshaw")
+                    i.icon-twitter
+                li
+                  a(href="http://linkedin.com/in/dshaw")
+                    i.icon-linkedin
+
+
 
     .about-section.landing-section.row
       hr
@@ -137,31 +202,102 @@ block body
 
       .col.col-md-8.col-sm-8.col-xs-8.col-lg-8
         h3 NKO 2013 ORGANIZERS
-        //- ORGANIZERS SECTION
+        .row
+          .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            .person
+              a(href="http://twitter.com/gerad")
+                .avatar(style="background-image:url('/avatars/gerad.png');")
+                  img(src="/images/2013/transparent.png")
+                label Gerad Suyderhoud
+              ul.links
+                li
+                  a(href="http://twitter.com/gerad")
+                    i.icon-twitter
+                li
+                  a(href="http://www.linkedin.com/in/geradsuyderhoud")
+                    i.icon-linkedin
+                li
+                  a(href="mailto:gerad@nodeknockout.com")
+                    i.icon-email
+
+          .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            .person
+              a(href="http://twitter.com/ashbhoopathy")
+                .avatar(style="background-image:url('/avatars/ashbhoopathy.png');")
+                  img(src="/images/2013/transparent.png")
+                label Ash Bhoopathy
+              ul.links
+                li
+                  a(href="http://twitter.com/ashbhoopathy")
+                    i.icon-twitter
+                li
+                  a(href="http://www.linkedin.com/in/ashbhoopathy")
+                    i.icon-linkedin
+                li
+                  a(href="mailto:ash@nodeknockout.com")
+                    i.icon-email
+
+          .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            .person
+              a(href="http://twitter.com/jacquescrocker")
+                .avatar(style="background-image:url('/avatars/jacquescrocker.png');")
+                  img(src="/images/2013/transparent.png")
+                label Ash Bhoopathy
+              ul.links
+                li
+                  a(href="http://twitter.com/jacquescrocker")
+                    i.icon-twitter
+                li
+                  a(href="http://www.linkedin.com/in/jacquescrocker")
+                    i.icon-linkedin
+                li
+                  a(href="mailto:jacques@nodeknockout.com")
+                    i.icon-email
+
+          .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            .person
+              a(href="http://twitter.com/humanbagel")
+                .avatar(style="background-image:url('/avatars/humanbagel.png');")
+                  img(src="/images/2013/transparent.png")
+                label Ash Bhoopathy
+              ul.links
+                li
+                  a(href="http://twitter.com/humanbagel")
+                    i.icon-twitter
+                li
+                  a(href="http://www.linkedin.com/in/richlengsavath")
+                    i.icon-linkedin
+                li
+                  a(href="mailto:rich@nodeknockout.com")
+                    i.icon-email
 
 
-    .content-section.landing-section.row
-      .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
-        h3
-          | Follow Us
-          a(href="http://twitter.com/node_knockout")
-            | @node_knockout
 
-        //- TODO: POPULATE WITH TWEETS
+  .connect.landing-section
+    .container
+      .row
+        .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+          h3
+            | Follow Us
+            a(href="http://twitter.com/node_knockout")
+              | @node_knockout
 
-      .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
-        h3
-          | FROM OUR BLOG
+          //- TODO: POPULATE WITH TWEETS
 
-        //- TODO: BLOG POST LINKS
+        .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+          h3
+            | FROM OUR BLOG
 
-    footer.landing-section
-      .subscribe-section
+          //- TODO: BLOG POST LINKS
+
+  footer
+    .container
+      .subscribe-section.row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           //- TODO: SUBSCRIPTION FORM
           a.btn.btn-large.btn-primary(href="#") Subscribe
 
-      .footer-bottom
+      .footer-bottom.row
         .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
           | © 2013 NodeKnockout
 
