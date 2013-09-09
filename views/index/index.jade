@@ -1,25 +1,27 @@
-extends ../layout-new
+extends ../layout-2013
 
 block body
-
-  .body-wrapper.container
-    .header
+  .header
+    .container
       .header-inner.row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           .gloves
-          a.logo1( href="/" ) Node Knockout
-          a.logo2( href="/" ) node.js ko
-      .header-nav.row
-        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-          a(href="#") Registration
-          a(href="#") Prizes
-          a(href="#") Judges
-          a(href="#") Sponsors
-          a(href="#") Rules
-          a(href="#") Resources
-          a(href="#") Blog
+          a.logo( href="/" ) Node Knockout
+          a.logo-sm( href="/" ) node.js ko
 
-    .intro-section.row
+
+  .body-wrapper.container
+    .nav.row
+      .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+        a(href="#") Registration
+        a(href="#") Prizes
+        a(href="#") Judges
+        a(href="#") Sponsors
+        a(href="#") Rules
+        a(href="#") Resources
+        a(href="#") Blog
+
+    .intro-section.landing-section.row
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
 
         label Main Event
@@ -28,46 +30,107 @@ block body
           span.sep •
           | 2013
 
-        a.btn.btn-large.btn-primary(href="#") Register
+        a.btn.btn-super.btn-primary(href="#") Register
+
+    .about-section.landing-section
+      hr
+      .row
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          h3 About NKO2013
+
+      .row
+        .col.col-md-5.col-sm-5.col-xs-5.col-lg-5
+          p.about
+            | Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.
+
+        .col.col-md-5.col-md-offset-2.col-sm-5.col-sm-offset-2.col-xs-5.col-xs-offset-2.col-lg-5.col-lg-offset-2
+          .nko-dates
+            h4
+              | IMPORTANT DATES TO REMEMBER
+            .date-row
+              .date-label
+                | OPEN FOR REGISTRATION
+              .date-date
+                | SEPTEMBER 10, 2013
+            .date-row
+              .date-label
+                | COMPETITION DATES
+              .date-date
+                | NOVEMBER 8-10, 2013
+            .date-row
+              .date-label
+                | JUDGING PERIOD
+              .date-date
+                | NOVEMBER 11-17, 2013
+            .date-row
+              .date-label
+                | WINNERS ANNOUNCED
+              .date-date
+                | NOVEMBER 18, 2013
+
+            .clear
 
 
-    .about-section.row
-      .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
-        h3 About NKO2013
-        p
-          | Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.
-
-      .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
-        .nko-dates
-          h4
-            | IMPORTANT DATES TO REMEMBER
-
-          | OPEN FOR REGISTRATION ……….…………………… SEPTEMBER 10, 2013
-          | COMPETITION DATES .……….………………. NOVEMBER 8-10, 2013
-          | JUDGING PERIOD ………………………….. NOVEMBER 11-17, 2013
-          | WINNERS ANNOUNCED ……………………..… NOVEMBER 18, 2013
-
-    .sponsors-section.row
+    .sponsors-section.landing-section.row
+      hr
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
         h3 PREVIOUS YEARS SPONSORS
         p
-          a.btn.btn-large.btn-primary(href="#") SIGN UP TO SPONSOR NKO 2013
+          a.btn.btn-super.btn-primary(href="#") SIGN UP TO SPONSOR NKO 2013
 
         .sponsor-grid
-          //- TODO: SPONSOR GRID
 
-    .prizes-section.row
+          .row
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://joyent.com")
+                img(src="/logos/joyent.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://nodejitsu.com")
+                img(src="/logos/nodejitsu.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://heroku.com")
+                img(src="/logos/heroku.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://google.com")
+                img(src="/logos/google.jpg")
+          .row
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://dropbox.com")
+                img(src="/logos/dropbox.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://github.com")
+                img(src="/logos/github.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              a(href="http://coderwall.com")
+                img(src="/logos/coderwall.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              //- img(src="/logos/google.jpg")
+
+          .row
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              //- img(src="/logos/joyent.png")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              //- img(src="/logos/nodejitsu.png")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              //- img(src="/logos/heroku.jpg")
+            .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              //- img(src="/logos/google.jpg")
+
+    .prizes-section.landing-section.row
+      hr
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
         h3 PRIZES
         //- TODO: PRIZES SECTION (TABS)
 
 
-    .judges-section.row
+    .judges-section.landing-section.row
+      hr
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
         h3 JUDGES
         //- TODO: JUDGES SECTION
 
-    .about-section.row
+    .about-section.landing-section.row
+      hr
       .col.col-md-4.col-sm-4.col-xs-4.col-lg-4
         h3 PRESS KIT
         //- TODO: PRESS KIT
@@ -77,7 +140,7 @@ block body
         //- ORGANIZERS SECTION
 
 
-    .content-section.row
+    .content-section.landing-section.row
       .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
         h3
           | Follow Us
@@ -92,7 +155,7 @@ block body
 
         //- TODO: BLOG POST LINKS
 
-    footer
+    footer.landing-section
       .subscribe-section
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           //- TODO: SUBSCRIPTION FORM
