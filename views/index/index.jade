@@ -18,6 +18,7 @@ block body
 
   .body-wrapper.container
 
+    a(name="registration")
     .main-section.landing-section.row
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
 
@@ -27,7 +28,14 @@ block body
           span.sep •
           | 2013
 
-        a.btn.btn-super.btn-primary(href="#") Register
+        if preRegistration
+          .pre-registration
+            p
+              | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
+              | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
+        else if registration
+          .registration
+            a.btn.btn-super.btn-primary(href="/teams/new") Register
 
     .intro-section.landing-section
       hr
@@ -307,6 +315,7 @@ block body
     .container
       .subscribe-section.row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          a(name="subscribe")
           div#mc_embed_signup
             form.validate.signup-form(action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", target="_blank", novalidate)
               input.email-field.email(type="email", value="", name="EMAIL", id="mce-EMAIL", placeholder="Subscribe with your email to stay up to date on NKO...", required)

@@ -95,14 +95,17 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
 
 # new
 app.get '/teams/new', (req, res, next) ->
-  Team.canRegister (err, yeah) ->
-    return next err if err
-    if yeah
-      team = new Team
-      team.emails = [ req.user.github.email ] if req.user
-      res.render2 'teams/new', team: team
-    else
-      res.render2 'teams/max'
+  if app.enabled 'pre-registration'
+    res.render2 'teams/notyet'
+  else
+    Team.canRegister (err, yeah) ->
+      return next err if err
+      if yeah
+        team = new Team
+        team.emails = [ req.user.github.email ] if req.user
+        res.render2 'teams/new', team: team
+      else
+        res.render2 'teams/max'
 
 # create
 app.post '/teams', (req, res, next) ->
