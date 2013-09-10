@@ -1,25 +1,29 @@
 extends ../layout-2013
 
 block body
-  .header
-    .container
-      .header-inner.row
-        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-          .gloves
-          a.logo( href="/" ) Node Knockout
-          a.logo-sm( href="/" ) node.js ko
-
+  #header
+    .affix-placeholder
+    .affix-inner
+      .header
+        .container
+          .header-inner.row
+            .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+              .gloves
+              a.logo( href="/" ) Node Knockout
+              a.logo-sm( href="/" ) node.js ko
+      .nav.row
+        .container
+          .nav-inner.row
+            .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+              a(href="#") Registration
+              a(href="#") Prizes
+              a(href="#") Judges
+              a(href="#") Sponsors
+              a(href="#") Rules
+              a(href="#") Resources
+              a(href="#") Blog
 
   .body-wrapper.container
-    .nav.row
-      .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-        a(href="#") Registration
-        a(href="#") Prizes
-        a(href="#") Judges
-        a(href="#") Sponsors
-        a(href="#") Rules
-        a(href="#") Resources
-        a(href="#") Blog
 
     .main-section.landing-section.row
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
@@ -334,4 +338,3 @@ block body
             | 2011
           a(href="http://2012.nodeknockout.com")
             | 2012
-
