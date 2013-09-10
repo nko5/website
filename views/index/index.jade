@@ -21,7 +21,7 @@ block body
         a(href="#") Resources
         a(href="#") Blog
 
-    .intro-section.landing-section.row
+    .main-section.landing-section.row
       .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
 
         label Main Event
@@ -32,7 +32,7 @@ block body
 
         a.btn.btn-super.btn-primary(href="#") Register
 
-    .about-section.landing-section
+    .intro-section.landing-section
       hr
       .row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
@@ -98,107 +98,123 @@ block body
             a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
             a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3
 
-    .prizes-section.landing-section.row
-      hr
-      .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-        h3 PRIZES
-        //- TODO: PRIZES SECTION (TABS)
+    //-
+      .prizes-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          h3 PRIZES
+          //- TODO: PRIZES SECTION (TABS)
 
+    //-
+      .judges-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          p.nominate-msg
+            | Nominate a judge by filling out <a href="/">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
+          h3 JUDGES
+          .judges-grid.row
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
 
-    .judges-section.landing-section.row
-      hr
-      .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-        p.nominate-msg
-          | Nominate a judge by filling out <a href="/">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
-        h3 JUDGES
-        .judges-grid.row
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
-
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
-          .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-            .person
-              a(href="http://twitter.com/dshaw")
-                .avatar(style="background-image:url('/avatars/dshaw.png');")
-                  img(src="/images/2013/transparent.png")
-                label Daniel Shaw
-              ul.links
-                li
-                  a(href="http://twitter.com/dshaw")
-                    i.icon-twitter
-                li
-                  a(href="http://linkedin.com/in/dshaw")
-                    i.icon-linkedin
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
+            .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+              .person
+                a(href="http://twitter.com/dshaw")
+                  .avatar(style="background-image:url('/avatars/dshaw.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Daniel Shaw
+                ul.links
+                  li
+                    a(href="http://twitter.com/dshaw")
+                      i.icon-twitter
+                  li
+                    a(href="http://linkedin.com/in/dshaw")
+                      i.icon-linkedin
 
 
 
     .about-section.landing-section.row
       hr
-      .col.col-md-4.col-sm-4.col-xs-4.col-lg-4
+      .col.col-md-4.col-sm-4.col-xs-4.col-lg-4.press-section
         h3 PRESS KIT
-        //- TODO: PRESS KIT
+        p
+          a.btn.btn-primary.btn-lg(href="#") Images (zip)
+          a.btn.btn-primary.btn-lg(href="#") PDF / Text
+
+        .download
+          a.poster-thumbnail(href="/poster.pdf")
+          a.btn.btn-md.btn-primary(href="/poster.pdf")
+            | Download Poster
+
+          p.download-step
+            strong Step 1:
+            | Download and print this poster and put it in your break room.
+          p.download-step
+            strong Step 2:
+            | Get fired up!
+
 
       .col.col-md-8.col-sm-8.col-xs-8.col-lg-8
         h3 NKO 2013 ORGANIZERS
