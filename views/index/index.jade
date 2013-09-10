@@ -1,7 +1,9 @@
 extends ../layout-2013
 
 block body
-  #header
+  //- include _header-mini
+
+  #header.affixable
     .affix-placeholder
     .affix-inner
       .header
@@ -11,17 +13,8 @@ block body
               .gloves
               a.logo( href="/" ) Node Knockout
               a.logo-sm( href="/" ) node.js ko
-      .nav.row
-        .container
-          .nav-inner.row
-            .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-              a(href="#") Registration
-              a(href="#") Prizes
-              a(href="#") Judges
-              a(href="#") Sponsors
-              a(href="#") Rules
-              a(href="#") Resources
-              a(href="#") Blog
+
+      include _nav
 
   .body-wrapper.container
 

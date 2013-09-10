@@ -6,7 +6,7 @@ jQuery ($) ->
     new Tumblr.RecentPosts($("#tumblr-posts")).render()
 
 
-  $("#header").affix
+  $("#header.affixable").affix
     offset:
       top: ->
         $('#header .header').outerHeight(true)
