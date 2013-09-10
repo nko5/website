@@ -258,7 +258,7 @@ block body
               a(href="http://twitter.com/jacquescrocker")
                 .avatar(style="background-image:url('/avatars/jacquescrocker.png');")
                   img(src="/images/2013/transparent.png")
-                label Ash Bhoopathy
+                label Jacques Crocker
               ul.links
                 li
                   a(href="http://twitter.com/jacquescrocker")
@@ -275,7 +275,7 @@ block body
               a(href="http://twitter.com/humanbagel")
                 .avatar(style="background-image:url('/avatars/humanbagel.png');")
                   img(src="/images/2013/transparent.png")
-                label Ash Bhoopathy
+                label Rich Lengsavath
               ul.links
                 li
                   a(href="http://twitter.com/humanbagel")
@@ -293,39 +293,41 @@ block body
     .container
       .row
         .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
-          h3
-            | Follow Us
-            a(href="http://twitter.com/node_knockout")
-              | @node_knockout
+          //- POPULATED WITH TWEETS
+          | <a class="twitter-timeline" href="https://twitter.com/node_knockout" data-widget-id="377277154146283520">Tweets by @node_knockout</a>
+          | <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-          //- TODO: POPULATE WITH TWEETS
 
         .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
           h3
             | FROM OUR BLOG
 
-          //- TODO: BLOG POST LINKS
+          //- POPULATED WITH TUMBLR POSTS
+          div#tumblr-posts
+
 
   footer
     .container
       .subscribe-section.row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-          //- TODO: SUBSCRIPTION FORM
-          a.btn.btn-large.btn-primary(href="#") Subscribe
+          div#mc_embed_signup
+            form.validate.signup-form(action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", target="_blank", novalidate)
+              input.email-field.email(type="email", value="", name="EMAIL", id="mce-EMAIL", placeholder="Subscribe with your email to stay up to date on NKO...", required)
+              input.btn.btn-super.btn-primary(type="submit", value="Subscribe", name="subscribe", id="mc-embedded-subscribe")
 
       .footer-bottom.row
         .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
           | © 2013 NodeKnockout
 
-        .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+        .col.col-md-6.col-sm-6.col-xs-6.col-lg-6.contact-links
           a(href="mailto:all@nodeknockout.com")
-            i.icon-email
+            i.icon-email2
             | all@nodeknockout.com
-          a(href="mailto:all@nodeknockout.com")
-            i.icon-twitter
+          a(href="http://twitter.com/node_knockout")
+            i.icon-twitter2
             | @node_knockout
 
-        .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+        .col.col-md-3.col-sm-3.col-xs-3.col-lg-3.previous-competition-links
           a(href="http://2010.nodeknockout.com")
             | 2010
           a(href="http://2011.nodeknockout.com")
