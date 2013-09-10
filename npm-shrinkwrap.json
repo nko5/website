@@ -712,6 +712,36 @@
         }
       }
     },
+    "nib": {
+      "version": "1.0.1",
+      "from": "nib@",
+      "resolved": "https://registry.npmjs.org/nib/-/nib-1.0.1.tgz",
+      "dependencies": {
+        "stylus": {
+          "version": "0.35.1",
+          "from": "stylus@~0.35.1",
+          "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.35.1.tgz",
+          "dependencies": {
+            "cssom": {
+              "version": "0.2.5",
+              "from": "cssom@0.2.x"
+            },
+            "mkdirp": {
+              "version": "0.3.5",
+              "from": "mkdirp@0.3.x"
+            },
+            "debug": {
+              "version": "0.7.2",
+              "from": "debug@*"
+            },
+            "sax": {
+              "version": "0.5.5",
+              "from": "sax@0.5.x"
+            }
+          }
+        }
+      }
+    },
     "nodemon": {
       "version": "0.6.18",
       "from": "https://registry.npmjs.org/nodemon/-/nodemon-0.6.18.tgz",
