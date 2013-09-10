@@ -47,6 +47,8 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     recentDeploys: req.recentDeploys
     interestingTeams: req.interestingTeams
 
+app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
+
 [ 'rules', 'sponsors'].forEach (p) ->
   if app.enabled('pre-registration')
     app.get '/' + p, (req, res) -> res.redirect("http://blog.nodeknockout.com/#{p}")

@@ -2,6 +2,7 @@ var env = require('./env');
 var util = require('util');
 global.nap = require('nap');
 
+// TODO: put this somewhere better
 process.chdir(__dirname+"/../");
 util.debug('NAP CURRENT DIRECTORY: ' + process.cwd());
 
