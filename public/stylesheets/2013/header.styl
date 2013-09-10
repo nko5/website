@@ -42,6 +42,8 @@ body
       padding: 10px 0
       nav, .nav-inner
         background: none
+        .col
+          position: static
 
       a
         display: inline-block
@@ -51,8 +53,12 @@ body
         font-weight: bold
         text-transform: uppercase
         font-size: 14px
-        color: #5D5D5A
         letter-spacing: 1px
+
+        color: #ccc
+        &:hover
+          color: #fff
+          text-decoration: none
 
 
     &.affix-top
@@ -61,8 +67,10 @@ body
         text-align: center
       ul, li
         display: inline-block
-      .nav-wrapper a
-        padding: 5px 5px
+      .nav-wrapper
+        padding-top: 17px
+        a
+          padding: 5px 5px
       .navbar-header
         position: absolute
         right: 10px
@@ -82,6 +90,8 @@ body
           height: 72px
           overflow: hidden
           opacity: 0.9
+          .container
+            position: relative
         .logo
           top: 5px !important
           left: 10px !important
@@ -108,14 +118,9 @@ body
         .nav-wrapper
           position: absolute
           top: 10px
-          right: 0
-          left: 0
+          right: -20px
           text-align: right
-          a
-            color: #ccc
-            &:hover
-              color: #fff
-              text-decoration: none
+
 
       .affix-placeholder
         height: 495px
@@ -124,10 +129,21 @@ body
 
   @media (max-width: 767px)
     #header
-      .nav-wrapper nav
-        border-bottom: 1px solid #E6E6E6
-        li
-          display: block
+      .nav-wrapper
+        padding: 0 !important
+        nav
+          border-top: 0px
+          border-bottom: 0px
+          li
+            display: block
+      .header
+        .header-inner
+          min-height: 0
+          height: 147px
+          background-size: 80%
+          background-position: center center
+        .logo-sm
+          display: none
       &.affix .nav-wrapper nav
         background: #000
         text-align: center

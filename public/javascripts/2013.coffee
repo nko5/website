@@ -8,7 +8,7 @@ jQuery ($) ->
   $("#header.affixable").affix
     offset:
       top: ->
-        $('#header .header').outerHeight(true)
+        $('#header .header').outerHeight(true) - 60
       bottom: ->
         $('#header .header').outerHeight(true)
 
