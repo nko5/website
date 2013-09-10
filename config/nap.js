@@ -1,6 +1,9 @@
 var env = require('./env');
 global.nap = require('nap');
 
+console.log("NAP CURRENT DIRECTORY:");
+console.log(process.cwd());
+
 nap({
   publicDir: '/public',
   mode: env.node_env === 'production' ? 'production' : 'development',
