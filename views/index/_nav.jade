@@ -1,11 +1,64 @@
-.nav.row
+.nav-wrapper.row
   .container
-    .nav-inner.row
-      .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-        a(href="/teams/new") Registration
-        a(href="#") Prizes
-        a(href="#") Judges
-        a(href="#") Sponsors
-        a(href="#") Rules
-        a(href="#") Resources
-        a(href="#") Blog
+    //- .navbar-nav.nav-inner.row
+    //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+    //-     a(href="/teams/new") Registration
+    //-     a(href="/prizes") Prizes
+    //-     a(href="/judges") Judges
+    //-     a(href="/sponsors") Sponsors
+    //-     a(href="/rules") Rules
+    //-     a(href="/resources") Resources
+    //-     a(href="/blog") Blog
+    .nav-inner.row.navbar-default
+      .navbar-header
+        button.navbar-toggle(type="button", data-toggle="collapse", data-target=".bs-navbar-collapse")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+      nav.collapse.navbar-collapse.bs-navbar-collapse.pull-right(role="navigation")
+        ul.nav.navbar-nav(data-nav-active=active_nav)
+          li
+            a(href="/teams/new") Registration
+          li
+            a(href="/prizes") Prizes
+          li
+            a(href="/judges") Judges
+          li
+            a(href="/sponsors") Sponsors
+          li
+            a(href="/rules") Rules
+          li
+            a(href="/resources") Resources
+          li
+            a(href="/blog") Blog
+
+      //- |     <div class="navbar-header">
+      //- |       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+      //- |         <span class="sr-only">Toggle navigation</span>
+      //- |         <span class="icon-bar"></span>
+      //- |         <span class="icon-bar"></span>
+      //- |         <span class="icon-bar"></span>
+      //- |       </button>
+      //- |     </div>
+      //- |     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      //- |       <ul class="nav navbar-nav">
+      //- |         <li class="active">
+      //- |           <a href="{{ page.base_url }}getting-started">Getting started</a>
+      //- |         </li>
+      //- |         <li>
+      //- |           <a href="{{ page.base_url }}css">CSS</a>
+      //- |         </li>
+      //- |         <li>
+      //- |           <a href="{{ page.base_url }}components">Components</a>
+      //- |         </li>
+      //- |         <li>
+      //- |           <a href="{{ page.base_url }}javascript">JavaScript</a>
+      //- |         </li>
+      //- |         <li>
+      //- |           <a href="{{ page.base_url }}customize">Customize</a>
+      //- |         </li>
+      //- |       </ul>
+      //- |     </nav>
+
