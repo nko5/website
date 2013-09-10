@@ -4,9 +4,12 @@ Person = app.db.model 'Person'
 
 # index
 app.get '/judges', (req, res, next) ->
-  Person.find { role: 'judge' }, (err, judges) ->
-    return next err if err
-    res.render2 'judges', judges: _.shuffle(judges)
+  if app.enabled('pre-registration')
+    res.redirect("http://blog.nodeknockout.com/judges")
+  else
+    Person.find { role: 'judge' }, (err, judges) ->
+      return next err if err
+      res.render2 'judges', judges: _.shuffle(judges)
 
 app.get '/judges/nominations', (req, res, next) ->
   Person.find { role: 'nomination' }, {}, {sort: [['updatedAt', -1]]}, (err, judges) ->

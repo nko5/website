@@ -47,8 +47,13 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     recentDeploys: req.recentDeploys
     interestingTeams: req.interestingTeams
 
-[ 'locations', 'prizes', 'rules', 'sponsors', 'scoring', 'jobs',
-  'how-to-win', 'tell-me-a-story' ].forEach (p) ->
+[ 'rules', 'sponsors'].forEach (p) ->
+  if app.enabled('pre-registration')
+    app.get '/' + p, (req, res) -> res.redirect("http://blog.nodeknockout.com/#{p}")
+  else
+    app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
+
+[ 'locations', 'prizes', 'scoring', 'jobs', 'how-to-win', 'tell-me-a-story' ].forEach (p) ->
   app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
 
 app.get '/about', (req, res) ->
