@@ -714,6 +714,9 @@
                             margin-left: 15px;
                         }
 
+        #search, #search-scope {
+          display:none;
+        }
     </style>
     <!--[if lt IE 7.]>
         <style type="text/css">
@@ -804,7 +807,7 @@
                       <li><a href="http://nodeknockout.com/sponsors">Sponsors</a></li>
                       <li><a href="http://nodeknockout.com/rules">Rules</a></li>
                       <li><a href="http://nodeknockout.com/resources">Resources</a></li>
-                      <li class="active"><a href="http://nodeknockout.com/blog">Blog</a></li>
+                      <li><a href="http://nodeknockout.com/blog">Blog</a></li>
                     </ul>
                   </nav>
                 </div>
