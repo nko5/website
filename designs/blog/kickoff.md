@@ -1,7 +1,7 @@
 # Announcing Node Knockout #4
 
-Node Knockout, the world's biggest, baddest node.js hackathon, is back with a
-vengeance.
+[Node Knockout](http://nodeknockout.com), the world's biggest, baddest node.js
+hackathon, is back.
 
 ## What is it?
 
@@ -13,15 +13,15 @@ Winners get prizes and glory.
 
 ## Sign me up!
 
-Not so fast cowboy! Registration opens next Tues (Sept 17).
+Not so fast cowboy! The competition starts [Nov 9 at 0:00 UTC](http://www.wolframalpha.com/input/?i=November+9%2C+2013+0%3A00+UTC)
+(local times vary). Registration opens **next Tues**, Sept 17.
 
 [Join our email list](http://nodeknockout.com/#subscribe) to be alerted when
 spots are available.
 
 ## Are you fired up?
 
-We're fired up! Let's get ready to rumble! Nov 9-10, 2013 UTC (your local
-dates may vary).
+We're fired up! Let's get ready to rumble!
 
 _Looking to sponsor? Want to judge instead of compete?_
 [Let us know.](mailto:all@nodeknockout.com)
