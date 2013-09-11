@@ -4,7 +4,7 @@ global.nap = require('nap');
 
 // TODO: put this somewhere better
 process.chdir(__dirname+"/../");
-util.debug('NAP CURRENT DIRECTORY: ' + process.cwd());
+// util.debug('NAP CURRENT DIRECTORY: ' + process.cwd());
 
 nap({
   publicDir: '/public',
