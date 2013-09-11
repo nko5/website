@@ -1,147 +1,151 @@
 - title('Rules')
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = "rules"
+  include ../index/_header
 
-  :markdown
-    # Rules
+  .inner-page.container
 
-    ### Node.js
+    :markdown
+      # Rules
 
-    All applications must be built using node.js™. This isn't to say you
-    can't use additional technology to _supplement_ node.js™, like MongoDB™.
+      ### Node.js
 
-    <h3 id="duration">48 Hours</h3>
+      All applications must be built using node.js™. This isn't to say you
+      can't use additional technology to _supplement_ node.js™, like MongoDB™.
 
-    You've got precisely 48 hours to develop your web app during the Knockout,
-    not a minute more. The competition kicks off at [12:00 AM / 00:00 UTC on
-    November 10, 2012][start time] and ends at [12:00 AM / 00:00 UTC on November
-    12, 2012][end time]. Be sure you understand what time that translates to in
-    your local time zone.
+      <h3 id="duration">48 Hours</h3>
 
-    Of course, feel free to work on the _concept_ for your application before the
-    competition starts: pretty hand-drawn pictures on napkins, angry email
-    threads between team members on two-space or four-space indentation, schema
-    designs, finite state machines. Just no digital assets including graphic
-    design assets, code, etc.
+      You've got precisely 48 hours to develop your web app during the Knockout,
+      not a minute more. The competition kicks off at [12:00 AM / 00:00 UTC on
+      November 8, 2012][start time] and ends at [12:00 AM / 00:00 UTC on November
+      10, 2012][end time]. Be sure you understand what time that translates to in
+      your local time zone.
 
-    After those 48 hours are up, judging will ensue. No additional features or
-    bug fixes are allowed during judging, or you will be disqualified. Please
-    don't make us disqualify you; we'll be very sad.
+      Of course, feel free to work on the _concept_ for your application before the
+      competition starts: pretty hand-drawn pictures on napkins, angry email
+      threads between team members on two-space or four-space indentation, schema
+      designs, finite state machines. Just no digital assets including graphic
+      design assets, code, etc.
 
-    <h3 id="teams">Teams and Contestants</h3>
+      After those 48 hours are up, judging will ensue. No additional features or
+      bug fixes are allowed during judging, or you will be disqualified. Please
+      don't make us disqualify you; we'll be very sad.
 
-    Teams are comprised of between one to four individuals. No more than four
-    people are allowed on a team (and no less than one). To be eligible, teams
-    must register at least one week prior to the start of the competition (space
-    subject to availability). Individuals don't need to be programmers nor even
-    know node.js, but both of those definitely help.
+      <h3 id="teams">Teams and Contestants</h3>
 
-    No worries if you work for a sponsor: they won't be able to influence the
-    judging process. Moreover, don't worry if you know a judge either: we'll
-    prevent judges from voting on a team they know personally and they're
-    committed to stay impartial.
+      Teams are comprised of between one to four individuals. No more than four
+      people are allowed on a team (and no less than one). To be eligible, teams
+      must register at least one week prior to the start of the competition (space
+      subject to availability). Individuals don't need to be programmers nor even
+      know node.js, but both of those definitely help.
 
-    <h3 id="scm">Source Control</h3>
+      No worries if you work for a sponsor: they won't be able to influence the
+      judging process. Moreover, don't worry if you know a judge either: we'll
+      prevent judges from voting on a team they know personally and they're
+      committed to stay impartial.
 
-    Source code will be hosted in a shiny, free git repository provided by
-    [GitHub]. We'll send GitHub repo access information before the competition
-    starts. Your team should push regularly to show progress. We'll be watching
-    to make sure people don't cheat (don't think you can develop everything ahead
-    of time and push it all at the end; we know lots of git tricks too).
+      <h3 id="scm">Source Control</h3>
 
-    <h3 id="deployment">Deployment</h3>
+      Source code will be hosted in a shiny, free git repository provided by
+      [GitHub]. We'll send GitHub repo access information before the competition
+      starts. Your team should push regularly to show progress. We'll be watching
+      to make sure people don't cheat (don't think you can develop everything ahead
+      of time and push it all at the end; we know lots of git tricks too).
 
-    [nodejitsu] will provide free, private instances to deploy your code to
-    during the competition. Expect login information before the competition
-    starts.
+      <h3 id="deployment">Deployment</h3>
 
-    In order to ensure that no code is changed during the judging week, all
-    contestants must deploy their apps to the [nodejitsu] instances provided
-    for the competition. You cannot deploy to any other server, no matter how
-    face-meltingly awesome it is.
+      [nodejitsu] will provide free, private instances to deploy your code to
+      during the competition. Expect login information before the competition
+      starts.
 
-    Entries will remain up until winners are announced. During judging, we will
-    have access to make sure there is no cheating, including comparing deployed
-    code with that in the git repo. After the 48-hour deadline, you will still
-    be allowed to restart processes, free up disk space, and other general
-    sysadmin tasks, including playing lots of StarCraft 2.
+      In order to ensure that no code is changed during the judging week, all
+      contestants must deploy their apps to the [nodejitsu] instances provided
+      for the competition. You cannot deploy to any other server, no matter how
+      face-meltingly awesome it is.
 
-    <h3 id="web">Web Application</h3>
+      Entries will remain up until winners are announced. During judging, we will
+      have access to make sure there is no cheating, including comparing deployed
+      code with that in the git repo. After the 48-hour deadline, you will still
+      be allowed to restart processes, free up disk space, and other general
+      sysadmin tasks, including playing lots of StarCraft 2.
 
-    Entries _should_ be web applications. It's hard for judges (especially the
-    general public) to fairly evaluate entries that require compilation or setup.
-    If you want to submit a non-web app, you're welcome to, but you aren't likely
-    to get judged fairly. If an app is not a website, but some library, utility,
-    or desktop program, then it must be deployed to the [npm] registry.
+      <h3 id="web">Web Application</h3>
 
-    If you do decide to submit something that isn't immediately accessible via
-    the web, then we encourage you to think of a clever way to share it as a
-    website (e.g. via [VNC]) or market it (e.g. [jQuery Quicksand]).
+      Entries _should_ be web applications. It's hard for judges (especially the
+      general public) to fairly evaluate entries that require compilation or setup.
+      If you want to submit a non-web app, you're welcome to, but you aren't likely
+      to get judged fairly. If an app is not a website, but some library, utility,
+      or desktop program, then it must be deployed to the [npm] registry.
 
-    <h3 id="technical">Technical Entries</h3>
+      If you do decide to submit something that isn't immediately accessible via
+      the web, then we encourage you to think of a clever way to share it as a
+      website (e.g. via [VNC]) or market it (e.g. [jQuery Quicksand]).
 
-    If you want to make sure that the expert judges looking at your app have a
-    technical background, you'll have an option to label your entry so. We'll
-    assign technical judges accordingly, but there are no guarantees that your
-    assigned judges will have any given specific expertise. Also, other
-    non-technical judges may still be called on to judge your app if technical
-    entries greatly outnumber technical judges.
+      <h3 id="technical">Technical Entries</h3>
 
-    <h3 id="libraries">Libraries</h3>
+      If you want to make sure that the expert judges looking at your app have a
+      technical background, you'll have an option to label your entry so. We'll
+      assign technical judges accordingly, but there are no guarantees that your
+      assigned judges will have any given specific expertise. Also, other
+      non-technical judges may still be called on to judge your app if technical
+      entries greatly outnumber technical judges.
 
-    Libraries, plugins, and modules that are public and freely available are
-    allowed and encouraged. During judging, please list all libraries that you
-    use on your team's profile page to give credit where it's due. Stock photos
-    and free icon sets are allowed. Paying for something that is not generally
-    available to everyone else is not allowed, and not nice.
+      <h3 id="libraries">Libraries</h3>
 
-    Developing a library in secret before the competition that provides the same
-    general functionality of your entry and releasing it a day before will
-    likely get you disqualified and called sneaky. On the other hand, developing
-    a library that is publicly available and provides a general-purpose, publicly
-    usable function can be done before the competition begins.
+      Libraries, plugins, and modules that are public and freely available are
+      allowed and encouraged. During judging, please list all libraries that you
+      use on your team's profile page to give credit where it's due. Stock photos
+      and free icon sets are allowed. Paying for something that is not generally
+      available to everyone else is not allowed, and not nice.
 
-    <h3 id="services">Web Services</h3>
+      Developing a library in secret before the competition that provides the same
+      general functionality of your entry and releasing it a day before will
+      likely get you disqualified and called sneaky. On the other hand, developing
+      a library that is publicly available and provides a general-purpose, publicly
+      usable function can be done before the competition begins.
 
-    We encourage use of third-party web services and their APIs (e.g. Twitter,
-    Flickr, Google maps). Almost everyone loves mashups.  Again, make sure to
-    update your team profile with what services you use.
+      <h3 id="services">Web Services</h3>
 
-    <h3 id="ownership">Ownership and Open Source</h3>
+      We encourage use of third-party web services and their APIs (e.g. Twitter,
+      Flickr, Google maps). Almost everyone loves mashups.  Again, make sure to
+      update your team profile with what services you use.
 
-    The code you write is yours. If you intend to share it after the competition,
-    you can pick whatever license you love. We encourage contestants to open
-    source their code, but it's totally up to you. If you want to start a
-    business based on it, awesome.
+      <h3 id="ownership">Ownership and Open Source</h3>
 
-    Note however, we will have access to your GitHub repository during the
-    competition to audit for cheating, but we won't steal any of your secret
-    recipes or patent-pending algorithms. Stealing will get us disqualified.
+      The code you write is yours. If you intend to share it after the competition,
+      you can pick whatever license you love. We encourage contestants to open
+      source their code, but it's totally up to you. If you want to start a
+      business based on it, awesome.
 
-    <h3 id="scoring">Scoring</h3>
+      Note however, we will have access to your GitHub repository during the
+      competition to audit for cheating, but we won't steal any of your secret
+      recipes or patent-pending algorithms. Stealing will get us disqualified.
 
-    Winners will be picked by a mixture of voting by judges, contestants, and
-    the general public. More details are forthcoming.
+      <h3 id="scoring">Scoring</h3>
 
-    <h3 id="misc">Miscellany</h3>
+      Winners will be picked by a mixture of voting by judges, contestants, and
+      the general public. More details are forthcoming.
 
-    Don't break any laws. Don't harm any animals (especially [potbellied pigs]).
-    Wear sunscreen and have fun. This is all for fun and glory, so don't hurt
-    yourself.
+      <h3 id="misc">Miscellany</h3>
 
-    <h3 id="questions">Questions?</h3>
+      Don't break any laws. Don't harm any animals (especially [potbellied pigs]).
+      Wear sunscreen and have fun. This is all for fun and glory, so don't hurt
+      yourself.
 
-    [Email] or [tweet] us.
+      <h3 id="questions">Questions?</h3>
 
-    [start time]: http://www.wolframalpha.com/input/?i=November+10%2C+2012+0%3A00+UTC
-    [end time]: http://www.wolframalpha.com/input/?i=November+12%2C+2012+0%3A00+UTC
-    [GitHub]: https://github.com/
-    [nodejitsu]: http://nodejitsu.com/
-    [npm]: http://npmjs.org/
-    [VNC]: http://guacamole.sourceforge.net/
-    [CoffeeScript]: http://jashkenas.github.com/coffee-script/
-    [jQuery Quicksand]: http://razorjack.net/quicksand/
-    [potbellied pigs]: http://www.potbellypigs.com/
-    [Email]: mailto:all@nodeknockout.com
-    [tweet]: http://twitter.com/node_knockout
+      [Email] or [tweet] us.
+
+      [start time]: http://www.wolframalpha.com/input/?i=November+10%2C+2012+0%3A00+UTC
+      [end time]: http://www.wolframalpha.com/input/?i=November+12%2C+2012+0%3A00+UTC
+      [GitHub]: https://github.com/
+      [nodejitsu]: http://nodejitsu.com/
+      [npm]: http://npmjs.org/
+      [VNC]: http://guacamole.sourceforge.net/
+      [CoffeeScript]: http://jashkenas.github.com/coffee-script/
+      [jQuery Quicksand]: http://razorjack.net/quicksand/
+      [potbellied pigs]: http://www.potbellypigs.com/
+      [Email]: mailto:all@nodeknockout.com
+      [tweet]: http://twitter.com/node_knockout

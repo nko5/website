@@ -90,9 +90,6 @@ module.exports = (app) ->
         req.pageTitle = title if title
         req.pageTitle
 
-    active_nav: ->
-      ""
-
     admin: (req, res) -> req.user?.admin
 
     flash: (req, res) -> {} # req.flash()

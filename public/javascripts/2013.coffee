@@ -9,8 +9,6 @@ jQuery ($) ->
     offset:
       top: ->
         $('#header .header').outerHeight(true) - 60
-      bottom: ->
-        $('#header .header').outerHeight(true)
 
   $(".subscribe-btn").click (e) ->
     $(".signup-form input[type=email]").focus()

@@ -1,7 +1,10 @@
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = 'registration'
+  include ../index/_header
 
+  .inner-page.container
     if registration
       - title('Too many teams!')
 

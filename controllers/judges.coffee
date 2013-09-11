@@ -5,7 +5,7 @@ Person = app.db.model 'Person'
 # index
 app.get '/judges', (req, res, next) ->
   if app.enabled('pre-registration')
-    res.redirect("http://blog.nodeknockout.com/judges")
+    res.redirect("/judges/suggest")
   else
     Person.find { role: 'judge' }, (err, judges) ->
       return next err if err
@@ -24,6 +24,9 @@ app.get '/judges/technical', (req, res, next) ->
 # new
 app.get '/judges/new', (req, res, next) ->
   res.render2 'judges/new', person: new Person(role: 'nomination')
+
+app.get '/judges/suggest', (req, res, next) ->
+  res.render2 'judges/suggest'
 
 # create
 app.post '/judges', (req, res) ->

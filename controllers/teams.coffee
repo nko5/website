@@ -5,6 +5,7 @@ m = require './middleware'
 
 # index
 app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
+  req.currentNav = "teams"
   page = (req.param('page') or 1) - 1
   query = {}
   query.peopleIds = { $size: 0 } if req.params[0]
