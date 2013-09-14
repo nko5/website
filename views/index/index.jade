@@ -1,330 +1,331 @@
-extends ../layout
+extends ../layout-2013
 
 block body
-
-  .about
-    :markdown
-      Node Knockout is a 48-hour hackathon featuring Node.js. It's an online, virtual competition with contestants worldwide. [Learn more](/about)
-
-  if registration || preRegistration
-    section.when
-      h3 node.js knockout 2013 is
-        .dates
-          a( href="#" )
-            time.start( datetime="2013-11-08T00:00:00Z" ) Nov 8, 2013
-          | &nbsp;-&nbsp;
-          a( href="#" )
-            time.end( datetime="2013-11-10T00:00:00Z" ) Nov 10, 2013
-          |  UTC
-      //- #countdown from now
-
-      if registration
-        if req.canRegister
-          h1 Registration is Open
-          if req.team
-            p Your team: <a href="/teams/#{team}">#{team.name}</a>
-          else
-            p: a.register.button( href="/teams/new" ) Register Now
-          p: i= req.teamsLeft + " spots remaining"
-        else
-          h1 Registration is Full
-          p: a( href="/teams/new" ) More spots on Aug 7 at 0:00 & 12:00 UTC
-
-  else if winners
-    include winners
-
-  else
-    h1 Timeline
-
-    table.timeline
-      thead: tr: th.time Local Time
-
-      if !voting
-        tbody
-          tr.header
-            td.time( datetime='2013-11-03T00:00:00Z' )
-            td Registration closes
-          tr: td( colspan=3 ): .details
-            :markdown
-              ### GET READY&hellip; NKO4 starts soon
-
-              Here are some things to think about before the competition begins:
-
-              1. **Where are you coding?** The [locations page] has great options.
-              2. **What tools should you use?** Check out our [tutorials] and
-              [free services] provided by sponsors.
-              3. **How are you going to win?** See the [rules] and [scoring page].
-
-              **Keep an eye out.** We'll set up [GitHub repos] and [Nodejitsu]
-              accounts for teams soon.
-
-              [locations page]: /locations
-              [tutorials]: /resources#tutorials
-              [free services]: /resources#services
-              [rules]: /rules
-              [scoring page]: /scoring
-              [GitHub repos]: https://github.com/nko4
-              [Nodejitsu]: http://nodejitsu.com/
-
-        tbody
-          tr.header
-            td.time( datetime='2013-11-08T00:00:00Z' )
-            td Coding starts
-          tr: td( colspan=3 ): .details
-            h3 START CODING
-            if coding
-              if req.team
-                :markdown
-                  NKO4 is underway! Here&rsquo;s how to get started:
-                  ```sh
-                  $ git clone git@github.com:nko4/#{team}.git
-                  $ cd #{team}/
-                  $ npm install -g jitsu
-                  $ jitsu login --username nko4-#{team} --password #{team.code}
-                  $ jitsu deploy
-                  ```
-
-                  Visit [your team page](/teams/mine) for more.
-              else
-                :markdown
-                  NKO4 is underway! GO GO GO!
-
-                  Visit [your team page](/teams/mine) for deploy instructions.
-            else
-              p Stay tuned for deploy instructions.
-
-        tbody.minor
-          tr.header
-            td.time( datetime='2013-11-08T02:30:00Z' )
-            td Organizers&rsquo; welcome
-          tr: td( colspan=3 ): .details
-            :markdown
-              ### Welcome to NKO
-
-              NKO organizers [Gerad] and [Visnu] will welcome contestants, then
-              node.js benevolent dictator [Isaac Schlueter] will speak.
-
-              [Gerad]: /people/5081a809900f17fc54000005
-              [Visnu]: /people/50873a56cd668ae92300005f
-              [Isaac Schlueter]: /people/50835324a9f1fbd123eef7cb
-
-              <!---
-              <iframe src="http://www.ustream.tv/embed/12535757" width="558" height="330" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Live Video streaming by Ustream</a>
-              -->
-
-        tbody.minor
-          tr.header
-            td.time( datetime='2013-11-10T03:00:00Z' )
-            td Coding continues
-          tr: td( colspan=3 ): .details
-            ul#overall-stats
-              li.commits
-                .number= stats.commits
-                .name Commits
-              li.pushes
-                .number= stats.pushes
-                .name Pushes
-              li.deploys
-                .number= stats.deploys
-                .name Deploys
-            if req.user && req.user.contestant
-              :markdown
-                ### Keep Hacking
-                Visit [your team page](/teams/mine) for instructions.
-            else
-              h2 What&rsquo;s happening
-
-            #recent-deploys
-              each team in recentDeploys
-                include entry-info
-            //- template( id="entry-info" ):
-            //-   include entry-info
-
-        tbody.minor
-          tr.header
-            td.time( datetime='2012-11-11T22:00:00Z' )
-            td Almost over
-          tr: td( colspan=3 ): .details
-            :markdown
-              ### Almost over, Deploy now!
-
-              You really, really should have deployed by now, but if you haven't
-              <strong class="scary">please deploy right now</strong>. Visit
-              [your team page](/teams/mine) for instructions.
-
-      tbody
-        tr.header
-          td.time( datetime='2012-11-12T00:00:00Z' )
-          td Coding ends
-        tr: td( colspan=3 ): .details
-          :markdown
-            ### Pencils down! Time's up!
-
-            <strong class="scary">Stop pushing to your GitHub repo now!</strong>
-
-            **Something horribly broken?** Use this grace period to activate any
-            snapshot you've previously deployed. Use `jitsu snapshots activate`
-            ([docs](http://handbook.jit.su/#Snapshots)) to do this.
-
-            **Everything peachy?** Make sure your app is submitted for voting.
-            The top of your [team page](/teams/mine) should look like this:
-
-          ul.steps
-            li.done: a( href='/teams/mine' ) Deploy
-            li.done: a( href='/teams/mine' ) Entry info
-            li.done: a( href='/teams/mine' ) Submit for voting
-
-      tbody
-        tr.header
-          td.time( datetime='2012-11-12T00:30:00Z' )
-          td Demos
-
-
-        tr: td( colspan=3 ): .details
-          :markdown
-            ### Demo Time!!
-
-            Your final submission for the competition should now be deployed.
-            If you&rsquo;re still standing, we&rsquo;ve got time for some quick
-            demos.
-
-            <!---
-            <iframe src="http://www.ustream.tv/embed/12535757" width="558" height="330" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Live Video streaming by Ustream</a>
-            -->
-
-            [Email us](mailto:all@nodeknockout.com) if you would like to be
-            included in the Google Hangout.
-
-            ### Grace period extended
-
-            We'll get everyone deployed. The mad rush of everyone trying to
-            deploy to Nodejitsu was a bit much. Huge sorry for not anticipating
-            all the enthusiam.
-
-            Feel free to keep trying to deploy your code on Nodejitsu. #nodejitsu
-            on IRC is the best place to get some help.
-
-            Code changes to fix any last minute deploy issues for the next hour
-            __are__ going to be allowed. No other code changes are allowed.
-
-            If you have questions, please contact <all@nodeknockout.com>.
-
-      tbody
-        tr.header
-          td.time( datetime='2012-11-12T02:00:00Z' )
-          td Contestant, public judging open
-        tr: td( colspan=3 ): .details
-          :markdown
-            ### Voting is open
-
-            **First,** you should make sure your entry is eligible for voting.
-            The top of **your [team page](/teams/mine) should look like this:**
-
-          ul.steps
-            li.done: a( href='/teams/mine' ) Deploy
-            li.done: a( href='/teams/mine' ) Entry info
-            li.done: a( href='/teams/mine' ) Submit for voting
-
-          :markdown
-            **Then,** check out [the entries](/entries) and [go vote](/people/me) on your
-            fellow contestants.
-
-          p.button: a.button( href="/people/me" ) Start Voting &raquo;
-
-          :markdown
-            Also, don't forget to share your work with friends. They can help
-            you win the popular vote. Just point them to your
-            [team page](/teams/mine).
-
-      tbody#expert-judging
-        tr.header
-          td.time( datetime='2012-11-12T12:00:00Z' )
-          td Expert judging starts
-        tr: td( colspan=3 ): .details
-          if req.user && req.user.judge
-            h3 Judging Starts Now
-
-            p.button: a.button( href="/people/me" ) Start Judging &raquo;
-
-            :markdown
-              **Please vote early and often, as teams are quite excited for your
-              input.**
-
-              Here are descriptions to help you when you're rating entries:
-
-              1. **Innovation** - How original is the idea and execution?
-              2. **Design** - How good does it look and feel to use?
-              3. **Utility / Fun** - Is the site offering a service I'd use again and again?
-              4. **Completeness** - How "fully baked" is the site? Are there bugs or dead ends?
-
-              Please try to [grade along a curve](http://en.wikipedia.org/wiki/Grading_on_a_curve)
-              with an **average score of 3.5 stars**.
-          else
-            :markdown
-              ### Voting
-
-              Voting is happening now. Here are some interesting entries to
-              to review. [See all entries&hellip;](/entries)
-
-            #interesting-teams
-              each team in interestingTeams
-                include entry-info
-
-      if req.user && req.user.judge
-        tbody.minor
-          tr.header
-            td.time( datetime='2012-11-17T18:00:00Z' )
-            td Finalist judging brunch
-          tr: td( colspan=3 ): .details
-            :markdown
-              ### Finalist Judging Brunch
-
-              Come to [Voxer] ([760 Market, 5th Floor]) to eat tasty treats and
-              review finalists with other judges.
-
-              Since many of the apps are likely to be multiplayer, it will be a
-              ton of fun to judge them together, so bring your laptop or tablet.
-
-              _The brunch video feed will be posted here before the event begins._
-
-              [Email us](mailto:all@nodeknockout.com) if you would like to be
-              included in the Google Hangout.
-
-              [Voxer]: http://voxer.com
-              [760 Market, 5th Floor]: https://maps.google.com/maps?q=760+market+street+san+francisco&hl=en&ll=37.786216,-122.405484&spn=0.010429,0.019526&sll=37.0625,-95.677068&sspn=42.631141,79.980469&hnear=760+Market+St,+San+Francisco,+California+94102&t=m&z=16
-
-      tbody
-        tr.header
-          td.time( datetime='2012-11-18T00:00:00Z' )
-          td Judging ends
-        tr: td( colspan=3 ): .details
-          :markdown
-            ### Whew! That&rsquo;s it
-
-            Sit tight while we audit votes and calculate final scores.
-            Preliminary rankings can be found on the [entries page](/entries).
-
-      tbody
-        tr.header
-          td.time( datetime='2012-11-20T00:00:00Z' )
-          td Winners announced
-        tr: td( colspan=3 ): .details
-          :markdown
-            ### No winners yet
-
-            _Winners will be announced here when we&rsquo;ve determined them._
-
-    :markdown
-      # Help
-
-      We're here and ready to help if anything goes wrong. Find us on IRC on
-      Freenode on [#nodeknockout], [email us], or [tweet us].
-
-      [#nodeknockout]: irc://freenode.net/nodeknockout
-      [email us]: mailto:all@nodeknockout.com
-      [tweet us]: https://twitter.com/node_knockout
-
-  section.ps
-    p.ps.
-      P.S. This is a massively-multiplayer website: click around and chat with
-      other visitors. Click on the lamp post for easier chatting.
+  #landing
+    include _header
+
+    .body-wrapper.container
+
+      a(name="registration")
+      .main-section.landing-section.row
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+
+          label Main Event
+          h2
+            | Nov 8-10
+            span.sep •
+            | 2013
+
+          if preRegistration
+            .pre-registration
+              p
+                | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
+                | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
+          else if registration
+            .registration
+              a.btn.btn-super.btn-primary(href="/teams/new") Register
+
+      .intro-section.landing-section
+        hr
+        .row
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            h3 About NKO2013
+
+        .row
+          .col.col-md-5.col-sm-5.col-xs-5.col-lg-5
+            p.about
+              | Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.
+
+          .col.col-md-5.col-md-offset-2.col-sm-5.col-sm-offset-2.col-xs-7.col-lg-5.col-lg-offset-2
+            .nko-dates
+              h4
+                | IMPORTANT DATES TO REMEMBER
+              .date-row
+                .date-label
+                  | OPEN FOR REGISTRATION
+                .date-date
+                  | SEPTEMBER 17, 2013
+              .date-row
+                .date-label
+                  | COMPETITION DATES
+                .date-date
+                  | NOVEMBER 8-10, 2013
+              .date-row
+                .date-label
+                  | JUDGING PERIOD
+                .date-date
+                  | NOVEMBER 11-17, 2013
+              .date-row
+                .date-label
+                  | WINNERS ANNOUNCED
+                .date-date
+                  | NOVEMBER 18, 2013
+
+              .clear
+
+
+      .sponsors-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          h3 PREVIOUS YEARS SPONSORS
+          p
+            a.btn.btn-super.btn-primary(href="/sponsors") SIGN UP TO SPONSOR NKO 2013
+
+          .sponsor-grid
+
+            .row
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://joyent.com", style="background-image:url(/logos/joyent.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://nodejitsu.com", style="background-image:url('/logos/nodejitsu.jpg');")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://heroku.com", style="background-image:url('/logos/heroku.jpg');")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://google.com", style="background-image:url('/logos/google.jpg');")
+
+            .row
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://dropbox.com", style="background-image:url('/logos/dropbox.jpg');")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://github.com", style="background-image:url('/logos/github.jpg');")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://linode.com", style="background-image:url(/logos/linode.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://mozilla.com", style="background-image:url(/logos/mozilla.jpg);")
+
+            .row
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://braintree.com", style="background-image:url(/logos/braintree.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://mongodb.com", style="background-image:url(/logos/mongodb.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://twilio.com", style="background-image:url(/logos/twilio.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://adobe.com", style="background-image:url(/logos/adobe.jpg);")
+
+
+      //-
+        .prizes-section.landing-section.row
+          hr
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            h3 PRIZES
+            //- TODO: PRIZES SECTION (TABS)
+
+      //-
+        .judges-section.landing-section.row
+          hr
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            p.nominate-msg
+              | Nominate a judge by filling out <a href="/">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
+            h3 JUDGES
+            .judges-grid.row
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+              .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                .person
+                  a(href="http://twitter.com/dshaw")
+                    .avatar(style="background-image:url('/avatars/dshaw.png');")
+                      img(src="/images/2013/transparent.png")
+                    label Daniel Shaw
+                  ul.links
+                    li
+                      a(href="http://twitter.com/dshaw")
+                        i.icon-twitter
+                    li
+                      a(href="http://linkedin.com/in/dshaw")
+                        i.icon-linkedin
+
+
+
+      .about-section.landing-section.row
+        hr
+        .col.col-md-4.col-sm-4.col-xs-4.col-lg-4.press-section
+          h3 POSTER
+          //- p
+          //-   a.btn.btn-primary.btn-lg(href="#") Images (zip)
+          //-   a.btn.btn-primary.btn-lg(href="#") PDF / Text
+
+          .download
+            a.poster-thumbnail(href="/poster.pdf")
+            a.btn.btn-md.btn-primary(href="/poster.pdf")
+              | Download Poster
+
+            p.download-step
+              strong Step 1:
+              | Download and print this poster and put it in your break room.
+            p.download-step
+              strong Step 2:
+              | Get fired up!
+
+
+        .col.col-md-8.col-sm-8.col-xs-8.col-lg-8
+          h3 NKO 2013 ORGANIZERS
+          .row
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/gerad")
+                  .avatar(style="background-image:url('/avatars/gerad.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Gerad Suyderhoud
+                ul.links
+                  li
+                    a(href="http://twitter.com/gerad")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/geradsuyderhoud")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:gerad@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/ashbhoopathy")
+                  .avatar(style="background-image:url('/avatars/ashbhoopathy.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Ash Bhoopathy
+                ul.links
+                  li
+                    a(href="http://twitter.com/ashbhoopathy")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/ashbhoopathy")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:ash@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/jacquescrocker")
+                  .avatar(style="background-image:url('/avatars/jacquescrocker.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Jacques Crocker
+                ul.links
+                  li
+                    a(href="http://twitter.com/jacquescrocker")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/jacquescrocker")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:jacques@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/humanbagel")
+                  .avatar(style="background-image:url('/avatars/humanbagel.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Rich Lengsavath
+                ul.links
+                  li
+                    a(href="http://twitter.com/humanbagel")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/richlengsavath")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:rich@nodeknockout.com")
+                      i.icon-email
+
+
+
+    .connect.landing-section
+      .container
+        .row
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            //- POPULATED WITH TWEETS
+            | <a class="twitter-timeline" href="https://twitter.com/node_knockout" data-widget-id="377277154146283520">Tweets by @node_knockout</a>
+            | <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            h3
+              | FROM OUR BLOG
+
+            //- POPULATED WITH TUMBLR POSTS
+            div#tumblr-posts
+
+
+    footer
+      .container
+        .subscribe-section.row
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            a(name="subscribe")
+            div#mc_embed_signup
+              form.validate.signup-form(action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", target="_blank", novalidate)
+                input.email-field.email(type="email", value="", name="EMAIL", id="mce-EMAIL", placeholder="Subscribe with your email to stay up to date on NKO...", required)
+                input.btn.btn-super.btn-primary(type="submit", value="Subscribe", name="subscribe", id="mc-embedded-subscribe")
+
+        .footer-bottom.row
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            | © 2013 NodeKnockout
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6.contact-links
+            a(href="mailto:all@nodeknockout.com")
+              i.icon-email2
+              | all@nodeknockout.com
+            a(href="http://twitter.com/node_knockout")
+              i.icon-twitter2
+              | @node_knockout
+
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3.previous-competition-links
+            a(href="http://2010.nodeknockout.com")
+              | 2010
+            a(href="http://2011.nodeknockout.com")
+              | 2011
+            a(href="http://2012.nodeknockout.com")
+              | 2012

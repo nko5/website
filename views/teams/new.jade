@@ -1,15 +1,18 @@
 - title('Register')
 
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = 'registration'
+  include ../index/_header
 
-  h1 Register a Team
+  .inner-page.container
+    h1 Register a Team
 
-  p
-    | Not sure? No worries! You can update these details (including membership
-    | changes) after registration too.
+    p
+      | Not sure? No worries! You can update these details (including membership
+      | changes) after registration too.
 
-  form( method='POST', action='/teams' )
-    include form
-    input( type='submit', value='Register' )
+    form( method='POST', action='/teams' )
+      include form
+      input( type='submit', value='Register' )

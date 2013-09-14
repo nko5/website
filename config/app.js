@@ -57,9 +57,9 @@ app.twitter = new Twitter(secrets.twitterUser)
 
 
 // state (getting pretty gross)
-app.disable('pre-registration');  // just the countdown
+app.enable('pre-registration');  // just the countdown
 app.disable('registration');       // months beforehand
-app.enable('pre-coding');        // week beforehand
+app.disable('pre-coding');        // week beforehand
 app.disable('coding');            // coding + several hours before
 app.disable('voting');            // after
 app.disable('winners');        // after winners are selected
@@ -67,6 +67,7 @@ app.disable('winners');        // after winners are selected
 
 app.configure(function() {
   var assetManager = require('./assetmanager')(app);
+  require('./nap');
 
   app.use(express.compress());
   app.use(assetManager);
@@ -77,6 +78,8 @@ app.configure(function() {
 
 app.configure('development', function() {
   app.use(express.static(app.paths.public));
+  app.use(nap.middleware);
+  app.locals.pretty = true;
   require('../lib/mongo-log')(app.db.mongo);
 });
 app.configure('production', function() {
@@ -153,7 +156,7 @@ app.configure(function() {
     res.type('txt').send('Not found');
   });
 
-  // var ratchetErrorHandler = ratchetio.errorHandler(); No key for this thing around here  
+  // var ratchetErrorHandler = ratchetio.errorHandler(); No key for this thing around here
   // app.use(function(err, req, res, next) {
   //   if (typeof(err) !== 'number') {
   //     ratchetErrorHandler(err, req, res, next);
@@ -179,7 +182,7 @@ server.listen(port);
 app.ws.set('log level', 1);
 app.ws.set('browser client minification', true);
 
-server.on('listening', function() { 
+server.on('listening', function() {
   require('util').log('listening on ' + ('0.0.0.0:' + port).cyan);
 
   // if run as root, downgrade to the owner of this file

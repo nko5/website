@@ -429,23 +429,26 @@
       }
     },
     "stylus": {
-      "version": "0.32.1",
-      "from": "https://registry.npmjs.org/stylus/-/stylus-0.32.1.tgz",
-      "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.32.1.tgz",
+      "version": "0.37.0",
+      "from": "stylus@0.37.0",
+      "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.37.0.tgz",
       "dependencies": {
         "cssom": {
           "version": "0.2.5",
-          "from": "cssom@0.2.5"
+          "from": "cssom@0.2.x"
         },
         "mkdirp": {
           "version": "0.3.5",
-          "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz",
-          "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.5.tgz"
+          "from": "mkdirp@0.3.x"
         },
         "debug": {
           "version": "0.7.2",
-          "from": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-0.7.2.tgz"
+          "from": "debug@*"
+        },
+        "sax": {
+          "version": "0.5.5",
+          "from": "sax@0.5.x",
+          "resolved": "https://registry.npmjs.org/sax/-/sax-0.5.5.tgz"
         }
       }
     },
@@ -638,6 +641,106 @@
     "connect-flash": {
       "version": "0.1.1",
       "from": "connect-flash@~0.1.1"
+    },
+    "nap": {
+      "version": "0.7.8",
+      "from": "nap@",
+      "resolved": "https://registry.npmjs.org/nap/-/nap-0.7.8.tgz",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.4.0",
+          "from": "coffee-script@~1.4.0"
+        },
+        "underscore.string": {
+          "version": "2.3.3",
+          "from": "underscore.string@~2.3.0",
+          "resolved": "https://registry.npmjs.org/underscore.string/-/underscore.string-2.3.3.tgz"
+        },
+        "sqwish": {
+          "version": "0.2.1",
+          "from": "sqwish@~0.2.0",
+          "resolved": "https://registry.npmjs.org/sqwish/-/sqwish-0.2.1.tgz"
+        },
+        "mkdirp": {
+          "version": "0.3.5",
+          "from": "mkdirp@~0.3.4"
+        },
+        "file": {
+          "version": "0.2.1",
+          "from": "file@~0.2.1",
+          "resolved": "https://registry.npmjs.org/file/-/file-0.2.1.tgz"
+        },
+        "glob": {
+          "version": "3.1.21",
+          "from": "glob@~3.1.14",
+          "dependencies": {
+            "minimatch": {
+              "version": "0.2.12",
+              "from": "minimatch@~0.2.11",
+              "dependencies": {
+                "lru-cache": {
+                  "version": "2.3.1",
+                  "from": "lru-cache@2",
+                  "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.3.1.tgz"
+                },
+                "sigmund": {
+                  "version": "1.0.0",
+                  "from": "sigmund@~1.0.0"
+                }
+              }
+            },
+            "graceful-fs": {
+              "version": "1.2.3",
+              "from": "graceful-fs@~1.2.0",
+              "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-1.2.3.tgz"
+            },
+            "inherits": {
+              "version": "1.0.0",
+              "from": "inherits@1"
+            }
+          }
+        },
+        "rimraf": {
+          "version": "2.0.3",
+          "from": "rimraf@~2.0.2",
+          "dependencies": {
+            "graceful-fs": {
+              "version": "1.1.14",
+              "from": "graceful-fs@~1.1"
+            }
+          }
+        }
+      }
+    },
+    "nib": {
+      "version": "1.0.1",
+      "from": "nib@",
+      "resolved": "https://registry.npmjs.org/nib/-/nib-1.0.1.tgz",
+      "dependencies": {
+        "stylus": {
+          "version": "0.35.1",
+          "from": "stylus@~0.35.1",
+          "resolved": "https://registry.npmjs.org/stylus/-/stylus-0.35.1.tgz",
+          "dependencies": {
+            "cssom": {
+              "version": "0.2.5",
+              "from": "cssom@0.2.x"
+            },
+            "mkdirp": {
+              "version": "0.3.5",
+              "from": "mkdirp@0.3.x"
+            },
+            "debug": {
+              "version": "0.7.2",
+              "from": "debug@*"
+            },
+            "sax": {
+              "version": "0.5.5",
+              "from": "sax@0.5.x"
+            }
+          }
+        }
+      }
     },
     "nodemon": {
       "version": "0.6.18",

@@ -1,0 +1,34 @@
+.nav-wrapper
+  .nav-inner.row.navbar-default
+    .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+      .navbar-header
+        button.navbar-toggle(type="button", data-toggle="collapse", data-target=".bs-navbar-collapse")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+      nav.collapse.navbar-collapse.bs-navbar-collapse.pull-right(role="navigation")
+        - if(typeof(activeNav) === "undefined")
+          - var activeNav = "";
+        ul.nav.navbar-nav
+          li(class=(activeNav === 'registration' ? 'active' : ''))
+            a(href="/teams/new") Registration
+
+          li(class=(activeNav === 'prizes' ? 'active' : ''))
+            a(href="/prizes") Prizes
+
+          li(class=(activeNav === 'judges' ? 'active' : ''))
+            a(href="/judges") Judges
+
+          li(class=(activeNav === 'sponsors' ? 'active' : ''))
+            a(href="/sponsors") Sponsors
+
+          li(class=(activeNav === 'rules' ? 'active' : ''))
+            a(href="/rules") Rules
+
+          li(class=(activeNav === 'resources' ? 'active' : ''))
+            a(href="/resources") Resources
+
+          li(class=(activeNav === 'blog' ? 'active' : ''))
+            a(href="/blog") Blog

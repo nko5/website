@@ -7,3 +7,5 @@ config/secrets.coffee
 config/secrets.js
 .npm-debug.log
 testuser.md
+public/assets
+*.sublime-workspace
