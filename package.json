@@ -42,7 +42,8 @@
     "jadevu": "*",
     "ntwitter": "*",
     "mongoose-auth": "0.0.12",
-    "connect-flash": "~0.1.1"
+    "connect-flash": "~0.1.1",
+    "twit": "~1.1.9"
   },
   "devDependencies": {
     "nodemon": "*",
