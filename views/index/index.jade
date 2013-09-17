@@ -16,26 +16,33 @@ block body
             span.sep •
             | 2013
 
-          if preRegistration
-            .pre-registration
-              p
-                | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
-                | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
-          else if registration
-            .registration
-              if req.canRegister
-                h3 Registration is Open
-                if req.myTeam
-                  a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") Your Team: #{req.myTeam.name}
-                else
-                  p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
-                    | Register Now
-                    i= req.teamsLeft + " spots remaining"
+          //- if preRegistration
+          //-   .pre-registration
+          //-     p
+          //-       | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
+          //-       | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
+          //- else if registration
+          //-   .registration
+          //-     if req.canRegister
+          //-       h3 Registration is Open
+          //-       if req.myTeam
+          //-         a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") Your Team: #{req.myTeam.name}
+          //-       else
+          //-         p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
+          //-           | Register Now
+          //-           i= req.teamsLeft + " spots remaining"
 
-              else
-                h3 Registration is currently full.
-                p
-                  | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+          //-     else
+          //-       h3 Registration is currently full.
+          //-       p
+          //-         | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+          
+
+          //- soft launch
+          .pre-registration
+            p
+              | Registration is set to open on <strong>today</strong>.<br>
+              | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
 
       .intro-section.landing-section
         hr
