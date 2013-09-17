@@ -33,7 +33,6 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
         layout = req.header('x-pjax')? || !req.xhr
         res.render2 'teams', teams: teams, people: people, layout: layout
 
-
 # entries index
 app.get /^\/(entries)?\/?$/, (req, res, next) ->
   voting = app.enabled('voting')

@@ -29,12 +29,11 @@ app.get '/login/done', [ensureAuth, loadPerson, loadPersonTeam], (req, res, next
           team.save (err) ->
             return next err if err
             delete req.session.invite
-            res.redirect "/people/#{req.person}"
+            res.redirect "/teams/#{team}"
       else
         delete req.session.invite
         res.redirect '/teams/new'
-  else if false and req.user.contestant and (code = req.session.team)
-    # no longer needed now that all teams are created
+  else if app.enabled('registration') and req.user.contestant and (code = req.session.team)
     Team.findOne code: code, (err, team) ->
       return next err if err
       if team
