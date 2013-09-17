@@ -1,23 +1,26 @@
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = "people"
+  include ../index/_header
 
-  h1 Edit your Profile
+  .body-wrapper.container
+    h1 Edit your Profile
 
-  form.person( method='POST', action='/people/' + person )
-    input( type='hidden', name='_method', value='put' )
-    include form
-    p
-      input( type='submit', value='Update' )
+    form.person( method='POST', action='/people/' + person )
+      input( type='hidden', name='_method', value='put' )
+      include form
+      p
+        input( type='submit', value='Update' )
+        |
+        a( href='/people/' + person ) Cancel
+        |  or
+        a.scary.remove( href='#' ) Delete?
+
+    form.delete( method='POST', action='/people/' + person )
+      != _csrf
+      input( type='hidden', name='_method', value='DELETE' )
+      p Are you sure? This can't be undone.
+      input.scary( type='submit', value='Delete' )
       |
-      a( href='/people/' + person ) Cancel
-      |  or
-      a.scary.remove( href='#' ) Delete?
-
-  form.delete( method='POST', action='/people/' + person )
-    != _csrf
-    input( type='hidden', name='_method', value='DELETE' )
-    p Are you sure? This can't be undone.
-    input.scary( type='submit', value='Delete' )
-    |
-    a( href='#' ) Cancel
+      a( href='#' ) Cancel
