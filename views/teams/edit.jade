@@ -1,31 +1,36 @@
-- title(team.name)
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = "people"
+  include ../index/_header-mini
 
-  form( method='POST', action='/teams/' + team )
-    input( type='hidden', name='_method', value='PUT' )
+  .inner-page.container.form-page
+    form.edit-team( method='POST', action='/teams/' + team )
+      input( type='hidden', name='_method', value='PUT' )
 
-    if coding
-      h1 Entry
-      #entry
-        entry = team.entry
-        include ../entries/form
+      if coding
+        h1 Entry
+        #entry
+          entry = team.entry
+          include ../entries/form
 
-    h1 Team
-    #team
-      include form
+      h1 Edit Team
+      #team
+        include form
 
-    input( type='submit', value='Update' )
-    |
-    a( href='/teams/' + team ) Cancel
-    |  or
-    a.scary.remove( href='#' ) Delete?
+      p.actions
+        input.btn.btn-primary( type='submit', value='Update' )
+        | &nbsp;&nbsp;&nbsp;
+        a( href='/teams/' + team ) Cancel
+        | &nbsp;
+        | or
+        | &nbsp;
+        a.scary.remove( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Delete?
 
-  form.delete( method='POST', action='/teams/' + team )
-    != _csrf
-    input( type='hidden', name='_method', value='DELETE' )
-    p Are you sure? This can't be undone.
-    input.scary( type='submit', value='Delete' )
-    |
-    a( href='#' ) Cancel
+    form.delete-confirm.delete( method='POST', action='/teams/' + team )
+      != _csrf
+      input( type='hidden', name='_method', value='DELETE' )
+      p Are you sure? This can't be undone.
+      input.scary( type='submit', value='Delete' )
+      |
+      a( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Cancel

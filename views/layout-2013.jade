@@ -18,7 +18,7 @@ html
     script( src='/javascripts/vendor/modernizr-2.5.3.min.js' )
 
 
-  body
+  body#page(class=view.replace(/\//g,'-'))
     block body
 
     != nap.js('2013')

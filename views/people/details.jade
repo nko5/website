@@ -2,18 +2,17 @@
   - if (person.company)
     .company!= markdown(person.company)
   - if (person.location && person.company)
-    |  &mdash; 
+    |  &mdash;
   - if (person.location)
     a.location( href='http://maps.google.com/?q=' + person.location )
       = person.location
   - if ((person.location || person.company) && (person.twitterScreenName || person.githubLogin))
-    |  &mdash; 
+    |  &mdash;
   - if (person.twitterScreenName || person.githubLogin)
     .icons
       - if (person.twitterScreenName)
         a.twitter( href='http://twitter.com/' + person.twitterScreenName )
           i.icon-twitter
-      | 
       - if (person.githubLogin)
         a.github( href='http://github.com/' + person.githubLogin )
-          i.icon-github
+          | github

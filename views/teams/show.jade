@@ -1,71 +1,78 @@
-extends ../layout
+- title(team)
+extends ../layout-2013
 
 block body
+  - activeNav = "teams"
+  include ../index/_header-mini
 
-  - if (team.includes(user, session.team) || admin)
-    .edit: a.button( href='/teams/' + team + '/edit' ) Edit
+  .inner-page.container.team-page
+    - if (team.invited(session.invite))
+      .well.row
+        h2 You're invited to this team!
+        p.accept.col-md-4
+          a.btn.btn-primary.btn-lg.btn-danger.btn-block( href='/login/github' ) Accept Invitation
+          != "via <i class='icon-github'></i> github"
+    - else if (registration && team.includes(user, session.team))
+      .well
+        h3 This is your team.
 
-  h1= title(team.entry.name || team.name)
-
-  if coding || team.stats.pushes || team.stats.deploys
-    ul.team-stats( data-team-id=team.id )
-      li.commits
-        .number= team.stats.commits
-        .name Commits
-      li.pushes
-        .number= team.stats.pushes
-        .name Pushes
-      li.deploys
-        .number= team.stats.deploys
-        .name Deploys
-
-  != markdown(team.description, { sanitize: true })
-
-  - if (team.invited(session.invite))
-    h2 You're invited to this team!
-    p.accept
-      a.button.scary( href='/login/github' ) Accept Invitation
-      |  via
-      i.icon-github
-      |  github
-
-  - if (coding && (admin || team.includes(user)))
-    include steps
-
-  - if (team.entry.name)
-    include entry
-
-  - if (people.length)
-    h2 Who
-    - if (admin)
-      a( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
-    ul.people
-      - each person in people
-        li
-          img.avatar( src=avatar_url(person) )
-          a( href='/people/' + person )= person.github.login
-          - if (person.location)
-            |  &mdash;
-            = person.location
-
-  - if (team.invites.length)
-    h2 Invites (#{team.invites.length} pending)
-    - if (admin)
-      a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email team
-      i  Created #{relativeDate(team.createdAt)}
     - if (team.includes(user, session.team) || admin)
-      p Check your email for invites or resend invites below.
-      ul.invites
-        - each invite in team.invites
+      .pull-right
+        .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
+
+    h1= title(team.entry.name || team.name)
+
+    if coding || team.stats.pushes || team.stats.deploys
+      ul.team-stats( data-team-id=team.id )
+        li.commits
+          .number= team.stats.commits
+          .name Commits
+        li.pushes
+          .number= team.stats.pushes
+          .name Pushes
+        li.deploys
+          .number= team.stats.deploys
+          .name Deploys
+
+    != markdown(team.description, { sanitize: true })
+
+    - if (coding && (admin || team.includes(user)))
+      include steps
+
+    - if (team.entry.name)
+      include entry
+
+    - if (people.length)
+      h2 Members
+      - if (admin)
+        a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
+      ul.people
+        - each person in people
           li
-            = invite.email
-            |  &mdash;
-            a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' ) resend
-            span.sending
+            img.avatar( src=avatar_url(person) )
+            a( href='/people/' + person )= person.github.login
+            - if (person.location)
+              &nbsp;&mdash;&nbsp;#{person.location}
 
-  - if (team.entry.colophon)
-    h2 How
-    != markdown(team.entry.colophon)
+    - if (team.invites.length)
+      h2 Invites (#{team.invites.length} pending)
+      - if (admin)
+        a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email team
+        i  Created #{relativeDate(team.createdAt)}
+      - if (team.includes(user, session.team) || admin)
+        p Check your email for invites or resend invites below.
+        ul.invites
+          - each invite in team.invites
+            li
+              = invite.email
+              | &nbsp;&mdash;&nbsp;
+              a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
+                | resend
+              span.sending
 
-  - if (voting || publicVotes && publicVotes.length || votes && votes.length)
-    include votes
+    - if (team.entry.colophon)
+      h2 How
+      != markdown(team.entry.colophon)
+
+    - if (voting || publicVotes && publicVotes.length || votes && votes.length)
+      include votes

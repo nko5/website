@@ -23,7 +23,19 @@ block body
                 | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
           else if registration
             .registration
-              a.btn.btn-super.btn-primary(href="/teams/new") Register
+              if req.canRegister
+                h3 Registration is Open
+                if req.team
+                  a.btn.btn-super.btn-default.btn-primary(href="/teams/#{req.team}") Your Team: #{req.team.name}
+                else
+                  p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
+                    | Register Now
+                    i= req.teamsLeft + " spots remaining"
+
+              else
+                h3 Registration is currently full.
+                p
+                  | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
 
       .intro-section.landing-section
         hr
