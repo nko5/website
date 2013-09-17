@@ -8,8 +8,7 @@ block body
   .inner-page.container.team-page
     - if (team.includes(user, session.team) || admin)
       .pull-right
-        br
-        .edit: a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit
+        .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
 
     h1= title(team.entry.name || team.name)
 
