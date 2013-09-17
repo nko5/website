@@ -57,11 +57,11 @@ load = ->
         left: pos.left + ($form.width() - $delete.outerWidth()) / 2
         top: pos.top
 
-    $('a.pull', this).click ->
+    $('a.remove-btn', this).click ->
       li = $(this).closest('li')
       i = li.prevAll('li').length + 1
       li.html $('<input>',
-        class: 'email'
+        class: 'email form-control'
         type: 'email'
         name: 'emails[]'
         placeholder: 'member' + i + '@example.com')
