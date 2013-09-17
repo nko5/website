@@ -11,10 +11,12 @@ nap({
     js: {
       '2013': [
         "/public/javascripts/vendor/jquery-1.10.2.min.js",
+        "/public/javascripts/jquery.stars.coffee",
         "/public/javascripts/vendor/bootstrap.js",
         "/public/javascripts/tumblr.js",
         "/public/javascripts/2013.coffee",
-        "/public/javascripts/teams.coffee"
+        "/public/javascripts/teams.coffee",
+        "/public/javascripts/people.coffee"
       ]
     },
     css: {

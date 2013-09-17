@@ -1,10 +1,10 @@
-$('form.person .role select').on('change', ->
+$(document).on('change','form.person .role select', ->
   $this = $ this
   $this.next('.technical').toggle($this.val() is 'judge')
 ).change()
 
-$('form.person .email input').on('blur', ->
-  $this = $this
+$(document).on('blur','form.person .email input',  ->
+  $this = $ this
   return unless val = $this.val()
 
   $img = $this.closest('form').find('.image_url')
@@ -14,9 +14,9 @@ $('form.person .email input').on('blur', ->
   $img.find('img.avatar').attr('src', "http://gravatar.com/avatar/#{md5(email)}?s=80&d=retro")
 ).change()
 
-
-$('form.person .twitter input').on('blur', ->
-  console.log 'Entered in the twitter thing'
+console.log 'hey'
+$(document).on('blur', 'form.person .twitter input', ->
+  console.log 'hey2'
   $this = $ this
   $form = $this.closest('form')
   return $this.next('.spinner').hide() unless $this.val()
@@ -89,7 +89,6 @@ load = ->
         image_url = data.results.w80[0].url
         $i.find('img.avatar').attr('src', image_url).end()
           .find('input').val(image_url).end()
-
 
     # button clicks trigger file upload
     $i.find('button').click (e) ->
