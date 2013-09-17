@@ -1,31 +1,33 @@
-- title(team.name)
-extends ../layout
+extends ../layout-2013
 
 block body
+  - activeNav = "people"
+  include ../index/_header
 
-  form( method='POST', action='/teams/' + team )
-    input( type='hidden', name='_method', value='PUT' )
+  .body-wrapper.container
+    form( method='POST', action='/teams/' + team )
+      input( type='hidden', name='_method', value='PUT' )
 
-    if coding
-      h1 Entry
-      #entry
-        entry = team.entry
-        include ../entries/form
+      if coding
+        h1 Entry
+        #entry
+          entry = team.entry
+          include ../entries/form
 
-    h1 Team
-    #team
-      include form
+      h1 Team
+      #team
+        include form
 
-    input( type='submit', value='Update' )
-    |
-    a( href='/teams/' + team ) Cancel
-    |  or
-    a.scary.remove( href='#' ) Delete?
+      input( type='submit', value='Update' )
+      |
+      a( href='/teams/' + team ) Cancel
+      |  or
+      a.scary.remove( href='#' ) Delete?
 
-  form.delete( method='POST', action='/teams/' + team )
-    != _csrf
-    input( type='hidden', name='_method', value='DELETE' )
-    p Are you sure? This can't be undone.
-    input.scary( type='submit', value='Delete' )
-    |
-    a( href='#' ) Cancel
+    form.delete( method='POST', action='/teams/' + team )
+      != _csrf
+      input( type='hidden', name='_method', value='DELETE' )
+      p Are you sure? This can't be undone.
+      input.scary( type='submit', value='Delete' )
+      |
+      a( href='#' ) Cancel
