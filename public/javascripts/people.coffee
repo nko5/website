@@ -21,7 +21,7 @@ $(document).on('blur', 'form.person .twitter input', ->
 
   $this.next('.spinner').show()
   
-  $.getJSON 'http://localhost:8003/twitter/' + $.trim($this.val()),
+  $.getJSON '/twitter/' + encodeURI($.trim($this.val())),
     # username: ,
     (data) ->
       $form.find('.name :text').val (i, v) -> v or data.name
@@ -35,7 +35,7 @@ $(document).on('blur', 'form.person .twitter input', ->
           .find('input').val image_url
 
       $this.next('.spinner').hide()
-).change()
+).blur()
 
 
 load = ->

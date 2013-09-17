@@ -12,7 +12,6 @@ require('coffee-script');
   'live',
   'redirect',
   'notifications'
-
 ].forEach(function(controller) {
   require('./controllers/' + controller);
 });

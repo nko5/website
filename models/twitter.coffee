@@ -1,4 +1,3 @@
-# nTwitter = require('ntwitter')
 Twit = require('twit')
 
 class Twitter
@@ -20,6 +19,7 @@ class Twitter
 
   post: (url, data, callback) ->
     @twitter.post(url, data, callback)
+
   get: (url, data, callback) ->
     @twitter.get(url, data, callback)
 
