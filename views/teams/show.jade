@@ -65,9 +65,9 @@ block body
           - each invite in team.invites
             li
               = invite.email
-              |  &mdash;
+              | &nbsp;&mdash;&nbsp;
               a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
-                |  resend
+                | resend
               span.sending
 
     - if (team.entry.colophon)
