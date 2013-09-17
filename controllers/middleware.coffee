@@ -42,6 +42,14 @@ module.exports =
       req.team = team
       next()
 
+  # loads person team for the nav (TODO DRY with above)
+  loadMyTeam: (req, res, next) ->
+    return next() unless req.user
+    req.user.team (err, team) ->
+      team = null if err
+      req.myTeam = team
+      next()
+
   loadPersonVotes: (req, res, next) ->
     return next() unless req.person
     req.person.votes (err, votes) ->

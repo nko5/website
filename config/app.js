@@ -134,6 +134,7 @@ app.configure(function() {
 
   // auth middleware needs to be pretty high up here
   app.use(auth.middleware());
+  app.use(require('../controllers/middleware').loadMyTeam);
 
   // helpers
   auth.helpExpress(app);
