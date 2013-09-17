@@ -40,7 +40,6 @@
     "irc": "*",
     "redis": "*",
     "jadevu": "*",
-    "ntwitter": "*",
     "mongoose-auth": "0.0.12",
     "connect-flash": "~0.1.1",
     "nap": "~0.7.8",
