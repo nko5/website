@@ -6,7 +6,8 @@ block body
 
   .inner-page.container
     - if (canEdit(person))
-      .edit: a.scary.button( href='/people/' + person + '/edit' ) Edit
+      .edit.pull-right
+        a.scary.btn.btn-primary( href='/people/' + person + '/edit' ) Edit
 
     .avatar-and-role
       img.avatar( src=avatar_url(person, 80) )

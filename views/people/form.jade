@@ -2,80 +2,83 @@
 errors = person.errors
 include ../errors
 
-.name.tabular
-  label( for='name' ) Name
-  input( type='text', name='name', id='name', value=person.name )
+.row
+  .col-lg-8.col-md-8.col-sm-8.col-xs-12
 
-.email.tabular
-  label( for='email' ) Email
-  input( type='text', name='email', id='email', value=person.email )
-  .note
-    - if (person.role === 'contestant')
-      | Only visible to team members.
-    - else if (person === req.user)
-      | Only visible to you.
+    .name.tabular
+      label( for='name' ) Name
+      input.form-control( type='text', name='name', id='name', value=person.name )
 
-- if (admin)
-  .role.tabular
-    label( for='role' ) Role
-    select( name='role', id='role' )
-      - each role in ['nomination', 'contestant', 'judge', 'voter']
-        option( value=role, selected=(person.role === role) )= role.charAt(0).toUpperCase() + role.slice(1)
-    | &nbsp;
-    span.technical
-      input( type='hidden', name='technical', value=0 )
-      input( type='checkbox', name='technical', checked=person.technical, id='technical' )
-      | &nbsp;
-      label( for='technical' ) Technical
-    .admin
-      input( type='hidden', name='admin', value=0 )
-      input( type='checkbox', name='admin', checked=person.admin, id='admin' )
-      | &nbsp;
-      label( for='admin' ) Admin
+    .email.tabular
+      label( for='email' ) Email
+      input.form-control( type='text', name='email', id='email', value=person.email )
+      .note
+        - if (person.role === 'contestant')
+          | Only visible to team members.
+        - else if (person === req.user)
+          | Only visible to you.
 
-  .hiring.tabular
-    label( for='hiring' ) Hiring?
-    input( type='text', name='hiring', id='hiring', value=person.hiring )
+    - if (admin)
+      .role.tabular
+        label( for='role' ) Role
+        select( name='role', id='role' )
+          - each role in ['nomination', 'contestant', 'judge', 'voter']
+            option( value=role, selected=(person.role === role) )= role.charAt(0).toUpperCase() + role.slice(1)
+        | &nbsp;
+        span.technical
+          input.form-control( type='hidden', name='technical', value=0 )
+          input( type='checkbox', name='technical', checked=person.technical, id='technical' )
+          | &nbsp;
+          label( for='technical' ) Technical
+        .admin
+          input( type='hidden', name='admin', value=0 )
+          input( type='checkbox', name='admin', checked=person.admin, id='admin' )
+          | &nbsp;
+          label( for='admin' ) Admin
 
-- if (person.role !== 'voter')
-  h2.optional Optional
+      .hiring.tabular
+        label( for='hiring' ) Hiring?
+        input( type='text', name='hiring', id='hiring', value=person.hiring )
 
-  .twitter.tabular
-    label( for='twitter' ) Twitter
-    | http://twitter.com/
-    input( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
-    img.spinner( src='/images/spinner.gif' )
+    - if (person.role !== 'voter')
+      h2.optional Optional
 
-  - if (!person.contestant)
-    .image_url.tabular
-      label( for='imageURL' ) Picture
-      - image_url = avatar_url(person, 80)
-      img.avatar( src=image_url )
-      input( type='hidden', name='imageURL', value=person.imageURL )
-      button Change
-      img.spinner( src='/images/spinner.gif' )
-      .transloadit
-        iframe( scrolling='no', frameborder=0 )
-        script( type='application/html-xtmpl' )
-          form( action="http://api2.transloadit.com/assemblies", enctype="multipart/form-data", method="POST" )
-            - transloadit_params = { auth: { key: '86197da4c28a498fb7a3796c17dc3ce3' }, 'template_id': '898ee2cd0e904c7c8c62fd5ded92e501' }
-            input( type='hidden', name='params', value=JSON.stringify(transloadit_params))
-            input( type='file', name='file' )
+      .twitter.tabular
+        label( for='twitter' ) Twitter
+        | http://twitter.com/
+        input( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
+        img.spinner( src='/images/spinner.gif' )
 
-  .location.tabular
-    label( for='location' ) Location
-    input( type='text', name='location', id='location', value=person.location )
+      - if (!person.contestant)
+        .image_url.tabular
+          label( for='imageURL' ) Picture
+          - image_url = avatar_url(person, 80)
+          img.avatar( src=image_url )
+          input( type='hidden', name='imageURL', value=person.imageURL )
+          button Change
+          img.spinner( src='/images/spinner.gif' )
+          .transloadit
+            iframe( scrolling='no', frameborder=0 )
+            script( type='application/html-xtmpl' )
+              form( action="http://api2.transloadit.com/assemblies", enctype="multipart/form-data", method="POST" )
+                - transloadit_params = { auth: { key: '86197da4c28a498fb7a3796c17dc3ce3' }, 'template_id': '898ee2cd0e904c7c8c62fd5ded92e501' }
+                input( type='hidden', name='params', value=JSON.stringify(transloadit_params))
+                input( type='file', name='file' )
 
-  .company.tabular
-    label( for='company' ) Company
-    input( type='text', name='company', id='company', value=person.company )
+      .location.tabular
+        label( for='location' ) Location
+        input( type='text', name='location', id='location', value=person.location )
 
-  .bio.tabular
-    label( for='bio' ) Bio
-    textarea( name='bio', id='bio' )= person.bio
-    .note
-      - if (person.judge || person.nomination)
-        | A 2-3 sentence bio for the
-        != ' <a href="/judging">judges page</a>. '
-      a( href='http://daringfireball.net/projects/markdown/syntax' ) Markdown
-      |  ok.
+      .company.tabular
+        label( for='company' ) Company
+        input( type='text', name='company', id='company', value=person.company )
+
+      .bio.tabular
+        label( for='bio' ) Bio
+        textarea( name='bio', id='bio' )= person.bio
+        .note
+          - if (person.judge || person.nomination)
+            | A 2-3 sentence bio for the
+            != ' <a href="/judging">judges page</a>. '
+          a( href='http://daringfireball.net/projects/markdown/syntax' ) Markdown
+          |  ok.

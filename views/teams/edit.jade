@@ -18,13 +18,14 @@ block body
       #team
         include form
 
-      input.btn.btn-primary( type='submit', value='Update' )
-      | &nbsp;&nbsp;&nbsp;
-      a( href='/teams/' + team ) Cancel
-      | &nbsp;
-      | or
-      | &nbsp;
-      a.scary.remove( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Delete?
+      p.actions
+        input.btn.btn-primary( type='submit', value='Update' )
+        | &nbsp;&nbsp;&nbsp;
+        a( href='/teams/' + team ) Cancel
+        | &nbsp;
+        | or
+        | &nbsp;
+        a.scary.remove( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Delete?
 
     form.delete-confirm.delete( method='POST', action='/teams/' + team )
       != _csrf
