@@ -1,4 +1,6 @@
+// Usage: mongo nko4_development scripts/team-limits.js
 var limits = {
+  '2013-09-17T00:00:00Z': 10,
   '2013-09-18T00:00:00Z': 100,
   '2013-09-18T12:00:00Z': 200
 };
