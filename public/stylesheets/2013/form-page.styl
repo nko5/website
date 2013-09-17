@@ -12,19 +12,6 @@ body
       list-style: none
       border-radius: 3px
 
-    ol#members
-      padding-left: 0
-      li
-        margin: 5px 0
-
-      .avatar
-        margin-right: 5px
-      .remove-btn
-        padding-bottom: 5px
-        padding-top: 0px
-        font-size: 15px
-        margin-left: 5px
-
     .spinner
       display: none
 
@@ -42,3 +29,62 @@ body
       p
         margin 0 0 0.5em
       text-align center
+
+#page.teams-edit
+  ol#members
+    padding-left: 0
+
+    li
+      margin: 5px 0
+
+    .avatar
+      margin-right: 5px
+
+    .remove-btn
+      padding-bottom: 5px
+      padding-top: 0px
+      font-size: 15px
+      margin-left: 5px
+
+    .form-control
+      display: inline
+
+form.person
+  input[type=text], textarea
+    width 400px
+  .tabular
+    margin 10px 0
+    > label
+      display inline-block
+      margin-left 0
+      width 100px
+    > div
+      margin-left 100px
+  .note
+    font-size small
+  .role .technical
+    display none
+  .twitter
+    input[type=text]
+      width 200px
+      margin-left 0px
+    button, .running
+      display none
+      margin-left 1em
+      font-size x-small
+  .bio
+    label
+      vertical-align top
+      margin-top 7px
+    textarea
+      height 12em
+  .image_url
+    button
+      font-size small
+    img.avatar
+      width 80px
+      height inherit
+    .transloadit
+      height 1px
+      width 1px
+      overflow hidden

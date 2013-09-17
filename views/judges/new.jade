@@ -25,6 +25,6 @@ block body
     form.person( method='POST', action='/judges' )
       include ../people/form
       p
-        input( type='submit', value='Nominate' )
-        |
+        input.btn.btn-primary( type='submit', value='Nominate' )
+        | &nbsp;
         a( href='/judges' ) Cancel
