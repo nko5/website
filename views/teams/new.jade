@@ -6,7 +6,7 @@ block body
   - activeNav = 'registration'
   include ../index/_header-mini
 
-  .inner-page.container
+  .inner-page.container.form-page
     h1 Register a Team
 
     p
@@ -15,4 +15,4 @@ block body
 
     form( method='POST', action='/teams' )
       include form
-      input( type='submit', value='Register' )
+      input.btn.btn-primary.btn-large( type='submit', value='Register' )

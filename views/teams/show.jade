@@ -3,11 +3,13 @@ extends ../layout-2013
 
 block body
   - activeNav = "teams"
-  include ../index/_header
+  include ../index/_header-mini
 
-  .inner-page.container
+  .inner-page.container.team-page
     - if (team.includes(user, session.team) || admin)
-      .edit: a.button( href='/teams/' + team + '/edit' ) Edit
+      .pull-right
+        br
+        .edit: a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit
 
     h1= title(team.entry.name || team.name)
 

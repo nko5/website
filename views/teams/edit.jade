@@ -2,9 +2,9 @@ extends ../layout-2013
 
 block body
   - activeNav = "people"
-  include ../index/_header
+  include ../index/_header-mini
 
-  .inner-page.container
+  .inner-page.container.form-page
     form( method='POST', action='/teams/' + team )
       input( type='hidden', name='_method', value='PUT' )
 
@@ -14,20 +14,22 @@ block body
           entry = team.entry
           include ../entries/form
 
-      h1 Team
+      h1 Edit Team
       #team
         include form
 
-      input( type='submit', value='Update' )
-      |
+      input.btn.btn-primary( type='submit', value='Update' )
+      | &nbsp;&nbsp;&nbsp;
       a( href='/teams/' + team ) Cancel
-      |  or
-      a.scary.remove( href='#' ) Delete?
+      | &nbsp;
+      | or
+      | &nbsp;
+      a.scary.remove( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Delete?
 
-    form.delete( method='POST', action='/teams/' + team )
+    form.delete-confirm.delete( method='POST', action='/teams/' + team )
       != _csrf
       input( type='hidden', name='_method', value='DELETE' )
       p Are you sure? This can't be undone.
       input.scary( type='submit', value='Delete' )
       |
-      a( href='#' ) Cancel
+      a( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Cancel
