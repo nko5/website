@@ -6,6 +6,16 @@ block body
   include ../index/_header-mini
 
   .inner-page.container.team-page
+    - if (team.invited(session.invite))
+      .well.row
+        h2 You're invited to this team!
+        p.accept.col-md-4
+          a.btn.btn-primary.btn-lg.btn-danger.btn-block( href='/login/github' ) Accept Invitation
+          != "via <i class='icon-github'></i> github"
+    - else if (registration && team.includes(user, session.team))
+      .well
+        h3 This is your team.
+
     - if (team.includes(user, session.team) || admin)
       .pull-right
         .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
@@ -26,14 +36,6 @@ block body
 
     != markdown(team.description, { sanitize: true })
 
-    - if (team.invited(session.invite))
-      h2 You're invited to this team!
-      p.accept
-        a.button.scary( href='/login/github' ) Accept Invitation
-        |  via
-        i.icon-github
-        |  github
-
     - if (coding && (admin || team.includes(user)))
       include steps
 
@@ -41,7 +43,7 @@ block body
       include entry
 
     - if (people.length)
-      h2 Who
+      h2 Members
       - if (admin)
         a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
       ul.people
@@ -50,8 +52,7 @@ block body
             img.avatar( src=avatar_url(person) )
             a( href='/people/' + person )= person.github.login
             - if (person.location)
-              |  &mdash;
-              = person.location
+              &nbsp;&mdash;&nbsp;#{person.location}
 
     - if (team.invites.length)
       h2 Invites (#{team.invites.length} pending)

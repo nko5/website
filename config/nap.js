@@ -7,8 +7,6 @@ process.chdir(__dirname+"/../");
 // util.debug('NAP CURRENT DIRECTORY: ' + process.cwd());
 
 nap({
-  publicDir: '/public',
-  mode: env.node_env === 'production' ? 'production' : 'development',
   assets: {
     js: {
       '2013': [
@@ -21,7 +19,8 @@ nap({
     css: {
       '2013': [
         "/public/stylesheets/vendor/bootstrap.css",
-        "/public/stylesheets/2013.styl"
+        "/public/stylesheets/2013.styl",
+        "/public/stylesheets/fontello.css"
       ]
     },
     jst: {}
