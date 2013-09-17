@@ -3,7 +3,7 @@ $(document).on('change', 'form.person .role select', ->
   $this.next('.technical').toggle($this.val() is 'judge')
 ).change()
 
-$(document).on('blur', 'form.person .email input',  ->
+$(document).on('blur', 'form.person .email input', ->
   $this = $ this
   return unless val = $this.val()
 
