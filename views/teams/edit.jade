@@ -5,7 +5,7 @@ block body
   include ../index/_header-mini
 
   .inner-page.container.form-page
-    form( method='POST', action='/teams/' + team )
+    form.edit-team( method='POST', action='/teams/' + team )
       input( type='hidden', name='_method', value='PUT' )
 
       if coding

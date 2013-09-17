@@ -26,7 +26,7 @@ block body
               if req.canRegister
                 h3 Registration is Open
                 if req.team
-                  a.btn.btn-super.btn-default.btn-primary(href="/teams/#{team}") Your Team: #{team.name}
+                  a.btn.btn-super.btn-default.btn-primary(href="/teams/#{req.team}") Your Team: #{req.team.name}
                 else
                   p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
                     | Register Now

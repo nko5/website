@@ -12,7 +12,7 @@ include ../errors
 
       if admin
         h3: label( for='slug' ) Slug
-        input( type='text', name='slug', id='slug', value=team.slug )
+        input.form-control( type='text', name='slug', id='slug', value=team.slug )
 
     - if (!team.isNew)
       .description
@@ -32,8 +32,7 @@ include ../errors
             img.avatar( src=avatar_url(person) )
             a( href='/people/' + person )= person.github.login
             input.form-control( name='peopleIds[]', type='hidden', value=person.id )
-            |
-            a.scary.pull( href='#' ) &#x2a2f;
+            a.btn.btn-sm.btn-default.remove-btn( href='#' ) &#x2a2f;
         - for (var i = 0; i < 4 - people.length; i++)
           li
             input.form-control.email( type='email', name='emails[]', value=team.emails[i],
