@@ -56,7 +56,7 @@
         }
 
         #wrapper {
-            width: 1024px;
+            width: 960px;
             margin: 0 auto;
         }
 
@@ -102,7 +102,7 @@
                 }
 
             #wrapper #content {
-                width: 680px;
+                width: 733px;
                 float: left;
                 padding-top: 10px;
             }
@@ -495,7 +495,7 @@
                     }
 
             #wrapper #sidebar {
-                width: 330px;
+                width: 206px;
                 float: right;
                 color: #444;
                 padding-top: 50px;
@@ -717,6 +717,9 @@
         #search, #search-scope {
           display:none;
         }
+        #wrapper #sidebar #top #tweetcontainer .content {
+          font-size: 12px;
+        }
     </style>
     <!--[if lt IE 7.]>
         <style type="text/css">
@@ -783,40 +786,41 @@
     <script async="true" src="//www.google-analytics.com/ga.js"></script>
 </head>
 <body>
-    <div id="header" class="affixable">
+    <div id="header" class="affixable affix-top">
       <div class="affix-placeholder"></div>
-      <div class="affix-inner">
-        <div class="header">
-          <div class="container">
-            <div class="header-inner row">
-              <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                <div class="gloves"></div><a href="http://nodeknockout.com" class="logo">Node Knockout</a><a href="http://nodeknockout.com" class="logo-sm">node.js ko</a>
-              </div>
-            </div>
-            <div class="nav-wrapper">
-              <div class="nav-inner row navbar-default">
+        <div class="affix-inner">
+          <div class="header">
+            <div class="container">
+              <div class="header-inner row">
                 <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                  <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  <div class="gloves"></div><a href="http://nodeknockout.com" class="logo">Node Knockout</a><a href="http://nodeknockout.com" class="logo-sm">node.js ko</a>
+                </div>
+              </div>
+              <div class="nav-wrapper">
+                <div class="nav-inner row navbar-default">
+                  <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="navbar-header">
+                      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse pull-right">
+                      <ul class="nav navbar-nav">
+                        <li class=""><a href="http://nodeknockout.com/teams/new">Registration</a></li>
+                        <li class=""><a href="http://nodeknockout.com/prizes">Prizes</a></li>
+                        <li class=""><a href="http://nodeknockout.com/judges">Judges</a></li>
+                        <li class=""><a href="http://nodeknockout.com/sponsors">Sponsors</a></li>
+                        <li class=""><a href="http://nodeknockout.com/rules">Rules</a></li>
+                        <li class=""><a href="http://nodeknockout.com/resources">Resources</a></li>
+                        <li class="active"><a href="http://nodeknockout.com/blog">Blog</a></li>
+                      </ul>
+                    </nav>
                   </div>
-                  <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse pull-right">
-                    <ul data-nav-active="" class="nav navbar-nav">
-                      <li><a href="http://nodeknockout.com/teams/new">Registration</a></li>
-                      <li><a href="http://nodeknockout.com/prizes">Prizes</a></li>
-                      <li><a href="http://nodeknockout.com/judges">Judges</a></li>
-                      <li><a href="http://nodeknockout.com/sponsors">Sponsors</a></li>
-                      <li><a href="http://nodeknockout.com/rules">Rules</a></li>
-                      <li><a href="http://nodeknockout.com/resources">Resources</a></li>
-                      <li><a href="http://nodeknockout.com/blog">Blog</a></li>
-                    </ul>
-                  </nav>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
 
     <div id="wrapper">
 

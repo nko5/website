@@ -1,93 +1,98 @@
-extends ../layout
+extends ../layout-2013
 
 block body
-  - if (canEdit(person))
-    .edit: a.scary.button( href='/people/' + person + '/edit' ) Edit
+  - activeNav = "people"
+  include ../index/_header
 
-  .avatar-and-role
-    img.avatar( src=avatar_url(person, 80) )
-    .role= person.role
-  h1.name= title(person.name)
-  include details
+  .inner-page.container
+    - if (canEdit(person))
+      .edit.pull-right
+        a.scary.btn.btn-primary( href='/people/' + person + '/edit' ) Edit
 
-  - if (team)
-    p.team
-      | Contestant on&nbsp;
-      a( href='/teams/' + team )= team.name
-      | .
+    .avatar-and-role
+      img.avatar( src=avatar_url(person, 80) )
+      .role= person.role
+    h1.name= title(person.name)
+    include details
 
-  - if (voting && req.user && (person.id === req.user.id) && (req.user.judge || req.user.contestant))
-    p.instructions#instructions
-      if req.user.judge
-        | You've reviewed
-        b #{votes.length} of 10
-        | entries we'd like you to look at.
-      - if (votes.length)
-        | See below for the entry we suggest you review next.
-      - else
-        a( href='#next-vote' ) See below
-        |  for a suggestion about where to get started.
-    - if (!nextVote.team)
-      h1 No More Entries to Review
-      p.no-more-teams: img(src='http://images.memegenerator.net/instances/500x/9715681.jpg' )
-  - else
-    .bio!= markdown(person.bio)
+    - if (team)
+      p.team
+        | Contestant on&nbsp;
+        a( href='/teams/' + team )= team.name
+        | .
 
-  - if (voting)
-    - if (nextVote.team)
-      h1#next-vote Suggested Entry to Review
-      p
-        | We think you should take a look at
-        a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
-        |  below.
+    - if (voting && req.user && (person.id === req.user.id) && (req.user.judge || req.user.contestant))
+      p.instructions#instructions
+        if req.user.judge
+          | You've reviewed
+          b #{votes.length} of 10
+          | entries we'd like you to look at.
+        - if (votes.length)
+          | See below for the entry we suggest you review next.
+        - else
+          a( href='#next-vote' ) See below
+          |  for a suggestion about where to get started.
+      - if (!nextVote.team)
+        h1 No More Entries to Review
+        p.no-more-teams: img(src='http://images.memegenerator.net/instances/500x/9715681.jpg' )
+    - else
+      .bio!= markdown(person.bio)
 
-      .next-vote
-        .entry-info
-          a( href=nextVote.team.entry.url, target='entry' ): img.screenshot( src=nextVote.team.screenshot )
-          h2: a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
-          h3
-            | by
-            a( href='/teams/' + nextVote.team, target='team' )= nextVote.team.name
-          .buttons
-            a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
-          .clear
-          != markdown(nextVote.team.entry.description)
-          - if (nextVote.team.entry.videoURL)
-            - if (embed = embedVideo(nextVote.team.entry.videoURL))
-              p: iframe( width="560", height="315", src=embed, frameborder="0", allowfullscreen=true )
-            - else
-              h4 Screencast
-                p: a.button.small( href=nextVote.team.entry.videoURL, target='screencast' ) ▶ Play
-          - if (nextVote.team.entry.instructions)
-            h4 Judging Instructions
-            != markdown(nextVote.team.entry.instructions)
+    - if (voting)
+      - if (nextVote.team)
+        h1#next-vote Suggested Entry to Review
+        p
+          | We think you should take a look at
+          a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
+          |  below.
 
-        vote = nextVote
-        include ../votes/form
-        form.skip-vote( action='/people/' + user, method='POST' )
-          input( type='hidden', name='_method', value='PUT' )
-          != _csrf
-          input( type='hidden', name='skipTeamId', value=nextVote.team.id)
-          input( type='submit', value='Skip Entry' )
+        .next-vote
+          .entry-info
+            a( href=nextVote.team.entry.url, target='entry' ): img.screenshot( src=nextVote.team.screenshot )
+            h2: a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
+            h3
+              | by
+              a( href='/teams/' + nextVote.team, target='team' )= nextVote.team.name
+            .buttons
+              a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
+            .clear
+            != markdown(nextVote.team.entry.description)
+            - if (nextVote.team.entry.videoURL)
+              - if (embed = embedVideo(nextVote.team.entry.videoURL))
+                p: iframe( width="560", height="315", src=embed, frameborder="0", allowfullscreen=true )
+              - else
+                h4 Screencast
+                  p: a.button.small( href=nextVote.team.entry.videoURL, target='screencast' ) ▶ Play
+            - if (nextVote.team.entry.instructions)
+              h4 Judging Instructions
+              != markdown(nextVote.team.entry.instructions)
 
-  - if (votes.length)
-    - if (req.user && (req.user.id === req.person.id))
-      h1#votes Your Votes (#{votes.length})
-      .votes
-        - each vote in votes
+          vote = nextVote
           include ../votes/form
-    - else if (shouldShowVoteList)
-      h1#votes Votes (#{votes.length})
-      if canSeeVotes
-        ul.votes
-          each vote in votes
-            include ../votes/vote
-      else
-        p Votes are hidden until this person votes for your entry.
+          form.skip-vote( action='/people/' + user, method='POST' )
+            input( type='hidden', name='_method', value='PUT' )
+            != _csrf
+            input( type='hidden', name='skipTeamId', value=nextVote.team.id)
+            input( type='submit', value='Skip Entry' )
 
-  - if (admin)
-    - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
-    - if (person.nomination)
-      a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/12 and 11/18."), target='twitter' ) Confirm
-    - if (person.judge)
-      a.button( href=twitterBase + encodeURIComponent("Sweet! Made you a judge. You can edit your profile at") + "&url=" + encodeURIComponent('http://nodeknockout.com' + req.url.replace('/people/', '/judges/') + '/edit'), target='twitter') Alert
+    - if (votes.length)
+      - if (req.user && (req.user.id === req.person.id))
+        h1#votes Your Votes (#{votes.length})
+        .votes
+          - each vote in votes
+            include ../votes/form
+      - else if (shouldShowVoteList)
+        h1#votes Votes (#{votes.length})
+        if canSeeVotes
+          ul.votes
+            each vote in votes
+              include ../votes/vote
+        else
+          p Votes are hidden until this person votes for your entry.
+
+    - if (admin)
+      - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
+      - if (person.nomination)
+        a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/12 and 11/18."), target='twitter' ) Confirm
+      - if (person.judge)
+        a.button( href=twitterBase + encodeURIComponent("Sweet! Made you a judge. You can edit your profile at") + "&url=" + encodeURIComponent('http://nodeknockout.com' + req.url.replace('/people/', '/judges/') + '/edit'), target='twitter') Alert
