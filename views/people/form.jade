@@ -26,7 +26,7 @@ include ../errors
             option( value=role, selected=(person.role === role) )= role.charAt(0).toUpperCase() + role.slice(1)
         | &nbsp;
         span.technical
-          input.form-control( type='hidden', name='technical', value=0 )
+          input( type='hidden', name='technical', value=0 )
           input( type='checkbox', name='technical', checked=person.technical, id='technical' )
           | &nbsp;
           label( for='technical' ) Technical
@@ -46,7 +46,7 @@ include ../errors
       .twitter.tabular
         label( for='twitter' ) Twitter
         | http://twitter.com/
-        input( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
+        input.form-control( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
         img.spinner( src='/images/spinner.gif' )
 
       - if (!person.contestant)
@@ -55,7 +55,7 @@ include ../errors
           - image_url = avatar_url(person, 80)
           img.avatar( src=image_url )
           input( type='hidden', name='imageURL', value=person.imageURL )
-          button Change
+          button.btn.btn-sm Change
           img.spinner( src='/images/spinner.gif' )
           .transloadit
             iframe( scrolling='no', frameborder=0 )
@@ -67,15 +67,15 @@ include ../errors
 
       .location.tabular
         label( for='location' ) Location
-        input( type='text', name='location', id='location', value=person.location )
+        input.form-control( type='text', name='location', id='location', value=person.location )
 
       .company.tabular
         label( for='company' ) Company
-        input( type='text', name='company', id='company', value=person.company )
+        input.form-control( type='text', name='company', id='company', value=person.company )
 
       .bio.tabular
         label( for='bio' ) Bio
-        textarea( name='bio', id='bio' )= person.bio
+        textarea.form-control( name='bio', id='bio' )= person.bio
         .note
           - if (person.judge || person.nomination)
             | A 2-3 sentence bio for the
