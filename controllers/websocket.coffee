@@ -26,3 +26,4 @@ app.events.on 'deploy', (deploy, team) ->
 
 app.events.on 'judgeVisit', (team) ->
   app.ws?.sockets.json.emit 'judgeVisit', team.entryInfoJSON()
+

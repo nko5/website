@@ -1,8 +1,8 @@
-nTwitter = require('ntwitter')
+Twit = require('twit')
 
 class Twitter
   constructor: (secrets) ->
-    @twitter = new nTwitter(secrets)
+    @twitter = new Twit(secrets)
 
   # send `text` in a dm to `users`
   dm: (users, text, callback) ->
@@ -19,5 +19,8 @@ class Twitter
 
   post: (url, data, callback) ->
     @twitter.post(url, data, callback)
+
+  get: (url, data, callback) ->
+    @twitter.get(url, data, callback)
 
 module.exports = Twitter

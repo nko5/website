@@ -53,8 +53,9 @@ app.stats.on('change', function(stats) {
 });
 
 // twitter
-app.twitter = new Twitter(secrets.twitterUser)
-
+if (secrets.twitterUser) {
+  app.twitter = new Twitter(secrets.twitterUser)
+}
 
 // state (getting pretty gross)
 app.disable('pre-registration');  // just the countdown

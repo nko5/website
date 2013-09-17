@@ -5,6 +5,7 @@ require('coffee-script');
   'iframe',
   'people',
   'judges',
+  'twitter',
   'teams',
   'votes',
   'websocket',
