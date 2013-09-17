@@ -1,9 +1,9 @@
-$('form.person .role select').live('change', ->
+$(document).on('form.person .role select','change', ->
   $this = $ this
   $this.next('.technical').toggle($this.val() is 'judge')
 ).change()
 
-$('form.person .email input').live('blur', ->
+$(document).on('form.person .email input', 'blur', ->
   $this = $ this
   return unless val = $this.val()
 
@@ -14,7 +14,7 @@ $('form.person .email input').live('blur', ->
   $img.find('img.avatar').attr('src', "http://gravatar.com/avatar/#{md5(email)}?s=80&d=retro")
 ).change()
 
-# $('form.person .twitter input').live('blur', ->
+# $(document).on('form.person .twitter input', 'blur', ->
 #   $this = $ this
 #   $form = $this.closest('form')
 #   return $this.next('.spinner').hide() unless $this.val()
@@ -34,7 +34,7 @@ $('form.person .email input').live('blur', ->
 #           .find('input').val image_url
 
 #       $this.next('.spinner').hide()
-# ).change()
+# ).blur()
 
 load = ->
   $('#page.people-show .next-vote form.vote a.skip').click (e) ->
@@ -84,7 +84,6 @@ load = ->
         image_url = data.results.w80[0].url
         $i.find('img.avatar').attr('src', image_url).end()
           .find('input').val(image_url).end()
-
 
     # button clicks trigger file upload
     $i.find('button').click (e) ->

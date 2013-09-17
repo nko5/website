@@ -17,12 +17,12 @@ block body
         | &nbsp;
         | or
         | &nbsp;
-        a.scary.remove( href='#', data-toggle="collapse", data-target=".delete-confirm" ) Delete?
+        a.scary.remove( href='#' ) Delete?
 
-    form.delete-confirm.delete( method='POST', action='/people/' + person )
+    form.delete( method='POST', action='/people/' + person )
       != _csrf
       input( type='hidden', name='_method', value='DELETE' )
       p Are you sure? This can't be undone.
-      input.scary( type='submit', value='Delete' )
-      |
+      input.btn.btn-danger.btn-primary( type='submit', value='Delete' )
+      | &nbsp;
       a( href='#' ) Cancel

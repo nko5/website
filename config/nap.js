@@ -15,7 +15,8 @@ nap({
         "/public/javascripts/vendor/bootstrap.js",
         "/public/javascripts/tumblr.js",
         "/public/javascripts/2013.coffee",
-        "/public/javascripts/teams.coffee"
+        "/public/javascripts/teams.coffee",
+        "/public/javascripts/people.coffee"
       ]
     },
     css: {
