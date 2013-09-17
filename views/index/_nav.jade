@@ -13,9 +13,9 @@
           - var activeNav = "";
         ul.nav.navbar-nav
 
-          if req.team
+          if req.myTeam
             li(class=(activeNav === 'registration' ? 'active' : ''))
-              a(href="/teams/#{req.team}") My Team
+              a(href="/teams/mine") My Team
           else
             li(class=(activeNav === 'registration' ? 'active' : ''))
               a(href="/teams/new") Registration
