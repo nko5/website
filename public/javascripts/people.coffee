@@ -14,9 +14,7 @@ $(document).on('blur','form.person .email input',  ->
   $img.find('img.avatar').attr('src', "http://gravatar.com/avatar/#{md5(email)}?s=80&d=retro")
 ).change()
 
-console.log 'hey'
 $(document).on('blur', 'form.person .twitter input', ->
-  console.log 'hey2'
   $this = $ this
   $form = $this.closest('form')
   return $this.next('.spinner').hide() unless $this.val()
@@ -26,7 +24,6 @@ $(document).on('blur', 'form.person .twitter input', ->
   $.getJSON 'http://localhost:8003/twitter/' + $.trim($this.val()),
     # username: ,
     (data) ->
-      console.log data
       $form.find('.name :text').val (i, v) -> v or data.name
       $form.find('.location :text').val (i, v) -> v or data.location
       $form.find('.bio textarea').text (i, t) -> t or data.description
