@@ -5,7 +5,7 @@ block body
   - activeNav = "teams"
   include ../index/_header
 
-  .body-wrapper.container
+  .inner-page.container
     - if (team.includes(user, session.team) || admin)
       .edit: a.button( href='/teams/' + team + '/edit' ) Edit
 

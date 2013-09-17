@@ -4,7 +4,7 @@ block body
   - activeNav = "people"
   include ../index/_header
 
-  .body-wrapper.container
+  .inner-page.container
     - if (canEdit(person))
       .edit: a.scary.button( href='/people/' + person + '/edit' ) Edit
 
