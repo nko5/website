@@ -172,4 +172,4 @@ app.put '/teams/:id', [m.loadTeam, m.ensureAccess], (req, res, next) ->
 app.delete '/teams/:id', [m.loadTeam, m.ensureAccess], (req, res, next) ->
   req.team.remove (err) ->
     return next err if err
-    res.redirect '/teams'
+    res.redirect '/'
