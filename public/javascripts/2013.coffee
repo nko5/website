@@ -26,7 +26,7 @@ $ ->
 $.fx.speeds._default = 200
 
 # notify team when judges click through
-$(document).on 'a[href^=http]', 'mousedown', (e) ->
+$(document).on 'mousedown', 'a[href^=http]', (e) ->
   $.post "/notify", { url: this.href }
 
 load = ->
