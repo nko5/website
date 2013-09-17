@@ -1,6 +1,5 @@
 util = require 'util'
 app = require '../config/app'
-twitter = require '../lib/twitter'
 
 app.ws?.sockets.on 'connection', (client) ->
   client.on 'message', (data) ->
@@ -27,9 +26,4 @@ app.events.on 'deploy', (deploy, team) ->
 
 app.events.on 'judgeVisit', (team) ->
   app.ws?.sockets.json.emit 'judgeVisit', team.entryInfoJSON()
-
-# End point for Judge Auto Filling with Twitter
-app.events.on 'judgeTwitterHandle', (twitterHandle) ->
-  twitter.getUserData twitterHandle, (err, userData) ->
-    app.ws?.sockets.json.emit 'userData', userData     
 

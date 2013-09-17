@@ -5,12 +5,14 @@ require('coffee-script');
   'iframe',
   'people',
   'judges',
+  'twitter',
   'teams',
   'votes',
   'websocket',
   'live',
   'redirect',
   'notifications'
+
 ].forEach(function(controller) {
   require('./controllers/' + controller);
 });

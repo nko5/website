@@ -1,10 +1,10 @@
-$('form.person .role select').live('change', ->
+$('form.person .role select').on('change', ->
   $this = $ this
   $this.next('.technical').toggle($this.val() is 'judge')
 ).change()
 
-$('form.person .email input').live('blur', ->
-  $this = $ this
+$('form.person .email input').on('blur', ->
+  $this = $this
   return unless val = $this.val()
 
   $img = $this.closest('form').find('.image_url')
@@ -14,27 +14,32 @@ $('form.person .email input').live('blur', ->
   $img.find('img.avatar').attr('src', "http://gravatar.com/avatar/#{md5(email)}?s=80&d=retro")
 ).change()
 
-# $('form.person .twitter input').live('blur', ->
-#   $this = $ this
-#   $form = $this.closest('form')
-#   return $this.next('.spinner').hide() unless $this.val()
 
-#   $this.next('.spinner').show()
-#   $.getJSON 'http://api.twitter.com/1/users/show.json?callback=?',
-#     screen_name: $.trim($this.val()),
-#     (data) ->
-#       $form.find('.name :text').val (i, v) -> v or data.name
-#       $form.find('.location :text').val (i, v) -> v or data.location
-#       $form.find('.bio textarea').text (i, t) -> t or data.description
+$('form.person .twitter input').on('blur', ->
+  console.log 'Entered in the twitter thing'
+  $this = $ this
+  $form = $this.closest('form')
+  return $this.next('.spinner').hide() unless $this.val()
 
-#       unless $form.find('.image_url input').val()
-#         image_url = data.profile_image_url.replace '_normal.', '.'
-#         $form.find('.image_url')
-#           .find('img.avatar').attr('src', image_url).end()
-#           .find('input').val image_url
+  $this.next('.spinner').show()
+  
+  $.getJSON 'http://localhost:8003/twitter/' + $.trim($this.val()),
+    # username: ,
+    (data) ->
+      console.log data
+      $form.find('.name :text').val (i, v) -> v or data.name
+      $form.find('.location :text').val (i, v) -> v or data.location
+      $form.find('.bio textarea').text (i, t) -> t or data.description
 
-#       $this.next('.spinner').hide()
-# ).change()
+      unless $form.find('.image_url input').val()
+        image_url = data.profile_image_url.replace '_normal.', '.'
+        $form.find('.image_url')
+          .find('img.avatar').attr('src', image_url).end()
+          .find('input').val image_url
+
+      $this.next('.spinner').hide()
+).change()
+
 
 load = ->
   $('#page.people-show .next-vote form.vote a.skip').click (e) ->
