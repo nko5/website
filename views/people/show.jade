@@ -4,7 +4,7 @@ block body
   - activeNav = "people"
   include ../index/_header-mini
 
-  .inner-page.container
+  .inner-page.container.profile-page
     - if (canEdit(person))
       .edit.pull-right
         a.scary.btn.btn-primary( href='/people/' + person + '/edit' ) Edit

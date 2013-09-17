@@ -1,18 +1,22 @@
 .details
   - if (person.company)
-    .company!= markdown(person.company)
-  - if (person.location && person.company)
-    |  &mdash;
+    .company
+      label Company:
+      != markdown(person.company)
   - if (person.location)
-    a.location( href='http://maps.google.com/?q=' + person.location )
-      = person.location
-  - if ((person.location || person.company) && (person.twitterScreenName || person.githubLogin))
-    |  &mdash;
+    div
+      label Location: 
+      a.location( href='http://maps.google.com/?q=' + person.location )
+        = person.location
   - if (person.twitterScreenName || person.githubLogin)
-    .icons
+    div
       - if (person.twitterScreenName)
+        label Twitter: 
         a.twitter( href='http://twitter.com/' + person.twitterScreenName )
-          i.icon-twitter
-      - if (person.githubLogin)
+          | @#{person.twitterScreenName}
+    - if (person.githubLogin)
+      div
+        label Github:
         a.github( href='http://github.com/' + person.githubLogin )
-          | github
+          = person.githubLogin
+  hr
