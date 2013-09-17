@@ -51,10 +51,6 @@ app.get '/people/:id', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes, m.loa
 app.get '/people/:id/edit', [m.loadPerson, m.ensureAccess], (req, res, next) ->
   res.render2 'people/edit', person: req.person
 
-
-
-
-
 # update
 app.put '/people/:id', [m.loadPerson, m.ensureAccess], (req, res) ->
   unless req.user.admin

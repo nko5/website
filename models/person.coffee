@@ -275,6 +275,8 @@ PersonSchema.method 'updateWithGithub', (ghUser, token, callback) ->
       @company ||= @github.company
       @location ||= @github.location
       @role ||= 'voter'
+      @name ||= @github.name
+      @email ||= @github.email
       @save callback
     , ghUser, token, callback
 
