@@ -282,7 +282,7 @@ TeamSchema.method 'votes', (next) ->
 TeamSchema.pre 'save', (next) ->
   if @peopleIds.length + @emails.length == 0
     error = new mongoose.Document.ValidationError this
-    error.errors.emails = 'min'
+    error.errors.emails = 'You have to insert at least one email contact for your team'
     next error
   else
     next()
@@ -296,7 +296,7 @@ TeamSchema.pre 'save', (next) ->
       next()
     else
       error = new mongoose.Document.ValidationError this
-      error.errors._base = 'max'
+      error.errors._base = 'We have reached the maximum amount of teams at the moment'
       next error
 
 ## unique name
@@ -308,7 +308,7 @@ TeamSchema.pre 'save', (next) ->
       next()
     else
       error = new mongoose.Document.ValidationError this
-      error.errors.name = 'unique'
+      error.errors.name = 'This team name is already in use'
       next error
 
 ## unique slug
