@@ -487,9 +487,9 @@
       "from": "jadevu@0.0.10"
     },
     "mongoose-auth": {
-      "version": "0.0.12",
-      "from": "git://github.com/diasdavid/mongoose-auth.git",
-      "resolved": "git://github.com/diasdavid/mongoose-auth.git#48f29f473f750f8ca4118898e55f586f4db72a6f",
+      "version": "0.0.13",
+      "from": "git://github.com/nko4/mongoose-auth.git",
+      "resolved": "git://github.com/nko4/mongoose-auth.git#0537fd59805f1f02295d6854725c274b9e65644c",
       "dependencies": {
         "bcrypt": {
           "version": "0.7.7",
