@@ -40,7 +40,7 @@
     "irc": "*",
     "redis": "*",
     "jadevu": "*",
-    "mongoose-auth": "0.0.12",
+    "mongoose-auth": "git+ssh://git@github.com:diasdavid/mongoose-auth.git",
     "connect-flash": "~0.1.1",
     "nap": "~0.7.8",
     "nib": "~1.0.1",
