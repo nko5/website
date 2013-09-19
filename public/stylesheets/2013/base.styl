@@ -11,6 +11,13 @@
 body
   background: #fff
 
+  // lets anchor tags work despite the affixed header, note this only work
+  // on divs that display block and don't otherwise have margin/padding
+  // see: https://github.com/nko4/website/blob/master/views/index/sponsors.jade#L19
+  .anchorable
+    margin-top -80px
+    padding-top 80px
+
   a
     color: #A62B47
 
