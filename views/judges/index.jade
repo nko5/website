@@ -5,13 +5,13 @@ block body
   include ../index/_header-mini
 
   .inner-page.container
+    .content-block
+      :markdown
+        ### We need judges
 
-    :markdown
-      ### We need judges
-
-      Judges are industry insiders: founders, CEOs, CTOs, VCs, journalists, open
-      source hackers, etc. **If you know a good judge candidate, please
-      [nominate her or him](/judges/new).**
+        Judges are industry insiders: founders, CEOs, CTOs, VCs, journalists, open
+        source hackers, etc. **If you know a good judge candidate, please
+        [nominate her or him](/judges/new).**
 
     //- if judges.length > 0
     //-   h1= title((typeof(subset) === 'undefined' ? '': subset + ' ') + 'Judges') + ' (' + judges.length + ')'

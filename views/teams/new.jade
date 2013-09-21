@@ -7,12 +7,13 @@ block body
   include ../index/_header-mini
 
   .inner-page.container.form-page
-    h1 Register a Team
+    .content-block
+      h1 Register a Team
 
-    p
-      | Not sure? No worries! You can update these details (including membership
-      | changes) after registration too.
+      p
+        | Not sure? No worries! You can update these details (including membership
+        | changes) after registration too.
 
-    form( method='POST', action='/teams' )
-      include form
-      input.btn.btn-primary.btn-large( type='submit', value='Register' )
+      form( method='POST', action='/teams' )
+        include form
+        input.btn.btn-primary.btn-large( type='submit', value='Register' )
