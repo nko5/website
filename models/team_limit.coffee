@@ -37,4 +37,13 @@ TeamLimitSchema.static 'aroundMeridian', (now) ->
   (h == 11 && m > 54) || (h == 12 && m < 5) ||  # 11:55 - 12:05
   (h == 23 && m > 54) || (h ==  0 && m < 5)     # 23:55 - 00:05
 
+
+TeamLimitSchema.static 'moreSpotsAvailableAt', (cb) ->
+  TeamLimit.findOne latest, {}, { sort: [[ 'effectiveAt', -1 ]] }, (err, limit) ->
+    return cb err if err
+    console.log 'ON TEAM LIMIT'
+    console.log effectiveAt
+    return cb null, limit.effectiveAt  
+
+
 TeamLimit = mongoose.model 'TeamLimit', TeamLimitSchema

@@ -84,6 +84,15 @@ TeamSchema.index updatedAt: -1
 TeamSchema.index 'entry.url': 1
 
 # class methods
+
+TeamSchema.static 'moreSpotsAvailable', (cb) ->
+  TeamLimit.moreSpotsAvailable (err, effectiveAt) ->
+    return cb err if err
+    console.log 'ON TEAM'
+    console.log effectiveAt
+    return cb null, effectiveAt  
+
+
 TeamSchema.static 'findBySlug', (slug, rest...) ->
   Team.findOne { slug: slug }, rest...
 TeamSchema.static 'canRegister', (next) ->
