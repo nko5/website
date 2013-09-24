@@ -106,8 +106,10 @@ app.get '/teams/new', (req, res, next) ->
         res.render2 'teams/new', team: team
       else
         # CHAMAR O TEAMLIMIT DENTRO DO TEAM!!!!!
-        Team.moreSpotsAvailable (err, effectiveAt) ->
-          console.log effectiveAt
+        console.log 'LETS TRY THIS'
+        Team.moreSpotsAvailable (err, result) ->
+          console.log 'ON CONTROLLER'
+          console.log result
           res.render2 'teams/max'
 
 # create

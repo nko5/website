@@ -86,11 +86,11 @@ TeamSchema.index 'entry.url': 1
 # class methods
 
 TeamSchema.static 'moreSpotsAvailable', (cb) ->
-  TeamLimit.moreSpotsAvailable (err, effectiveAt) ->
+  TeamLimit.moreSpotsAvailable (err, result) ->
     return cb err if err
     console.log 'ON TEAM'
-    console.log effectiveAt
-    return cb null, effectiveAt  
+    console.log result
+    return cb null, result  
 
 
 TeamSchema.static 'findBySlug', (slug, rest...) ->

@@ -38,12 +38,15 @@ TeamLimitSchema.static 'aroundMeridian', (now) ->
   (h == 23 && m > 54) || (h ==  0 && m < 5)     # 23:55 - 00:05
 
 
-TeamLimitSchema.static 'moreSpotsAvailableAt', (cb) ->
+TeamLimitSchema.static 'moreSpotsAvailable', (cb) ->
+  now = new Date
+  latest = { effectiveAt: { $lte: now }, limit: { $ne: null } }
   TeamLimit.findOne latest, {}, { sort: [[ 'effectiveAt', -1 ]] }, (err, limit) ->
     return cb err if err
-    console.log 'ON TEAM LIMIT'
-    console.log effectiveAt
-    return cb null, limit.effectiveAt  
-
+    newOpenings = limit.limit - lastLimit.limit
+    if (newOpenings) > 0
+      return cb null, {newOpenings: newOpenings, effectiveAt: limit.effectiveAt}
+    else
+      return cb null, null # no more spots available planned
 
 TeamLimit = mongoose.model 'TeamLimit', TeamLimitSchema
