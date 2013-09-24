@@ -88,8 +88,6 @@ TeamSchema.index 'entry.url': 1
 TeamSchema.static 'moreSpotsAvailable', (cb) ->
   TeamLimit.moreSpotsAvailable (err, result) ->
     return cb err if err
-    console.log 'ON TEAM'
-    console.log result
     return cb null, result  
 
 

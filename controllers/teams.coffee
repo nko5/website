@@ -105,10 +105,7 @@ app.get '/teams/new', (req, res, next) ->
         team.emails = [ req.user.github.email ] if req.user
         res.render2 'teams/new', team: team
       else
-        # CHAMAR O TEAMLIMIT DENTRO DO TEAM!!!!!
-        console.log 'LETS TRY THIS'
         Team.moreSpotsAvailable (err, result) ->
-          console.log 'ON CONTROLLER'
           console.log result
           res.render2 'teams/max'
 
