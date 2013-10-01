@@ -101,6 +101,8 @@ app.configure(function() {
   var redis = require('redis');
   var url = require('url');
 
+  app.featuredJudges = require('./featured_judges');
+
   var redisClient;
   if (process.env.REDISCLOUD_URL) {
     var redisURL = url.parse(process.env.REDISCLOUD_URL);

@@ -1,4 +1,5 @@
 util = require 'util'
+_ = require 'underscore'
 app = require '../config/app'
 Team = app.db.model 'Team'
 Person = app.db.model 'Person'
@@ -46,6 +47,8 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     stats: app.stats
     recentDeploys: req.recentDeploys
     interestingTeams: req.interestingTeams
+    featuredJudges: _.chain(app.featuredJudges || []).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
+
 
 app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
