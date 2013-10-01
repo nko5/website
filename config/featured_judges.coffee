@@ -31,7 +31,7 @@ module.exports = [
   },
   {
     "name": "Daniel Shaw",
-    "label": "Node Firm + \"\"The Voice\"\"",
+    "label": "Node Firm / NodeUp",
     "twitter": "http://twitter.com/dshaw",
     "linkedin": "http://www.linkedin.com/in/dshaw",
     "avatar": "http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/3/000/076/3fe/0b3a921.jpg"
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     "name": "Angelina Fabbro",
-    "label": "JavaScript Speaker, Mozilla",
+    "label": "Mozilla",
     "twitter": "http://twitter.com/angelinamagnum",
     "linkedin": "",
     "avatar": "https://si0.twimg.com/profile_images/1697997711/grainyme.jpg"
@@ -66,7 +66,7 @@ module.exports = [
   },
   {
     "name": "Andrew Chen",
-    "label": "growth hacker",
+    "label": "Blogger / Investor",
     "twitter": "http://twitter.com/andrewchen",
     "linkedin": "http://www.linkedin.com/in/andrewchen",
     "avatar": "https://si0.twimg.com/profile_images/2199553637/IMG_1584.JPG"
@@ -80,7 +80,7 @@ module.exports = [
   },
   {
     "name": "Sacha Greif",
-    "label": "Designer",
+    "label": "Designer / Folyo",
     "twitter": "http://twitter.com/SachaGreif",
     "linkedin": "",
     "avatar": "http://dun4nx4d6jyre.cloudfront.net/flat-pixels/images/sacha.jpg"
@@ -91,13 +91,6 @@ module.exports = [
     "twitter": "http://twitter.com/billwscott",
     "linkedin": "http://www.linkedin.com/in/billwscott",
     "avatar": "https://si0.twimg.com/profile_images/378800000448354163/7e0dbc9115f75100d0e01e5f347f71a2.jpeg"
-  },
-  {
-    "name": "Chris Matthieu",
-    "label": "node dev",
-    "twitter": "http://twitter.com/chrismatthieu",
-    "linkedin": "http://www.linkedin.com/in/chrismatthieu",
-    "avatar": "http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/322/05ca28a.jpg"
   },
   {
     "name": "Jason Hoffman",
@@ -122,9 +115,16 @@ module.exports = [
   },
   {
     "name": "Mikeal Rogers",
-    "label": "node core",
+    "label": "NodeConf",
     "twitter": "http://twitter.com/mikeal",
     "linkedin": "http://www.linkedin.com/in/mikealrogers",
     "avatar": "https://si0.twimg.com/profile_images/3696914564/537a181733d33d4125eab616e896afe8.png"
+  },
+  {
+    "name": "Hiten Shah",
+    "label": "KISSmetrics",
+    "twitter": "https://twitter.com/hnshah",
+    "linkedin": "http://www.linkedin.com/in/hnshah",
+    "avatar": "https://si0.twimg.com/profile_images/1804279241/image1328387386.png"
   }
 ]

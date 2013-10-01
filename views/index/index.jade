@@ -127,7 +127,7 @@ block body
                 .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
                   .person
                     //- TODO: link to judge profile
-                    a(href="#")
+                    a(href="#{judge.twitter || judge.linkedin}")
                       .avatar(style="background-image:url('#{judge.avatar}');")
                         img(src="/images/2013/transparent.png")
                       label= judge.name
