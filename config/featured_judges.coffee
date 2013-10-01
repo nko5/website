@@ -94,13 +94,13 @@ module.exports = [
   },
   {
     "name": "Jason Hoffman",
-    "label": "Joyent founder",
+    "label": "Founder of Joyent",
     "twitter": "http://twitter.com/jasonh",
     "linkedin": "http://www.linkedin.com/in/jasonhoffman",
     "avatar": "https://si0.twimg.com/profile_images/3021341335/e19f61309193fbc176421481be47e1f7.png"
   },
   {
-    "name": "Tim Lee",
+    "name": "Timothy Lee",
     "label": "Sequoia Capital",
     "twitter": "",
     "linkedin": "http://www.linkedin.com/in/timothytclee",
