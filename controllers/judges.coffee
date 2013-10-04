@@ -30,7 +30,7 @@ app.get '/judges/suggest', (req, res, next) ->
 
 # create
 app.post '/judges', (req, res) ->
-  unless req.user.admin
+  unless req.user?.admin
     # sanitize the body
     delete req.body[attr] for attr in ['admin', 'technical', 'hiring']
     req.body.role = 'nomination'
