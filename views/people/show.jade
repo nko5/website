@@ -93,6 +93,6 @@ block body
     - if (admin)
       - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
       - if (person.nomination)
-        a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/12 and 11/18."), target='twitter' ) Confirm
+        a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/11 and 11/16."), target='twitter' ) Confirm
       - if (person.judge)
         a.button( href=twitterBase + encodeURIComponent("Sweet! Made you a judge. You can edit your profile at") + "&url=" + encodeURIComponent('http://nodeknockout.com' + req.url.replace('/people/', '/judges/') + '/edit'), target='twitter') Alert
