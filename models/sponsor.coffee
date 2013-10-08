@@ -27,6 +27,13 @@ module.exports = [
   url:   'http://www.goinstant.com/'
   description:
     '''
+    GoInstant handles the realtime and data storage layers for web and mobile apps, 
+    so you don't have to. We have simple APIs for pub/sub messaging, data 
+    synchronization, data storage, multi-user management, authentication, and 
+    connection management. It's low latency, secure, and scales for you. We have 
+    customizable widgets for UI features like User Lists and Notifications and MVC 
+    integrations like GoAngular that synchronize your model across users and devices. 
+    Get a free account at <http://goinstant.com>.
     '''
 ,
   name:  'The Node Firm'
