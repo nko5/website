@@ -39,10 +39,9 @@ loadInterestingTeams = (req, res, next) ->
       next()
 
 loadFeaturedJudges = (req, res, next) ->
-  # _.chain(app.featuredJudges || []).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
   Person.find { role: 'judge', featured: true }, (err, judges) ->
     return next err if err
-    req.featuredJudges = _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
+    req.featuredJudges = _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/6)).first(3).value()
     next()
 
 # app.get '/', (req, res, next) ->
