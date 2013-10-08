@@ -102,32 +102,32 @@ block body
             //- TODO: PRIZES SECTION (TABS)
 
       //-
-      //- .judges-section.landing-section.row
-      //-   hr
-      //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-      //-     p.nominate-msg
-      //-       | Nominate a judge by filling out <a href="/judges/new">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
-      //-     h3 2013 JUDGES
+      .judges-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          p.nominate-msg
+            | Nominate a judge by filling out <a href="/judges/new">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
+          h3 2013 JUDGES
 
-      //-     each judgeGroup in featuredJudges
-      //-       .judges-grid.row
-      //-         each judge in judgeGroup
-      //-           .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
-      //-             .person
-      //-               a(href="/people/#{judge}")
-      //-                 .avatar(style="background-image:url('#{judge.imageURL}');")
-      //-                   img(src="/images/2013/transparent.png")
-      //-                 label= judge.name
-      //-                 label.about= judge.title
-      //-               ul.links
-      //-                 if judge.twitterScreenName
-      //-                   li
-      //-                     a(href="http://twitter.com/#{judge.twitterScreenName}")
-      //-                       i.icon-twitter
-      //-                 if judge.linkedinURL
-      //-                   li
-      //-                     a(href="#{judge.linkedinURL}")
-      //-                       i.icon-linkedin
+          each judgeGroup in featuredJudges
+            .judges-grid.row
+              each judge in judgeGroup
+                .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                  .person
+                    a(href="/people/#{judge}")
+                      .avatar(style="background-image:url('#{judge.imageURL}');")
+                        img(src="/images/2013/transparent.png")
+                      label= judge.name
+                      label.about= judge.title
+                    ul.links
+                      if judge.twitterScreenName
+                        li
+                          a(href="http://twitter.com/#{judge.twitterScreenName}")
+                            i.icon-twitter
+                      if judge.linkedinPath
+                        li
+                          a(href="http://www.linkedin.com/in/#{judge.linkedinPath}")
+                            i.icon-linkedin
 
       .about-section.landing-section.row
         hr

@@ -7,15 +7,25 @@ block body
   .inner-page.container.profile-page
     - if (canEdit(person))
       .edit.pull-right
+        
+        - if (admin)
+          - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
+          - if (person.nomination)
+            a.btn.btn-primary( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/11 and 11/16."), target='twitter' ) Confirm
+          - if (person.judge)
+            a.btn.btn-primary( href=twitterBase + encodeURIComponent("Sweet! Made you a judge. You can edit your profile at") + "&url=" + encodeURIComponent('http://nodeknockout.com' + req.url.replace('/people/', '/judges/') + '/edit'), target='twitter') Alert
+
         a.scary.btn.btn-primary( href='/people/' + person + '/edit' ) Edit
 
     .avatar-and-role
       img.avatar( src=avatar_url(person, 80) )
       .role= person.role
-    h1.name= title(person.name)
-    h2.title= person.title
+    .profile-content
+      h1.name= title(person.name)
+      h2.title= person.title
     
-    include details
+      include details
+    hr
 
     - if (team)
       p.team
@@ -92,9 +102,4 @@ block body
         else
           p Votes are hidden until this person votes for your entry.
 
-    - if (admin)
-      - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
-      - if (person.nomination)
-        a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, between 11/11 and 11/16."), target='twitter' ) Confirm
-      - if (person.judge)
-        a.button( href=twitterBase + encodeURIComponent("Sweet! Made you a judge. You can edit your profile at") + "&url=" + encodeURIComponent('http://nodeknockout.com' + req.url.replace('/people/', '/judges/') + '/edit'), target='twitter') Alert
+    

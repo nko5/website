@@ -41,16 +41,22 @@ include ../errors
         input( type='hidden', name='featured', value=0 )
         input( type='checkbox', name='featured', checked=person.featured, id='featured' )
 
-      .hiring.tabular
+      .hiring
         label( for='title' ) Featured / Title
-        input( type='text', name='title', id='title', value=person.title )
+        input.form-control( type='text', name='title', id='title', value=person.title )
 
-      .hiring.tabular
+      .hiring
         label( for='hiring' ) Hiring?
-        input( type='text', name='hiring', id='hiring', value=person.hiring )
+        input.form-control( type='text', name='hiring', id='hiring', value=person.hiring )
 
     - if (person.role !== 'voter')
       h2.optional Optional
+
+      - if (admin)
+        .linkedin.tabular
+          label( for='linkedinPath' ) Linkedin
+          | http://linkedin.com/in/
+          input.form-control( type='text', name='linkedinPath', id='twitter', value=person.linkedinPath, placeholder='' )
 
       .twitter.tabular
         label( for='twitter' ) Twitter

@@ -15,7 +15,7 @@ PersonSchema = module.exports = new mongoose.Schema
   company: String
   hiring: String
   twitterScreenName: String
-  linkedinUrl: String
+  linkedinPath: String
   title: String
   bio: String
   admin: Boolean
