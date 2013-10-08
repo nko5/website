@@ -13,22 +13,23 @@ block body
         source hackers, etc. **If you know a good judge candidate, please
         [nominate her or him](/judges/new).**
 
-    if judges.length > 0
-      h1= title((typeof(subset) === 'undefined' ? '': subset + ' ') + 'Judges') + ' (' + judges.length + ')'
+    .content-block
+      if judges.length > 0
+        h1= title((typeof(subset) === 'undefined' ? '': subset + ' ') + 'Judges') + ' (' + judges.length + ')'
 
-      ul.judges
-        - each judge in judges
-          li
-            img.avatar( src=avatar_url(judge, 80) )
-            h3: a( href='/people/' + judge )= judge.name
-            person = judge
-            include ../people/details
-            if (judge.hiring)
-              a.button.hiring( href="/jobs#" + judge.hiring ) Hiring
-            .bio!= markdown(judge.bio)
-            if admin && judge.nomination
-              p.buttons
-                - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + judge.twitterScreenName).replace('@@', '@') + ' ');
-                a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 12-16."), target='twitter' ) Confirm
-                |
-                a.button.scary.delete( href='/people/' + judge ) Delete
+        ul.judges
+          - each judge in judges
+            li
+              img.avatar( src=avatar_url(judge, 80) )
+              h3: a( href='/people/' + judge )= judge.name
+              person = judge
+              include ../people/details
+              if (judge.hiring)
+                a.button.hiring( href="/jobs#" + judge.hiring ) Hiring
+              .bio!= markdown(judge.bio)
+              if admin && judge.nomination
+                p.buttons
+                  - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + judge.twitterScreenName).replace('@@', '@') + ' ');
+                  a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 11-16."), target='twitter' ) Confirm
+                  |
+                  a.button.scary.delete( href='/people/' + judge ) Delete
