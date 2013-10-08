@@ -9,6 +9,11 @@ include ../errors
       label( for='name' ) Name
       input.form-control( type='text', name='name', id='name', value=person.name )
 
+    - if (admin || person.featured)
+      .byline.tabular
+        label( for='title' ) Title / Byline
+        input.form-control( type='text', name='title', id='title', value=person.title )
+
     .email.tabular
       label( for='email' ) Email
       input.form-control( type='text', name='email', id='email', value=person.email )
@@ -40,10 +45,6 @@ include ../errors
         label( for='featured' ) Featured
         input( type='hidden', name='featured', value=0 )
         input( type='checkbox', name='featured', checked=person.featured, id='featured' )
-
-      .hiring
-        label( for='title' ) Featured / Title
-        input.form-control( type='text', name='title', id='title', value=person.title )
 
       .hiring
         label( for='hiring' ) Hiring?
