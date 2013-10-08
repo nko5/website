@@ -13,6 +13,8 @@ block body
       img.avatar( src=avatar_url(person, 80) )
       .role= person.role
     h1.name= title(person.name)
+    h2.title= person.title
+    
     include details
 
     - if (team)

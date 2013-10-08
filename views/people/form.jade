@@ -30,10 +30,20 @@ include ../errors
           input( type='checkbox', name='technical', checked=person.technical, id='technical' )
           | &nbsp;
           label( for='technical' ) Technical
+      
       .admin.tabular
         label( for='admin' ) Admin
         input( type='hidden', name='admin', value=0 )
         input( type='checkbox', name='admin', checked=person.admin, id='admin' )
+
+      .admin.tabular
+        label( for='featured' ) Featured
+        input( type='hidden', name='featured', value=0 )
+        input( type='checkbox', name='featured', checked=person.featured, id='featured' )
+
+      .hiring.tabular
+        label( for='title' ) Featured / Title
+        input( type='text', name='title', id='title', value=person.title )
 
       .hiring.tabular
         label( for='hiring' ) Hiring?
