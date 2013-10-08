@@ -9,11 +9,6 @@ include ../errors
       label( for='name' ) Name
       input.form-control( type='text', name='name', id='name', value=person.name )
 
-    - if (admin || person.featured)
-      .byline.tabular
-        label( for='title' ) Title / Byline
-        input.form-control( type='text', name='title', id='title', value=person.title )
-
     .email.tabular
       label( for='email' ) Email
       input.form-control( type='text', name='email', id='email', value=person.email )
@@ -53,7 +48,7 @@ include ../errors
     - if (person.role !== 'voter')
       h2.optional Optional
 
-      - if (admin)
+      - if (admin || person.featured)
         .linkedin.tabular
           label( for='linkedinPath' ) Linkedin
           | http://linkedin.com/in/
@@ -88,6 +83,11 @@ include ../errors
       .company.tabular
         label( for='company' ) Company
         input.form-control( type='text', name='company', id='company', value=person.company )
+
+      - if (admin || person.featured)
+        .byline.tabular
+          label( for='title' ) Short Bio / Byline
+          input.form-control( type='text', name='title', id='title', value=person.title )
 
       .bio.tabular
         label( for='bio' ) Bio
