@@ -41,6 +41,11 @@ module.exports = [
   url:   'http://www.nodefirm.com/'
   description:
     '''
+    The Node Firm provides the absolute best technical and business insights into using Node.js effectively. We want to be sure that you have people you can trust when you need to learn Node.js.
+
+    Our team is made up of people who contribute to Node.js project and the Node.js community. We run Node.js in production. We organize and speak at Node.js conferences. We operate businesses that depend on Node.js. We've got experience that can help you succeed with your Node.js project.
+
+    Your success with Node.js is our success. Let's [discuss](mailto:hello@thenodefirm.com) how The Node Firm can help you deliver a great product.
     '''
 
 ]
