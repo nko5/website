@@ -56,7 +56,6 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     interestingTeams: req.interestingTeams
     featuredJudges: req.featuredJudges
 
-
 app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
 # [ 'rules', 'sponsors'].forEach (p) ->
@@ -67,6 +66,8 @@ app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
 [ 'rules', 'sponsors', 'locations', 'prizes', 'scoring', 'jobs', 'how-to-win', 'tell-me-a-story' ].forEach (p) ->
   app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
+
+app.get '/sponsors/options', (req, res) -> res.render2 "index/sponsor-options"
 
 app.get '/about', (req, res) ->
   Team.count {}, (err, teams) ->
