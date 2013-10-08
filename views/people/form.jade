@@ -9,6 +9,11 @@ include ../errors
       label( for='name' ) Name
       input.form-control( type='text', name='name', id='name', value=person.name )
 
+    - if (admin || person.featured)
+      .byline.tabular
+        label( for='title' ) Title / Byline
+        input.form-control( type='text', name='title', id='title', value=person.title )
+
     .email.tabular
       label( for='email' ) Email
       input.form-control( type='text', name='email', id='email', value=person.email )
@@ -30,17 +35,29 @@ include ../errors
           input( type='checkbox', name='technical', checked=person.technical, id='technical' )
           | &nbsp;
           label( for='technical' ) Technical
+      
       .admin.tabular
         label( for='admin' ) Admin
         input( type='hidden', name='admin', value=0 )
         input( type='checkbox', name='admin', checked=person.admin, id='admin' )
 
-      .hiring.tabular
+      .admin.tabular
+        label( for='featured' ) Featured
+        input( type='hidden', name='featured', value=0 )
+        input( type='checkbox', name='featured', checked=person.featured, id='featured' )
+
+      .hiring
         label( for='hiring' ) Hiring?
-        input( type='text', name='hiring', id='hiring', value=person.hiring )
+        input.form-control( type='text', name='hiring', id='hiring', value=person.hiring )
 
     - if (person.role !== 'voter')
       h2.optional Optional
+
+      - if (admin)
+        .linkedin.tabular
+          label( for='linkedinPath' ) Linkedin
+          | http://linkedin.com/in/
+          input.form-control( type='text', name='linkedinPath', id='twitter', value=person.linkedinPath, placeholder='' )
 
       .twitter.tabular
         label( for='twitter' ) Twitter

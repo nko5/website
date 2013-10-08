@@ -15,15 +15,25 @@ module.exports = [
     environment. For more information, visit <http://www.joyent.com/>
     '''
 ,
-  name:  'nodejitsu'
-  image: 'nodejitsu.png'
-  url:   'http://www.nodejitsu.com/'
+  name:  'groupon'
+  image: 'groupon.png'
+  url:   'http://www.groupon.com/'
   description:
     '''
-    Nodejitsu offers the most scalable and user-friendly Node.js PaaS anywhere,
-    and robust orchestration software for your cloud. The team is comprised
-    of some of the earliest adopters of Node, and is dedicated to knowledge
-    sharing and community empowerment through their open source
-    contributions.
     '''
+,
+  name:  'GoInstant'
+  image: 'goinstant.png'
+  url:   'http://www.goinstant.com/'
+  description:
+    '''
+    '''
+,
+  name:  'The Node Firm'
+  image: 'nodefirm.png'
+  url:   'http://www.nodefirm.com/'
+  description:
+    '''
+    '''
+
 ]

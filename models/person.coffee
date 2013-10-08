@@ -15,10 +15,13 @@ PersonSchema = module.exports = new mongoose.Schema
   company: String
   hiring: String
   twitterScreenName: String
+  linkedinPath: String
+  title: String
   bio: String
   admin: Boolean
   role: { type: String, enum: ROLES }
   technical: Boolean
+  featured: Boolean
   slug:
     type: String
     index: true

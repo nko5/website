@@ -38,17 +38,23 @@ loadInterestingTeams = (req, res, next) ->
       req.interestingTeams = teams
       next()
 
+loadFeaturedJudges = (req, res, next) ->
+  # _.chain(app.featuredJudges || []).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
+  Person.find { role: 'judge', featured: true }, (err, judges) ->
+    return next err if err
+    req.featuredJudges = _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
+    next()
+
 # app.get '/', (req, res, next) ->
 #   res.render2 'index/index'
 
-app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams], (req, res, next) ->
+app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
   res.render2 'index/index',
     team: req.team
     stats: app.stats
     recentDeploys: req.recentDeploys
     interestingTeams: req.interestingTeams
-    featuredJudges: _.chain(app.featuredJudges || []).shuffle().groupBy((a,b) -> Math.floor(b/6)).value()
-
+    featuredJudges: req.featuredJudges
 
 app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
@@ -60,6 +66,8 @@ app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
 [ 'rules', 'sponsors', 'locations', 'prizes', 'scoring', 'jobs', 'how-to-win', 'tell-me-a-story' ].forEach (p) ->
   app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
+
+app.get '/sponsors/options', (req, res) -> res.render2 "index/sponsor-options"
 
 app.get '/about', (req, res) ->
   Team.count {}, (err, teams) ->
