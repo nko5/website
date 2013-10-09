@@ -83,7 +83,7 @@ load = ->
       onStart: -> $i.find('.spinner').show()
       onSuccess: (data) ->
         $i.find('.spinner').hide()
-        image_url = data.results.w80[0].url
+        image_url = data.results.w160[0].url
         $i.find('img.avatar').attr('src', image_url).end()
           .find('input').val(image_url).end()
 
