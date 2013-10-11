@@ -9,6 +9,7 @@ var limits = {
 
 for(dateString in limits) {
   var limit = limits[dateString];
+
   var date = new Date(Date.parse(dateString));
   print("Setting team limit to " + limit + " at " + date);
 
