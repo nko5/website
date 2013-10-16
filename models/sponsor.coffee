@@ -4,15 +4,9 @@ module.exports = [
   url:   'http://www.joyent.com/'
   description:
     '''
-    Joyent is the high-performance cloud infrastructure company, offering
-    enterprises and developers the best public, private and hybrid cloud
-    infrastructure for today’s web and mobile applications. Joyent delivers
-    public cloud services to some of the most innovative companies in the
-    world, including LinkedIn, Voxer, and Modcloth, and licenses the software
-    that runs its public cloud to enterprises wishing to operate their own
-    private or hybrid clouds. Joyent is also the sponsor and corporate steward
-    of Node.js, the widely embraced server-side JavaScript development
-    environment. For more information, visit <http://www.joyent.com/>
+    Joyent is the high-performance cloud infrastructure and big data analytics company. The Joyent Cloud is built from the ground up to meet the requirements of today's demanding real-time web and mobile applications. The Joyent Manta Storage Service is the first compute-on-storage innovation that eliminates data movement and enables inexpensive, lightning fast big data analysis in-place, transforming the economics and utility of object storage and real-time big data. Joyent is the steward of Node.js, the open source server-side JavaScript project that provides developers and enterprises with the most powerful runtime for developing data-intensive, real-time apps.
+
+    For more information visit <http://www.joyent.com/>.
     '''
 ,
   name:  'groupon'
