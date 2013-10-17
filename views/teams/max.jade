@@ -5,30 +5,34 @@ block body
   include ../index/_header-mini
 
   .inner-page.container
-    if registration
-      - title('Too many teams!')
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+        if registration
+          - title('Too many teams!')
 
-      :markdown
-        # Registration is currently full
+          :markdown
+            # Registration is currently full
 
-        - [Subscribe](http://nodeknockout.com#subscribe) to our email list, we'll let you know as soon as we open spots up
-        - Check back periodically. Teams may give up their spot at any time!
-        - Tweet about your misfortune (be sure to mention [@node_knockout]) and
-          we can try to help you find a team to join.
+            - [Subscribe](http://nodeknockout.com#subscribe) to our email list, we'll let you know as soon as we open spots up
+            - Check back periodically. Teams may give up their spot at any time!
+            - Tweet about your misfortune (be sure to mention [@node_knockout]) and
+              we can try to help you find a team to join.
 
-        [0:00]: http://www.wolframalpha.com/input/?i=0:00+UTC
-        [12:00 UTC]: http://www.wolframalpha.com/input/?i=12:00+UTC
-        [existing teams]: /teams
-        [@node_knockout]: http://twitter.com/node_knockout
-    else
-      - title('Registration closed')
+            [0:00]: http://www.wolframalpha.com/input/?i=0:00+UTC
+            [12:00 UTC]: http://www.wolframalpha.com/input/?i=12:00+UTC
+            [existing teams]: /teams
+            [@node_knockout]: http://twitter.com/node_knockout
+        else
+          - title('Registration closed')
 
-      :markdown
-        # Registration closed
+          :markdown
+            # Registration closed
 
-        Sorry, registration is now closed. Make sure to check your email, follow
-        [@node_knockout], and watch [the blog] for more information about
-        competition weekend!
+            Sorry, registration is now closed. Make sure to check your email, follow
+            [@node_knockout], and watch [the blog] for more information about
+            competition weekend!
 
-        [@node_knockout]: https://twitter.com/node_knockout
-        [the blog]: http://blog.nodeknockout.com
+            [@node_knockout]: https://twitter.com/node_knockout
+            [the blog]: http://blog.nodeknockout.com
+
+      include ../index/_sponsors-sidebar
