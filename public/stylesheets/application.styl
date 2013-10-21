@@ -1,3 +1,10 @@
+@import "2013/base"
+@import "2013/header"
+
+#header
+  position: relative !important
+  z-index: 1000000
+
 border-image()
   -webkit-border-image arguments
   -moz-border-image arguments
@@ -48,9 +55,9 @@ red = hsl(0, 60%, 60%)
 time
   display inline
 
-body, input, textarea, pre
-  font-family 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
-  font-size medium
+// body, input, textarea, pre
+//   font-family 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+//   font-size medium
 
 code
   font-family Inconsolata, Menlo, Monaco, Courier New, monospace
@@ -64,16 +71,16 @@ pre > code
   line-height 150%
 
 h1, h2, h3, h4, h5, h6
-  font-family '04b_03', monospace
+  font-family 'franklin-gothic-urw', Helvetica, Arial, sans-serif
   margin-bottom 0
 
 body
   text-align center
-  background hsl(200, 10%, 80%) url('/images/noise.png') repeat
-  background-color: #000
+  background-color: #fff
   text-shadow 0px 1px 0px hsla(0, 100%, 100%, 0.6)
   overflow scroll
   min-width 1024px
+  background: #c7ced1 url("/images/noise.png") repeat
 
 a:link, a:visited
   color hsl(200, 30%, 50%)
@@ -230,7 +237,7 @@ header.site
       margin: 10px 0;
       color: white;
       text-transform: uppercase;
-      font-family: '04b_03', monospace
+      // font-family: '04b_03', monospace
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
@@ -283,6 +290,10 @@ aside
       font-weight normal
       font-size small
       padding-top 1em
+
+  .nko-dates .date-row
+    letter-spacing: 0
+
   ul.sponsors
     list-style-type none
     margin 2em 0 0
@@ -432,8 +443,8 @@ form.vote
   margin-top: 0
   #inner
     background: #fff
-    border solid 1px hsla(0, 0%, 0%, 0.1)
-    box-shadow 0 0 5px hsla(0, 0%, 0%, 0.1)
+    // border solid 1px hsla(0, 0%, 0%, 0.1)
+    // box-shadow 0 0 5px hsla(0, 0%, 0%, 0.1)
     z-index 10000
     position relative
     padding 0px 20px

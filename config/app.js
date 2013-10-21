@@ -67,13 +67,10 @@ app.disable('winners');        // after winners are selected
 
 
 app.configure(function() {
-  var assetManager = require('./assetmanager')(app);
   require('./nap');
 
   app.use(express.compress());
-  app.use(assetManager);
-  app.locals({ assetManager: assetManager });
-
+  
   app.use(flash());
 });
 
