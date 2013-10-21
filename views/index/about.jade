@@ -2,80 +2,89 @@ extends ../layout-2013
 - title('About')
 
 block body
-  :markdown
-    # About
+  - activeNav = "about"
+  include ../index/_header-mini
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
 
-    Node.js Knockout is a 48-hour hackathon featuring [node.js]. It's an online,
-    virtual competition with [contestants worldwide].
+        :markdown
+          # About
 
-    Coding takes place from November 10, 2012 0:00 UTC to November 12, 2012 0:00
-    UTC. Judging and public voting take place the following week.
+          Node.js Knockout is a 48-hour hackathon featuring [node.js]. It's an online,
+          virtual competition with [contestants worldwide].
 
-    This is the third year it's been held.
+          Coding takes place from November 10, 2012 0:00 UTC to November 12, 2012 0:00
+          UTC. Judging and public voting take place the following week.
 
-    Check out the [NodeConf 2012 Slides][nodeconf].
+          This is the third year it's been held.
 
-    ### Credits
+          Check out the [NodeConf 2012 Slides][nodeconf].
 
-    - 2013 Organizers: [ashbhoopathy], [humanbagel], [jacquescrocker]
-    - Creators: [gerad], [visnup]
-    - Design: [Team 734m] = [burnto] + [huned] + ([visnup] + [gerad])
-    - Design inspiration: [#sworcery], [the1console]
-    - Additional help: ♥  [mape], [miksago], [dshaw], [antiserf], [operaqueenie] ♥
-    - Original inspiration: [Rails Rumble]
-    - Props: [Node.js] is a trademark of [Joyent, Inc.]
+          ### Credits
 
-    ### Logos
+          - 2013 Organizers: [ashbhoopathy], [humanbagel], [jacquescrocker]
+          - Creators: [gerad], [visnup]
+          - Design: [Team 734m] = [burnto] + [huned] + ([visnup] + [gerad])
+          - Design inspiration: [#sworcery], [the1console]
+          - Additional help: ♥  [mape], [miksago], [dshaw], [antiserf], [operaqueenie] ♥
+          - Original inspiration: [Rails Rumble]
+          - Props: [Node.js] is a trademark of [Joyent, Inc.]
 
-    [PNG 3700x1000](/designs/exports/png/nko-logo-3700x1000.png) /
-    [PDF](/designs/exports/pdf/nko-logo.pdf) /
-    [Adobe Illustrator](/designs/nko-logo.ai)
+          ### Logos
 
-    [node.js]: http://nodejs.org/
-    [contestants worldwide]: /teams
-    [nodeconf]: /tell-me-a-story
+          [PNG 3700x1000](/designs/exports/png/nko-logo-3700x1000.png) /
+          [PDF](/designs/exports/pdf/nko-logo.pdf) /
+          [Adobe Illustrator](/designs/nko-logo.ai)
 
-    [Rails Rumble]: http://railsrumble.com/
-    [Joyent, Inc.]: http://www.joyent.com/
-    [GitHub]: https://github.com/nko4/website
+          [node.js]: http://nodejs.org/
+          [contestants worldwide]: /teams
+          [nodeconf]: /tell-me-a-story
 
-    [ashbhoopathy]: https://twitter.com/ashbhoopathy
-    [jacquescrocker]: https://twitter.com/jacquescrocker
-    [humanbagel]: https://twitter.com/humanbagel
-    [burnto]: https://twitter.com/burnto
-    [huned]: https://twitter.com/huned
-    [visnup]: https://twitter.com/visnup
-    [gerad]: https://twitter.com/gerad
-    [mape]: https://twitter.com/mape
-    [miksago]: https://twitter.com/miksago
-    [dshaw]: https://twitter.com/dshaw
-    [antiserf]: https://twitter.com/antiserf
-    [operaqueenie]: https://twitter.com/operaqueenie
+          [Rails Rumble]: http://railsrumble.com/
+          [Joyent, Inc.]: http://www.joyent.com/
+          [GitHub]: https://github.com/nko4/website
 
-    [#sworcery]: http://www.swordandsworcery.com/
+          [ashbhoopathy]: https://twitter.com/ashbhoopathy
+          [jacquescrocker]: https://twitter.com/jacquescrocker
+          [humanbagel]: https://twitter.com/humanbagel
+          [burnto]: https://twitter.com/burnto
+          [huned]: https://twitter.com/huned
+          [visnup]: https://twitter.com/visnup
+          [gerad]: https://twitter.com/gerad
+          [mape]: https://twitter.com/mape
+          [miksago]: https://twitter.com/miksago
+          [dshaw]: https://twitter.com/dshaw
+          [antiserf]: https://twitter.com/antiserf
+          [operaqueenie]: https://twitter.com/operaqueenie
 
-  if registration
-    :markdown
-      ### <a href="#stats"></a>Key Stats
+          [#sworcery]: http://www.swordandsworcery.com/
 
-      <table>
-        <tr><th>Contestants</th> <td>#{people}</td></tr>
-        <tr><th>Teams</th>       <td>#{teams}</td></tr>
-        <tr><th>Entries</th>     <td>#{entries}</td></tr>
-      </table>
+        if registration
+          :markdown
+            ### <a href="#stats"></a>Key Stats
 
-  :markdown
-    ### Colophon
+            <table>
+              <tr><th>Contestants</th> <td>#{people}</td></tr>
+              <tr><th>Teams</th>       <td>#{teams}</td></tr>
+              <tr><th>Entries</th>     <td>#{entries}</td></tr>
+            </table>
 
-    All code for this website is available on [GitHub](https://github.com/nko4/website).
+        :markdown
+          ### Colophon
 
-    Headings are in [04b_03] and the body font is [Droid Sans]. Droid is a
-    trademark of Lucasfilm, Ltd. and its related companies. Sans is just a French
-    preposition that means "[without]".
+          All code for this website is available on [GitHub](https://github.com/nko4/website).
 
-    [@the1console]: https://twitter.com/the1console
+          Headings are in [04b_03] and the body font is [Droid Sans]. Droid is a
+          trademark of Lucasfilm, Ltd. and its related companies. Sans is just a French
+          preposition that means "[without]".
 
-    [04b_03]: http://www.04.jp.org
-    [Inconsolata]: http://www.google.com/webfonts/specimen/Inconsolata
-    [Droid Sans]: http://www.google.com/webfonts/specimen/Droid+Sans
-    [without]: http://en.wikipedia.org/wiki/Sans-serif
+          [@the1console]: https://twitter.com/the1console
+
+          [04b_03]: http://www.04.jp.org
+          [Inconsolata]: http://www.google.com/webfonts/specimen/Inconsolata
+          [Droid Sans]: http://www.google.com/webfonts/specimen/Droid+Sans
+          [without]: http://en.wikipedia.org/wiki/Sans-serif
+
+      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+        include ../index/_sidebar

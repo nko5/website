@@ -24,35 +24,9 @@ html
 
     #page( class=view.replace(/\//g,'-') )
 
-      aside        
-        .nko-dates
-          h4
-            | IMPORTANT DATES
-          .date-row
-            .date-label
-              | REGISTRATION
-            .date-date
-              | SEP 17
-          .date-row
-            .date-label
-              | COMPETITION
-            .date-date
-              | NOV 8-10
-          .date-row
-            .date-label
-              | JUDGING
-            .date-date
-              | NOV 11-17
-          .date-row
-            .date-label
-              | WINNERS
-            .date-date
-              | NOV 18
-
-          .clear
-
-        include ./index/_sponsors-sidebar
-
+      aside
+        include ./index/_sidebar
+        
         //- ul.sponsors
         //-   - _.shuffle(sponsors).forEach(function(sponsor) {
         //-     li: a( href=sponsor.url )

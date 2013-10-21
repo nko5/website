@@ -37,8 +37,6 @@ block body
                 p
                   | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
 
-
-
       .intro-section.landing-section
         hr
         .row
@@ -51,7 +49,32 @@ block body
               | Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.
 
           .col.col-md-6.col-md-offset-1.col-lg-6.col-lg-offset-1.col-sm-12.col-xs-12
-            include ../index/_important-dates        
+            .nko-dates
+              h4
+                | IMPORTANT DATES TO REMEMBER
+              .date-row
+                .date-label
+                  | OPEN FOR REGISTRATION
+                .date-date
+                  | SEPTEMBER 17, 2013
+              .date-row
+                .date-label
+                  | COMPETITION DATES
+                .date-date
+                  | NOVEMBER 8-10, 2013
+              .date-row
+                .date-label
+                  | JUDGING PERIOD
+                .date-date
+                  | NOVEMBER 11-17, 2013
+              .date-row
+                .date-label
+                  | WINNERS ANNOUNCED
+                .date-date
+                  | NOVEMBER 18, 2013
+
+              .clear
+
 
       .sponsors-section.landing-section.row
         hr
@@ -69,12 +92,11 @@ block body
             a.btn.btn-super.btn-primary(href="/sponsors") See all our 2013 sponsors
 
 
-      //-
-        .prizes-section.landing-section.row
-          hr
-          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-            h3 PRIZES
-            //- TODO: PRIZES SECTION (TABS)
+      //- .prizes-section.landing-section.row
+      //-   hr
+      //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+      //-     h3 PRIZES
+      //-     include ../index/_prizes-widget        
 
       .judges-section.landing-section.row
         hr

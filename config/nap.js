@@ -13,6 +13,7 @@ nap({
         "/public/javascripts/vendor/jquery-1.10.2.min.js",
         "/public/javascripts/jquery.stars.coffee",
         "/public/javascripts/vendor/jquery.transloadit2.js",
+        '/public/javascripts/vendor/jquery.ba-hashchange.js',
         "/public/javascripts/vendor/bootstrap.js",
         "/public/javascripts/tumblr.js",
         "/public/javascripts/2013.coffee",
@@ -35,13 +36,24 @@ nap({
         '/public/javascripts/vendor/md5.js',
         '/public/javascripts/vendor/moment.js',
         '/public/javascripts/vendor/underscore-1.3.3.js',
-        '/public/javascripts/watchmaker.js',
-        '/public/javascripts/application.coffee'
+        "/public/javascripts/vendor/jquery.stars.coffee",
+        // '/public/javascripts/watchmaker.js',
+        '/public/javascripts/application.coffee',
+        '/public/javascripts/dashboard.coffee',
+        '/public/javascripts/index.coffee',
+        '/public/javascripts/judges.coffee',
+        '/public/javascripts/login.coffee',
+        '/public/javascripts/nodeconf.js',
+        '/public/javascripts/people.coffee',
+        '/public/javascripts/polyfills.js',
+        '/public/javascripts/teams.coffee',
+        '/public/javascripts/websocket.coffee'
       ]
     },
     css: {
       '2013': [
         "/public/stylesheets/vendor/bootstrap.css",
+        "/public/stylesheets/vendor/bootstrap-vertical-tabs.css",
         "/public/stylesheets/2013.styl",
         "/public/stylesheets/fontello.css"
       ],
