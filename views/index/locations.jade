@@ -1,144 +1,154 @@
 - title('Locations')
-extends ../layout
+extends ../layout-2013
 
 block body
+  
+  - activeNav = "jobes"
+  include ../index/_header-mini
 
-  :markdown
-    Locations
-    =========
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+        .jobs-list
+          :markdown
+            Locations
+            =========
 
-    _Contestants may compete "virtually" from anywhere in the world_, but
-    [Joyent] will be hosting Knockout HQ in San Francisco and several groups worldwide have graciously organized space for
-    contestants to work from, meet up, and have an awesome time.
+            _Contestants may compete "virtually" from anywhere in the world_, but
+            [Joyent] will be hosting Knockout HQ in San Francisco and several groups worldwide have graciously organized space for
+            contestants to work from, meet up, and have an awesome time.
 
-    <a name="sf"></a>
-    San Francisco
-    -------------
+            <a name="sf"></a>
+            San Francisco
+            -------------
 
-    NKO HQ is setting up at [Joyent]’s downtown San Francisco office. Doors open
-    at 3 PM PST. Duke it out in the ring with 80 of your closest Node.js friends.
-    We’ll serve up drinks, chow, and a rockin’ good time including ping pong!
+            NKO HQ is setting up at [Joyent]’s downtown San Francisco office. Doors open
+            at 3 PM PST. Duke it out in the ring with 80 of your closest Node.js friends.
+            We’ll serve up drinks, chow, and a rockin’ good time including ping pong!
 
-    <p class="button">
-      <a href="http://nkosf2013.eventbrite.com/" class="button">Register to attend</a>
-    </p>
+            <p class="button">
+              <a href="http://nkosf2013.eventbrite.com/" class="button">Register to attend</a>
+            </p>
 
-    <p class="map">
-      <iframe width="576" height="324" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=1+Embarcadero+Center,+9th+Floor,+San+Francisco,+CA+(Knockout+HQ+@+Joyent)&output=embed"></iframe>
-    </p>
+            <p class="map">
+              <iframe width="576" height="324" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=1+Embarcadero+Center,+9th+Floor,+San+Francisco,+CA+(Knockout+HQ+@+Joyent)&output=embed"></iframe>
+            </p>
 
-    
-    Other Locations
-    ---------------
+            
+            Other Locations
+            ---------------
 
-    Not in San Francisco? Find node.js-loving enthusiasts worldwide.
-    **Want to host a satellite location? [Send us a pull request] or [let us
-    know].**
+            Not in San Francisco? Find node.js-loving enthusiasts worldwide.
+            **Want to host a satellite location? [Send us a pull request] or [let us
+            know].**
 
-    [Joyent]: http://www.joyent.com/
-    [Send us a pull request]: https://github.com/nko3/website/blob/master/views/index/locations.jade
-    [let us know]: mailto:all@nodeknockout.com
+            [Joyent]: http://www.joyent.com/
+            [Send us a pull request]: https://github.com/nko3/website/blob/master/views/index/locations.jade
+            [let us know]: mailto:all@nodeknockout.com
 
-  ul.locations
-    // li
-      h4#seattle Seattle, WA
-      != address('1617 Boylston Ave, Seattle, WA 98122')
-      :markdown
-        ### [NKO @ Office Nomads]
-        ##### 1617 Boylston Ave, Seattle, WA 98122
+          ul.locations
+            // li
+              h4#seattle Seattle, WA
+              != address('1617 Boylston Ave, Seattle, WA 98122')
+              :markdown
+                ### [NKO @ Office Nomads]
+                ##### 1617 Boylston Ave, Seattle, WA 98122
 
-        [Office Nomads] is hosting the CascadiaJS after-hack!
-        Come hang out and code from noon - 6pm on Saturday.
-        Contact [@CarterRabasa] if you have any questions.
+                [Office Nomads] is hosting the CascadiaJS after-hack!
+                Come hang out and code from noon - 6pm on Saturday.
+                Contact [@CarterRabasa] if you have any questions.
 
-        [Office Nomads]: http://officenomads.com/
-        [NKO @ Office Nomads]: http://officenomads.com/
-        [@end33r]: http://twitter.com/carterrabasa
+                [Office Nomads]: http://officenomads.com/
+                [NKO @ Office Nomads]: http://officenomads.com/
+                [@end33r]: http://twitter.com/carterrabasa
 
-    // li
-      h4#paris Paris, France
-      != address('100 Rue de la folie mericourt, Paris, France')
-      :markdown
-        ### [Joshfire]
-        ##### 100 Rue de la folie mericourt, Paris, France
+            // li
+              h4#paris Paris, France
+              != address('100 Rue de la folie mericourt, Paris, France')
+              :markdown
+                ### [Joshfire]
+                ##### 100 Rue de la folie mericourt, Paris, France
 
-        [Joshfire] will be hosting teams and onlookers, then party to celebrate
-        Node and French house music.
+                [Joshfire] will be hosting teams and onlookers, then party to celebrate
+                Node and French house music.
 
-        [Joshfire]: http://www.joshfire.com/
+                [Joshfire]: http://www.joshfire.com/
 
-    // li
-      h4#taipei Taipei, Taiwan
-      != address('台北市南港區研究院路二段128號', 'maps.google.com.tw')
-      :markdown
-        ### [Node.js 台灣社群][1]
-        ##### 台北市南港區研究院路二段128號
+            // li
+              h4#taipei Taipei, Taiwan
+              != address('台北市南港區研究院路二段128號', 'maps.google.com.tw')
+              :markdown
+                ### [Node.js 台灣社群][1]
+                ##### 台北市南港區研究院路二段128號
 
-        歡迎各位 Node.js 開發者一起參與，共同奮戰 48
-        小時，活動時間台北時間，11/10  08:00 - 11/11 20:00
+                歡迎各位 Node.js 開發者一起參與，共同奮戰 48
+                小時，活動時間台北時間，11/10  08:00 - 11/11 20:00
 
-        Register at [Node KO 台灣活動網站][2] or contact [@NodejsTaiwan].
+                Register at [Node KO 台灣活動網站][2] or contact [@NodejsTaiwan].
 
-        [1]: http://nodejs.tw/
-        [2]: http://nodeknockout.nodejs.tw/
-        [@NodejsTaiwan]: http://twitter.com/NodejsTaiwan
+                [1]: http://nodejs.tw/
+                [2]: http://nodeknockout.nodejs.tw/
+                [@NodejsTaiwan]: http://twitter.com/NodejsTaiwan
 
-    // li
-      h4#tokyo Tokyo, Japan
-      != address('東京都中央区日本橋浜町２丁目３１−１', 'maps.google.co.jp')
-      :markdown
-        ### [Node.js日本ユーザグループ] and [ドワンゴ]
-        ##### 東京都中央区日本橋浜町2-31-1 浜町センタービル10F
+            // li
+              h4#tokyo Tokyo, Japan
+              != address('東京都中央区日本橋浜町２丁目３１−１', 'maps.google.co.jp')
+              :markdown
+                ### [Node.js日本ユーザグループ] and [ドワンゴ]
+                ##### 東京都中央区日本橋浜町2-31-1 浜町センタービル10F
 
-        Everybody welcome during whole knockout with free drinks. Contact [@meso].
+                Everybody welcome during whole knockout with free drinks. Contact [@meso].
 
-        [Node.js日本ユーザグループ]: http://nodejs.jp/
-        [ドワンゴ]: http://info.dwango.co.jp/
-        [@meso]: http://twitter.com/meso
+                [Node.js日本ユーザグループ]: http://nodejs.jp/
+                [ドワンゴ]: http://info.dwango.co.jp/
+                [@meso]: http://twitter.com/meso
 
-    // li
-      h4#warsaw Warsaw, Poland
-      != address('Pokrzywnicka 3A, Warsaw, Poland')
-      :markdown
-        ### [Node.js Weekend]
-        ##### Pokrzywnicka 3A, Warsaw, Poland
+            // li
+              h4#warsaw Warsaw, Poland
+              != address('Pokrzywnicka 3A, Warsaw, Poland')
+              :markdown
+                ### [Node.js Weekend]
+                ##### Pokrzywnicka 3A, Warsaw, Poland
 
-        [Node.js Weekend] will be the host for the Warsaw event - come and enjoy
-        the weekend with free beer and pizza. Contact [@end33r] if you have any
-        questions.
+                [Node.js Weekend] will be the host for the Warsaw event - come and enjoy
+                the weekend with free beer and pizza. Contact [@end33r] if you have any
+                questions.
 
-        [Node.js Weekend]: http://nodejsweekend.end3r.com/
-        [@end33r]: http://twitter.com/end33r
+                [Node.js Weekend]: http://nodejsweekend.end3r.com/
+                [@end33r]: http://twitter.com/end33r
 
-    // li
-      h4#reno Reno, Nevada
-      != address('522 Lander Street, Reno, NV, 89509')
-      :markdown
-        ### [nodeko @ Reno Collective]
-        ##### 522 Lander Street, Reno, NV, 89509
+            // li
+              h4#reno Reno, Nevada
+              != address('522 Lander Street, Reno, NV, 89509')
+              :markdown
+                ### [nodeko @ Reno Collective]
+                ##### 522 Lander Street, Reno, NV, 89509
 
-        [Reno Collective] is open for node.js ko. We've got a couple of teams
-        camping throughout the weekend. Come on by and play even if you're
-        not in the knockout. Did I mention we have a shower?
+                [Reno Collective] is open for node.js ko. We've got a couple of teams
+                camping throughout the weekend. Come on by and play even if you're
+                not in the knockout. Did I mention we have a shower?
 
-        Contact [@elskwid] for info and to help coordinate supplies.
+                Contact [@elskwid] for info and to help coordinate supplies.
 
-        [nodeko @ Reno Collective]: http://renocollective.com
-        [Reno Collective]: http://renocollective.com
-        [@elskwid]: http://twitter.com/elskwid
+                [nodeko @ Reno Collective]: http://renocollective.com
+                [Reno Collective]: http://renocollective.com
+                [@elskwid]: http://twitter.com/elskwid
 
-    // li
-      h4#nyc New York
-      != address('902 Broadway 4th Floor, New York, NY, 10016')
-      :markdown
-        ### [nodejitsu]<br/> [@ General Assembly]
-        ##### 902 Broadway, 4th Floor<br/> New York, NY, 10016
+            // li
+              h4#nyc New York
+              != address('902 Broadway 4th Floor, New York, NY, 10016')
+              :markdown
+                ### [nodejitsu]<br/> [@ General Assembly]
+                ##### 902 Broadway, 4th Floor<br/> New York, NY, 10016
 
-        Beverages and snacks on hand as well as team Nodejitsu
-        and a few other tech startups to help you out with their
-        APIs and tools. [Check out all the details][1]. Contact [@saadiq].
+                Beverages and snacks on hand as well as team Nodejitsu
+                and a few other tech startups to help you out with their
+                APIs and tools. [Check out all the details][1]. Contact [@saadiq].
 
-        [nodejitsu]: http://www.nodejitsu.com/#/home
-        [@ General Assembly]: http://www.generalassemb.ly/
-        [1]: http://nko.nodejitsu.com/
-        [@saadiq]: https://twitter.com/saadiq
+                [nodejitsu]: http://www.nodejitsu.com/#/home
+                [@ General Assembly]: http://www.generalassemb.ly/
+                [1]: http://nko.nodejitsu.com/
+                [@saadiq]: https://twitter.com/saadiq
+
+      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+        include ../index/_sidebar
