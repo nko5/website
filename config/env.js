@@ -39,6 +39,11 @@ if (env.development) {
       consumer_secret: process.env.TWITTER_USER_CONSUMER_SECRET,
       access_token: process.env.TWITTER_USER_ACCESS_TOKEN_KEY,
       access_token_secret: process.env.TWITTER_USER_ACCESS_TOKEN_SECRET
+    },
+    smartdc: {
+      url: process.env.SDC_URL,
+      user: process.env.SDC_ACCOUNT,
+      key: process.env.SDC_KEY_PATH
     }
   };
   env.irc = {

@@ -44,7 +44,9 @@
     "connect-flash": "~0.1.1",
     "nap": "~0.7.8",
     "nib": "~1.0.1",
-    "twit": "~1.1.9"
+    "twit": "~1.1.9",
+    "smartdc": "~7.1.1",
+    "ssh-fingerprint": "0.0.0"
   },
   "devDependencies": {
     "nodemon": "*",
