@@ -21,7 +21,7 @@ joyent.listPackages (err, res) ->
 
 setupJoyent = (team, next) ->
   # skip empty teams
-  return next('Empty team') if team.peopleIds.length is 0
+  return next("Error: #{team} team empty") if team.peopleIds.length is 0
 
   createMachine = (next) ->
     console.log "Creating machine for #{team}"
@@ -32,21 +32,23 @@ setupJoyent = (team, next) ->
     , next
 
   waitUntilRunning = (machine, next) ->
-    i = 0
     secs = 15
-    joyent.getMachine machine, (err, res) ->
-      return next(err) if err
+    console.log("Waiting until #{machine.name} is running")
+    i = 0
+    do check = ->
+      joyent.getMachine machine, (err, res) ->
+        return next(err) if err
 
-      switch res.state
-        when 'initializing', 'provisioning'
-          console.log("#{machine.name} #{res.state} (#{i * res}secs)...")
-          setTimeout (-> waitForMachine(machine, next)), secs * 1000
-          i += 1
-        when 'running'
-          console.log("#{machine.name} running!")
-          return next(null, machine)
-        else
-          return next("#{machine.name} unexpected state: '#{res.state}'")
+        switch res.state
+          when 'initializing', 'provisioning'
+            console.log("#{machine.name} #{res.state} (#{i * secs}s)...")
+            setTimeout check, secs * 1000
+            i += 1
+          when 'running'
+            console.log("#{machine.name} is running!")
+            return next(null, machine)
+          else
+            return next("Error: #{machine.name} in unexpected state: '#{res.state}'")
 
   logMachine = (machine, next) ->
     console.dir(machine)
