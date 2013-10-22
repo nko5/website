@@ -24,7 +24,7 @@ setupJoyent = (team, next) ->
   return next("Error: #{team} team empty") if team.peopleIds.length is 0
 
   createMachine = (next) ->
-    console.log "Creating machine for #{team}"
+    console.log team.slug, 'create machine'
     joyent.createMachine
       name: team.toString()
       image: 'd2ba0f30-bbe8-11e2-a9a2-6bc116856d85'
@@ -32,29 +32,36 @@ setupJoyent = (team, next) ->
     , next
 
   waitUntilRunning = (machine, next) ->
+    console.log team.slug, 'wait until running'
+
     secs = 15
-    console.log("Waiting until #{machine.name} is running")
     i = 0
+
     do check = ->
       joyent.getMachine machine, (err, res) ->
         return next(err) if err
-
         switch res.state
-          when 'initializing', 'provisioning'
-            console.log("#{machine.name} #{res.state} (#{i * secs}s)...")
+          when 'provisioning'
+            console.log team.slug, "#{res.state} (#{i * secs}s)"
             setTimeout check, secs * 1000
             i += 1
           when 'running'
-            console.log("#{machine.name} is running!")
-            return next(null, machine)
+            console.log team.slug, "running"
+            return next(null, res)
           else
             return next("Error: #{machine.name} in unexpected state: '#{res.state}'")
 
   logMachine = (machine, next) ->
     console.dir(machine)
-    next()
+    next(null, machine)
 
-  async.waterfall [createMachine, waitUntilRunning, logMachine], next
+  saveMachineIPs = (machine, next) ->
+    console.log team.slug, 'save machine ips'
+    team.machine.ips.external = machine.ips[0]
+    team.machine.ips.internal = machine.ips[1]
+    team.save next
+
+  async.waterfall [createMachine, waitUntilRunning, logMachine, saveMachineIPs], next
 
 Team.find { slug: 'organizers' }, (err, teams) ->
   throw err if err
