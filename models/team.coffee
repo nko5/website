@@ -19,6 +19,13 @@ TeamSchema = module.exports = new mongoose.Schema
   description: String
   github: Object
   regCode: String
+  machine:
+    ips:
+      external: String
+      internal: String
+    sshKey:
+      public: String
+      private: String
   entry:
     name: String
     url: String
