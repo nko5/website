@@ -113,8 +113,8 @@ TeamSchema.static 'canRegister', (regCode, next) ->
         return next err if err
         return next null, false, null unless regCodeResult
 
-        newLimit = regCodeResult.limit + 1
-        next null, count < newLimit, regCodeResult.limit - count
+        newLimit = regCodeResult.limit - count
+        next null, newLimit > 0, newLimit
      
     else
       TeamLimit.current (err, limit) ->
