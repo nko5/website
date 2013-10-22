@@ -87,15 +87,34 @@ TeamSchema.index 'entry.url': 1
 # class methods
 TeamSchema.static 'findBySlug', (slug, rest...) ->
   Team.findOne { slug: slug }, rest...
-TeamSchema.static 'canRegister', (next) ->
+TeamSchema.static 'canRegister', (regCode, next) ->
+  if typeof(regCode) == "function"
+    next = regCode 
+    regCode = null
+
   return next null, false, 0 if mongoose.app.disabled('registration')  
 
-  Team.count {}, (err, count) ->
+  findOptions = {}
+  if regCode
+    findOptions.regCode = regCode
+  
+  Team.count findOptions, (err, count) ->
     return next err if err
-    TeamLimit.current (err, limit) ->
-      return next err if err
-      limit++ # +1 for fortnight labs team
-      next null, count < limit, limit - count
+
+    if regCode
+      RegCode.findByCode regCode, (err, regCodeResult) =>
+        return next err if err
+        return next null, false, null unless regCodeResult
+
+        newLimit = regCodeResult.limit + 1
+        next null, count < newLimit, regCodeResult.limit - count
+     
+    else
+      TeamLimit.current (err, limit) ->
+        return next err if err
+        limit++ # +1 for fortnight labs team
+        next null, count < limit, limit - count
+
 TeamSchema.static 'uniqueName', (name, next) ->
   Team.count { name: name }, (err, count) -> next err, count is 0
 TeamSchema.static 'sortedByScore', (next) ->
@@ -293,25 +312,14 @@ TeamSchema.pre 'save', (next) ->
 TeamSchema.pre 'save', (next) ->
   return next() unless @isNew
 
-  if @regCode
-    RegCode.canRegister @regCode, (err, yeah) =>
-      return next err if err
-      if yeah
-        next()
-      else
-        error = new mongoose.Document.ValidationError this
-        error.errors._base = 'We have reached the maximum amount of teams at the moment'
-        next error
-
-  else
-    Team.canRegister (err, yeah) =>
-      return next err if err
-      if yeah
-        next()
-      else
-        error = new mongoose.Document.ValidationError this
-        error.errors._base = 'We have reached the maximum amount of teams at the moment'
-        next error
+  Team.canRegister @regCode, (err, yeah) =>
+    return next err if err
+    if yeah
+      next()
+    else
+      error = new mongoose.Document.ValidationError this
+      error.errors._base = 'We have reached the maximum amount of teams at the moment'
+      next error
 
 ## unique name
 TeamSchema.pre 'save', (next) ->

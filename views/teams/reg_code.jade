@@ -1,0 +1,17 @@
+extends ../layout-2013
+
+block body
+  - activeNav = 'registration'
+  include ../index/_header-mini
+
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+        h1 Register a Team (#{regCode.toUpperCase()})
+        p: a.register.btn.btn-super.btn-primary( href="/teams/new?regCode=#{regCode}" )
+          | Register Now
+          i= limit + " spots remaining"
+
+  
+      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+        include ../index/_sidebar
