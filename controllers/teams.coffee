@@ -98,12 +98,12 @@ app.get '/teams/new', (req, res, next) ->
   if app.enabled 'pre-registration'
     res.render2 'teams/notyet'
   else
-    Team.canRegister req.params.regCode, (err, yeah) ->
+    Team.canRegister req.query.regCode, (err, yeah) ->
       return next err if err
       if yeah
         team = new Team
         team.emails = [ req.user.github.email ] if req.user
-        team.regCode = req.params.regCode if req.params.regCode
+        team.regCode = req.query.regCode if req.query.regCode
         res.render2 'teams/new', team: team
       else
         res.render2 'teams/max'
@@ -112,7 +112,7 @@ app.get '/register/:reg_code', (req, res, next) ->
   if app.enabled 'pre-registration'
     res.render2 'teams/notyet'
   else
-    code = req.params.reg_code
+    code = req.params.reg_code || req.query.regCode
     RegCode.findByCode code, (err, regCode) =>
       if regCode
         Team.canRegister code, (err, yeah, limit) ->
