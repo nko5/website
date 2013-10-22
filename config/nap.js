@@ -15,11 +15,11 @@ nap({
         "/public/javascripts/vendor/jquery.transloadit2.js",
         '/public/javascripts/vendor/jquery.ba-hashchange.js',
         "/public/javascripts/vendor/bootstrap.js",
-        "/public/javascripts/tumblr.js",
+        "/public/javascripts/2013/tumblr.js",
         "/public/javascripts/2013.coffee",
-        "/public/javascripts/teams.coffee",
-        "/public/javascripts/people.coffee",
-        "/public/javascripts/judges.coffee"
+        "/public/javascripts/2013/teams.coffee",
+        "/public/javascripts/2013/people.coffee",
+        "/public/javascripts/2013/judges.coffee"
       ],
       "2012": [
         '/public/javascripts/polyfills.js',
@@ -37,17 +37,17 @@ nap({
         '/public/javascripts/vendor/moment.js',
         '/public/javascripts/vendor/underscore-1.3.3.js',
         "/public/javascripts/vendor/jquery.stars.coffee",
-        // '/public/javascripts/watchmaker.js',
-        '/public/javascripts/application.coffee',
-        '/public/javascripts/dashboard.coffee',
-        '/public/javascripts/index.coffee',
-        '/public/javascripts/judges.coffee',
-        '/public/javascripts/login.coffee',
-        '/public/javascripts/nodeconf.js',
-        '/public/javascripts/people.coffee',
-        '/public/javascripts/polyfills.js',
-        '/public/javascripts/teams.coffee',
-        '/public/javascripts/websocket.coffee'
+        '/public/javascripts/vendor/polyfills.js',
+        // '/public/javascripts/2012/watchmaker.js',
+        '/public/javascripts/2012.coffee',
+        '/public/javascripts/2012/dashboard.js',
+        '/public/javascripts/2012/index.coffee',
+        '/public/javascripts/2012/judges.coffee',
+        '/public/javascripts/2012/login.coffee',
+        '/public/javascripts/2012/nodeconf.js',
+        '/public/javascripts/2012/people.coffee',
+        '/public/javascripts/2012/teams.coffee',
+        '/public/javascripts/2012/websocket.coffee'
       ]
     },
     css: {
