@@ -23,6 +23,12 @@ html
 
 
   body#page(class=view.replace(/\//g,'-'))
+    - if (flash.info)
+      #flash
+        .alert.alert-info
+          = flash.info
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
     block body
 
     != nap.js('2013')

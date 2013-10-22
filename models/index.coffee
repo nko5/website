@@ -8,6 +8,7 @@ require "./#{lib}" for lib in [
   'deploy'
   'vote'
   'team_limit'
+  'reg_code'
   'team'
   'service'
 ]

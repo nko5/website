@@ -6,7 +6,7 @@ request = require 'request'
 env = require '../config/env'
 
 InviteSchema = require './invite'
-[TeamLimit, Invite, Person, Deploy, Vote] = (mongoose.model m for m in ['TeamLimit', 'Invite', 'Person', 'Deploy', 'Vote'])
+[TeamLimit, Invite, Person, Deploy, Vote, RegCode] = (mongoose.model m for m in ['TeamLimit', 'Invite', 'Person', 'Deploy', 'Vote', 'RegCode'])
 
 TeamSchema = module.exports = new mongoose.Schema
   slug:
@@ -18,6 +18,7 @@ TeamSchema = module.exports = new mongoose.Schema
     unique: true
   description: String
   github: Object
+  regCode: String
   entry:
     name: String
     url: String
@@ -87,7 +88,8 @@ TeamSchema.index 'entry.url': 1
 TeamSchema.static 'findBySlug', (slug, rest...) ->
   Team.findOne { slug: slug }, rest...
 TeamSchema.static 'canRegister', (next) ->
-  return next null, false, 0 if mongoose.app.disabled('registration')
+  return next null, false, 0 if mongoose.app.disabled('registration')  
+
   Team.count {}, (err, count) ->
     return next err if err
     TeamLimit.current (err, limit) ->
@@ -290,14 +292,26 @@ TeamSchema.pre 'save', (next) ->
 ## max teams
 TeamSchema.pre 'save', (next) ->
   return next() unless @isNew
-  Team.canRegister (err, yeah) =>
-    return next err if err
-    if yeah
-      next()
-    else
-      error = new mongoose.Document.ValidationError this
-      error.errors._base = 'We have reached the maximum amount of teams at the moment'
-      next error
+
+  if @regCode
+    RegCode.canRegister @regCode, (err, yeah) =>
+      return next err if err
+      if yeah
+        next()
+      else
+        error = new mongoose.Document.ValidationError this
+        error.errors._base = 'We have reached the maximum amount of teams at the moment'
+        next error
+
+  else
+    Team.canRegister (err, yeah) =>
+      return next err if err
+      if yeah
+        next()
+      else
+        error = new mongoose.Document.ValidationError this
+        error.errors._base = 'We have reached the maximum amount of teams at the moment'
+        next error
 
 ## unique name
 TeamSchema.pre 'save', (next) ->

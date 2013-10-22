@@ -1,7 +1,7 @@
 _ = require 'underscore'
 app = require '../config/app'
 m = require './middleware'
-[Person, Team, Vote] = (app.db.model s for s in ['Person', 'Team', 'Vote'])
+[Person, Team, Vote, RegCode] = (app.db.model s for s in ['Person', 'Team', 'Vote', 'RegCode'])
 
 # index
 app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
@@ -104,6 +104,22 @@ app.get '/teams/new', (req, res, next) ->
         team = new Team
         team.emails = [ req.user.github.email ] if req.user
         res.render2 'teams/new', team: team
+      else
+        res.render2 'teams/max'
+
+app.get '/register/:reg_code', (req, res, next) ->
+  if app.enabled 'pre-registration'
+    res.render2 'teams/notyet'
+  else
+    code = req.params.reg_code
+    RegCode.canRegister code, (err, yeah, limit) ->
+      if !limit
+        req.flash 'info', """
+          Sorry, we were unable to find registration code for #{code}          
+        """
+        res.redirect '/'
+      else if yeah
+        res.render2 'teams/reg_code', regCode: code, limit: limit
       else
         res.render2 'teams/max'
 

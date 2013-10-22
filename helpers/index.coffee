@@ -92,7 +92,7 @@ module.exports = (app) ->
 
     admin: (req, res) -> req.user?.admin
 
-    flash: (req, res) -> {} # req.flash()
+    flash: (req, res) -> req.flash()
 
     canEdit: (req, res) ->
       (thing) ->
