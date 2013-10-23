@@ -11,15 +11,17 @@ nap({
     js: {
       '2013': [
         "/public/javascripts/vendor/jquery-1.10.2.min.js",
-        "/public/javascripts/jquery.stars.coffee",
         "/public/javascripts/vendor/jquery.transloadit2.js",
         '/public/javascripts/vendor/jquery.ba-hashchange.js',
         "/public/javascripts/vendor/bootstrap.js",
+        "/public/javascripts/vendor/jquery.stars.coffee",
         "/public/javascripts/2013/tumblr.js",
         "/public/javascripts/2013.coffee",
         "/public/javascripts/2013/teams.coffee",
         "/public/javascripts/2013/people.coffee",
-        "/public/javascripts/2013/judges.coffee"
+        "/public/javascripts/2013/judges.coffee",
+        "/public/javascripts/2013/prizes.coffee"
+        
       ],
       "2012": [
         '/public/javascripts/polyfills.js',
