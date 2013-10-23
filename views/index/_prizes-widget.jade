@@ -18,13 +18,13 @@
           h2 Design
           p Team with the highest design score
       li
-        a(href="#prize-completeness", data-toggle="tab")
-          h2 Completeness
-          p Team with the highest completeness score
-      li
         a(href="#prize-utility-fun", data-toggle="tab")
           h2 Utility/Fun
           p Team with the highest utility / fun score
+      li
+        a(href="#prize-completeness", data-toggle="tab")
+          h2 Completeness
+          p Team with the highest completeness score
       li
         a(href="#prize-popularity", data-toggle="tab")
           h2 Popularity
@@ -33,69 +33,528 @@
 
     .tab-content
       #prize-team.tab-pane.active
-        | <p>Coming Soon</p>
+        
+        ul.images
+          li: img(src="/images/prizes/goldtrophy.jpg")
+          li: img(src="/images/prizes/gloves.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/amazonaws.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/github.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/uber.jpg")
+          li: img(src="/images/prizes/pluralsights.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/hackermonthly.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
 
-        //- 
-          :markdown
-            <ul class="images">
-              <li><img src="/images/prizes/gloves.jpg"></li>
-              <li><img src="/images/prizes/trunks.jpg"></li>
-              <li><img src="/images/prizes/joyent.jpg"></li>
-              <li><img src="/images/prizes/dropbox.jpg"></li>
-              <li><img src="/images/prizes/github.jpg"></li>
-              <li><img src="/images/prizes/heroku.jpg"></li>
-              <li><img src="/images/prizes/mongohq.jpg"></li>
-              <li><img src="/images/prizes/mongolab.jpg"></li>
-              <li><img src="/images/prizes/nodetime.jpg"></li>
-              <li><img src="/images/prizes/coderwall.jpg"></li>
-            </ul>
+        h2
+          | Team Winner
+          em 
+            | / best overall score
 
-            Team Winner _/ best overall score_
-            -----------
-            
-            - Node.js Knockout Boxing Gloves & Trunks
-            - [Joyent Cloud Hosting Credits][joyent hosting] ($500) — [Joyent]
-            - [50GB Dropbox storage][Dropbox storage] — [Dropbox] <i class="icon-users" title="one per team member"></i>
-            - [GitHub Silver plan][GitHub plan] (1 year) — [GitHub]
-            - [Heroku credits] ($600) — [Heroku]
-            - [MongoHQ SSD Plan][mongohq plans] (1 year) — [MongoHQ]
-            - [MongoLab dedicated replica-set w/2GB RAM][mongolab plans] (6 months) — [MongoLab]
-            - [Nodetime Pro5 profiling and monitoring][Nodetime pro5] (1 year) — [Nodetime] <i class="icon-users" title="one per team member"></i>
-            - [Overall achievement badges][coderwall badges] — [coderwall] <i class="icon-users" title="one per team member"></i>
-
-            [GitHub plan]: https://github.com/plans
-            [GitHub]: https://github.com/
-            [Nodetime]: https://nodetime.com/
-            [Nodetime pro5]: https://nodetime.com/pro
-            [Dropbox]: https://www.dropbox.com
-            [Dropbox storage]: https://www.dropbox.com/pricing
-            [MongoLab]: https://mongolab.com/
-            [mongolab plans]: https://mongolab.com/about/products/#/pricing
-            [NodeConf]: http://www.nodeconf.com/
-            [coderwall badges]: https://coderwall.com/p/akwn2q
-            [coderwall]: http://coderwall.com/
-            [Heroku credits]: http://www.heroku.com/pricing
-            [Heroku]: http://www.heroku.com/
-            [mongohq plans]: https://www.mongohq.com/pricing
-            [MongoHQ]: https://www.mongohq.com/home
-            [joyent hosting]: http://joyent.com/products/joyent-cloud/pricing
-            [Joyent]: http://joyent.com/
-
-
+        ul
+          li: strong $2,000 Apple Store gift card
+          li
+            strong Node Knockout Boxing Gloves & Trunks
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Macallan 15 yr single malt
+          li
+            a(href="http://twilio.com") Twilio
+            |  - Han Solo Replica Blaster
+          li
+            a(href="http://aws.amazon.com") Amazon Web Services
+            |  - $3,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 6mo subscription ($1,800 value)
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 12mo Agency subscription ($1,188 value) 
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $1,000 in credits
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://github.com") Github
+            |  - 1yr silver plan ($600 value)
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $400 in credits
+          li
+            a(href="http://uber.com") Uber
+            |  - $400 in credits
+          li
+            a(href="http://pluralsights.com") PluralSights
+            |  - 1yr subscription ($299 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://hackermonthly.com") Hacker Monthly
+            |  - 1yr print subscription ($109 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Overall winner achievement badge
+            i.icon-users(title="one per team member")
+          
+        
       #prize-solo.tab-pane
-        | <p>Coming Soon</p>
+        ul.images
+          li: img(src="/images/prizes/goldtrophy.jpg")
+          li: img(src="/images/prizes/gloves.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/gojs.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/amazonaws.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/github.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/uber.jpg")
+          li: img(src="/images/prizes/hackermonthly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
+
+        h2
+          | Solo Winner
+          em 
+            | / best overall score for team of 1
+
+        ul
+          li: strong $500 Apple Store gift card          
+          li: strong Node Knockout Boxing Gloves & Trunks
+          li
+            a(href="http://gojs.net") GoJS
+            |  - Playstation 4 (US) or equivalent gift certificate ($500 value)
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Gold or Silver Hoodie
+          li
+            a(href="http://gojs.net") GoJS
+            |  - OEM License for GoJS (HTML5 Canvas) ($2,795 value)
+          li
+            a(href="http://aws.amazon.com") Amazon Web Services
+            |  - $2,000 in credits
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 18mo Freelancer edition ($702 value)             
+          li
+            a(href="http://github.com") Github
+            |  - 1yr bronze plan ($300 value)
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://uber.com") Uber
+            |  - $100 in credits
+          li
+            a(href="http://hackermonthly.com") Hacker Monthly
+            |  - 1yr digital subscription ($29 value)            
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Solo winner achievement badge            
+          
 
       #prize-innovation.tab-pane
-        | <p>Coming Soon</p>
+        ul.images
+          li: img(src="/images/prizes/silvertrophy.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
 
+        h2
+          | Innovation Winner
+          em 
+            | / best score for category of "Innovation"
+
+        ul
+          li: strong $1000 Apple Store gift card          
+          li
+            strong Node Knockout Boxing Trunks
+            i.icon-users(title="one per team member")          
+          li
+            strong MYSTERY PRIZE #1
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Week Supply of Soylent
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)        
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $600 in credits
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 3mo Studio edition ($117 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Innovation winner achievement badge            
+          
       #prize-design.tab-pane
-        | <p>Coming Soon</p>
+        ul.images
+          li: img(src="/images/prizes/silvertrophy.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
 
-      #prize-completeness.tab-pane
-        | <p>Coming Soon</p>
+        h2
+          | Design Winner
+          em 
+            | / best score for category of "Design"
+
+        ul
+          li: strong $1000 Apple Store gift card          
+          li
+            strong Node Knockout Boxing Trunks
+            i.icon-users(title="one per team member")          
+          li
+            strong MYSTERY PRIZE #2
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Etsy Gift Certificate
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)        
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $600 in credits
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 3mo Studio edition ($117 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Design winner achievement badge            
+          
 
       #prize-utility-fun.tab-pane
-        | <p>Coming Soon</p>
+        ul.images
+          li: img(src="/images/prizes/silvertrophy.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
+
+        h2
+          | Utility/Fun Winner
+          em 
+            | / best score for category of "Utility/Fun"
+
+        ul
+          li: strong $1000 Apple Store gift card          
+          li
+            strong Node Knockout Boxing Trunks
+            i.icon-users(title="one per team member")          
+          li
+            strong MYSTERY PRIZE #3
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Shark Laser Pointers
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)        
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $600 in credits
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 3mo Studio edition ($117 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Utility/Fun winner achievement badge
+
+      #prize-completeness.tab-pane
+        ul.images
+          li: img(src="/images/prizes/silvertrophy.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
+
+        h2
+          | Completeness Winner
+          em 
+            | / best score for category of "Complete"
+
+        ul
+          li: strong $1000 Apple Store gift card          
+          li
+            strong Node Knockout Boxing Trunks
+            i.icon-users(title="one per team member")          
+          li
+            strong MYSTERY PRIZE #4
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Swiss Army Knives
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)        
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $600 in credits
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 3mo Studio edition ($117 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Completeness winner achievement badge
+
 
       #prize-popularity.tab-pane
-        | <p>Coming Soon</p>
+        ul.images
+          li: img(src="/images/prizes/silvertrophy.jpg")
+          li: img(src="/images/prizes/trunks.jpg")
+          li: img(src="/images/prizes/pivotal.jpg")
+          li: img(src="/images/prizes/segmentio.jpg")
+          li: img(src="/images/prizes/kissmetrics.jpg")
+          li: img(src="/images/prizes/amazonaws.jpg")
+          li: img(src="/images/prizes/digitalocean.jpg")
+          li: img(src="/images/prizes/circleci.jpg")
+          li: img(src="/images/prizes/firebase.jpg")
+          li: img(src="/images/prizes/mongolab.jpg")
+          li: img(src="/images/prizes/getsentry.jpg")
+          li: img(src="/images/prizes/dashable.jpg")
+          li: img(src="/images/prizes/scoutzie.jpg")
+          li: img(src="/images/prizes/oreilly.jpg")
+          li: img(src="/images/prizes/twilio.jpg")
+          li: img(src="/images/prizes/coderwall.jpg")
+
+        h2
+          | Popularity Winner
+          em 
+            | / team with the most votes
+
+        ul
+          li
+            strong Node Knockout Boxing Trunks
+            i.icon-users(title="one per team member")          
+          li
+            a(href="http://pivotallabs.com") Pivotal Labs
+            |  - $500 gift certificate            
+          li
+            a(href="http://segment.io") Segment.io
+            |  - Swiss Army Knives
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://kissmetrics.com") KISSmetrics
+            |  - 6mo subscription ($1,500 value)
+          li
+            a(href="http://digitalocean.com") Digital Ocean
+            |  - $1,000 in credits
+          li
+            a(href="http://circleci.com") CircleCI
+            |  - 6 containers, 3mo subscription ($900 value)        
+          li
+            a(href="http://firebase.com") Firebase
+            |  - 6mo Bonfire plan ($900 value)
+          li
+            a(href="http://mongolab.com") MongoLab
+            |  - $600 in credits
+          li
+            a(href="http://getsentry.com") GetSentry
+            |  - $250 in credits
+          li
+            a(href="http://dashable.com") Dashable
+            |  - 3mo Studio edition ($117 value)
+            i.icon-users(title="one per team member")
+          li
+            a(href="http://scoutzie.com") Scoutzie
+            |  - $100 in credits
+          li
+            a(href="http://oreilly.com") O'Reilly Media
+            |  - O'Reilly eBook of your choosing            
+          li
+            a(href="http://twilio.com") Twilio
+            |  - NodeJS in Action eBook
+          li
+            a(href="http://coderwall.com") coderwall
+            |  - 2013 Popularity winner achievement badge
+
+
