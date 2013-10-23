@@ -16,7 +16,7 @@ module.exports = [
     '''
     Groupon (NASDAQ: GRPN) is a global leader in local commerce, making it easy for people around the world to search and discover great businesses at unbeatable prices. Groupon is reinventing the traditional small business world by providing merchants with a suite of products and services, including customizable deal campaigns, credit card payments processing capabilities and point-of-sale solutions to help them attract more customers and run their operations more effectively.
 
-    By leveraging the company’s global relationships and scale, Groupon offers consumers incredible deals on the best stuff to eat, see, do, and buy in 48 countries. With Groupon, shoppers discover the best a city has to offer with Groupon Local, enjoy vacations with Groupon Getaways, and find a curated selection of electronics, fashion, home furnishings and more with Groupon Goods. To subscribe to Groupon emails, visit <www.Groupon.com>. To learn more about the company’s merchant solutions and how to work with Groupon, visit <www.GrouponWorks.com>.
+    By leveraging the company’s global relationships and scale, Groupon offers consumers incredible deals on the best stuff to eat, see, do, and buy in 48 countries. With Groupon, shoppers discover the best a city has to offer with Groupon Local, enjoy vacations with Groupon Getaways, and find a curated selection of electronics, fashion, home furnishings and more with Groupon Goods. To subscribe to Groupon emails, visit <http://www.Groupon.com>. To learn more about the company’s merchant solutions and how to work with Groupon, visit <http://www.GrouponWorks.com>.
     '''
 ,
   name:  'GoInstant'
