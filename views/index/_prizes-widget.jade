@@ -80,8 +80,14 @@
                     | });
 
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - Han Solo Replica Blaster
+            .with-popover
+              strong: a(href="http://twilio.com", target="_blank") Twilio
+              |  - Han Solo Replica Blaster
+              
+              i.icon-users(title="one per team member")
+              .popover-content(style="display:none")
+                img(src="http://cl.ly/image/3R45291u2921/content", width="250", height="164")
+
           li
             strong: a(href="http://aws.amazon.com", target="_blank") Amazon Web Services
             |  - $3,000 in credits
