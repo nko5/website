@@ -5,8 +5,9 @@ block body
   include ../index/_header-mini
 
   .inner-page.container.form-page
-    <img style="margin: 50px 0" src="http://nodeknockout.s3.amazonaws.com/nko-call-for-judges.jpg" alt="We need judges!">
-    .col-lg-9.col-sm-9.col-md-9.col-xs-9
+    .col-lg-8.col-sm-8.col-md-8.col-xs-8
+      .call-for-judges
+        img(width="100%", src="http://nodeknockout.s3.amazonaws.com/nko-call-for-judges.jpg")
       :markdown
         ## Nominating a Judge
 
@@ -30,3 +31,6 @@ block body
           input.btn.btn-primary( type='submit', value='Nominate' )
           | &nbsp;
           a( href='/judges' ) Cancel
+    
+    .col-lg-4.col-sm-4.col-md-4.col-xs-4
+      include ../index/_sidebar
