@@ -16,13 +16,21 @@ We love Node.js at GoInstant, but when you're talking about building multi-user 
 To show you how easy it is to create a multi-user experience for any app, we created a simple snake game using GoInstant. The objective in Snake is pretty simple--you control a snake on the screen and try to eat as much food as possible without hitting into the walls. Every time you eat food, your snakes grows in length. Here’s what GoSnake looks like:
 
 
-### So let’s build GoSnake together! (Note: All of this code is available on GitHub: https://github.com/piwh1000/GoSnake)
+![img1]()
+
+
+### So let’s build GoSnake together! 
+(Note: All of this code is available on GitHub: https://github.com/piwh1000/GoSnake)
 
 To get started: 
 
-1. The first step is to render an HTML5 canvas, and randomly draw snakes and food on the map on a 60ms game loop. The game loop detects the collision between the snake and the food and redraws the snakes based on direction. At this stage only the blue snake can be controlled by the end user and there is no AI.
+* The first step is to render an HTML5 canvas, and randomly draw snakes and food on the map on a 60ms game loop. The game loop detects the collision between the snake and the food and redraws the snakes based on direction. At this stage only the blue snake can be controlled by the end user and there is no AI.
 
-2. Now we want to add multi-user capabilities. To get started with GoInstant, include the minified source files and run the GoInstant connect helper function to establish the connection to GoInstant.
+![img2]()
+
+* Now we want to add multi-user capabilities. To get started with GoInstant, include the minified source files and run the GoInstant connect helper function to establish the connection to GoInstant.
+
+![img3]()
 
 ```javascript
 <script type="text/javascript" src="https://cdn.goinstant.net/v1/platform.min.js"></script>
@@ -38,14 +46,15 @@ connection.connect(function(err) {
 });
 </script>
 ```
-3. Once connected to GoInstant, we can use a few GoInstant Widgets that add multi-user features out-of-the-box:
-* The User List widget shows you who else is in the game
-* The User Colors widget gives each snake a unique color
-* The Notifications widgets shows you when someone joins the game
+
+* Once connected to GoInstant, we can use a few GoInstant Widgets that add multi-user features out-of-the-box:
+  * The User List widget shows you who else is in the game
+  * The User Colors widget gives each snake a unique color
+  * The Notifications widgets shows you when someone joins the game
 
 With just a few lines of code, anyone can see who joins the room with notifications and the user list.
 
-4. At this stage the widgets have added a bit of functionality, mostly around user presence.  Now, we want to start sharing information between all users in the game. To sync data between users, we use Keys.  Keys are in reference to a key-value store. The Key object provides the interface for managing and monitoring a value in our server-side data store.  Keys can handle up to 32 KB of booleans, arrays, numbers, objects or strings.
+* At this stage the widgets have added a bit of functionality, mostly around user presence.  Now, we want to start sharing information between all users in the game. To sync data between users, we use Keys.  Keys are in reference to a key-value store. The Key object provides the interface for managing and monitoring a value in our server-side data store.  Keys can handle up to 32 KB of booleans, arrays, numbers, objects or strings.
 
 For Snakes, the data we want to share is the position of the food and the position/direction of all of the snakes. When the game is initialized we call a function initializeFood. This creates the food object and then creates and listens on the food key. When the values are updated on GoInstant,  the listener will change the value to match it, so all users see the food in the exact same coordinates.
 
@@ -86,8 +95,9 @@ function spawnFood(cb) {
 }
 ```
 
+![img4]()
 
-5. The next step is handling users joining the Room. New users joining the game will be issued a snake in a random location and will inherit a color based on the User Colors widget.
+* The next step is handling users joining the Room. New users joining the game will be issued a snake in a random location and will inherit a color based on the User Colors widget.
 
 For simplicity’s sake, we redraw the snake based on its coordinates and direction in each game loop. When a user updates the direction by hitting the arrow keys on the computer, it syncs to all other users in the room.  Each user is in control of re-spawning their own snake if they hit the wall. All of the users' snakes are stored as keys. 
 
@@ -138,7 +148,9 @@ For simplicity’s sake, we redraw the snake based on its coordinates and direct
 }
 ```
 
-5. Success! We now have a fully functioning multi-snake game.  Until now, everything has been in a room called ‘lobby’ which is the default room in every GoInstant application. If we stuck with the lobby, anyone who came to the URL would join any existing game. For our example, we want some level of control so people can invite specific friends and not just play with random strangers.
+![img5]()
+
+* Success! We now have a fully functioning multi-snake game.  Until now, everything has been in a room called ‘lobby’ which is the default room in every GoInstant application. If we stuck with the lobby, anyone who came to the URL would join any existing game. For our example, we want some level of control so people can invite specific friends and not just play with random strangers.
 
 The last thing we want to add in is the ability to share an individual game with your friends. For this, we go back to the concept of Rooms.  Rooms are instances of your application within GoInstant. Each room holds a number of users and Keys. A user must be in a room to interact with other users, or manipulate keys. A user can be in more than one room at a time, using a single connection. 
 
@@ -259,7 +271,7 @@ Finally we add the variable roomName to the GoInstant connection and users now h
 goinstant.connect(GO_SNAKE_APP_URL, { room: roomName }, function(err, platform, room) });
 ```
 
-6. For final touches we beautified the design and added in scores.  The best part about GoInstant isn't just the fact you can add a multi-user experience quickly, but that you can customize it and retrofit it to your app. 
+* For final touches we beautified the design and added in scores.  The best part about GoInstant isn't just the fact you can add a multi-user experience quickly, but that you can customize it and retrofit it to your app. 
 
 The userlist widget by default just floats to the right and over top of the content.  It doesn't provide an optimal experience in it's current format.  To pretty it up all we need to do is change the container with a bit of javascript when we create the userlist widget and add the container in our CSS theme.  Pretty simple!
 ```javascript
