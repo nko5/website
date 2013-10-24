@@ -16,7 +16,7 @@ We love Node.js at GoInstant, but when you're talking about building multi-user 
 To show you how easy it is to create a multi-user experience for any app, we created a simple snake game using GoInstant. The objective in Snake is pretty simple--you control a snake on the screen and try to eat as much food as possible without hitting into the walls. Every time you eat food, your snakes grows in length. Here’s what GoSnake looks like:
 
 
-![img1](https://github.com/nko4/website/blob/master/designs/blog/img/img1.png)
+![img1](https://raw.github.com/nko4/website/master/designs/blog/img/img1.png)
 
 
 ### So let’s build GoSnake together! 
@@ -26,11 +26,11 @@ To get started:
 
 * The first step is to render an HTML5 canvas, and randomly draw snakes and food on the map on a 60ms game loop. The game loop detects the collision between the snake and the food and redraws the snakes based on direction. At this stage only the blue snake can be controlled by the end user and there is no AI.
 
-![img2](https://github.com/nko4/website/blob/master/designs/blog/img/img2.png)
+![img2](https://raw.github.com/nko4/website/master/designs/blog/img/img2.png)
 
 * Now we want to add multi-user capabilities. To get started with GoInstant, include the minified source files and run the GoInstant connect helper function to establish the connection to GoInstant.
 
-![img3](https://github.com/nko4/website/blob/master/designs/blog/img/img3.png)
+![img3](https://raw.github.com/nko4/website/master/designs/blog/img/img3.png)
 
 ```javascript
 <script type="text/javascript" src="https://cdn.goinstant.net/v1/platform.min.js"></script>
@@ -95,7 +95,7 @@ function spawnFood(cb) {
 }
 ```
 
-![img4](https://github.com/nko4/website/blob/master/designs/blog/img/img4.png)
+![img4](https://raw.github.com/nko4/website/master/designs/blog/img/img4.png)
 
 * The next step is handling users joining the Room. New users joining the game will be issued a snake in a random location and will inherit a color based on the User Colors widget.
 
@@ -148,7 +148,7 @@ For simplicity’s sake, we redraw the snake based on its coordinates and direct
 }
 ```
 
-![img5](https://github.com/nko4/website/blob/master/designs/blog/img/img5.png)
+![img5](https://raw.github.com/nko4/website/master/designs/blog/img/img5.png)
 
 * Success! We now have a fully functioning multi-snake game.  Until now, everything has been in a room called ‘lobby’ which is the default room in every GoInstant application. If we stuck with the lobby, anyone who came to the URL would join any existing game. For our example, we want some level of control so people can invite specific friends and not just play with random strangers.
 
