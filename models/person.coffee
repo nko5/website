@@ -39,7 +39,7 @@ PersonSchema.plugin auth,
         res.redirect(req.param('returnTo') || req.header('referrer') || '/')
   github:
     everyauth:
-      scope: 'user'
+      scope: 'user:email'
       redirectPath: '/login/done'
       myHostname: env.hostname
       appId: env.github_app_id
