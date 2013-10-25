@@ -10,44 +10,39 @@ on the [Geddy wiki][4]._
 
 ### Intro
 
-I’ve had a few people ask me to write a quick guide to getting started with
-authentication and realtime events with Geddy. These are both really amazing
-new features so I thought I’d oblidge.
+Geddy is a Web framework for Node. It lets you very quickly build scalable MVC
+apps for Node.
 
 ### Installing Geddy
 
-Installing Geddy is as easy as installing any other global node module:
+Install Geddy with NPM. It has a CLI, so you need to install it globally:
 
     $ npm install -g geddy
 
-This will get you the latest version of Geddy and all of it’s (minimal)
+This will get you the latest version of Geddy and all of its (minimal)
 dependencies.
 
 ### Starting a new project
 
 Likewise, starting a new project is pretty easy too:
 
-    $ geddy app -rt node_ko
+    $ geddy gen app node_ko
 
-You’ll notice that `-rt` option in there - that tells the app generator to
-include the socket.io integration code in your newly generated app.
+The`gen` command in the CLI is the generator command for apps and scaffolds.
 
 ### Adding user authentication:
 
 Setting up local, Facebook, and Twitter authentication for your users is also
 very simple, just `cd` into your project and type:
 
-    $ geddy auth
+    $ geddy gen auth
 
-This will generate a User model for us, and it will set up all the routes and
+This will generate a User model for you, and it will set up all the routes and
 views that your users will need to log in. In order for the generated code to
 work, your app will have to know your client application keys for each of the
 supported authentication apis.
 
-You'll need to add the settings for Passport in your app's environment.js
-file. That includes the redirect locations for after an auth failure or
-success, and the OAuth keys for your app. The setting will look something like
-this:
+Set these values in your app's config/secrets.json file.
 
     passport: {
       successRedirect: '/'
@@ -62,68 +57,72 @@ this:
       }
     }
 
+You can also customize the success/failure redirect paths for authentication in
+this same file.
+
 ### Adding some scaffolding
 
 Next we’ll want to scaffold out a resource for us to use. Lets go ahead and
 create a messages resource:
 
-    $ geddy scaffold -rt message body
+    $ geddy gen scaffold message body:text
 
 This will generate a Message model, a messages controller, some message views,
-and all of the routes needed to perform the basic CRUD actions. Because we
-used the `-rt` option, it will also make our models available on the front end
-and create a socket.io channel so that we can listen for model related
-lifecycle events on the front end.
+and all of the routes needed to perform the basic CRUD actions.
 
 ### Running the app
 
-If you’re running your app locally, all you’ll need to do is run it with the
-`geddy` command:
+To run your app locally, cd into the directory of your generated app, and start
+it up with the `geddy` command:
 
     $ geddy
 
-If you’re running your app on a platform that does not allow you to use global
-modules, you’ll need to create a `server.js` file in your app’s root directory
-with these contents:
+If you prefer, you can run your app with a bundled version of Geddy rather than
+a globally installed CLI. To do this, install geddy locally inside your app using NPM:
 
-    //web: node node_modules/geddy/bin/cli.js
+    $ npm install geddy
+
+Then, create a new file in your project root called 'server.js' (or possibly
+'app.js') to use as your startup script, and add the following to that file:
+
     var geddy = require('geddy');
 
-    geddy.start({
-      environment: 'production'
+    geddy.startCluster({
+      hostname: '0.0.0.0'
+      , port: process.env.PORT || '4000'
+      , environment: process.env.NODE_ENV || 'development'
     });
+
+If you're deploying to an environment that disables the native 'cluster' module
+in Node (like NodeJitsu), then use the `start` method instead of `startCluster`.
+This will start the Geddy server in the same process, rather than spinning up
+worker processes.
 
 ### Customizing the app
 
-First, lets make sure that messages endpoints are secure, we only want logged
+First, let's make sure that messages endpoints are secure, we only want logged
 in users to be able to view, edit, and remove messages.
 
 Open up your app/controllers/messages.js file and add this:
 
     this.before(require(‘../helpers/passport’).requireAuth);
 
-This will require that there is a logged in user before performing an action
-in the messages controller.
+This will ensure that the current user is logged in before running an action on
+the messages controller.
 
 Next, lets make sure that our users are redirected to the right place after
-they log in. Open up your environment.js file and change
+they log in. Open up your config/secrets.json file and change
 `passport.successRedirect` to `/messages`. This will redirect users to the
 messages index route after they successfully log in.
 
 ### Test out your app
 
-Open up <http://localhost:4000/> and check out your app. Log in with one of the
-links on the home page, check out the realtime stuff by opening two browser
-windows, signing into both of them, and adding a message in one.
-
-### Things you can try to learn more
-
-* create a new message via ajax so it feels more like a chat room
-* display the date of the message instead of the id
-* make the views a bit prettier
+Start up your app, then open up <http://localhost:4000/> in a browser, and check
+it out, by logging in with one of the links on the home page.
 
 ### Want to know more?
 
 * Check out the documentation at http://geddyjs.org/documentation
-* Ask your questions on the mailing list
+* Ask your questions on the mailing list: https://groups.google.com/group/geddyjs
 * Hop on IRC and get help if you need it: #geddy on freenode
+
