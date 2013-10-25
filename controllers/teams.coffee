@@ -119,7 +119,11 @@ app.get '/register/:reg_code', (req, res, next) ->
           if yeah
             res.render2 'teams/reg_code', regCode: code, limit: limit
           else
-            res.render2 'teams/max'
+            Team.canRegister null, (err, yeah) ->
+              if yeah
+                res.redirect "/teams/new"
+              else
+                res.render2 'teams/max'
       else
         req.flash 'info', """
           Sorry, we were unable to find registration code for #{code}          
