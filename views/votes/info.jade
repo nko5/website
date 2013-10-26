@@ -5,11 +5,13 @@
   - else if (vote.person)
     a( href='/people/' + vote.person )
       img.avatar( src=avatar_url(vote.person, 40) )
-      .login= vote.person.login
+      .login
+        = vote.person.login
     .role= vote.person.role
   - else if (vote.team)
     a( href=vote.team.entry.url )= vote.team.entry.name
-    .by by
+    .by
+      | by&nbsp;
       a( href='/teams/' + vote.team )= vote.team.name
 
   - if (!vote.isNew)

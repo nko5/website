@@ -13,9 +13,10 @@ table
             )= vote.comment
     - if (!vote.isNew)
       .comment.view!= markdown(vote.comment)
-      input.edit( type='submit', value='Save' )
-      |
-      a.edit.change( href='#' ) Cancel
+      .edit
+        input.edit( type='submit', value='Save' )
+        |
+        a.edit.change( href='#' ) Cancel
     - else
       input.scary( type='submit', value='Vote' )
       - if (vote.nextVote)
