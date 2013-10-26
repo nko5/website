@@ -41,9 +41,3 @@
           li(class=(activeNav === 'blog' ? 'active' : ''))
             a(href="/blog") Blog
 
-          if req.user
-            li
-              a(href="/logout") Sign Out
-          else
-            li(class=(activeNav === 'login' ? 'active' : ''))
-              a(href="/login") Sign In

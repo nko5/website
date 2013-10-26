@@ -2,7 +2,15 @@
   .affix-placeholder
   .affix-inner
     .header
-      .container
+      #header-gloves.container
+        ul.account-nav
+          if req.user
+            li
+              a(href="/logout") Sign Out
+          else
+            li(class=(activeNav === 'login' ? 'active' : ''))
+              a(href="/login") Sign In
+
         .header-inner.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
             .gloves
