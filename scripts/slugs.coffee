@@ -13,14 +13,17 @@ Team.find {}, (err, teams) ->
 
   async.mapSeries teams, (team, next) ->
     return next(null, team) if team.peopleIds.length is 0  # skip empty
-    return next(null, team) if team.slug is team.slugBase
-    return next(null, team) # don't modify right now
+    # return next(null, team) if team.slug is team.slugBase
+    # return next(null, team) # don't modify right now
 
-    old = team.slug
-    team.slug = null
-    team.save (err) ->
-      console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
-      next err, team
+    if team.name == 'ヽ( ´¬`)ノ'
+      old = team.slug
+      team.slug = 'waving'
+      team.save (err) ->
+        console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+        return next err, team
+    else
+      return next(null, team) # If it's not one of the odd cases, it's ok :)
   , (err, teams) ->
     console.log err if err
 

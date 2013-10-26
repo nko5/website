@@ -9,3 +9,4 @@ config/secrets.js
 testuser.md
 public/assets
 *.sublime-workspace
+restore.sh
