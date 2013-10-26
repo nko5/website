@@ -2,12 +2,31 @@
 
 body
   #header
+    #header-gloves
+      position: relative
+      ul.account-nav
+        position: absolute
+        top: 30px
+        right: 200px
+        z-index: 100
+        li
+          a
+            color: #fff
+            font-size: 14px
+            font-weight: bold
+            display: block
+            padding: 5px 10px
+            border-radius: 3px
+            &:hover
+              text-decoration none
+              background-color rgba(201,59,71,0.9)
+              transition .3s
+
     .header
       background: black
-      box-shadow: 2px 2px 0 #DFDFDF
       .header-inner
         min-height: 441px
-        background: black url('/images/2013/gloves-bg.jpg') no-repeat center center
+        background: url('/images/2013/gloves-bg.jpg') no-repeat center center
         position: relative
       .logo
         background: transparent url('/images/2013/logo.png') no-repeat center center
@@ -54,6 +73,7 @@ body
         letter-spacing: 1px
         line-height: 1.2
         border-radius: 2px
+        text-shadow: none
 
         color: #fff
         &:hover
@@ -92,32 +112,22 @@ body
         left: 0
         right: 0
         top: 0
-        height: 72px
+        height: 50px
         z-index: 30
-        box-shadow: 0 0 9px #333
         .header
-          height: 72px
+          height: 50px
           overflow: hidden
-          opacity: 0.9
+          opacity: 0.96
+          background-color #9F2C38
           .container
             position: relative
             max-width: 900px
         .logo
           display: none !important
-        .logo-sm
-          top: 16px !important
-          left: 10px !important
-          right: auto !important
-          width: 190px  !important
-          height: 40px !important
-          background-size: 100% 100% !important
-          z-index: 100
-          position: absolute
 
         .gloves
           width: 190px
           height: 99px
-          background: url('/images/2013/gloves-bg.jpg') no-repeat center center
           background-size: 100% 100%
           opacity: 0.3
           width: 802px;
@@ -130,13 +140,10 @@ body
 
 
         .header-inner
-          background: #000 !important
+
         .nav-wrapper
           position: absolute
-          top: 16px
-          right: -20px
-          text-align: right
-          z-index: 100
+          background: none
 
       .affix-placeholder
         height: 495px
@@ -162,13 +169,8 @@ body
       &.affix-top .logo-sm
         display: none
       &.affix .nav-wrapper nav
-        background: #000
-        text-align: center
-        left: 0
-        right: 0
-        top: 62px
         position: absolute
-        float: none !important
+        background: none
 
   @media (min-width: 992px)
     #header
