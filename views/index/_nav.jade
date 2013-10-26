@@ -8,10 +8,13 @@
           span.icon-bar
           span.icon-bar
 
-      nav.collapse.navbar-collapse.bs-navbar-collapse.pull-right(role="navigation")
+      nav.collapse.navbar-collapse.bs-navbar-collapse(role="navigation")
         - if(typeof(activeNav) === "undefined")
           - var activeNav = "";
         ul.nav.navbar-nav
+
+          li(class=(activeNav === 'nko2013' ? 'active' : ''))
+            a(href="/") NKO 2013
 
           if req.myTeam
             li(class=(activeNav === 'registration' ? 'active' : ''))
