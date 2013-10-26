@@ -1,7 +1,7 @@
 {
   "name": "nko-website",
   "description": "node.js knockout: 48-hour node.js hackathon",
-  "version": "2012.6.21",
+  "version": "2013.10.25",
   "homepage": "http://nodeknockout.com",
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
     "irc": "*",
     "redis": "*",
     "jadevu": "*",
-    "mongoose-auth": "git://github.com/nko4/mongoose-auth.git",
+    "mongoose-auth": "nko4/mongoose-auth#5fafaa2",
     "connect-flash": "~0.1.1",
     "nap": "~0.7.8",
     "nib": "~1.0.1",
