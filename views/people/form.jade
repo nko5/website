@@ -30,7 +30,7 @@ include ../errors
           input( type='checkbox', name='technical', checked=person.technical, id='technical' )
           | &nbsp;
           label( for='technical' ) Technical
-      
+
       .admin.tabular
         label( for='admin' ) Admin
         input( type='hidden', name='admin', value=0 )
@@ -51,11 +51,13 @@ include ../errors
       - if (admin || person.featured)
         .linkedin.tabular
           label( for='linkedinPath' ) Linkedin
+          .clearfix
           | http://linkedin.com/in/
           input.form-control( type='text', name='linkedinPath', id='twitter', value=person.linkedinPath, placeholder='' )
 
       .twitter.tabular
         label( for='twitter' ) Twitter
+        .clearfix
         | http://twitter.com/
         input.form-control( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
         img.spinner( src='/images/spinner.gif' )
@@ -63,10 +65,11 @@ include ../errors
       - if (!person.contestant)
         .image_url.tabular
           label( for='imageURL' ) Picture
+          .clearfix
           - image_url = avatar_url(person, 80)
           img.avatar( src=image_url )
           input( type='hidden', name='imageURL', value=person.imageURL )
-          button.btn.btn-sm Change 
+          button.btn.btn-sm Change
           img.spinner( src='/images/spinner.gif' )
           .transloadit
             iframe( scrolling='no', frameborder=0 )
