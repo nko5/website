@@ -1,1 +1,0 @@
-{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "nko4.regcodes", "name" : "_id_" }, { "v" : 1, "key" : { "code" : -1 }, "ns" : "nko4.regcodes", "name" : "code_-1", "background" : true, "safe" : null } ] }
