@@ -8,5 +8,6 @@ config/secrets.js
 .npm-debug.log
 testuser.md
 public/assets
+scripts/restore.sh
 *.sublime-workspace
 restore.sh

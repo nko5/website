@@ -1,0 +1,118 @@
+li.vote, div.vote
+  margin 1em 0
+  border solid 1px hsla(0, 0%, 0%, 0.1)
+  border-radius 2px
+  padding 10px
+  box-shadow inset 0 0 5px hsla(0, 0%, 0%, 0.1)
+  background-color hsla(0, 0%, 95%, 0.5)
+  clear left
+  overflow hidden
+  line-height 100%
+  list-style-type none
+  &.my
+    box-shadow inset 0 0 5px hsla(200, 30%, 50%, 0.2)
+    background-color hsla(200, 30%, 80%, 0.2)
+  .info
+    float left
+    width 140px
+    margin-right 10px
+    img.avatar
+      width 40px
+      height auto
+      vertical-align top
+      float left
+      margin-right: 4px
+    > .change
+      clear left
+      font-size small
+      margin-top 1em
+      text-align left
+    .created-at
+      font-size x-small
+      display block
+      line-height 150%
+    &.team
+      .by
+        font-size small
+    &.person
+      line-height 125%
+      font-size small
+      .login
+        overflow hidden
+        text-overflow ellipsis
+      .role, .created-at
+        margin-left 45px
+      .role
+        font-size x-small
+      .company p
+        margin 0 0 0.5em
+    &.hearts
+      font-size x-small
+  > table, > form > table, > .reply, > .people
+    width 396px
+    border-collapse collapse
+    margin-left 150px
+  .clear
+    clear both
+  .voter
+    text-align center
+    line-height 150%
+  div.stars
+    display inline-block
+    .star
+      display inline-block
+      width 16px
+      height 16px
+      background transparent url(/images/star.png) no-repeat 0 0
+      &.filled
+        background transparent url(/images/star.png) no-repeat 0 -16px
+  th
+    font-size small
+    text-align left
+  tr.stars td
+    text-align left
+    padding 0 0px
+  input[type=range]
+    width 100px
+  textarea
+    width 98%
+    height 9em
+    margin-bottom: 10px
+  .comment p
+    margin 0.5em 0
+  ul.replies
+    border-top dotted 2px hsl(0, 0%, 80%)
+    margin 1em 0
+    font-size small
+    > li
+      overflow hidden
+      margin 1em 0
+    .info img.avatar
+      width 30px
+      margin-left 10px
+    p:first-child
+      margin-top 0
+    .body
+      margin-left 150px
+  .reply .toggle
+    text-align center
+    margin 0.5em 0
+    a.button
+      font-size small
+  form.reply
+    display none
+    textarea
+      font-size small
+    a.toggle-reply-form
+      display none
+form.vote
+  &.edit
+    .view
+      display none
+    .star
+      cursor pointer
+  &.view .edit
+    display none
+  .info h3
+    width 80px
+    margin-top 3px
