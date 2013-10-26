@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "nko4.teamlimits", "name" : "_id_" }, { "v" : 1, "key" : { "effectiveAt" : -1 }, "ns" : "nko4.teamlimits", "name" : "effectiveAt_-1", "background" : true, "safe" : null } ] }

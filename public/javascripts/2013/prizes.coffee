@@ -7,5 +7,9 @@ load = ->
       trigger: "hover"
       container: "body"
 
+  $(".prizes-widget .images li a").each ->
+    $(this).tooltip
+      container: "body"
+
 $(load)
 $(document).bind 'end.pjax', load

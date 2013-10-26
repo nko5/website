@@ -1,3 +1,37 @@
+mixin prize(name, img, url)
+  li: a(href="#{url}", title="#{name}", data-toggle="tooltip")
+    img(src="/images/prizes/#{img}.jpg")
+
+mixin prize-logo(name, img, url)
+  li: a(href="#{url}", title="Prize from #{name} (see below)", target="_blank", data-toggle="tooltip")
+    img(src="/images/prizes/#{img}.jpg")
+
+//- prize mixins (for reuse)
+mixin one-per-team
+  i.icon-users(title="one per team member")
+
+mixin modulus-beer
+  .with-popover
+    |  case of beer
+    .popover-content(style="display:none")
+      |  a case of Cincinnati microbews
+
+mixin goinstant-hoodie
+  .with-popover
+    | (+ Hoodies)
+    .popover-content(style="display:none")
+      img(src="/images/prizes/goinstant-hoodie.jpg", width="250", height="250")
+
+mixin twilio-book
+  strong: a(href="http://twilio.com", target="_blank") Twilio
+  |  -&nbsp;
+  .with-popover
+    a(href="http://www.manning.com/cantelon/", target="_blank")
+      | NodeJS in Action</a>
+    .popover-content(style="display:none")
+      img(src="/images/prizes/nodejs-in-action.jpg", height="150")
+  |  eBook
+
 .prizes-widget
   .tabbable.tabs-left
     ul.nav.nav-tabs
@@ -35,43 +69,44 @@
       #prize-team.tab-pane.active
 
         ul.images
-          //- li: img(src="/images/prizes/goldtrophy.jpg")
-          li: img(src="/images/prizes/gloves.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/amazonaws.jpg")
-          li: img(src="/images/prizes/thenodefirm.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/github.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/uber.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/pluralsights.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
-          
+          mixin prize("NKO Team Winner", "nko-team", "#prize-list-team")
+          mixin prize("NKO Boxing Gloves", "gloves", "#prize-list-team")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-team")
+
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
+          mixin prize-logo("The Node Firm", "thenodefirm", "http://thenodefirm.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("GitHub", "github", "http://github.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Uber", "uber", "http://uber.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("PluralSight", "pluralsights", "http://pluralsight.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-team")
         h2
           | Team Winner
           em
             | / best overall score
 
         img(src="/images/prizes/apple2k.jpg", height="200")
-
         ul
           li: strong $2,000 Apple Store gift card
           li
             strong Node Knockout Boxing Gloves & Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             .with-popover
               strong: a(href="http://segment.io", target="_blank") Segment.io
@@ -84,25 +119,22 @@
               strong: a(href="http://twilio.com", target="_blank") Twilio
               |  - Han Solo Replica Blaster
 
-              i.icon-users(title="one per team member")
+              mixin one-per-team
               .popover-content(style="display:none")
                 img(src="http://cl.ly/image/3R45291u2921/content", width="250", height="164")
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer accounts
-            .with-popover
-              | (+ Hoodies)
-              .popover-content(style="display:none")
-                img(src="/images/prizes/goinstant-hoodie.jpg", width="250", height="250")
-            i.icon-users(title="one per team member")
+            mixin goinstant-hoodie
+            mixin one-per-team
           li
             strong: a(href="http://aws.amazon.com/start-ups/", target="_blank") Amazon Web Services
             |  - $3,000 in credits
-          
+
           li
             strong: a(href="http://thenodefirm.com", target="_blank") The Node Firm
             |  One-on-one eval of your Node.js project ($3,000 value)
-          
+
           li
             strong: a(href="http://circleci.com", target="_blank") CircleCI
             |  - 6 containers, 6mo subscription ($1,800 value)
@@ -112,7 +144,7 @@
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 12mo Agency subscription ($1,188 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
             |  - $1,000 in credits
@@ -136,74 +168,68 @@
             |  - $400 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $300 in credits, 
+            |  - $300 in credits,
             .with-popover
               |  4hrs dev,
               .popover-content(style="display:none")
                 |  4 hours dev time with a Modulus.io engineer
-            |  hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://pluralsight.com", target="_blank") PluralSight
             |  - 1yr subscription ($299 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://getsentry.com", target="_blank") Sentry
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr print subscription ($109 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
-            i.icon-users(title="one per team member")
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Overall winner achievement badge
-            i.icon-users(title="one per team member")
+            mixin one-per-team
 
 
       #prize-solo.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/goldtrophy.jpg")
-          li: img(src="/images/prizes/gloves.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/gojs.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/amazonaws.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/github.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/uber.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
+          mixin prize("NKO Solo Winner", "nko-solo", "#prize-list-solo")
+          mixin prize("NKO Boxing Gloves", "gloves", "#prize-list-solo")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-solo")
 
+          mixin prize-logo("Northwoods Software / GoJS", "gojs", "http://nwoods.com")
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("GitHub", "github", "http://github.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Uber", "uber", "http://uber.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-solo")
         h2
           | Solo Winner
           em
@@ -260,17 +286,14 @@
             |  - 18mo Freelancer edition ($702 value)
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $300 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $300 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://github.com", target="_blank") Github
             |  - 1yr bronze plan ($300 value)
           li
             strong: a(href="http://getsentry.com", target="_blank") Sentry
-            |  - $250 in credits          
+            |  - $250 in credits
           li
             strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
             |  - $100 in credits towards your first design project
@@ -284,8 +307,7 @@
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Solo winner achievement badge
@@ -293,25 +315,27 @@
 
       #prize-innovation.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/silvertrophy.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
+          mixin prize("NKO Innovation Category Winner", "nko-innovation", "#prize-list-innovation")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-innovation")
 
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-innovation")
         h2
           | Innovation Winner
           em
@@ -323,7 +347,7 @@
           li: strong $1,000 Apple Store gift card
           li
             strong Node Knockout Boxing Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong MYSTERY PRIZE
           li
@@ -336,7 +360,7 @@
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer account
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
             |  - 6mo subscription ($1,500 value)
@@ -357,15 +381,12 @@
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 3mo Studio edition ($117 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://mongohq.com", target="_blank") MongoHQ
             |  - $100 in credits
@@ -375,39 +396,40 @@
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr digital subscription ($29 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Innovation winner achievement badge
 
       #prize-design.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/silvertrophy.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/trumaker.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
+          mixin prize("NKO Design Category Winner", "nko-design", "#prize-list-design")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-design")
 
+          mixin prize-logo("Trumaker", "trumaker", "http://trumaker.com")
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-design")
         h2
           | Design Winner
           em
@@ -419,11 +441,11 @@
           li: strong $1,000 Apple Store gift card
           li
             strong Node Knockout Boxing Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://trumaker.com", target="_blank") Trumaker
             |  - Custom tailored shirt
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             .with-popover
               strong: a(href="http://segment.io", target="_blank") Segment.io
@@ -434,7 +456,7 @@
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer account
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
             |  - 6mo subscription ($1,500 value)
@@ -455,15 +477,12 @@
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 3mo Studio edition ($117 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://mongohq.com", target="_blank") MongoHQ
             |  - $100 in credits
@@ -473,13 +492,12 @@
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr digital subscription ($29 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Design winner achievement badge
@@ -487,25 +505,29 @@
 
       #prize-utility-fun.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/silvertrophy.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/pebble.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
 
+          mixin prize("NKO Utility/Fun Category Winner", "nko-utility", "#prize-list-utility-fun")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-utility-fun")
+
+          mixin prize-logo("Pebble", "pebble", "http://getpebble.com")
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-utility-fun")
         h2
           | Utility/Fun Winner
           em
@@ -516,23 +538,23 @@
           li: strong $1,000 Apple Store gift card
           li
             strong Node Knockout Boxing Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://getpebble.com", target="_blank") Pebble
             |  - Smartwatch
-            i.icon-users(title="one per team member")
+            mixin one-per-team
 
           li
             .with-popover
               strong: a(href="http://segment.io", target="_blank") Segment.io
               |  - <a href="http://www.thinkgeek.com/product/f2eb/" target="_blank">Shark Laser Pointers</a>
-              i.icon-users(title="one per team member")
+              mixin one-per-team
               .popover-content(style="display:none")
                 p Where utility and fun meet.
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer account
-            i.icon-users(title="one per team member")
+            mixin one-per-team
 
           li
             strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
@@ -554,15 +576,12 @@
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 3mo Studio edition ($117 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://mongohq.com", target="_blank") MongoHQ
             |  - $100 in credits
@@ -572,38 +591,40 @@
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr digital subscription ($29 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Utility/Fun winner achievement badge
 
       #prize-completeness.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/silvertrophy.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
+          mixin prize("NKO Completeness Category Winner", "nko-completeness", "#prize-list-completeness")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-completeness")
 
+          //- mixin logo("Mystery Prize", "mystery", "#")
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-completeness")
         h2
           | Completeness Winner
           em
@@ -614,20 +635,20 @@
           li: strong $1,000 Apple Store gift card
           li
             strong Node Knockout Boxing Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong MYSTERY PRIZE
           li
             .with-popover
               strong: a(href="http://segment.io", target="_blank") Segment.io
               |  - Swiss Army Knives
-              i.icon-users(title="one per team member")
+              mixin one-per-team
               .popover-content(style="display:none")
                 p Doing everything your iPhone can't. Whenever you need an app for 'fighting a grizzly bear', look no further.
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer account
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
             |  - 6mo subscription ($1,500 value)
@@ -648,15 +669,12 @@
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 3mo Studio edition ($117 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://mongohq.com", target="_blank") MongoHQ
             |  - $100 in credits
@@ -666,13 +684,12 @@
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr digital subscription ($29 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Completeness winner achievement badge
@@ -680,27 +697,29 @@
 
       #prize-popularity.tab-pane
         ul.images
-          //- li: img(src="/images/prizes/silvertrophy.jpg")
-          li: img(src="/images/prizes/trunks.jpg")
-          li: img(src="/images/prizes/pivotal.jpg")
-          li: img(src="/images/prizes/segmentio.jpg")
-          li: img(src="/images/prizes/goinstant.jpg")
-          li: img(src="/images/prizes/kissmetrics.jpg")
-          li: img(src="/images/prizes/amazonaws.jpg")
-          li: img(src="/images/prizes/digitalocean.jpg")
-          li: img(src="/images/prizes/circleci.jpg")
-          li: img(src="/images/prizes/firebase.jpg")
-          li: img(src="/images/prizes/mongolab.jpg")
-          li: img(src="/images/prizes/sentry.jpg")
-          li: img(src="/images/prizes/modulus.jpg")
-          li: img(src="/images/prizes/dashable.jpg")
-          li: img(src="/images/prizes/mongohq.jpg")
-          li: img(src="/images/prizes/scoutzie.jpg")
-          li: img(src="/images/prizes/hackermonthly.jpg")
-          li: img(src="/images/prizes/oreilly.jpg")
-          li: img(src="/images/prizes/twilio.jpg")
-          li: img(src="/images/prizes/coderwall.jpg")
+          mixin prize("NKO Popularity Category Winner", "nko-popularity", "#prize-list-popularity")
+          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-popularity")
 
+          mixin prize-logo("Pivotal Labs", "pivotal", "http://pivotallabs.com")
+          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
+          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
+          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
+          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
+          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
+          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
+          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
+          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
+          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
+          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
+          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
+          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
+          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
+          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
+          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
+          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
+          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+
+        a.anchor-link(name="prize-list-popularity")
         h2
           | Popularity Winner
           em
@@ -709,7 +728,7 @@
         ul
           li
             strong Node Knockout Boxing Trunks
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://pivotallabs.com", target="_blank") Pivotal Labs
             |  - $500 Apple Store gift card
@@ -717,18 +736,14 @@
             .with-popover
               strong: a(href="http://segment.io", target="_blank") Segment.io
               |  - Miley Cyrus's new album <em>Bangerz</em>
-              i.icon-users(title="one per team member")
+              mixin one-per-team
               .popover-content(style="display:none")
                 p Learn popularity from the pros.
           li
             strong: a(href="http://goinstant.com", target="_blank") GoInstant
             |  - Lifetime free Developer account
-            .with-popover
-              | (+ Hoodies)
-              .popover-content(style="display:none")
-                img(src="/images/prizes/goinstant-hoodie.jpg", width="250", height="250")
-
-            i.icon-users(title="one per team member")
+            mixin goinstant-hoodie
+            mixin one-per-team
           li
             strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
             |  - 6mo subscription ($1,500 value)
@@ -752,15 +767,12 @@
             |  - $250 in credits
           li
             strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies, 
-            .with-popover
-              |  case of beer
-              .popover-content(style="display:none")
-                |  a case of Cincinnati microbews
+            |  - $200 in credits, hoodies,
+            mixin modulus-beer
           li
             strong: a(href="http://dashable.com", target="_blank") Dashable
             |  - 3mo Studio edition ($117 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://mongohq.com", target="_blank") MongoHQ
             |  - $100 in credits
@@ -770,13 +782,12 @@
           li
             strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
             |  - 1yr digital subscription ($29 value)
-            i.icon-users(title="one per team member")
+            mixin one-per-team
           li
             strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
             |  - O'Reilly eBook of your choosing
           li
-            strong: a(href="http://twilio.com", target="_blank") Twilio
-            |  - <a href="http://www.manning.com/cantelon/" target="_blank">NodeJS in Action</a> eBook
+            mixin twilio-book
           li
             strong: a(href="http://coderwall.com", target="_blank") coderwall
             |  - 2013 Popularity winner achievement badge
