@@ -10,3 +10,4 @@ testuser.md
 public/assets
 scripts/restore.sh
 *.sublime-workspace
+restore.sh
