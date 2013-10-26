@@ -8,22 +8,42 @@ mongoose = require('../models')(require('../config/env').mongo_url)
 async = require 'async'
 Team = mongoose.model 'Team'
 
+
 Team.find {}, (err, teams) ->
   return err if err
 
-  async.mapSeries teams, (team, next) ->
+  async.mapSeries teams, (team, next) -> 
+    console.log "EMPTY TEAM - nodeknockout/teams/#{team.slug} (#{team.name})" if team.peopleIds.length is 0
+
     return next(null, team) if team.peopleIds.length is 0  # skip empty
     # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
-    if team.name == 'ヽ( ´¬`)ノ'
+    changes = 
+      "-1": "theteam"
+      "3": "heart3"
+      "-3": "annteens"
+      "-4": "tigercat"
+      # "-2": "hiten" This team is still empty
+
+
+    if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
       team.slug = 'waving'
       team.save (err) ->
         console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
         return next err, team
-    else
-      return next(null, team) # If it's not one of the odd cases, it's ok :)
+    else    
+      if changes[team.slug]
+        old = team.slug
+        team.slug = changes[team.slug]
+        team.save (err) ->
+          console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+          return next err, team
+        # return next err, team
+      else
+        return next(null, team) # If it's not one of the odd cases, it's ok :)
+  
   , (err, teams) ->
     console.log err if err
 

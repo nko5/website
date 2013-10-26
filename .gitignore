@@ -11,3 +11,4 @@ public/assets
 scripts/restore.sh
 *.sublime-workspace
 restore.sh
+scripts/tmp/*
