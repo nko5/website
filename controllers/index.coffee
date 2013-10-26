@@ -68,6 +68,11 @@ app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
 app.get '/sponsors/options', (req, res) -> res.render2 "index/sponsor-options"
 
+app.get '/support', (req, res) ->
+  if req.user
+    name = req.user.name
+  res.render2 'index/support', name: name
+
 app.get '/about', (req, res) ->
   Team.count {}, (err, teams) ->
     return next err if err

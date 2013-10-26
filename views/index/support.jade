@@ -1,0 +1,17 @@
+extends ../layout-2013
+- title('Support')
+
+block body
+  - activeNav = "about"
+  include ../index/_header-mini
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+        :markdown
+          # Support / Questions
+
+          During the competition, our IRC channel will be fully staffed by NodeJS experts who will try to help you with any issue you might run into.
+
+          <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=#{name}&theme=mini#nodeknockout" style="border:0; width:100%; height:450px;"></iframe>
+      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+        include ../index/_sidebar
