@@ -1,34 +1,51 @@
 #!/bin/sh
+set -evu
 
 slug=$1
 code=$2
 name=$3
-github=$4
 
 mkdir -p repos/${slug}
+cp ./deploy repos/${slug}/
+
 cd repos/${slug}
 git init
 
 cat <<EOF >README.md
-# Hello ${name}!
-
-## Deploy instructions
-
-### GitHub — [Team][2], [Repo][3]
+## Quick Start
 
 ~~~sh
-git clone git@github.com:nko4/${slug}.git
-~~~
+# getting the code
+git clone git@github.com:nko4/${slug}.git && cd ./${slug}/
 
-### Nodejitsu — [More details][5], [Handbook][4]
+# deploying the code
+./deploy
 
-~~~sh
-npm install -g jitsu
-jitsu login --username nko4-${slug} --password ${code}
-jitsu deploy
+# ssh access to your server
+ssh deploy@${slug}.2013.nodeknockout.com
+ssh root@${slug}.2013.nodeknockout.com
 ~~~
 
 ## Tips
+
+### Your Server
+
+We've already set up a basic node server for you. Details:
+
+* Ubuntu 12.10 (Precise) - 64-bit
+* `/home/deploy/current/server.js` - server
+* `/home/deploy/shared/logs/server.log` - server logs
+* `runit` keeps the server running.
+  * `sv restart serverjs` - restarts
+  * `sv start serverjs` - starts
+  * `sv stop serverjs` - stops
+  * `runsvdir -P /etc/service log` - to see logs
+  * `cat /etc/service/serverjs/run` - to see the config
+
+You can use the `./deploy` script included in this repo to deploy to it right
+now. Advanced users, feel free to tweak.
+
+[Find out more](http://blog.nodeknockout.com/deploying-to-joyent)
 
 ### Vote KO Widget
 
@@ -69,14 +86,8 @@ including:
 
 ## Have fun!
 
-If you have any issues, we're on IRC in #nodeknockout and #nodejitsu on
-freenode, email us at <all@nodeknockout.com>, or tweet
-[@node_knockout](https://twitter.com/node_knockout).
-
-[2]: https://github.com/organizations/nko4/teams/${github}
-[3]: https://github.com/nko4/${slug}
-[4]: http://handbook.jit.su
-[5]: http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment
+If you have any issues, we're on IRC in #nodeknockout on freenode, email us at
+<all@nodeknockout.com>, or tweet [@node_knockout](https://twitter.com/node_knockout).
 EOF
 
 cat <<EOF >package.json
@@ -93,25 +104,46 @@ cat <<EOF >package.json
     "url": "git@github.com:nko4/${slug}.git"
   },
   "dependencies": {
+    "nko": "*",
   },
   "engines": {
-    "node": "0.8.x"
-  },
-  "subdomain": "${slug}.nko4"
+    "node": "0.10.x"
+  }
 }
 EOF
 
 cat <<EOF >server.js
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(8000);
+// https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
+require('nko')('${code}');
 
-console.log('Server running at http://0.0.0.0:8000/');
+var isProduction = (process.env.NODE_ENV === 'production');
+var http = require('http');
+var port = (isProduction ? 80 : 8000);
+
+http.createServer(function (req, res) {
+  // http://blog.nodeknockout.com/post/35364532732/protip-add-the-vote-ko-badge-to-your-app
+  var voteko = '<iframe src="http://nodeknockout.com/iframe/${slug}" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>';
+
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('<html><body>' + voteko + '</body></html>\n');
+}).listen(port);
+
+console.log('Server running at http://0.0.0.0:' + port + '/');
+EOF
+
+cat <<EOF >deploy.conf
+# https://github.com/visionmedia/deploy
+[production]
+user deploy
+host ${slug}.2013.nodeknockout.com
+repo git@github.com:nko4/${slug}.git
+ref origin/master
+path /home/deploy
+post-deploy npm install && sudo sv restart serverjs
+test sleep 5 && curl localhost >/dev/null
 EOF
 
 git add .
 git commit -m Instructions
 git remote add origin git@github.com:nko4/${slug}.git
-git push origin master
+git push -f -u origin master

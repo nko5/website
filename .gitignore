@@ -13,3 +13,4 @@ scripts/restore.sh
 restore.sh
 scripts/tmp/*
 .vagrant
+repos/

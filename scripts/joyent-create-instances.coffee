@@ -9,15 +9,10 @@ joyent = require '../config/joyent'
 Team = mongoose.model 'Team'
 Person = mongoose.model 'Person'
 
-###
-joyent.listImages (err, res) ->
-  console.dir(res)
-###
-
-###
-joyent.listPackages (err, res) ->
-  console.dir(res)
-###
+# joyent.listImages (err, res) -> console.dir(res)
+image = 'd2ba0f30-bbe8-11e2-a9a2-6bc116856d85' # ubuntu 12.04 - 64bit v2.4.2
+# joyent.listPackages (err, res) -> console.dir(res)
+package = 'ec521e7a-8799-4ffc-a914-bb41233f25f5' # 512mb ram - kvm
 
 setupJoyent = (team, next) ->
   # skip empty teams
@@ -27,8 +22,8 @@ setupJoyent = (team, next) ->
     console.log team.slug, 'create machine'
     joyent.createMachine
       name: team.toString()
-      image: 'd2ba0f30-bbe8-11e2-a9a2-6bc116856d85'
-      package: 'ccc8a93a-d5be-4c3c-b199-b39546886538'
+      image: image
+      package: package
     , next
 
   waitUntilRunning = (machine, next) ->
@@ -55,13 +50,13 @@ setupJoyent = (team, next) ->
     console.dir(machine)
     next(null, machine)
 
-  saveMachineIPs = (machine, next) ->
-    console.log team.slug, 'save machine ips'
-    team.machine.ips.external = machine.ips[0]
-    team.machine.ips.internal = machine.ips[1]
+  saveMachine = (machine, next) ->
+    console.log team.slug, 'save machine ip'
+    team.ip = machine.ips[0]
+    team.machine = machine
     team.save next
 
-  async.waterfall [createMachine, waitUntilRunning, logMachine, saveMachineIPs], next
+  async.waterfall [createMachine, waitUntilRunning, logMachine, saveMachine], next
 
 Team.find { slug: 'organizers' }, (err, teams) ->
   throw err if err
