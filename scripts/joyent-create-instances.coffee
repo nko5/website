@@ -46,17 +46,13 @@ setupJoyent = (team, next) ->
           else
             return next("Error: #{machine.name} in unexpected state: '#{res.state}'")
 
-  logMachine = (machine, next) ->
-    console.dir(machine)
-    next(null, machine)
-
   saveMachine = (machine, next) ->
     console.log team.slug, 'save machine ip'
     team.ip = machine.ips[0]
     team.machine = machine
     team.save next
 
-  async.waterfall [createMachine, waitUntilRunning, logMachine, saveMachine], next
+  async.waterfall [createMachine, waitUntilRunning, saveMachine], next
 
 Team.find { slug: 'organizers' }, (err, teams) ->
   throw err if err
