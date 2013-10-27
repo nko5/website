@@ -12,3 +12,4 @@ scripts/restore.sh
 *.sublime-workspace
 restore.sh
 scripts/tmp/*
+.vagrant
