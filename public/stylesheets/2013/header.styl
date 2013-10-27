@@ -4,23 +4,34 @@ body
   #header
     #header-gloves
       position: relative
-      ul.account-nav
+      .account-nav
         position: absolute
         top: 30px
         right: 200px
         z-index: 100
-        li
+
+        ul.dropdown-menu
+          min-width: 100px
+          li
+            width: 100%
+
+        button
+          color: #fff
+          font-size: 14px
+          display: block
+          padding: 5px 10px
+          border-radius: 3px
+          background-color rgba(201,59,71,0.9)
+          border none
+          &:hover
+            text-decoration none
+            transition .3s
+            background-color rgba(190, 56, 67, 1)
+
           a
-            color: #fff
-            font-size: 14px
             display: block
-            padding: 5px 10px
-            border-radius: 3px
-            background-color rgba(201,59,71,0.9)
-            &:hover
-              text-decoration none
-              transition .3s
-              background-color rgba(190, 56, 67, 1)
+            color #fff
+            text-decoration none
 
     .header
       background: black

@@ -3,13 +3,19 @@
   .affix-inner
     .header
       #header-gloves.container
-        ul.account-nav
+        .btn-group.account-nav
           if req.user
-            li
-              a(href="/logout") Sign Out
+            button(class="btn btn-default dropdown-toggle", data-toggle="dropdown") Account
+            ul(class="dropdown-menu", role="menu")
+              li
+                a(href="/teams/mine") My Team
+              li
+                a(href="/teams") All Teams
+              li
+                a(href="/logout") Sign Out
           else
-            li(class=(activeNav === 'login' ? 'active' : ''))
-              a(href="/login") Sign In
+            button(class="btn btn-default")
+              a(href="/login") Sign in
 
         .header-inner.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
