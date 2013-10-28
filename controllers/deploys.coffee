@@ -1,36 +1,34 @@
 _ = require 'underscore'
 m = require './middleware'
-util = require 'util'
+# util = require 'util'
 
 module.exports = (app) ->
   Team = app.db.model 'Team'
   Deploy = app.db.model 'Deploy'
 
   (req, res, next) ->
-    return next() unless req.method is 'POST' and req.url is '/deploys'
-    console.log req.body
+    console.log 'HEY'
+    return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys' 
+    
+    console.log req.query
 
     # custom error handler (since the default one dies w/o session)
     error = (err) ->
-      util.error err.toString().red
+      console.error err.toString().red
       res.end JSON.stringify(err)
 
-    try
-      req.session.destroy()
-      slug = req.body.user.replace('nko4-', '')
-    catch err
-      return error(err)
+    teamcode = req.query.teamcode
 
-    Team.findBySlug slug, (err, team) ->
+    Team.findByCode teamcode, (err, team) ->
       return error(err) if err
       return res.send(404) unless team
 
-      util.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
+      console.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
 
-      attr = _.clone req.body
+      attr = _.clone req.query
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
-      attr.hostname = "#{req.body.subdomain}.jitsu.com"
+      attr.hostname = req.query.hostname
 
       # save the deploy in the db
       deploy = new Deploy attr
@@ -42,8 +40,8 @@ module.exports = (app) ->
         app.stats.increment $inc
         team.incrementStats $inc, (err, team) ->
           return error(err) if err
-
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
-
-          res.end JSON.stringify(deploy)
+          console.log "All good, deploy count stored"
+          return res.end JSON.stringify deploy
+         

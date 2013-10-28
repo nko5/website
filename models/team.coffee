@@ -92,6 +92,10 @@ TeamSchema.index 'entry.url': 1
 # class methods
 TeamSchema.static 'findBySlug', (slug, rest...) ->
   Team.findOne { slug: slug }, rest...
+
+TeamSchema.static 'findByCode', (code, rest...) ->
+  Team.findOne { code: code }, rest...
+
 TeamSchema.static 'canRegister', (regCode, next) ->
   if typeof(regCode) == "function"
     next = regCode 
