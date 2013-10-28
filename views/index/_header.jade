@@ -3,25 +3,11 @@
   .affix-inner
     .header
       #header-gloves.container
-        .btn-group.account-nav
-          if req.user
-            button(class="btn btn-primary dropdown-toggle", type="button", data-hover="dropdown", data-toggle="dropdown") Account&nbsp;&nbsp;
-              span(class="caret")
-
-            ul(class="dropdown-menu", role="menu")
-              li
-                a(href="/teams/mine") My Team
-              li
-                a(href="/teams") All Teams
-              li
-                a(href="/logout") Sign Out
-          else
-            button(class="btn btn-default")
-              a(href="/login") Sign in
-
+        include _user_nav
         .header-inner.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
             .gloves
             a.logo( href="/" ) Node Knockout
 
-        include _nav
+#landing-nav
+  include _nav

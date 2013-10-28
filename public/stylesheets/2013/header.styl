@@ -2,31 +2,15 @@
 
 body
   #header
+
     #header-gloves
       position: relative
-      .account-nav
+      .nav-account
         position: absolute
         top: 30px
-        right: 200px
+        right: 0px
         z-index: 100
 
-        button
-          color: #fff
-          font-size: 14px
-          display: block
-          padding: 5px 10px
-          border-radius: 3px
-          background-color rgba(201,59,71,0.9)
-          border none
-          &:hover
-            text-decoration none
-            transition .3s
-            background-color rgba(190, 56, 67, 1)
-
-          a
-            display: block
-            color #fff
-            text-decoration none
 
     .header
       background: black
@@ -45,64 +29,6 @@ body
         margin-left: -196px
         left: 50%
         top: 350px
-
-
-    .navbar-header
-      position: absolute
-      right: 10px
-      top: 0
-
-    .nav-wrapper
-      text-align: center
-      padding: 10px 0
-      nav, .nav-inner
-        background: none
-        .col
-          position: static
-
-      a
-        display: inline-block
-        margin: 2px 5px
-        padding: 5px 4px
-        font-family: franklin
-        text-transform: uppercase
-        font-size: 12px
-        letter-spacing: 1px
-        line-height: 1.2
-        border-radius: 2px
-        text-shadow: none
-
-        color: #fff
-        &:hover
-          background-color: rgba(201, 59, 71, .9)
-          text-decoration: none
-          transition: .2s
-
-      li.active a
-        background-color: rgba(185, 46, 74, 1)
-
-    &.affix-top
-      nav, .navbar-nav
-        text-align: center
-        margin 3px auto
-        float: none !important
-        > li
-          float: none !important
-          display: inline-block
-      nav
-        padding-left: 0
-        padding-right: 0
-      .nav-wrapper
-        padding-top: 8px
-        padding-bottom: 0
-        a
-          margin: 5px 3px
-          padding: 9px 13px
-          padding-bottom: 3px
-      .navbar-header
-        position: absolute
-        right: 10px
-        top: 22px
 
     &.affix
       position: static
@@ -137,45 +63,33 @@ body
           top: -171px;
           left: 155px;
 
-
-        .header-inner
-
-        .nav-wrapper
-          position: absolute
-          background: none
-
       .affix-placeholder
         height: 495px
-      &.header-mini
-        .nav-wrapper nav
-          margin-left: -10px
-          padding-left: 0
-        .affix-placeholder
-          height: 72px
 
   @media (max-width: 767px)
     #header
-      .nav-wrapper
-        padding: 0 !important
-        navbar
-          border-top: 0px
-          border-bottom: 0px
-          li
-            display: block
+      #header-gloves .nav-account
+        position: static
+        padding-top: 89px
+        button
+          position: absolute
+          top: 30px
+          left: 10px
       .header
         .header-inner
+          background: #353439
+          min-height: 0px
+          height: 100px
+          .logo
+            margin: auto
+            left: 0
+            right: 0
+            top: 10px
+        .affix-inner
           min-height: 0
           height: 147px
           background-size: 80%
           background-position: center center
       &.affix-top .logo-sm
         display: none
-      &.affix .nav-wrapper nav
-        position: absolute
-        background: none
 
-  @media (min-width: 992px)
-    #header
-      &.affix-top .nav-wrapper a
-        margin: 3px 6px
-        padding: 6px 10px
