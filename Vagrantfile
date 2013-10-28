@@ -13,8 +13,7 @@ Vagrant.configure("2") do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-  config.vm.provision 'shell', path: './scripts/setup-publickey.sh'
-  config.vm.provision 'shell', path: './scripts/setup-ubuntu.sh'
+  config.vm.provision 'shell', path: './scripts/setup/setup-ubuntu.sh'
 
   # config.vm.network "private_network", ip: "192.168.4.790"
 

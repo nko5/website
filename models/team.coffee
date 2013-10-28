@@ -21,6 +21,9 @@ TeamSchema = module.exports = new mongoose.Schema
   regCode: String
   machine: {}
   ip: String
+  deployKey:
+    public: String
+    private: String
   entry:
     name: String
     url: String
