@@ -29,7 +29,7 @@ module.exports = (app) ->
       attr = _.clone req.query
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
-      attr.hostname = req.query.hostname
+      # attr.hostname = req.query.hostname
 
       # save the deploy in the db
       deploy = new Deploy attr
