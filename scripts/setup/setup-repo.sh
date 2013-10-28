@@ -140,7 +140,7 @@ repo git@github.com:nko4/${slug}.git
 ref origin/master
 path /home/deploy
 post-deploy npm install && sudo sv restart serverjs
-test sleep 5 && curl localhost >/dev/null
+test sleep 5 && wget -qO /dev/null localhost
 EOF
 
 git add .

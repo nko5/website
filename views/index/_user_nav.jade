@@ -1,0 +1,16 @@
+.btn-group.nav-account
+  if req.user
+    button(class="btn btn-primary dropdown-toggle", type="button", data-hover="dropdown", data-toggle="dropdown") Account&nbsp;&nbsp;
+      span(class="caret")
+
+    ul(class="dropdown-menu", role="menu")
+      li
+        a(href="/teams/mine") My Team
+      //- li
+      //-   a(href="/teams") All Teams
+      li
+        a(href="/logout") Sign Out
+  else
+    button.sign-in(class="btn btn-default")
+      a(href="/login") Sign in
+

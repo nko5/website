@@ -44,7 +44,8 @@ if (env.development) {
       url: process.env.SDC_URL,
       user: process.env.SDC_ACCOUNT,
       key: process.env.SDC_KEY_PATH
-    }
+    },
+    linode: process.env.LINODE_API_KEY
   };
   env.irc = {
 	  username: 'MrNko',

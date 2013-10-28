@@ -1,0 +1,122 @@
+@import "2013/_common"
+
+body
+  #nav
+    text-align: center
+    padding: 10px 0
+    nav, .nav-inner
+      background: none
+      .col
+        position: static
+
+    a
+      display: inline-block
+      margin: 2px 5px
+      padding: 5px 4px
+      font-family: franklin
+      text-transform: uppercase
+      font-size: 12px
+      letter-spacing: 1px
+      line-height: 1.2
+      border-radius: 2px
+      text-shadow: none
+
+      color: #fff
+      &:hover
+        background-color: rgba(201, 59, 71, .9)
+        text-decoration: none
+        transition: .2s
+
+    li.active a
+      background-color: rgba(185, 46, 74, 1)
+
+    .navbar-default .navbar-toggle
+      &:hover, &:focus
+        background: #BA3A45
+
+  #nav-mini
+    background: #9F2C38
+    > .container
+      position: relative
+      max-width: 900px
+    nav
+      padding-left: 0
+      margin-left: -15px
+
+    #user-nav-mini
+      position: absolute
+      right: 15px
+      top: 6px
+      z-index: 100
+
+    .navbar-default
+      background: transparent
+      a
+        color: #fff
+        &:hover
+          background-color: #BA3A45
+      .active a
+        background-color: #BA3A45
+
+  #landing-nav
+    background: #353439
+    .navbar-header
+      position: absolute
+      right: 10px
+      top: 0
+
+    nav, .navbar-nav
+      text-align: center
+      margin 3px auto
+      float: none !important
+      > li
+        float: none !important
+        display: inline-block
+    nav
+      padding-left: 0
+      padding-right: 0
+    .nav-wrapper
+      padding: 0
+      a
+        margin: 5px 3px
+        padding: 5px 13px
+    .navbar-header
+      position: absolute
+      right: 10px
+      top: 22px
+
+    .nav-wrapper nav
+      margin-left: -10px
+      padding-left: 0
+    .affix-placeholder
+      height: 72px
+
+  @media (max-width: 767px)
+    #nav-mini
+      #nav
+        padding: 0
+      nav
+        border: none
+        margin-top: 7px
+      #user-nav-mini
+        left: 15px
+        right: auto
+    #nav
+      .nav-wrapper
+        padding: 0 !important
+        navbar
+          border-top: 0px
+          border-bottom: 0px
+          li
+            display: block
+      .header
+        .header-inner
+          min-height: 0
+          height: 147px
+          background-size: 80%
+          background-position: center center
+      &.affix-top .logo-sm
+        display: none
+      &.affix .nav-wrapper nav
+        position: absolute
+        background: none
