@@ -83,10 +83,12 @@ body
 
     &.affix-top
       nav, .navbar-nav
-        float: none !important
         text-align: center
-        width 77%
         margin 3px auto
+        float: none !important
+        > li
+          float: none !important
+          display: inline-block
       nav
         padding-left: 0
         padding-right: 0
@@ -145,6 +147,9 @@ body
       .affix-placeholder
         height: 495px
       &.header-mini
+        .nav-wrapper nav
+          margin-left: -10px
+          padding-left: 0
         .affix-placeholder
           height: 72px
 
