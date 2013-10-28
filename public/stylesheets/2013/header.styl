@@ -85,8 +85,27 @@ body
       nav, .navbar-nav
         float: none !important
         text-align: center
-        width 77%
+        width 80%
         margin 3px auto
+        position relative
+
+        .caret
+          border-top-color #fff
+          border-bottom-color #fff
+
+        ul.dropdown-menu
+          position absolute
+          top 32px
+          right 120px
+          padding 0
+          li
+            color #333
+            a
+              display block
+              text-align left
+              color #333
+              &:hover
+                color #fff
       nav
         padding-left: 0
         padding-right: 0
