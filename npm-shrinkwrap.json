@@ -946,6 +946,28 @@
       "version": "0.0.0",
       "from": "ssh-fingerprint@",
       "resolved": "https://registry.npmjs.org/ssh-fingerprint/-/ssh-fingerprint-0.0.0.tgz"
+    },
+    "linode-api": {
+      "version": "0.1.2",
+      "from": "linode-api@",
+      "resolved": "https://registry.npmjs.org/linode-api/-/linode-api-0.1.2.tgz",
+      "dependencies": {
+        "optimist": {
+          "version": "0.2.8",
+          "from": "optimist@0.2.x",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2",
+              "from": "wordwrap@>=0.0.1 <0.1.0"
+            }
+          }
+        },
+        "request": {
+          "version": "1.9.9",
+          "from": "request@1.9.x",
+          "resolved": "https://registry.npmjs.org/request/-/request-1.9.9.tgz"
+        }
+      }
     }
   }
 }

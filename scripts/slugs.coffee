@@ -13,7 +13,7 @@ Team.find {}, (err, teams) ->
   return err if err
 
   async.mapSeries teams, (team, next) -> 
-    console.log "EMPTY TEAM - nodeknockout/teams/#{team.slug} (#{team.name})" if team.peopleIds.length is 0
+    console.log "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})" if team.peopleIds.length is 0
 
     return next(null, team) if team.peopleIds.length is 0  # skip empty
     # return next(null, team) if team.slug is team.slugBase
