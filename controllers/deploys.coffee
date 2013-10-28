@@ -7,12 +7,8 @@ module.exports = (app) ->
   Deploy = app.db.model 'Deploy'
 
   (req, res, next) ->
-    console.log 'HEY'
-    console.log req._parsedUrl
     return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys' 
-    
-    console.log req.query
-
+  
     # custom error handler (since the default one dies w/o session)
     error = (err) ->
       console.error err.toString().red
@@ -33,16 +29,24 @@ module.exports = (app) ->
 
       # save the deploy in the db
       deploy = new Deploy attr
+      
       deploy.save (err, deploy) ->
-        return error(err) if err
+        if err 
+          console.log 'I want to see the error here'
+          return error(err)
+        # return error(err) if err
 
         # increment overall/team deploy count
         $inc = deploys: 1
         app.stats.increment $inc
         team.incrementStats $inc, (err, team) ->
+          
           return error(err) if err
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
           console.log "All good, deploy count stored"
           return res.send JSON.stringify deploy
-         
+
+
+          
+      
