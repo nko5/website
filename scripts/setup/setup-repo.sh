@@ -1,5 +1,5 @@
 #!/bin/sh
-set -evu
+set -eu
 
 slug=$1
 code=$2
@@ -33,17 +33,17 @@ ssh root@${slug}.2013.nodeknockout.com
 We've already set up a basic node server for you. Details:
 
 * Ubuntu 12.10 (Precise) - 64-bit
-* `/home/deploy/current/server.js` - server
-* `/home/deploy/shared/logs/server.log` - server logs
-* `runit` keeps the server running.
-  * `sv restart serverjs` - restarts
-  * `sv start serverjs` - starts
-  * `sv stop serverjs` - stops
-  * `runsvdir -P /etc/service log` - to see logs
-  * `cat /etc/service/serverjs/run` - to see the config
+* server.js is at: \`/home/deploy/current/server.js\`
+* logs are at: \`/home/deploy/shared/logs/server.log\`
+* \`runit\` keeps the server running.
+  * \`sv restart serverjs\` - restarts
+  * \`sv start serverjs\` - starts
+  * \`sv stop serverjs\` - stops
+  * \`runsvdir -P /etc/service log\` - to see logs
+  * \`cat /etc/service/serverjs/run\` - to see the config
 
-You can use the `./deploy` script included in this repo to deploy to it right
-now. Advanced users, feel free to tweak.
+You can use the \`./deploy\` script included in this repo to deploy to your
+server right now. Advanced users, feel free to tweak.
 
 [Find out more](http://blog.nodeknockout.com/deploying-to-joyent)
 
@@ -146,4 +146,4 @@ EOF
 git add .
 git commit -m Instructions
 git remote add origin git@github.com:nko4/${slug}.git
-git push -f -u origin master
+git push origin master
