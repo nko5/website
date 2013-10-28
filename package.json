@@ -46,7 +46,8 @@
     "nib": "~1.0.1",
     "twit": "~1.1.9",
     "smartdc": "~7.1.1",
-    "ssh-fingerprint": "0.0.0"
+    "ssh-fingerprint": "0.0.0",
+    "linode-api": "~0.1.2"
   },
   "devDependencies": {
     "nodemon": "*",
