@@ -8,6 +8,7 @@ module.exports = (app) ->
 
   (req, res, next) ->
     console.log 'HEY'
+    console.log req._parsedUrl
     return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys' 
     
     console.log req.query
@@ -43,5 +44,5 @@ module.exports = (app) ->
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
           console.log "All good, deploy count stored"
-          return res.end JSON.stringify deploy
+          return res.send JSON.stringify deploy
          

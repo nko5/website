@@ -46,18 +46,19 @@ DeploySchema.path('remoteAddress').validate (v) ->
   @platform?
 , 'not production'
 
-DeploySchema.method 'urlForTeam', (team) ->
-  'http://' + switch @platform
-    when 'joyent', 'nodejitsu', 'localdomain' then @hostname
-    when 'heroku' then "nko2-#{team.slug}.herokuapp.com"
-    when 'linode' then "#{team.slug}.nko2.nodeknockout.com"
+# DeploySchema.method 'urlForTeam', (team) ->
+#   'http://' + switch @platform
+#     when 'joyent', 'nodejitsu', 'localdomain' then @hostname
+#     when 'heroku' then "nko2-#{team.slug}.herokuapp.com"
+#     when 'linode' then "#{team.slug}.nko2.nodeknockout.com"
 
 # callbacks
 DeploySchema.post 'save', ->
   @team (err, team) =>
     throw err if err
     team.lastDeploy = @toObject()
-    team.entry.url = @urlForTeam team unless team.entry.votable
+    # team.entry.url = @urlForTeam team unless team.entry.votable
+    team.entry.url = "#{team.slug}.2013.nodeknockout.com"
     team.save (err) ->
       throw err if err
       team.prettifyURL() unless team.entry.votable

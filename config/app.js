@@ -143,7 +143,6 @@ app.configure(function() {
 
   // error handling
   app.use(function(req, res, next){ // If it arrives here, it's because it didn't matched with the rest
-    console.log("mehmeh1");
     res.status(404);
     if (req.accepts('html')) {
       res.render2('errors/404', { status: 404 });
