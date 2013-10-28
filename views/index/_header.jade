@@ -5,7 +5,9 @@
       #header-gloves.container
         .btn-group.account-nav
           if req.user
-            button(class="btn btn-default dropdown-toggle", data-toggle="dropdown") Account
+            button(class="btn btn-primary dropdown-toggle", type="button", data-toggle="dropdown") Account&nbsp;&nbsp;
+              span(class="caret")
+
             ul(class="dropdown-menu", role="menu")
               li
                 a(href="/teams/mine") My Team
