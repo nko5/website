@@ -9,7 +9,7 @@ body
       .col
         position: static
 
-    a
+    a.nav-item
       display: inline-block
       margin: 2px 5px
       padding: 5px 4px
@@ -22,10 +22,17 @@ body
       text-shadow: none
 
       color: #fff
-      &:hover
+      .caret
+        margin-left: 5px
+        vertical-align: 2px
+      &:hover, &:focus
         background-color: rgba(201, 59, 71, .9)
         text-decoration: none
         transition: .2s
+      &:focus
+        background-color: rgba(201, 59, 71, .8)
+    .open a.nav-item
+      background-color: rgba(201, 59, 71, .8)
 
     li.active a
       background-color: rgba(185, 46, 74, 1)
@@ -33,6 +40,9 @@ body
     .navbar-default .navbar-toggle
       &:hover, &:focus
         background: #BA3A45
+
+    .dropdown-menu
+      text-align: left
 
   #nav-mini
     background: #9F2C38

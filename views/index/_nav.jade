@@ -14,38 +14,38 @@
         ul.nav.navbar-nav
 
           li(class=(activeNav === 'nko2013' ? 'active' : ''))
-            a(href="/") NKO 2013
+            a.nav-item(href="/") NKO 2013
 
           if !req.myTeam
             li(class=(activeNav === 'registration' ? 'active' : ''))
-              a(href="/teams/new") Registration
+              a.nav-item(href="/teams/new") Registration
 
           li(class=(activeNav === 'prizes' ? 'active' : ''))
-            a(href="/prizes") Prizes
+            a.nav-item(href="/prizes") Prizes
 
           li(class=(activeNav === 'judges' ? 'active' : ''))
-            a(href="/judges") Judges
+            a.nav-item(href="/judges") Judges
 
           li(class=(activeNav === 'sponsors' ? 'active' : ''))
-            a(href="/sponsors") Sponsors
+            a.nav-item(href="/sponsors") Sponsors
 
           li(class=(activeNav === 'jobs' ? 'active' : ''))
-            a(href="/jobs") Jobs
+            a.nav-item(href="/jobs") Jobs
 
-          li(class="dropdown-toggle", data-toggle="dropdown")
-            a(href="#") About
+          li
+            a.nav-item(href="/about", class="dropdown-toggle", data-toggle="dropdown") About
               span(class="caret")
 
-          ul(class="dropdown-menu", role="menu")
-            li
-              a(href="/rules") Rules
-            li
-              a(href="/locations") Locations
-            li
-              a(href="/resources") Resources
-            li
-              a(href="/about") About Us
+            ul(class="dropdown-menu", role="menu")
+              li
+                a(href="/rules") Rules
+              li
+                a(href="/locations") Locations
+              li
+                a(href="/resources") Resources
+              li
+                a(href="/about") About Us
 
           li(class=(activeNav === 'blog' ? 'active' : ''))
-            a(href="/blog") Blog
+            a.nav-item(href="/blog") Blog
 
