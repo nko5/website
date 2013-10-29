@@ -29,14 +29,6 @@
     <link href='http://nodeknockout.com/blog-assets/blog.css' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-        @font-face{
-            font-family:"04b_03";
-            src:url("http://nodeknockout.com/fonts/04b_03__-webfont.eot");
-            src:url("http://nodeknockout.com/fonts/04b_03__-webfont.eot?iefix") format("eot"), url("http://nodeknockout.com/fonts/04b_03__-webfont.woff") format("woff"), url("http://nodeknockout.com/fonts/04b_03__-webfont.ttf") format("truetype"),url("http://nodeknockout.com/fonts/04b_03__-webfont.svg#webfontiFL0wwqh") format("svg");
-            font-weight:normal;
-            font-style:normal;
-            font-size:18px;
-        }
 
         body {
             background: {color:Background} url('{image:Background}') top left fixed repeat;
@@ -91,7 +83,6 @@
                 color: #fff;
                 font-size: 50px;
                 font-weight: bold;
-                font-family: "04b_03", {font:Title};
                 text-shadow: 0 1px 0px rgba(0,100%,100%, 0.5);
                 letter-spacing: -1px;
             }
@@ -102,7 +93,7 @@
                 }
 
             #wrapper #content {
-                width: 733px;
+                width: 583px;
                 float: left;
                 padding-top: 10px;
             }
@@ -273,14 +264,9 @@
 
                     #wrapper #content .post .title {
                         color: #494949;
-                        font-family: "04b_03";
                         font-size: 2.4em;
                         font-weight: bold;
                         padding: 10px 10px 0 10px;
-                    }
-
-                    #wrapper #content .post h1, #wrapper #content .post h2, #wrapper #content .post h3 {
-                        font-family: "04b_03";
                     }
 
                     #wrapper #content .post img {
@@ -495,7 +481,7 @@
                     }
 
             #wrapper #sidebar {
-                width: 206px;
+                width: 356px;
                 float: right;
                 color: #444;
                 padding-top: 50px;
@@ -608,11 +594,11 @@
                             }
 
                     #wrapper #sidebar #top .heading {
-                        color: #fff;
+                        color: #333;
                         font-family: helvetica, arial, sans-serif;
-                        font-size: 17px;
+                        font-size: 14px;
                         margin-top: 20px;
-                        padding: 10px;
+                        padding: 0px;
                         background-color: {color:Background};
                         -webkit-border-top-left-radius: 4px;
                         -webkit-border-top-right-radius: 4px;
@@ -720,6 +706,51 @@
         #wrapper #sidebar #top #tweetcontainer .content {
           font-size: 12px;
         }
+
+        .sponsors-sidebar {
+          background: #f4f4f4;
+          border-radius: 3px;
+          padding: 15px 20px;
+          padding-bottom: 0;
+          margin-top: 20px;
+        }
+
+        .sponsors-sidebar h3 {
+          font-size: 12px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: #3f4040;
+          border-bottom: 2px solid #eaeaea;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+          margin-top: 0;
+          line-height: 1.5;
+          text-align: center;
+        }
+
+        .sponsors-sidebar .sponsor {
+          position: relative;
+          background-repeat: no-repeat;
+          background-size: 100%;
+          background-position: center center;
+          margin: 0 40px;
+          display: block;
+          margin-bottom: 30px;
+          clear: both;
+        }
+        .sponsors-sidebar .sponsor .img-content{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        .sponsors-sidebar .sponsor img {
+          width: 100%;
+          display: block;
+        }
+
     </style>
     <!--[if lt IE 7.]>
         <style type="text/css">
@@ -786,42 +817,44 @@
     <script async="true" src="//www.google-analytics.com/ga.js"></script>
 </head>
 <body>
-    <div id="header" class="affixable affix-top">
-      <div class="affix-placeholder"></div>
-        <div class="affix-inner">
-          <div class="header">
-            <div class="container">
-              <div class="header-inner row">
-                <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                  <div class="gloves"></div><a href="http://nodeknockout.com" class="logo">Node Knockout</a><a href="http://nodeknockout.com" class="logo-sm">node.js ko</a>
-                </div>
+
+    <div id="nav-mini">
+      <div class="container">
+        <div id="user-nav-mini">
+          <div class="btn-group nav-account">
+            <button class="sign-in btn btn-default"><a href="http://nodeknockout.com/login">Sign in</a></button>
+          </div>
+        </div>
+        <div id="nav" class="nav-wrapper">
+          <div class="nav-inner row navbar-default">
+            <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
+              <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
               </div>
-              <div class="nav-wrapper">
-                <div class="nav-inner row navbar-default">
-                  <div class="col col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                    <div class="navbar-header">
-                      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    </div>
-                    <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse pull-right">
-                      <ul class="nav navbar-nav">
-                        <li class=""><a href="http://nodeknockout.com/teams/new">Registration</a></li>
-                        <li class=""><a href="http://nodeknockout.com/prizes">Prizes</a></li>
-                        <li class=""><a href="http://nodeknockout.com/judges">Judges</a></li>
-                        <li class=""><a href="http://nodeknockout.com/sponsors">Sponsors</a></li>
-                        <li class=""><a href="http://nodeknockout.com/rules">Rules</a></li>
-                        <li class=""><a href="http://nodeknockout.com/resources">Resources</a></li>
-                        <li class="active"><a href="http://nodeknockout.com/blog">Blog</a></li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
+              <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li class=""><a href="http://nodeknockout.com/" class="nav-item">NKO 2013</a></li>
+                  <li class=""><a href="http://nodeknockout.com/teams/new" class="nav-item">Registration</a></li>
+                  <li class="active"><a href="http://nodeknockout.com/prizes" class="nav-item">Prizes</a></li>
+                  <li class=""><a href="http://nodeknockout.com/judges" class="nav-item">Judges</a></li>
+                  <li class=""><a href="http://nodeknockout.com/sponsors" class="nav-item">Sponsors</a></li>
+                  <li class=""><a href="http://nodeknockout.com/jobs" class="nav-item">Jobs</a></li>
+                  <li><a href="http://nodeknockout.com/about" data-toggle="dropdown" class="nav-item dropdown-toggle">About<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li><a href="http://nodeknockout.com/rules">Rules</a></li>
+                      <li><a href="http://nodeknockout.com/locations">Locations</a></li>
+                      <li><a href="http://nodeknockout.com/resources">Resources</a></li>
+                      <li><a href="http://nodeknockout.com/about">About Us</a></li>
+                    </ul>
+                  </li>
+                  <li class=""><a href="http://nodeknockout.com/blog" class="nav-item">Blog</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </div>
-
-
+    </div>
     <div id="wrapper">
 
         <div id="content">
@@ -1008,18 +1041,16 @@
                     </form>
                 </div>
 
-                <div id="search">
-                    <form action="/search" method="get" id="search-form">
-                        <input type="hidden" name="t" value="{Name}" />
-                        <input type="hidden" name="scope" value="all_of_tumblr" />
-                        <input type="text" name="q" class="query" value="{SearchQuery}" />
-                        <input type="submit" value="{lang:Search}" class="submit" />
-                        <div class="clear"></div>
-                    </form>
-                </div>
-                <div id="search-scope">
-                    <input type="radio" id="search-scope-me" name="scope" checked onclick="document.getElementById('search-form').action='/search'" /> <label for="search-scope-me" onclick="document.getElementById('search-form').action='/search'">{lang:My blog}</label>
-                    <input type="radio" id="search-scope-all" name="scope" onclick="document.getElementById('search-form').action='http://www.tumblr.com/search'" /> <label for="search-scope-all" onclick="document.getElementById('search-form').action='http://www.tumblr.com/search'">{lang:All of Tumblr}</label>
+                <div class="sponsors-sidebar">
+                  <h3>Thank you to our Platinum Sponsors</h3>
+                  <div class="row"><a href="http://joyent.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/joyent.png">
+                      <div class="img-content"></div></a></div>
+                  <div class="row"><a href="http://goinstant.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/goinstant.png">
+                      <div class="img-content"></div></a></div>
+                  <div class="row"><a href="http://thenodefirm.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/nodefirm.png">
+                      <div class="img-content"></div></a></div>
+                  <div class="row"><a href="http://groupon.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/groupon.png">
+                      <div class="img-content"></div></a></div>
                 </div>
 
                 {block:Twitter}
