@@ -46,6 +46,11 @@
         a img {
             border: none;
         }
+        #blog-archive-nav {
+            text-align: center;
+            padding: 30px;
+            padding-top: 0;
+        }
 
         #wrapper {
             width: 960px;
@@ -93,7 +98,7 @@
                 }
 
             #wrapper #content {
-                width: 583px;
+                width: 600px;
                 float: left;
                 padding-top: 10px;
             }
@@ -267,6 +272,10 @@
                         font-size: 2.4em;
                         font-weight: bold;
                         padding: 10px 10px 0 10px;
+                    }
+                    #wrapper #content .post .title a {
+                        color: #494949;
+
                     }
 
                     #wrapper #content .post img {
@@ -481,7 +490,7 @@
                     }
 
             #wrapper #sidebar {
-                width: 356px;
+                width: 334px;
                 float: right;
                 color: #444;
                 padding-top: 50px;
@@ -751,6 +760,11 @@
           display: block;
         }
 
+
+        body #nav-mini > .container {
+            max-width: 942px;
+        }
+
     </style>
     <!--[if lt IE 7.]>
         <style type="text/css">
@@ -810,6 +824,7 @@
                 padding: 0;
                 margin: 0;
             }
+
         </style>
     <![endif]-->
     <style type="text/css">{CustomCSS}</style>
@@ -835,7 +850,7 @@
                 <ul class="nav navbar-nav">
                   <li class=""><a href="http://nodeknockout.com/" class="nav-item">NKO 2013</a></li>
                   <li class=""><a href="http://nodeknockout.com/teams/new" class="nav-item">Registration</a></li>
-                  <li class="active"><a href="http://nodeknockout.com/prizes" class="nav-item">Prizes</a></li>
+                  <li class=""><a href="http://nodeknockout.com/prizes" class="nav-item">Prizes</a></li>
                   <li class=""><a href="http://nodeknockout.com/judges" class="nav-item">Judges</a></li>
                   <li class=""><a href="http://nodeknockout.com/sponsors" class="nav-item">Sponsors</a></li>
                   <li class=""><a href="http://nodeknockout.com/jobs" class="nav-item">Jobs</a></li>
@@ -847,7 +862,7 @@
                       <li><a href="http://nodeknockout.com/about">About Us</a></li>
                     </ul>
                   </li>
-                  <li class=""><a href="http://nodeknockout.com/blog" class="nav-item">Blog</a></li>
+                  <li class="active"><a href="http://nodeknockout.com/blog" class="nav-item">Blog</a></li>
                 </ul>
               </nav>
             </div>
@@ -918,7 +933,7 @@
                     {/block:Quote}
 
                     {block:Text}
-                        {block:Title}<div class="title">{Title}</div>{/block:Title}
+                        {block:Title}<div class="title"><a href="{Permalink}">{Title}</a></div>{/block:Title}
                         <div class="copy">{Body}</div>
                     {/block:Text}
 
@@ -1027,6 +1042,9 @@
                 </div>
             {/block:Pagination}
 
+            <div id="blog-archive-nav"><a href="/archive" class="btn btn-sm btn-primary">View Blog Archive...</a></div>
+
+
         </div>
 
         <div id="sidebar">
@@ -1036,7 +1054,7 @@
                 <!-- Mailchimp stuff -->
                 <div id="mc_embed_signup">
                     <form action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate signup" target="_blank" novalidate="">
-                      <input type="email" value="" name="EMAIL" class="email-field email" id="mce-EMAIL" placeholder="Your Email Address..." required="">
+                      <input type="email" value="" name="EMAIL" class="email-field email" id="mce-EMAIL" placeholder="Email Address..." required="">
                       <input type="submit" value="Stay Tuned" name="subscribe" id="mc-embedded-subscribe" class="signup-btn">
                     </form>
                 </div>
@@ -1053,21 +1071,6 @@
                       <div class="img-content"></div></a></div>
                 </div>
 
-                {block:Twitter}
-                <div id="twitterwrapper" style="display:none;">
-                    <a href="http://twitter.com/{TwitterUsername}" style="text-decoration:none;"><div class="heading" id="twitter">{lang:Latest Tweets}</div></a>
-                    <div id="tweetcontainer"></div>
-                    <script type="text/javascript">
-                        function recent_tweets(data) {
-                            document.getElementById("twitterwrapper").style.display = "block";
-                            for(i = 0; i < data.length; i++) {
-                                document.getElementById("tweetcontainer").innerHTML = document.getElementById("tweetcontainer").innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '"><div class="content">' + data[i].text + '</div></a>';
-                            }
-                        }
-                    </script>
-                </div>
-                {/block:Twitter}
-
 
                 <div class="clear"></div>
 
@@ -1082,11 +1085,6 @@
     <!-- Typekit fonts -->
     <script src="//use.typekit.net/unt8jhx.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-
-    {block:Twitter}
-        <script type="text/javascript" src="/tweets.js"></script>
-    {/block:Twitter}
 
     {block:IfDisqusShortname}
         <script type="text/javascript">
