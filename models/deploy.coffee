@@ -54,11 +54,7 @@ DeploySchema.post 'save', ->
     team.entry.url = "#{team.slug}.2013.nodeknockout.com"
     team.save (err) ->
       throw err if err
-      try 
-        team.prettifyURL() unless team.entry.votable
-      catch error
-        console.log 'I caught the error - Meaning that there was nothing in the URL'
-        callback error
+      team.prettifyURL() unless team.entry.votable
       #team.updateScreenshot()  disable screenshot update after coding
 
 Deploy = mongoose.model 'Deploy', DeploySchema
