@@ -30,6 +30,81 @@ body
         left: 50%
         top: 350px
 
+    .navbar-header
+      position: absolute
+      right: 10px
+      top: 0
+
+    .nav-wrapper
+      text-align: center
+      padding: 10px 0
+      nav, .nav-inner
+        background: none
+        .col
+          position: static
+
+      a
+        display: inline-block
+        margin: 2px 5px
+        padding: 5px 4px
+        font-family: franklin
+        text-transform: uppercase
+        font-size: 12px
+        letter-spacing: 1px
+        line-height: 1.2
+        border-radius: 2px
+        text-shadow: none
+
+        color: #fff
+        &:hover
+          background-color: rgba(201, 59, 71, .9)
+          text-decoration: none
+          transition: .2s
+
+      li.active a
+        background-color: rgba(185, 46, 74, 1)
+
+    &.affix-top
+      nav, .navbar-nav
+        float: none !important
+        text-align: center
+        width 80%
+        margin 3px auto
+        position relative
+
+        .caret
+          border-top-color #fff
+          border-bottom-color #fff
+
+        ul.dropdown-menu
+          position absolute
+          top 32px
+          right 120px
+          padding 0
+          li
+            color #333
+            a
+              display block
+              text-align left
+              color #333
+              &:hover
+                color #fff
+      nav
+        padding-left: 0
+        padding-right: 0
+      .nav-wrapper
+        padding-top: 8px
+        padding-bottom: 0
+        a
+          margin: 5px 3px
+          padding: 9px 13px
+          padding-bottom: 3px
+      .navbar-header
+        position: absolute
+        right: 10px
+        top: 22px
+
+
     &.affix
       position: static
       .affix-inner
