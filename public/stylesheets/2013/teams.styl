@@ -1,0 +1,52 @@
+@import "2013/_common"
+
+.teams-page
+  form.search
+    display inline-block
+    margin-left 1em
+    input
+      width 16em
+  ul.teams
+    overflow hidden
+    > li
+      clear both
+      border-top solid 1px hsla(0, 0%, 100%, 0.9)
+      border-bottom solid 1px hsla(0, 0%, 50%, 0.1)
+      overflow hidden
+      padding 20px 0 10px
+      &:first-child
+        border-top-color transparent
+      h3
+        float left
+        margin 0
+      div.members, .location, .description
+        font-size small
+      div.members
+        float right
+        text-align right
+        margin -3px 0 0
+      ul.members
+        margin 0
+        li
+          display inline-block
+          margin-left 5px
+        li.invites
+          color hsla(0, 0%, 0%, 0.6)
+          font-size x-small
+          font-style italic
+          margin-right 10px
+        img.avatar
+          margin 0
+      .location
+        clear left
+        font-style italic
+      .description
+        p, ul
+          margin 0.5em 0
+        img
+          display none
+        h1
+          font-size 1.5em
+  .more, #infscr-loading
+    text-align center
+    padding-top 1em
