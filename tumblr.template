@@ -184,14 +184,6 @@
                             padding: 0;
                         }
 
-                        #wrapper #content .post .copy pre {
-                            margin: 10px 0px 10px 0px;
-                            padding: 10px;
-                            background-color: #e6e6e6;
-                            font: normal 11px Courier, monospace;
-                            overflow: auto;
-                        }
-
                         #wrapper #content .post .copy > p:first-child {
                             margin-top: 0;
                         }
@@ -795,12 +787,12 @@
 
         pre.prettyprint, code.prettyprint {
                 background-color: #000;
-                -moz-border-radius: 8px;
-                -webkit-border-radius: 8px;
-                -o-border-radius: 8px;
-                -ms-border-radius: 8px;
-                -khtml-border-radius: 8px;
-                border-radius: 8px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -o-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -khtml-border-radius: 4px;
+                border-radius: 4px;
         }
 
         pre.prettyprint {
