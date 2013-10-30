@@ -276,6 +276,7 @@
                         font-size: 2.4em;
                         font-weight: bold;
                         padding: 10px 10px 0 10px;
+                        font-family: 'franklin-gothic-urw', 'Helvetica Neue', Helvetica, Arial, sans-serif;
                     }
                     #wrapper #content .post .title a {
                         color: #494949;
