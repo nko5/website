@@ -1,12 +1,12 @@
 # creates a joyent instance for a single team
 
+async = require 'async'
+joyent = require '../../config/joyent'
+
 module.exports = setupJoyent = (options, next) ->
   team = options.team
   image = options.joyent?.image ? 'd2ba0f30-bbe8-11e2-a9a2-6bc116856d85' # ubuntu 12.04 - 64bit v2.4.2
   packg = options.joyent?.package ? 'ec521e7a-8799-4ffc-a914-bb41233f25f5' # 512mb ram - kvm
-
-  async = require 'async'
-  joyent = require '../../config/joyent'
 
   # joyent.listImages (err, res) -> console.dir(res)
   # joyent.listPackages (err, res) -> console.dir(res)
