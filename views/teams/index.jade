@@ -10,29 +10,40 @@ block body
     .row
       .col-lg-8.col-sm-8.col-md-8.col-xs-8
 
-        h1 Teams (#{teams.count})
-        form.search
-          input( type='search', name='q', value=req.query.q, placeholder='Search' )
+        .header-section.clearfix
+          h1 Teams <span class='count'>(#{teams.count})</span>
+          form.search
+            input( type='search', name='q', value=req.query.q, placeholder='Search' )
+
         ul.teams
           - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
           - each team in teams
             - members = toPeople(team)
-            li
-              h3: a( href='/teams/' + team )= team.name
-              .members
+            li.row
+              .col-lg-8.col-md-8
+                h2
+                  a( href='/teams/' + team )= team.name
+                  if locations(members).length > 0
+                    span.location
+                      span.sep /
+                      = locations(members)
+
+                .description!= markdown(team.description)
+
                 ul.members
+                  - each m in members
+                    - if (m)
+                      li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
+                        img.avatar( src=avatar_url(m))
                   - if (team.invites.length > 0)
-                    li.invites (#{team.invites.length} invited)
-                  - each m in members
-                    - if (m)
-                      li: a( href='/people/' + m )
-                        img.avatar( src=avatar_url(m), title=m.login )
-                ul.members
-                  - each m in members
-                    - if (m)
-                      li: a( href='/people/' + m )= m.login
-              .location= locations(members)
-              .description!= markdown(team.description)
+                    li.invites
+                      |  (#{team.invites.length} invited)
+
+              .col-lg-4.col-md-4
+                .team-actions
+                  a.btn.btn-primary(href="#") View Team
+
+
           - nextPage = (+req.query.page || 1) + 1
           .more: a( href=urlFor({ page: nextPage }) ) more
 

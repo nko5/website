@@ -71,7 +71,7 @@ nap({
       "2012": [
         "/public/stylesheets/vendor/bootstrap.css",
         '/public/stylesheets/fontello.css',
-        '/public/stylesheets/application.styl'
+        '/public/stylesheets/2012.styl'
       ]
     },
     jst: {}

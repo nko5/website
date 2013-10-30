@@ -1,46 +1,74 @@
 @import "2013/_common"
 
 .teams-page
-  form.search
-    display inline-block
-    margin-left 1em
-    input
-      width 16em
+  .header-section
+    padding-top: 5px
+    h1
+      font-size: 20px
+      float: left
+      font-weight: normal
+      text-transform: lowercase
+      .count
+        opacity: 0.8
+        font-size: 16px
+
+    form.search
+      float: right
+      padding-top: 5px
+      input
+        width 16em
+        font-size: 13px
+        padding: 8px 10px
+        border: 1px solid #D6D6D6
+        border-radius: 3px
+
   ul.teams
     overflow hidden
+    padding: 0
     > li
-      clear both
-      border-top solid 1px hsla(0, 0%, 100%, 0.9)
-      border-bottom solid 1px hsla(0, 0%, 50%, 0.1)
-      overflow hidden
-      padding 20px 0 10px
-      &:first-child
-        border-top-color transparent
-      h3
-        float left
-        margin 0
-      div.members, .location, .description
-        font-size small
-      div.members
-        float right
-        text-align right
-        margin -3px 0 0
+      clear: both
+
+      border-top: 1px solid #E4E4E4
+      overflow: hidden
+      padding: 10px 0
+      margin-top: 10px
+      margin-bottom: 10px
+
+      h2
+        font-size: 20px
+        margin-top: -9px
+        a
+          color: #363636
+        .sep
+          margin: 0 10px
+          font-size: 15px
+          vertical-align: 2px
+        .location
+          color: #7E7E7E
+          font-weight: normal
+          font-size: 15px
+      .team-actions
+        text-align: right
       ul.members
         margin 0
+        padding: 0
+        margin-top: 10px
         li
           display inline-block
-          margin-left 5px
+          margin-right 0px
         li.invites
           color hsla(0, 0%, 0%, 0.6)
           font-size x-small
           font-style italic
-          margin-right 10px
+          margin-left 5px
+          color: #7e7e7e
         img.avatar
           margin 0
-      .location
-        clear left
-        font-style italic
+          width: 25px
+          height: 25px
+          border-radius: 2px
       .description
+        font-size: 12px
         p, ul
           margin 0.5em 0
         img
