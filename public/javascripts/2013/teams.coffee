@@ -1,9 +1,9 @@
 # unbind infinite scrolling on pjax
 $(document).bind 'start.pjax', ->
-  $('#page.teams ul.teams, #page.teams-entries ul.teams').data('infinitescroll')?.unbind()
+  $('.teams-page ul.teams').data('infinitescroll')?.unbind()
 
 load = ->
-  $('#page.teams, #page.teams-entries').each ->
+  $('.teams-page').each ->
     $('ul.teams').infinitescroll
       navSelector: '.more'
       nextSelector: '.more a'
@@ -15,7 +15,6 @@ load = ->
         finished: (opts) -> opts.loading.msg.hide()
         finishedMsg: 'No more teams. :('
 
-  $('#page.teams-show').each ->
     # re-send invites
     $(this).delegate '.invites a', 'click', (e) ->
       e.preventDefault()
@@ -44,8 +43,6 @@ load = ->
           .filter('a[href="' + hash + '"]')
             .addClass('selected')
     .hashchange()
-
-  $('#page.teams-edit').each ->
 
     # show the delete box on load if the hash is delete
     if window.location.hash is '#delete'

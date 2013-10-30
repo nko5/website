@@ -17,6 +17,10 @@ html
     script( async=true, src='//www.google-analytics.com/ga.js' )
     script( src='/javascripts/vendor/modernizr-2.5.3.min.js' )
 
+    script( src='//use.typekit.net/unt8jhx.js' )
+    script( type='text/javascript' )
+      try{Typekit.load();}catch(e){}
+
 
   body
     - activeNav = "teams"
@@ -26,7 +30,7 @@ html
 
       aside
         include ./index/_sidebar
-        
+
         //- ul.sponsors
         //-   - _.shuffle(sponsors).forEach(function(sponsor) {
         //-     li: a( href=sponsor.url )
