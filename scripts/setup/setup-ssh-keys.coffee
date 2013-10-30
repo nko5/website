@@ -1,11 +1,12 @@
+# installs public keys from github as authorized_keys on the teams server
+
+github = require('../../config/github')
+spawn = require('child_process').spawn
+async = require 'async'
+isArray = require('util').isArray
+
 module.exports = setupSSHKeys = (options, next) ->
   team = options.team
-  githubAuth = options.githubAuth
-
-  github = require('../../config/github')(githubAuth)
-  spawn = require('child_process').spawn
-  async = require 'async'
-  isArray = require('util').isArray
 
   getGithubLogins = (next) ->
     console.log team.slug, 'getting github logins'
