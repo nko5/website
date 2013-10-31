@@ -40,7 +40,7 @@
     "irc": "*",
     "redis": "*",
     "jadevu": "*",
-    "mongoose-auth": "nko4/mongoose-auth#5fafaa2",
+    "mongoose-auth": "nko4/mongoose-auth#61f8ac0",
     "connect-flash": "~0.1.1",
     "nap": "~0.7.8",
     "nib": "~1.0.1",
