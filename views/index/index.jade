@@ -33,9 +33,9 @@ block body
                     i= req.teamsLeft + " spots remaining"
 
               else
-                h3 Registration is currently full.
+                h3 All team spots are currently full.
                 p
-                  | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+                  a.btn.btn-super.btn-default.btn-primary(href="/teams") Find a Team to join
 
       .intro-section.landing-section
         hr
@@ -96,7 +96,7 @@ block body
         hr
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           h3 PRIZES
-          include ../index/_prizes-widget        
+          include ../index/_prizes-widget
 
       .judges-section.landing-section.row
         hr
@@ -129,7 +129,7 @@ block body
         hr
         .col.col-md-4.col-sm-4.col-xs-4.col-lg-4.press-section
           h3 POSTER
-          
+
           .download
             a.poster-thumbnail(href="/poster.pdf")
             a.btn.btn-md.btn-primary(href="/poster.pdf")
