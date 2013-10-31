@@ -7,7 +7,7 @@ block body
 
   .inner-page.container.team-page
     .row
-      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+      .col-lg-8.col-md-8.col-sm-4
         - if (team.invited(session.invite))
           .well.row
             h2 You're invited to this team!
@@ -79,5 +79,5 @@ block body
         - if (voting || publicVotes && publicVotes.length || votes && votes.length)
           include votes
 
-      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+      .col-lg-4.col-md-4.col-sm-4
         include ../index/_sidebar
