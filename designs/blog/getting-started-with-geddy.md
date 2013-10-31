@@ -1,5 +1,4 @@
-_This is the 17th in a series of posts leading up to [Node.js Knockout][1] on
-getting started with [Geddy][2] This post was written by [Geddy][2]
+_Getting started with [Geddy][2] This post was written by [Geddy][2]
 contributor and [Node Knockout Judge][3] Daniel Erickson. It is cross-posted
 on the [Geddy wiki][4]._
 

@@ -1,13 +1,12 @@
 # initialize a github repo for a single team
 
+github = require('../../config/github')
+spawn = require('child_process').spawn
+async = require 'async'
+path = require 'path'
+
 module.exports = setupGitHub = (options, next) ->
   team = options.team
-  githubAuth = options.githubAuth
-
-  github = require('../../config/github')(githubAuth)
-  spawn = require('child_process').spawn
-  async = require 'async'
-  path = require 'path'
 
   rootDir = path.join(__dirname, '..', '..')
 

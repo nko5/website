@@ -21,11 +21,10 @@ Team.find {}, (err, teams) ->
 
     changes = 
       "-1": "theteam"
-      "3": "heart3"
+      "3": "heart"
       "-3": "annteens"
       "-4": "tigercat"
-      # "-2": "hiten" This team is still empty
-
+      "-2": "hiten" 
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug

@@ -1,5 +1,7 @@
 @import "2013/base"
 @import "2013/header"
+@import "2013/nav"
+@import "2013/nav-account"
 
 #header
   position: relative !important
@@ -1019,76 +1021,6 @@ form.vote
   .more, #infscr-loading
     text-align center
     padding-top 1em
-
-#page.teams-entries #inner
-  form.search
-    display inline-block
-    margin-left 1em
-    input
-      width 16em
-  span.all
-    margin-left 1em
-  ul.sorts
-    font-size small
-    text-align center
-    li
-      display inline
-      margin-right 1ex
-      &.current
-        inverted()
-        padding 2px 5px
-        a
-          color white
-  ul.teams
-    overflow hidden
-    margin 0
-    > li
-      box-shadow inset 0 0 5px hsla(0, 0%, 0%, 0.1)
-      background-color hsl(0, 0%, 95%)
-      background-color hsla(0, 0%, 95%, 0.5)
-      padding 10px
-      border-radius 2px
-      margin-bottom 1em
-      padding 20px
-      position relative
-      h2, h3, h4, .description
-        margin-left 174px
-      h2, h3, h4
-        margin-top 0px
-      h2
-        margin-right 100px
-      img.screenshot
-        width 160px
-        height 93px
-        float left
-        margin-left -5px
-        margin-right 10px
-        border solid 2px hsl(0, 0%, 90%)
-        border solid 2px hsla(0, 0%, 0%, 0.1)
-        border-radius 2px
-      .description p
-        margin-bottom 0
-        font-size small
-      .clear
-        clear both
-      .score
-        position absolute
-        top -2px
-        right 10px
-        inverted()
-        padding 10px 7px 6px 10px
-        text-align center
-        a
-          color white
-        h3
-          margin 0
-        .dimension
-          font-size x-small
-          line-height 100%
-  .more, #infscr-loading
-    text-align center
-    padding-top 1em
-
 
 #page.people-show #inner
   .avatar-and-role

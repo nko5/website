@@ -32,6 +32,17 @@ $(document).on 'mousedown', 'a[href^=http]', (e) ->
 load = ->
   $(':text:first').focus() # focus first input
 
+  $(".with-tooltip").each ->
+    $(this).tooltip()
+
+  $(".with-popover").each ->
+    $(this).popover
+      content: $(this).find(".popover-content").html()
+      html: true
+      placement: $(this).data("placement") || "top"
+      trigger: "hover"
+      container: "body"
+
   # team and people delete confirm
   $('#page.teams-edit, #page.people-edit').each ->
     $('a.remove', this).click ->

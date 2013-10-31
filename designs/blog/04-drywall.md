@@ -1,12 +1,12 @@
-## Going Beyond `Hello World`
+# Going Beyond "Hello World" with Drywall
 
 [Drywall](http://jedireza.github.io/drywall/) is a website and user system for Node.js. It includes a suite of functionality that will save you tons of time with your NKO submission this year. I hope you've been training, this isn't a `hello world` example.
 
-### Take Off the Gloves
+## Take Off the Gloves
 
 Drywall packs a serious punch! __On the server__ we're using Express, Jade, Passport, Mongoose, Async and Emailjs. And __on the client__ we're using Bootstrap, Backbone.js, Underscore.js, jQuery, Font-Awesome and Moment.js.
 
-### Features Include
+## Features Include
 
  - Basic front end web pages.
  - Contact page has form to email.
@@ -18,14 +18,14 @@ Drywall packs a serious punch! __On the server__ we're using Express, Jade, Pass
  - Administrator level permissions that override group permissions.
  - Global admin quick search component.
 
-### Install Instructions
+## Install Instructions
 
  1. Clone the repo `$ git clone git@github.com:jedireza/drywall.git && cd drywall`
  2. Run `$ npm install`
  3. Rename `/config.example.js` to `/config.js` and set mongodb and email credentials.
  4. Run app via `$ ./run.js` or `$ node run`
 
-### DB Setup
+## DB Setup
 
 You need a few records in the database to start using the user system. Run these commands on your mongo database. __Obviously you should use your email address.__
 
@@ -50,7 +50,7 @@ Now just use the reset password feature to set a password.
 
 Login. Customize. Enjoy.
 
-### Seeing is Believing
+## Seeing is Believing
 
 | Platform                       | Username | Password |
 | ------------------------------ | -------- | -------- |
@@ -60,7 +60,7 @@ Login. Customize. Enjoy.
 
 __Note:__ The live demos have been modified so you cannot change the root user, the root user's linked Administrator role or the root Admin Group. This was done in order to keep the app ready to test at all times.
 
-### Ready for the Next Round!?
+## Ready for the Next Round!?
 
  - [Categories & Statuses](https://github.com/jedireza/drywall/wiki/Categories-&-Statuses)
  - [Users, Roles & Groups](https://github.com/jedireza/drywall/wiki/Users,-Roles-&-Groups)

@@ -2,196 +2,200 @@ extends ../layout-2013
 
 block body
   - activeNav = "resources"
-  include ../index/_header
+  include ../index/_header-mini
 
   .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+        :markdown
+          # Resources
 
-    :markdown
-      # Resources
+          Here are some useful tutorials and services that we recommend for the
+          competition.
 
-      Here are some useful tutorials and services that we recommend for the
-      competition.
+          # <a name="tutorials"></a>Tutorials
 
-      # <a name="tutorials"></a>Tutorials
+          #### Installation &amp; Package Management
+          1. [How to install node & npm](http://blog.nodeknockout.com/post/33857791331/how-to-install-node-npm)
+          2. [Managing dependencies with npm](http://blog.nodeknockout.com/post/33907937140/introduction-to-npm)
 
-      #### Installation &amp; Package Management
-      1. [How to install node & npm](http://blog.nodeknockout.com/post/33857791331/how-to-install-node-npm)
-      2. [Managing dependencies with npm](http://blog.nodeknockout.com/post/33907937140/introduction-to-npm)
+          #### Web Frameworks
+          1. [Writing a web app with Express](http://blog.nodeknockout.com/post/34180474119/getting-started-with-express)
+          2. [Creating a RESTful API with hapi](http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi)
+          3. [restify and DTrace for performant web services](http://blog.nodeknockout.com/post/34710903021/restify)
+          4. [Full stack web development with Geddy](http://blog.nodeknockout.com/post/35340908200/getting-started-with-geddy-socket-io-and)
 
-      #### Web Frameworks
-      1. [Writing a web app with Express](http://blog.nodeknockout.com/post/34180474119/getting-started-with-express)
-      2. [Creating a RESTful API with hapi](http://blog.nodeknockout.com/post/34571027029/making-an-api-happy-with-hapi)
-      3. [restify and DTrace for performant web services](http://blog.nodeknockout.com/post/34710903021/restify)
-      4. [Full stack web development with Geddy](http://blog.nodeknockout.com/post/35340908200/getting-started-with-geddy-socket-io-and)
+          #### Debugging &amp; Error Handling
+          1. [Debugging with Node Inspector](http://blog.nodeknockout.com/post/34843655876/debugging-with-node-inspector)
+          2. [Error tracking with Ratchet.io](http://blog.nodeknockout.com/post/35214296133/error-tracking-in-node-with-rachet-io)
 
-      #### Debugging &amp; Error Handling
-      1. [Debugging with Node Inspector](http://blog.nodeknockout.com/post/34843655876/debugging-with-node-inspector)
-      2. [Error tracking with Ratchet.io](http://blog.nodeknockout.com/post/35214296133/error-tracking-in-node-with-rachet-io)
+          #### Data Persistence
+          1. [Storing users and data in Apigee](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node)
+          2. [Introduction to MongoDB](http://blog.nodeknockout.com/post/35214638964/a-basic-introduction-to-mongodb)
+          3. [Persisting data with MongoDB & Mongoose](http://blog.nodeknockout.com/post/34302423628/getting-started-with-mongoose)
+          4. [Advanced MongoDB: storing files using GridFS](http://blog.nodeknockout.com/post/35215400231/a-primer-for-gridfs-using-the-mongo-db-driver)
+          5. [Advanced MongoDB: geospatial indexes](http://blog.nodeknockout.com/post/35215504793/the-wonderful-world-of-geospatial-indexes-in-mongodb)
 
-      #### Data Persistence
-      1. [Storing users and data in Apigee](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node)
-      2. [Introduction to MongoDB](http://blog.nodeknockout.com/post/35214638964/a-basic-introduction-to-mongodb)
-      3. [Persisting data with MongoDB & Mongoose](http://blog.nodeknockout.com/post/34302423628/getting-started-with-mongoose)
-      4. [Advanced MongoDB: storing files using GridFS](http://blog.nodeknockout.com/post/35215400231/a-primer-for-gridfs-using-the-mongo-db-driver)
-      5. [Advanced MongoDB: geospatial indexes](http://blog.nodeknockout.com/post/35215504793/the-wonderful-world-of-geospatial-indexes-in-mongodb)
+          #### Libraries and Utilities
+          1. [Using Socket.IO for real-time messaging](http://blog.nodeknockout.com/post/34243127010/knocking-out-socket-io)
+          2. [Implementing OAuth login with Passport](http://blog.nodeknockout.com/post/34765538605/getting-started-with-passport)
+          3. [Cross-platform graphics with Bonsai](http://blog.nodeknockout.com/post/35145390645/telling-stories-with-bonsai-js)
+          4. [Sending email with Nodemailer](http://blog.nodeknockout.com/post/34641712180/sending-email-from-node-js)
 
-      #### Libraries and Utilities
-      1. [Using Socket.IO for real-time messaging](http://blog.nodeknockout.com/post/34243127010/knocking-out-socket-io)
-      2. [Implementing OAuth login with Passport](http://blog.nodeknockout.com/post/34765538605/getting-started-with-passport)
-      3. [Cross-platform graphics with Bonsai](http://blog.nodeknockout.com/post/35145390645/telling-stories-with-bonsai-js)
-      4. [Sending email with Nodemailer](http://blog.nodeknockout.com/post/34641712180/sending-email-from-node-js)
+        //- :markdown
+        //-   # <a name="services"></a>Services
 
-    //- :markdown
-    //-   # <a name="services"></a>Services
+        //-   ## <a name="nodejitsu">Nodejitsu</a>
 
-    //-   ## <a name="nodejitsu">Nodejitsu</a>
+        //-   Nodejitsu's platform actually gives you access to [free instances of several
+        //-   popular databases](https://github.com/nodejitsu/handbook#databases).
 
-    //-   Nodejitsu's platform actually gives you access to [free instances of several
-    //-   popular databases](https://github.com/nodejitsu/handbook#databases).
+        //-   - **[CouchDB](https://github.com/nodejitsu/handbook#couchdb)** —
+        //-     If you run `jitsu databases create couchdb myCouch`, jitsu will tell you
+        //-     the url for your new couchdb from iriscouch.
 
-    //-   - **[CouchDB](https://github.com/nodejitsu/handbook#couchdb)** —
-    //-     If you run `jitsu databases create couchdb myCouch`, jitsu will tell you
-    //-     the url for your new couchdb from iriscouch.
+        //-   - **[Redis](https://github.com/nodejitsu/handbook#redis)** —
+        //-     Running `jitsu databases create redis myRedis` will create a redis instance
+        //-     supplied by iris-redis. If you'd like more than the 20MB default, please
+        //-     contact <all@nodeknockout.com>.
 
-    //-   - **[Redis](https://github.com/nodejitsu/handbook#redis)** —
-    //-     Running `jitsu databases create redis myRedis` will create a redis instance
-    //-     supplied by iris-redis. If you'd like more than the 20MB default, please
-    //-     contact <all@nodeknockout.com>.
+        //-   - **[MongoDB](https://github.com/nodejitsu/handbook#mongodb)** —
+        //-     Both [MongoLab](#mongolab) and [MongoHQ](#mongohq) are providing larger
+        //-     instances for use during Node.js Knockout. Find instructions for each
+        //-     below. If you want, `jitsu databases create mongo myMongo` works though.
 
-    //-   - **[MongoDB](https://github.com/nodejitsu/handbook#mongodb)** —
-    //-     Both [MongoLab](#mongolab) and [MongoHQ](#mongohq) are providing larger
-    //-     instances for use during Node.js Knockout. Find instructions for each
-    //-     below. If you want, `jitsu databases create mongo myMongo` works though.
+        //-   ## <a name="mongolab">MongoLab</a>
 
-    //-   ## <a name="mongolab">MongoLab</a>
+        //-   [MongoLab](http://mongolab.com) is a full-featured MongoDB-as-a-Service
+        //-   cloud solution that completely automates the operational aspects of running
+        //-   MongoDB. With the MongoLab cloud platform developers can deploy and manage
+        //-   highly available databases for their applications and leverage automated
+        //-   backups, web-based tools, 24/7 monitoring, and expert support. Free 500MB
+        //-   databases are available on Amazon AWS, Azure, Joyent, and Rackspace.
 
-    //-   [MongoLab](http://mongolab.com) is a full-featured MongoDB-as-a-Service
-    //-   cloud solution that completely automates the operational aspects of running
-    //-   MongoDB. With the MongoLab cloud platform developers can deploy and manage
-    //-   highly available databases for their applications and leverage automated
-    //-   backups, web-based tools, 24/7 monitoring, and expert support. Free 500MB
-    //-   databases are available on Amazon AWS, Azure, Joyent, and Rackspace.
+        //-   No special credentials are needed to use MongoLab's free 500MB plan during
+        //-   Node Knockout. Just [sign up to get a free
+        //-   account](https://mongolab.com/signup/).
 
-    //-   No special credentials are needed to use MongoLab's free 500MB plan during
-    //-   Node Knockout. Just [sign up to get a free
-    //-   account](https://mongolab.com/signup/).
+        //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35339780516/mongolabs-joyent-hosted-mongodb-quick-start)
+        //-   for how to quickly get up and running with MongoLab.
 
-    //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35339780516/mongolabs-joyent-hosted-mongodb-quick-start)
-    //-   for how to quickly get up and running with MongoLab.
+        //-   ## <a name="mongohq">MongoHQ</a>
+        //-   MongoHQ is the fastest and easiest way to create a MongoDB database to use
+        //-   with your application. Our goal is to allow developers to focus on what they
+        //-   do best while we keep your database fast, optimized and reliable. It takes
+        //-   [less than 30 seconds to sign up and create a MongoDB
+        //-   database](https://www.mongohq.com/signup).
 
-    //-   ## <a name="mongohq">MongoHQ</a>
-    //-   MongoHQ is the fastest and easiest way to create a MongoDB database to use
-    //-   with your application. Our goal is to allow developers to focus on what they
-    //-   do best while we keep your database fast, optimized and reliable. It takes
-    //-   [less than 30 seconds to sign up and create a MongoDB
-    //-   database](https://www.mongohq.com/signup).
+        //-   For NodeKnockout, we have available 512MB plans in multiple data centers.
+        //-   Simply sign up and create a database and you will have full access to our
+        //-   industry-leading tools and a friendly and intelligent support team. We're
+        //-   excited to see what you build ... Good luck!
 
-    //-   For NodeKnockout, we have available 512MB plans in multiple data centers.
-    //-   Simply sign up and create a database and you will have full access to our
-    //-   industry-leading tools and a friendly and intelligent support team. We're
-    //-   excited to see what you build ... Good luck!
+        //-   ## <a name="apigee">Apigee</a>
 
-    //-   ## <a name="apigee">Apigee</a>
+        //-   **Apigee will give out $4,000 in November to great apps that use node.js + App Services — read the [blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node) for details!**
 
-    //-   **Apigee will give out $4,000 in November to great apps that use node.js + App Services — read the [blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node) for details!**
+        //-   [Apigee App Services](http://apigee.com/about/developers) is a hosted cloud
+        //-   service to store, retrieve & query your data — and so much more. Create a
+        //-   user record in our database and boom — we automatically give you a method to
+        //-   let that user sign-in to the service (using OAuth), let him own other pieces
+        //-   of data, post stuff to his activity wall, and the ability to become friends
+        //-   & share data with other users — without having to write a single line of
+        //-   code. Want to store arbitrary data? If you can express it as JSON, we can
+        //-   store it!
 
-    //-   [Apigee App Services](http://apigee.com/about/developers) is a hosted cloud
-    //-   service to store, retrieve & query your data — and so much more. Create a
-    //-   user record in our database and boom — we automatically give you a method to
-    //-   let that user sign-in to the service (using OAuth), let him own other pieces
-    //-   of data, post stuff to his activity wall, and the ability to become friends
-    //-   & share data with other users — without having to write a single line of
-    //-   code. Want to store arbitrary data? If you can express it as JSON, we can
-    //-   store it!
+        //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node)
+        //-   for more&hellip;
 
-    //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node)
-    //-   for more&hellip;
+        //-   **To sign up during the knockout, please [go here](https://accounts.apigee.com/accounts/sign_up)**.
 
-    //-   **To sign up during the knockout, please [go here](https://accounts.apigee.com/accounts/sign_up)**.
+        //-   We have a [node SDK](https://github.com/apigee/usergrid-node-js-sdk) and
+        //-   plenty of [documentation](http://apigee.com/docs/app_services). If you need
+        //-   any help during the weekend, you can ping Rod or Tim on IRC (rockerston, timanglade in
+        //-   \#nodeknockout on Freenode), GTalk (rsimpson@apigee.com, tanglade@apigee.com), email
+        //-   (<rsimpson@apigee.com>, <tanglade@apigee.com>) or Skype (rockerston, timanglade).
 
-    //-   We have a [node SDK](https://github.com/apigee/usergrid-node-js-sdk) and
-    //-   plenty of [documentation](http://apigee.com/docs/app_services). If you need
-    //-   any help during the weekend, you can ping Rod or Tim on IRC (rockerston, timanglade in
-    //-   \#nodeknockout on Freenode), GTalk (rsimpson@apigee.com, tanglade@apigee.com), email
-    //-   (<rsimpson@apigee.com>, <tanglade@apigee.com>) or Skype (rockerston, timanglade).
+        //-   ## <a name="ratchetio">Ratchet.io</a>
 
-    //-   ## <a name="ratchetio">Ratchet.io</a>
+        //-   [Ratchet.io](https://ratchet.io) is real-time execption tracking on steroids.
+        //-   It has the basics covered&mdash;de-duplication, alerts, context, graphs, a
+        //-   solid backend&mdash;and adds a dashboard, search, replays, Github integration,
+        //-   an API, and more. Set it up in 5 minutes.
 
-    //-   [Ratchet.io](https://ratchet.io) is real-time execption tracking on steroids.
-    //-   It has the basics covered&mdash;de-duplication, alerts, context, graphs, a
-    //-   solid backend&mdash;and adds a dashboard, search, replays, Github integration,
-    //-   an API, and more. Set it up in 5 minutes.
+        //- if !user
+        //-   p
+        //-     a(href="/login") Sign in
+        //-     |  for the super-secret free signup link.
+        //- else if user && (user.contestant || user.judge)
+        //-   b For free access to Ratchet.io for Node Knockout
+        //-   p: a(href="https://ratchet.io/fasttrack/nk2012/") https://ratchet.io/fasttrack/nk2012/
 
-    //- if !user
-    //-   p
-    //-     a(href="/login") Sign in
-    //-     |  for the super-secret free signup link.
-    //- else if user && (user.contestant || user.judge)
-    //-   b For free access to Ratchet.io for Node Knockout
-    //-   p: a(href="https://ratchet.io/fasttrack/nk2012/") https://ratchet.io/fasttrack/nk2012/
+        //- :markdown
+        //-   ## <a name="teleportd">Teleportd</a>
 
-    //- :markdown
-    //-   ## <a name="teleportd">Teleportd</a>
+        //-   [Teleportd](http://teleportd.com) provides an API for accessing mobile
+        //-   photos that are publicly shared online. It aggregates photos from Twitter,
+        //-   Instagram and a dozen other social networks, seeing an average of 100
+        //-   photos/s. Geolocation and keyword tags are associated with the photos,
+        //-   opening up a wide range of use cases.
 
-    //-   [Teleportd](http://teleportd.com) provides an API for accessing mobile
-    //-   photos that are publicly shared online. It aggregates photos from Twitter,
-    //-   Instagram and a dozen other social networks, seeing an average of 100
-    //-   photos/s. Geolocation and keyword tags are associated with the photos,
-    //-   opening up a wide range of use cases.
+        //- if services.teleportd
+        //-   if !user
+        //-     p
+        //-       a(href="/login") Sign in
+        //-       |  to see how to get
+        //-       strong free access to Teleportd's unlimited api
+        //-       |  during Node Knockout.
+        //-   else if user && (user.contestant || user.judge)
+        //-     b For free access to Teleportd's api for Node Knockout
+        //-     != markdown(services.teleportd)
 
-    //- if services.teleportd
-    //-   if !user
-    //-     p
-    //-       a(href="/login") Sign in
-    //-       |  to see how to get
-    //-       strong free access to Teleportd's unlimited api
-    //-       |  during Node Knockout.
-    //-   else if user && (user.contestant || user.judge)
-    //-     b For free access to Teleportd's api for Node Knockout
-    //-     != markdown(services.teleportd)
+        //- :markdown
+        //-   ## <a name="impactjs">Impact.js</a>
 
-    //- :markdown
-    //-   ## <a name="impactjs">Impact.js</a>
+        //-   [Impact](http://impactjs.com/) is a JavaScript Game Engine that allows you
+        //-   to develop HTML5 Games for desktop and mobile browsers. It has recently been
+        //-   called "the first truly professional-grade JavaScript game engine to hit the
+        //-   market" in a review by the Game Developer Magazine. Impact comes with a
+        //-   versatile Level Editor that helps you create your game worlds with ease -
+        //-   whether it's for an arcade game, a side-scrolling Jump'n'Run or a top-down
+        //-   RPG.
 
-    //-   [Impact](http://impactjs.com/) is a JavaScript Game Engine that allows you
-    //-   to develop HTML5 Games for desktop and mobile browsers. It has recently been
-    //-   called "the first truly professional-grade JavaScript game engine to hit the
-    //-   market" in a review by the Game Developer Magazine. Impact comes with a
-    //-   versatile Level Editor that helps you create your game worlds with ease -
-    //-   whether it's for an arcade game, a side-scrolling Jump'n'Run or a top-down
-    //-   RPG.
+        //-   Email <dominic.szablewski@gmail.com> if you want to use Impact for your
+        //-   Knockout project.
 
-    //-   Email <dominic.szablewski@gmail.com> if you want to use Impact for your
-    //-   Knockout project.
+        //-   ## <a name="pusher">Pusher</a>
 
-    //-   ## <a name="pusher">Pusher</a>
+        //-   Looking to build realtime awesomeness with WebSockets at Node Knockout? Want
+        //-   to have scalable connection handling sorted out without any server
+        //-   configuration? Want to get things like PubSub message filtering,
+        //-   authentication, and presence for free? You should try out [Pusher](http://pusher.com/).
 
-    //-   Looking to build realtime awesomeness with WebSockets at Node Knockout? Want
-    //-   to have scalable connection handling sorted out without any server
-    //-   configuration? Want to get things like PubSub message filtering,
-    //-   authentication, and presence for free? You should try out [Pusher](http://pusher.com/).
+        //- if services.pusher
+        //-   if !user
+        //-     p
+        //-       a(href="/login") Sign in
+        //-       |  for a coupon to get
+        //-       strong one month of the 500 connection Startup plan
+        //-       |  for free.
+        //-   else if user && (user.contestant || user.judge)
+        //-     b To get one month of the 500 connection Startup plan for free
+        //-     != markdown(services.pusher)
 
-    //- if services.pusher
-    //-   if !user
-    //-     p
-    //-       a(href="/login") Sign in
-    //-       |  for a coupon to get
-    //-       strong one month of the 500 connection Startup plan
-    //-       |  for free.
-    //-   else if user && (user.contestant || user.judge)
-    //-     b To get one month of the 500 connection Startup plan for free
-    //-     != markdown(services.pusher)
+        //- :markdown
+        //-   ## <a name="s3">Amazon S3</a>
 
-    //- :markdown
-    //-   ## <a name="s3">Amazon S3</a>
+        //-   You can use your own Amazon S3 account during the competition for files. If
+        //-   you'd like to use a Knockout provided account, please contact <all@nodeknockout.com>.
 
-    //-   You can use your own Amazon S3 account during the competition for files. If
-    //-   you'd like to use a Knockout provided account, please contact <all@nodeknockout.com>.
+        //-   ## <a name="monitaur">Monitaur</a>
 
-    //-   ## <a name="monitaur">Monitaur</a>
+        //-   [Monitaur](http://monitaur.net) is instant server monitoring. Set it up in
+        //-   30 seconds (seriously, it's really easy). Record and view your system stats
+        //-   in real time. [Try it out!](http://monitaur.net)
 
-    //-   [Monitaur](http://monitaur.net) is instant server monitoring. Set it up in
-    //-   30 seconds (seriously, it's really easy). Record and view your system stats
-    //-   in real time. [Try it out!](http://monitaur.net)
+        //-   _Want to be on this list? [Become a sponsor](/sponsors/options#service)._
 
-    //-   _Want to be on this list? [Become a sponsor](/sponsors/options#service)._
+      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+        include ../index/_sidebar

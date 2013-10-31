@@ -1,3 +1,5 @@
+# Introduction to npm
+
 _How to use [npm](https://npmjs.org). This post was written by npm author
 [Isaac Schlueter](http://izs.me/)._
 

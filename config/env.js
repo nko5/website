@@ -29,6 +29,7 @@ if (env.development) {
   env.secrets = {
     facebook: process.env.FACEBOOK_OAUTH_SECRET,
     github: process.env.GITHUB_OAUTH_SECRET,
+    github_setup_token: process.env.GITHUB_SETUP_TOKEN,
     twitter: process.env.TWITTER_OAUTH_SECRET,
     postageapp: process.env.POSTAGEAPP_SECRET,
     url2png: process.env.URL2PNG_SECRET,

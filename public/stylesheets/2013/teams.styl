@@ -1,0 +1,151 @@
+@import "2013/_common"
+
+.teams-page
+  .header-section
+    padding-top: 5px
+    h1
+      font-size: 20px
+      float: left
+      font-weight: normal
+      text-transform: lowercase
+      .count
+        opacity: 0.8
+        font-size: 16px
+
+    form.search
+      float: right
+      padding-top: 5px
+      input
+        width 16em
+        font-size: 13px
+        padding: 8px 10px
+        border: 1px solid #D6D6D6
+        border-radius: 3px
+
+  ul.teams
+    overflow hidden
+    padding: 0
+    > li
+      clear: both
+
+      border-top: 1px solid #E4E4E4
+      overflow: hidden
+      padding: 10px 0
+      margin-top: 10px
+      margin-bottom: 10px
+
+      h2
+        font-size: 20px
+        margin-top: -9px
+        a
+          color: #363636
+        .sep
+          margin: 0 10px
+          font-size: 15px
+          vertical-align: 2px
+        .location
+          color: #7E7E7E
+          font-weight: normal
+          font-size: 15px
+      .team-actions
+        text-align: right
+      ul.members
+        margin 0
+        padding: 0
+        margin-top: 10px
+        li
+          display inline-block
+          margin-right 0px
+        li.invites
+          color hsla(0, 0%, 0%, 0.6)
+          font-size x-small
+          font-style italic
+          margin-left 5px
+          color: #7e7e7e
+        img.avatar
+          margin 0
+          width: 25px
+          height: 25px
+          border-radius: 2px
+      .description
+        font-size: 12px
+        p, ul
+          margin 0.5em 0
+        img
+          display none
+        h1
+          font-size 1.5em
+  .more, #infscr-loading
+    text-align center
+    padding-top 1em
+
+
+  &.entries
+    form.search
+      display inline-block
+      margin-left 1em
+      input
+        width 16em
+    span.all
+      margin-left 1em
+    ul.sorts
+      font-size small
+      text-align center
+      li
+        display inline
+        margin-right 1ex
+        &.current
+          inverted()
+          padding 2px 5px
+          a
+            color white
+    ul.teams
+      overflow hidden
+      margin 0
+      > li
+        box-shadow inset 0 0 5px hsla(0, 0%, 0%, 0.1)
+        background-color hsl(0, 0%, 95%)
+        background-color hsla(0, 0%, 95%, 0.5)
+        padding 10px
+        border-radius 2px
+        margin-bottom 1em
+        padding 20px
+        position relative
+        h2, h3, h4, .description
+          margin-left 174px
+        h2, h3, h4
+          margin-top 0px
+        h2
+          margin-right 100px
+        img.screenshot
+          width 160px
+          height 93px
+          float left
+          margin-left -5px
+          margin-right 10px
+          border solid 2px hsl(0, 0%, 90%)
+          border solid 2px hsla(0, 0%, 0%, 0.1)
+          border-radius 2px
+        .description p
+          margin-bottom 0
+          font-size small
+        .clear
+          clear both
+        .score
+          position absolute
+          top -2px
+          right 10px
+          inverted()
+          padding 10px 7px 6px 10px
+          text-align center
+          a
+            color white
+          h3
+            margin 0
+          .dimension
+            font-size x-small
+            line-height 100%
+    .more, #infscr-loading
+      text-align center
+      padding-top 1em
+
