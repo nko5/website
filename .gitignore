@@ -14,3 +14,4 @@ restore.sh
 scripts/tmp/*
 .vagrant
 repos/
+/id_nko4*

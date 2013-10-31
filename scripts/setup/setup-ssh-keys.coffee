@@ -52,7 +52,10 @@ module.exports = setupSSHKeys = (options, next) ->
     login = "root@#{team.ip}"
     cmd = "cat /dev/stdin >> ~/.ssh/authorized_keys"
 
-    ssh = spawn "ssh", ['-o', 'StrictHostKeyChecking=no', login, cmd]
+    ssh = spawn "ssh", [
+      '-o', 'StrictHostKeyChecking=no',
+      '-i', './id_nko4',
+      login, cmd]
     ssh.stdout.on 'data', (s) -> console.log s.toString()
     ssh.stderr.on 'data', (s) -> console.log s.toString()
     ssh.on 'error', next
@@ -61,4 +64,4 @@ module.exports = setupSSHKeys = (options, next) ->
     ssh.stdin.write(authorizedKeys)
     ssh.stdin.end()
 
-  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeys], next
+  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeys], (err) -> next(err)

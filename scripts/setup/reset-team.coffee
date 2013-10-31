@@ -5,55 +5,69 @@ async = require('async')
 joyent = require('../../config/joyent')
 linode = require('../../config/linode')
 github = require('../../config/github')
+exec = require('child_process').exec
+
+path = require('path')
+reposDir = path.join(__dirname, '..', '..', 'repos')
 
 module.exports = resetTeam = (team, next) ->
 
-  removeJoyent = (team, next) ->
+  removeJoyent = (next) ->
+    return next() unless team.joyent?.id
     console.log team.slug, 'deleting joyent instance...'
-    next(null, team) unless team.machine?.id
 
-    joyent.deleteMachine team.machine.id, (err, res) ->
+    joyent.deleteMachine team.joyent.id, (err, res) ->
       return next(err) if err?
-      console.log(res)
+      # console.log(res)
       console.log team.slug, 'joyent instance deleted!'
 
       team.ip = null
-      team.machine = {}
-      team.save (err) -> next(err, team)
+      team.joyent = {}
+      team.save (err) -> next(err)
 
-  removeDNS = (team, next) ->
+  removeDNS = (next) ->
+    return next() if team.linode?.ResourceID
     console.log team.slug, 'removing dns entry...'
 
-    linode 'resource.list', (err, res) ->
+    linode 'resource.delete'
+      resourceId: team.linode.ResourceID
+    , (err, res) ->
       return next(err) if err?
-      console.log(res)
+        console.log team.slug, 'dns entry removed!'
+        next()
 
-      # TODO remove team from DNS
-      console.log team.slug, 'dns entry removed!'
-
-      next(null, team)
-
-  removeGithubRepo = (team, next) ->
+  removeGithubRepo = (next) ->
+    return next() # seems like this isn't implemented by github
+    return next() unless team.slug
     console.log team.slug, 'deleting github repo...'
-    return next(null, team) unless team.slug
 
-    github.del "/repos/nko4/#{team.slug}", (err, res) ->
+    github.del "repos/nko4/#{team.slug}", (err, res, body) ->
       return next(err) if err?
-      console.log(res)
+      # console.log(body)
       console.log team.slug, 'github repo deleted!'
 
-      next(null, team)
+      next()
 
-  removeGithubTeam = (team, next) ->
+  removeGithubTeam = (next) ->
+    return next() unless team.github?.id
     console.log team.slug, 'deleting github team...'
-    return next(null, team) unless team.github?.id
 
-    github.del "/teams/#{team.github.id}", (err, res) ->
+    github.del "teams/#{team.github.id}", (err, res, body) ->
       return next(err) if err?
-      console.log(res)
+      return next(body) unless (res.statusCode is 200) or (res.statusCode is 404)
+      # console.log(body)
       console.log team.slug, 'github team deleted!'
 
       team.github = {}
-      team.save (err) -> next(err, team)
+      team.save (err) -> next(err)
 
-  async.waterfall [removeJoyent, removeDNS, removeGithubRepo, removeGithubTeam], next
+  removeDeployKeys: (next) ->
+    if team.deployKey?.public
+      team.deployKey.public = null
+      team.deployKey.private = null
+    team.save (err) -> next(err)
+
+  removeRepo = (next) ->
+    exec "rm -rf ./#{team.slug}", cwd: reposDir, (err) -> next(err)
+
+  async.waterfall [removeJoyent, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo], (err) -> next(err)

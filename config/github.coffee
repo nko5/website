@@ -13,8 +13,7 @@ github.request = (method, path, json, next) ->
     json = {}
   url = github.url(path)
   # console.log "github: #{method} #{url}"
-  request
-    method: method
+  request[method]
     url: url
     json: json
   , next
