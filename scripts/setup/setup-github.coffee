@@ -10,7 +10,7 @@ rootDir = path.join(__dirname, '..', '..')
 module.exports = setupGitHub = (options, next) ->
   team = options.team
 
-  if team.github.id
+  if team.github?.id
     console.log team.slug, 'github already setup!'
     return next()
 
@@ -45,8 +45,9 @@ module.exports = setupGitHub = (options, next) ->
     (res, body, next) ->      # save team id
       return next(Error(JSON.stringify(body))) unless body.id
 
-      console.log team.slug, 'save github info'
+      console.log team.slug, 'set github info'
       team.github = body
+      next()
     (team, n, next) ->        # get people
       console.log team.slug, 'get people'
       team.people (err, people) ->
@@ -66,5 +67,6 @@ module.exports = setupGitHub = (options, next) ->
       createRepo.on 'error', (err) -> next(err)
       createRepo.on 'exit', (err) -> next(err)
     (next) ->                 # save team
+      console.log team.slug, 'save github info'
       team.save (err) -> next(err)
   ], (err) -> next(err)

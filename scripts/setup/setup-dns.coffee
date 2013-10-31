@@ -17,6 +17,5 @@ module.exports = setupDNS = (options, next) ->
     target: team.ip
   , (err, res) ->
     return next(err) if err?
-    console.log(res)
     team.linode = res
     team.save (err) -> next(err)

@@ -13,7 +13,7 @@ module.exports = setupJoyent = (options, next) ->
 
   console.log team.slug, 'setting up joyent...'
 
-  if team.ip
+  if team.joyent?.id
     console.log team.slug, 'joyent already setup!'
     return next()
 

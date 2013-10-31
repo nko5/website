@@ -26,7 +26,7 @@ module.exports = resetTeam = (team, next) ->
       team.save (err) -> next(err)
 
   removeDNS = (next) ->
-    return next() if team.linode?.ResourceID
+    return next() unless team.linode?.ResourceID
     console.log team.slug, 'removing dns entry...'
 
     linode 'resource.delete'
@@ -37,9 +37,9 @@ module.exports = resetTeam = (team, next) ->
         next()
 
   removeGithubRepo = (next) ->
-    return next() unless team.slug
     console.log team.slug, 'deleting github repo...'
 
+    return next() unless team.slug
     github.del "repos/nko4/#{team.slug}", (err, res, body) ->
       return next(err) if err?
       return next(res.body) unless (res.statusCode is 200) or (res.statusCode is 404)
@@ -61,7 +61,7 @@ module.exports = resetTeam = (team, next) ->
       team.github = {}
       team.save (err) -> next(err)
 
-  removeDeployKeys: (next) ->
+  removeDeployKeys = (next) ->
     if team.deployKey?.public
       team.deployKey.public = null
       team.deployKey.private = null
