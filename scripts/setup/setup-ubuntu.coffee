@@ -1,14 +1,15 @@
 # gets the team's joyent box deploy ready
 
+spawn = require('child_process').spawn
+async = require 'async'
+readFileSync = require('fs').readFileSync
+path = require('path')
+
 # only read the setup script once
-setupScript = require('fs').readFileSync(
-  require('path').join(__dirname, './setup-ubuntu.sh'), 'utf8')
+setupScript = readFileSync(path.join(__dirname, './setup-ubuntu.sh'), 'utf8')
 
 module.exports = setupUbuntu = (options, next) ->
   team = options.team
-
-  spawn = require('child_process').spawn
-  async = require 'async'
 
   uploadSetupScript = (next) ->
     console.log team.slug, 'uploading setup script'
@@ -17,8 +18,7 @@ module.exports = setupUbuntu = (options, next) ->
     ssh.stdin.write(setupScript)
     ssh.stdin.end()
 
-  runSetupScript = (args...) ->
-    next = args.pop()
+  runSetupScript = (next) ->
     console.log team.slug, 'running setup script'
     spawnssh "bash setup-ubuntu.sh", next
 

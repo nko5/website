@@ -8,6 +8,10 @@ async = require 'async'
 module.exports = setupDeployKey = (options, next) ->
   team = options.team
 
+  if team.deployKey.private
+    console.log team.slug, 'deploy key already created'
+    return next()
+
   execssh = (cmd, next) ->
     exec "ssh root@#{team.ip} #{cmd}", cwd: __dirname, next
 
@@ -33,17 +37,15 @@ module.exports = setupDeployKey = (options, next) ->
       team.deployKey.private = privateKey
       next()
 
-  saveDeployKeypair = (next) ->
-    console.log team.slug, 'save deploy keypair'
-    team.save (err) ->
-      return next(err) if err?
-      next()
-
   addDeployKeyToGithub = (next) ->
     console.log team.slug, 'add deploy key to github'
     github.post "repos/nko4/#{team.slug}/keys",
       title: "deploy@#{team.slug}.2013.nodeknockout.com"
       key: team.deployKey.public
-    , next
+    , (err) -> next(err)
 
-  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, saveDeployKeypair, addDeployKeyToGithub ], (err) -> next(err)
+  saveDeployKeypair = (next) ->
+    console.log team.slug, 'save deploy keypair'
+    team.save (err) -> next(err)
+
+  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, addDeployKeyToGithub, saveDeployKeypair ], (err) -> next(err)
