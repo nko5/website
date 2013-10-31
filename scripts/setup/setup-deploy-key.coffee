@@ -46,4 +46,4 @@ module.exports = setupDeployKey = (options, next) ->
       key: team.deployKey.public
     , next
 
-  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, saveDeployKeypair, addDeployKeyToGithub ], next
+  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, saveDeployKeypair, addDeployKeyToGithub ], (err) -> next(err)

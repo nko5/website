@@ -30,4 +30,4 @@ module.exports = setupUbuntu = (options, next) ->
     ssh.on 'exit', (err) -> next(err)
     ssh
 
-  async.waterfall [uploadSetupScript, runSetupScript], next
+  async.waterfall [uploadSetupScript, runSetupScript], (err) -> next(err)

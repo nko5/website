@@ -4,12 +4,11 @@ async = require('async')
 mongoose = require('../../models')(require('../../config/env').mongo_url)
 Team = mongoose.model 'Team'
 
-setupTeam = (options, next) ->
-  team = options.team
-
+setupTeam = (team, next) ->
   # skip empty teams
   return next("Error: #{team} team empty") if team.peopleIds.length is 0
 
+  options = { team: team }
   async.waterfall [
     (next) -> require('./setup-joyent')(options, next),
     (next) -> require('./setup-dns')(options, next),
@@ -17,7 +16,7 @@ setupTeam = (options, next) ->
     (next) -> require('./setup-ssh-keys')(options, next),
     (next) -> require('./setup-deploy-key')(options, next),
     (next) -> require('./setup-ubuntu')(options, next)
-  ], next
+  ], (err) -> next(err)
 
 if require.main is module
   unless process.env.TEAM
@@ -29,16 +28,17 @@ if require.main is module
     Team.findOne { slug: slug }, (err, team) ->
       return next(err) if err?
       return next("#{slug} not found") unless team?
-      next(null, { team: team })
+      next(null, team)
 
-  resetTeam = (options, next) ->
+  resetTeam = (team, next) ->
     # setting RESET=team-slug will DELETE the team's setup
-    return next(null, options) unless process.env.RESET is slug
-    console.log options.team.slug, "resetting team..."
-    require('./reset-team') options.team, (err) ->
+    return next(null, team) unless process.env.RESET is slug
+    console.log team.slug, "resetting team..."
+
+    require('./reset-team') team, (err) ->
       return next(err) if err?
-      console.log options.team.slug, "team reset!"
-      next(null, options)
+      console.log team.slug, "team reset!"
+      next(null, team)
 
   last = (err) ->
     if err
@@ -47,4 +47,4 @@ if require.main is module
     else
       mongoose.connection.close()
 
-  async.waterfall [loadTeam, resetTeam], last
+  async.waterfall [loadTeam, resetTeam, setupTeam], last

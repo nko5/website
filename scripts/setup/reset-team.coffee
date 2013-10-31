@@ -5,20 +5,24 @@ async = require('async')
 joyent = require('../../config/joyent')
 linode = require('../../config/linode')
 github = require('../../config/github')
+exec = require('child_process').exec
+
+path = require('path')
+reposDir = path.join(__dirname, '..', '..', 'repos')
 
 module.exports = resetTeam = (team, next) ->
 
   removeJoyent = (next) ->
-    return next() unless team.machine?.id
+    return next() unless team.joyent?.id
     console.log team.slug, 'deleting joyent instance...'
 
-    joyent.deleteMachine team.machine.id, (err, res) ->
+    joyent.deleteMachine team.joyent.id, (err, res) ->
       return next(err) if err?
       # console.log(res)
       console.log team.slug, 'joyent instance deleted!'
 
       team.ip = null
-      team.machine = {}
+      team.joyent = {}
       team.save (err) -> next(err)
 
   removeDNS = (next) ->
@@ -58,10 +62,14 @@ module.exports = resetTeam = (team, next) ->
 
     github.del "teams/#{team.github.id}", (err, res, body) ->
       return next(err) if err?
+      return next(body) unless (res.statusCode is 200) or (res.statusCode is 404)
       # console.log(body)
       console.log team.slug, 'github team deleted!'
 
       team.github = {}
       team.save (err) -> next(err)
 
-  async.waterfall [removeJoyent, removeDNS, removeGithubRepo, removeGithubTeam], next
+  removeRepo = (next) ->
+    exec "rm -rf ./#{team.slug}", cwd: reposDir, (err) -> next(err)
+
+  async.waterfall [removeJoyent, removeDNS, removeGithubRepo, removeGithubTeam, removeRepo], (err) -> next(err)
