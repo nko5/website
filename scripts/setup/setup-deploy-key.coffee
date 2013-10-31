@@ -1,13 +1,12 @@
 # creates a deploy key on the team's joyent box and adds it to the team's
 # github repo
 
+github = require('../../config/github')
+exec = require('child_process').exec
+async = require 'async'
+
 module.exports = setupDeployKey = (options, next) ->
   team = options.team
-  githubAuth = options.githubAuth
-
-  github = require('../../config/github')(githubAuth)
-  exec = require('child_process').exec
-  async = require 'async'
 
   execssh = (cmd, next) ->
     exec "ssh root@#{team.ip} #{cmd}", cwd: __dirname, next

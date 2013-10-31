@@ -41,7 +41,7 @@ module.exports = (app) ->
           r
         , {})
         .values()
-        .value().join '; '
+        .value().join ', '
 
     address: (addr, host = 'maps.google.com') ->
       """

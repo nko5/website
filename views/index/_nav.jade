@@ -16,9 +16,15 @@
           li(class=(activeNav === 'nko2013' ? 'active' : ''))
             a.nav-item(href="/") NKO 2013
 
-          if !req.myTeam
-            li(class=(activeNav === 'registration' ? 'active' : ''))
-              a.nav-item(href="/teams/new") Registration
+          if voting
+            li(class=(activeNav === 'entries' ? 'active' : ''))
+              a.nav-item(href="/entries") Leaderboard
+          else if winners
+            li(class=(activeNav === 'winners' ? 'active' : ''))
+              a.nav-item(href="/winners") Winners
+          else
+            li(class=(activeNav === 'teams' ? 'active' : ''))
+              a.nav-item(href="/teams") Teams
 
           li(class=(activeNav === 'prizes' ? 'active' : ''))
             a.nav-item(href="/prizes") Prizes

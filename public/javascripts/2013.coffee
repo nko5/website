@@ -32,6 +32,9 @@ $(document).on 'mousedown', 'a[href^=http]', (e) ->
 load = ->
   $(':text:first').focus() # focus first input
 
+  $(".with-tooltip").each ->
+    $(this).tooltip()
+
   $(".with-popover").each ->
     $(this).popover
       content: $(this).find(".popover-content").html()
