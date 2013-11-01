@@ -44,6 +44,18 @@ module.exports = setupDeployKey = (options, next) ->
       key: team.deployKey.public
     , (err) -> next(err)
 
+  addDeployKeyToRepo = (next) ->
+    console.log team.slug, 'add deploy key to repo'
+    repoDir = path.join(rootDir, 'repos', team.slug)
+    exec 'mkdir -p "#{repoDir}"', (err) ->
+      return next(err) if err
+      try
+        fs.writeFileSync(path.join(repoDir, 'id_deploy'), team.deployKey.private)
+        fs.writeFileSync(path.join(repoDir, 'id_deploy.pub'), team.deployKey.public)
+      catch err
+        return next(err)
+      next()
+
   saveDeployKeypair = (next) ->
     console.log team.slug, 'save deploy keypair'
     team.save (err) -> next(err)

@@ -11,7 +11,7 @@ module.exports = setupDNS = (options, next) ->
     return next()
 
   console.log team.slug, 'creating dns entry'
-  linode 'resource.create'
+  linode 'resource.create',
     type: "A"
     name: "#{team}.2013.nodeknockout.com"
     target: team.ip

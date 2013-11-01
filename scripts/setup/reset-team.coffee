@@ -49,7 +49,7 @@ module.exports = resetTeam = (team, next) ->
     return next() unless team.linode?.ResourceID
     console.log team.slug, 'removing dns entry...'
 
-    linode 'resource.delete'
+    linode 'resource.delete',
       resourceId: team.linode.ResourceID
     , (err, res) ->
       return next(err) if err?
