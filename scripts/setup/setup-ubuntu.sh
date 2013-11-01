@@ -45,34 +45,49 @@ github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9
 EOS
 
 # Setting up the deploy user...
-useradd -U -m -s /bin/bash deploy
+id deploy || useradd -U -m -s /bin/bash deploy
 
 # Setting up the deploy user .ssh/ dir...
-cp -r ~/.ssh /home/deploy/.ssh
-chown -R deploy /home/deploy/.ssh
+deploy_home=/home/deploy
+cp -r ~/.ssh $deploy_home/.ssh
+chown -R deploy $deploy_home/.ssh
 
 # Setting up runit...
 apt-get install -y runit
 
 # Setting runit to run server.js...
-mkdir -p /etc/service/serverjs
-cat <<'EOS' > /etc/service/serverjs/run
-#!/bin/sh
-DEPLOY_DIR=/home/deploy
+mkdir -p /etc/service/serverjs/log
 
+cat <<EOS > /etc/service/serverjs/run
+#!/bin/sh
+exec 2>&1
 . /etc/profile
-. $DEPLOY_DIR/.profile
-exec node $DEPLOY_DIR/current/server.js >> $DEPLOY_DIR/shared/logs/server.log 2>&1
+. $deploy_home/.profile
+exec node $deploy_home/current/server.js
 EOS
 chmod +x /etc/service/serverjs/run
 
+# Setting up runit logging...
+mkdir -p $deploy_home/shared/logs/server
+
+cat <<EOS > /etc/service/serverjs/log/run
+#!/bin/sh
+exec svlogd -tt $deploy_home/shared/logs/server
+EOS
+chmod +x /etc/service/serverjs/log/run
+
 # Waiting for runit to recognize the new service...
 while [ ! -d /etc/service/serverjs/supervise ]; do
-  sleep 1 && echo "waiting..."
+  sleep 5 && echo "waiting..."
 done
 sleep 1
 
-# Giving the node user the ability to control the service...
+# Turning off the server until the first deploy...
+sv stop serverjs
+> $deploy_home/shared/logs/server/current
+
+# Giving the deploy user the ability to control the service...
 chown -R deploy /etc/service/serverjs/supervise
+chown -R deploy $deploy_home/shared
 
 # all done!

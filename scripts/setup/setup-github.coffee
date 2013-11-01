@@ -60,7 +60,7 @@ module.exports = setupGitHub = (options, next) ->
     (next) ->                 # seed repo
       console.log team.slug, 'seed repo'
       createRepo = spawn path.join(__dirname, './setup-repo.sh'),
-        [ team.slug, team.code, team.name, team.github.id ],
+        [ team.slug, team.code, team.name, team.ip ],
         cwd: rootDir
       createRepo.stdout.on 'data', (s) -> console.log s.toString()
       createRepo.stderr.on 'data', (s) -> console.log s.toString()

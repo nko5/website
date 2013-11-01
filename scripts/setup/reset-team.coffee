@@ -33,15 +33,12 @@ module.exports = resetTeam = (team, next) ->
 
     do check = ->
       joyent.getMachine machine, (err, res) ->
-        if err
-          if err.state is 'deleted' or err.statusCode is 404
-            # console.log(res)
-            console.log team.slug, 'joyent instance deleted!'
-            next()
-          else
-            next(err)
+        if 400 <= err?.statusCode < 500
+          console.log team.slug, 'joyent instance deleted!'
+          return next()
+        return next(err) if err
         switch res.state
-          when 'running', 'provisioning', 'stopped'
+          when 'running', 'provisioning', 'stopped', 'deleted'
             console.log team.slug, "#{res.state} (#{i * secs}s)"
             setTimeout check, secs * 1000
             i += 1

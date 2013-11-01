@@ -4,6 +4,7 @@ set -eu
 slug=$1
 code=$2
 name=$3
+ip=$4
 
 mkdir -p repos/${slug}
 cp ./deploy repos/${slug}/
@@ -26,8 +27,8 @@ npm start
 ./deploy
 
 # ssh access
-ssh deploy@${slug}.2013.nodeknockout.com
-ssh root@${slug}.2013.nodeknockout.com
+ssh deploy@${ip}
+ssh root@${ip}
 ~~~
 
 ## Tips
@@ -38,12 +39,12 @@ We've already set up a basic node server for you. Details:
 
 * Ubuntu 12.10 (Precise) - 64-bit
 * server.js is at: \`/home/deploy/current/server.js\`
-* logs are at: \`/home/deploy/shared/logs/server.log\`
+* logs are at: \`/home/deploy/shared/logs/server/current\`
 * \`runit\` keeps the server running.
   * \`sv restart serverjs\` - restarts
   * \`sv start serverjs\` - starts
   * \`sv stop serverjs\` - stops
-  * \`runsvdir -P /etc/service log\` - to see logs
+  * \`ps -ef | grep runsvdir\` - to see logs
   * \`cat /etc/service/serverjs/run\` - to see the config
 
 You can use the \`./deploy\` script included in this repo to deploy to your
@@ -139,7 +140,7 @@ cat <<EOF >deploy.conf
 # https://github.com/visionmedia/deploy
 [production]
 user deploy
-host ${slug}.2013.nodeknockout.com
+host $ip
 repo git@github.com:nko4/${slug}.git
 ref origin/master
 path /home/deploy

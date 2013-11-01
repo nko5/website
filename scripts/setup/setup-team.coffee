@@ -19,10 +19,10 @@ setupTeam = (team, next) ->
   ], (err) -> next(err)
 
 if require.main is module
-  unless process.env.TEAM
-    console.log "Usage: TEAM=organizers coffee #{__filename}"
+  slug = process.argv[2]
+  unless slug
+    console.log "Usage: coffee setup-team.coffee <team-slug>"
     process.exit(1)
-  slug = process.env.TEAM
 
   loadTeam = (next) ->
     Team.findOne { slug: slug }, (err, team) ->

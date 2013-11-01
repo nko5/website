@@ -71,7 +71,6 @@ module.exports = setupJoyent = (options, next) ->
         stdio: 'inherit'
       ssh.on 'error', next
       ssh.on 'exit', (err) ->
-        console.log(err)
         if err # couldn't open ssh connection
           console.log team.slug, "waiting..."
           setTimeout check, secs * 1000
