@@ -18,10 +18,14 @@ cat <<EOF >README.md
 # getting the code
 git clone git@github.com:nko4/${slug}.git && cd ./${slug}/
 
-# deploying the code
+# developing
+npm install
+npm start
+
+# deploying
 ./deploy
 
-# ssh access to your server
+# ssh access
 ssh deploy@${slug}.2013.nodeknockout.com
 ssh root@${slug}.2013.nodeknockout.com
 ~~~
@@ -104,7 +108,7 @@ cat <<EOF >package.json
     "url": "git@github.com:nko4/${slug}.git"
   },
   "dependencies": {
-    "nko": "*",
+    "nko": "*"
   },
   "engines": {
     "node": "0.10.x"
@@ -139,11 +143,11 @@ host ${slug}.2013.nodeknockout.com
 repo git@github.com:nko4/${slug}.git
 ref origin/master
 path /home/deploy
-post-deploy npm install && sudo sv restart serverjs
+post-deploy npm install && sv restart serverjs
 test sleep 5 && wget -qO /dev/null localhost
 EOF
 
 git add .
 git commit -m Instructions
 git remote add origin git@github.com:nko4/${slug}.git
-git push origin master
+git push -u origin master

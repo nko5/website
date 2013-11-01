@@ -48,7 +48,7 @@ module.exports = setupGitHub = (options, next) ->
       console.log team.slug, 'set github info'
       team.github = body
       next()
-    (team, n, next) ->        # get people
+    (next) ->                 # get people
       console.log team.slug, 'get people'
       team.people (err, people) ->
         next err, team, people

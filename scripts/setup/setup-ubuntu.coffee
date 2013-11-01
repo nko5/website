@@ -20,7 +20,14 @@ module.exports = setupUbuntu = (options, next) ->
 
   runSetupScript = (next) ->
     console.log team.slug, 'running setup script'
-    spawnssh "bash setup-ubuntu.sh", next
+    spawnssh "bash setup-ubuntu.sh #{team.slug}.2013.nodeknockout.com", next
+
+  runDeploySetupScript = (next) ->
+    setup = spawn 'deploy', ['setup'],
+      cwd: path.join(__dirname, '..', '..', 'repos', team.slug)
+      stdio: 'inherit'
+    setup.on 'error', (err) -> next(err)
+    setup.on 'exit', (err) -> next(err)
 
   spawnssh = (cmd, next)->
     login = "root@#{team.ip}"
@@ -30,4 +37,4 @@ module.exports = setupUbuntu = (options, next) ->
     ssh.on 'exit', (err) -> next(err)
     ssh
 
-  async.waterfall [uploadSetupScript, runSetupScript], (err) -> next(err)
+  async.waterfall [uploadSetupScript, runSetupScript, runDeploySetupScript], (err) -> next(err)
