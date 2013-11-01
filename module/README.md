@@ -37,11 +37,19 @@ can pass an optional callback as the second parameter:
       res.on('data', function(d) { console.log(d.toString()); });
     });
 
-__Important: The module will only ping us if the `NODE_ENV` environment
+__Important: Not seeing your deploy count rising? Maybe here is why:
+
+* The module will only ping us if the `NODE_ENV` environment
 variable is set to `production`.__ If you're not seeing your deploy get
-recorded, make sure that's set correctly. Also, if you happen to have
+recorded, make sure that's set correctly. 
+
+* If you happen to have
 `NODE_ENV` set to `production` on your development machine, no worries: we'll
-be making sure the source IP address looks right before recording a deploy.
+be making sure the source IP address and if <teamslug>.2013.nodeknockout.com accepts a GET request before recording a deploy.
+
+* It will be only considered valid if after 5 seconds of the deploy, the app is still running.
+
+
 
 Problems?
 =========
