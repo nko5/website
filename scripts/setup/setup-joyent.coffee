@@ -2,6 +2,10 @@
 
 async = require 'async'
 joyent = require '../../config/joyent'
+spawn = require('child_process').spawn
+path = require 'path'
+
+rootDir = path.join(__dirname, '..', '..')
 
 # joyent.listImages (err, res) -> console.dir(res)
 # joyent.listPackages (err, res) -> console.dir(res)
@@ -49,6 +53,29 @@ module.exports = setupJoyent = (options, next) ->
     console.log team.slug, 'save machine ip'
     team.ip = machine.ips[0]
     team.joyent = machine
-    team.save next
+    team.save (err) -> next(err)
 
-  async.waterfall [createMachine, waitUntilRunning, saveMachine], (err) -> next(err)
+  waitUntilSSH = (next) ->
+    console.log team.slug, 'waiting for ssh connection'
+
+    secs = 15
+
+    do check = ->
+      ssh = spawn 'ssh', [
+        '-o', 'StrictHostKeyChecking=no',
+        '-o', 'BatchMode=yes',
+        '-i', './id_nko4',
+        "root@#{team.ip}",
+        "exit"],
+        cwd: rootDir,
+        stdio: 'inherit'
+      ssh.on 'error', next
+      ssh.on 'exit', (err) ->
+        console.log(err)
+        if err # couldn't open ssh connection
+          console.log team.slug, "waiting..."
+          setTimeout check, secs * 1000
+        else
+          next()
+
+  async.waterfall [createMachine, waitUntilRunning, saveMachine, waitUntilSSH], (err) -> next(err)

@@ -13,17 +13,40 @@ reposDir = path.join(__dirname, '..', '..', 'repos')
 module.exports = resetTeam = (team, next) ->
 
   removeJoyent = (next) ->
-    return next() unless team.joyent?.id
+    return next(null, null) unless team.joyent?.id
     console.log team.slug, 'deleting joyent instance...'
 
     joyent.deleteMachine team.joyent.id, (err, res) ->
       return next(err) if err?
-      # console.log(res)
-      console.log team.slug, 'joyent instance deleted!'
 
       team.ip = null
+      machine = team.joyent
       team.joyent = {}
-      team.save (err) -> next(err)
+      team.save (err) -> next(err, machine)
+
+  waitUntilJoyentRemoved = (machine, next) ->
+    return next() unless machine?.id
+    console.log team.slug, 'wait until instance deleted'
+
+    secs = 15
+    i = 0
+
+    do check = ->
+      joyent.getMachine machine, (err, res) ->
+        if err
+          if err.state is 'deleted' or err.statusCode is 404
+            # console.log(res)
+            console.log team.slug, 'joyent instance deleted!'
+            next()
+          else
+            next(err)
+        switch res.state
+          when 'running', 'provisioning', 'stopped'
+            console.log team.slug, "#{res.state} (#{i * secs}s)"
+            setTimeout check, secs * 1000
+            i += 1
+          else
+            return next("#{machine.name} in unexpected state: '#{res.state}'")
 
   removeDNS = (next) ->
     return next() unless team.linode?.ResourceID
@@ -33,8 +56,9 @@ module.exports = resetTeam = (team, next) ->
       resourceId: team.linode.ResourceID
     , (err, res) ->
       return next(err) if err?
-        console.log team.slug, 'dns entry removed!'
-        next()
+      console.log team.slug, 'dns entry removed!'
+      team.linode = {}
+      team.save (err) -> next(err)
 
   removeGithubRepo = (next) ->
     console.log team.slug, 'deleting github repo...'
@@ -42,7 +66,7 @@ module.exports = resetTeam = (team, next) ->
     return next() unless team.slug
     github.del "repos/nko4/#{team.slug}", (err, res, body) ->
       return next(err) if err?
-      return next(res.body) unless (res.statusCode is 200) or (res.statusCode is 404)
+      return next(res.body ? res.statusCode) unless (res.statusCode is 204) or (res.statusCode is 404)
       # console.log(body)
       console.log team.slug, 'github repo deleted!'
 
@@ -54,7 +78,7 @@ module.exports = resetTeam = (team, next) ->
 
     github.del "teams/#{team.github.id}", (err, res, body) ->
       return next(err) if err?
-      return next(body) unless (res.statusCode is 200) or (res.statusCode is 404)
+      return next(body ? res.statusCode) unless (res.statusCode is 204) or (res.statusCode is 404)
       # console.log(body)
       console.log team.slug, 'github team deleted!'
 
@@ -70,4 +94,4 @@ module.exports = resetTeam = (team, next) ->
   removeRepo = (next) ->
     exec "rm -rf ./#{team.slug}", cwd: reposDir, (err) -> next(err)
 
-  async.waterfall [removeJoyent, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo], (err) -> next(err)
+  async.waterfall [removeJoyent, waitUntilJoyentRemoved, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo], (err) -> next(err)

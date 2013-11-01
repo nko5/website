@@ -1,5 +1,15 @@
 set -evu
 
+if [ -z $1 ]; then
+  echo "USAGE: $0 hostname"
+  exit 1
+fi
+
+# set the hostname
+hostname=$1
+hostname $hostname
+echo "$hostname" > /etc/hostname
+
 # Updating apt packages...
 apt-get update
 
@@ -9,6 +19,7 @@ apt-get install -y git-core
 # Installing node...
 apt-get install -y python-software-properties python g++ make
 add-apt-repository -y ppa:chris-lea/node.js
+apt-get update
 apt-get install -y nodejs
 
 # Setting NODE_ENV=production...
@@ -48,6 +59,9 @@ mkdir -p /etc/service/serverjs
 cat <<'EOS' > /etc/service/serverjs/run
 #!/bin/sh
 DEPLOY_DIR=/home/deploy
+
+. /etc/profile
+. $DEPLOY_DIR/.profile
 exec node $DEPLOY_DIR/current/server.js >> $DEPLOY_DIR/shared/logs/server.log 2>&1
 EOS
 chmod +x /etc/service/serverjs/run
