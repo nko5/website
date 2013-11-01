@@ -19,44 +19,49 @@ block body
             h3 This is your team.
 
 
-        .header-box.row
-          .col-lg-8.col-md-8.col-sm-8
-            h1= title(team.entry.name || team.name)
-            if locations(members).length > 0
-              h2.location
-                = locations(members)
+        .header-box
+          h1= title(team.entry.name || team.name)
+          .row
+            .col-lg-6.col-md-6.col-sm-6
+              if locations(members).length > 0
+                h2.location
+                  = locations(members)
 
-          .col-lg-4.col-md-4.col-sm-4
-            //- TODO: move this to actions section
-            - if (team.includes(user, session.team) || admin)
-              .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
-            if coding || team.stats.pushes || team.stats.deploys
-              ul.team-stats( data-team-id=team.id )
-                li.commits
-                  .number= team.stats.commits
-                  .name Commits
-                li.pushes
-                  .number= team.stats.pushes
-                  .name Pushes
-                li.deploys
-                  .number= team.stats.deploys
-                  .name Deploys
-
-
+            .col-lg-6.col-md-6.col-sm-6
+              if coding || team.stats.pushes || team.stats.deploys
+                ul.team-stats( data-team-id=team.id )
+                  li.commits
+                    span.count= team.stats.commits
+                    |  Commits
+                  li.pushes
+                    span.count= team.stats.pushes
+                    |  Pushes
+                  li.deploys
+                    span.count= team.stats.deploys
+                    |  Deploys
 
 
         .team-content
-          != markdown(team.description, { sanitize: true })
+          .pull-right
+            .actions
+              - if (team.includes(user, session.team) || admin)
+                a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
+
+          .content-section
+            != markdown(team.description, { sanitize: true })
 
           - if (coding && (admin || team.includes(user)))
-            include steps
+            .content-section
+              include steps
 
           - if (team.entry.name)
-            include entry
+            .content-section
+              include entry
 
           - if (team.entry.colophon)
-            h2 How
-            != markdown(team.entry.colophon)
+            .content-section
+              h2 How
+              != markdown(team.entry.colophon)
 
           - if (people.length)
             .content-section
