@@ -12,9 +12,9 @@ setupTeam = (team, next) ->
   async.waterfall [
     (next) -> require('./setup-joyent')(options, next),
     (next) -> require('./setup-dns')(options, next),
+    (next) -> require('./setup-deploy-key')(options, next),
     (next) -> require('./setup-github')(options, next),
     (next) -> require('./setup-ssh-keys')(options, next),
-    (next) -> require('./setup-deploy-key')(options, next),
     (next) -> require('./setup-ubuntu')(options, next)
   ], (err) -> next(err)
 

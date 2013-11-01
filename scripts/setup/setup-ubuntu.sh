@@ -32,7 +32,7 @@ touch ~/.ssh/authorized_keys ~/.ssh/known_hosts
 chmod 600 ~/.ssh/authorized_keys ~/.ssh/known_hosts
 
 # Authorizing the nko4 public key for ssh access...
-cat <<EOS >> ~/.ssh/authorized_keys
+cat <<EOS > ~/.ssh/authorized_keys
 #### BEGIN NKO ORGANIZERS KEY
 # DO NOT REMOVE - this allows us to audit teams for cheating
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu793tQ+5RP8uo9X0WRZituBPZwRgMLxyZf+4MlM2BXxizjSlUtP/gTOHTqkzlimR1r3QOTfJN9dzs6DJZsI9T6gxJB2icjYgmYn5/4lwbry0vgoWNXwqrDkWuuSy/zaQYbbZhF3wGnqwsjR3U96XYNB6hz/ugMDkFF3BLcXvqSj0oY7FN6vdWt7tQ9y4kjkFfWJNXewshxJs8DNXqbolGqo+jvXrbq+Uj2faPKUO9rijZzmaNdKW7CX3PQl0JFWFqefKhQlyCQMoBZ47zcU79jfhYrCfd7+DIDPYAxERotGn8T+qKZbmbWPXFJ5xnFfmI6AYpBtMFeWnGol5B/CNJw== nko4
