@@ -4,7 +4,8 @@ env = require './env'
 smartdc = require 'smartdc'
 fingerprint = require 'ssh-fingerprint'
 
-{ user, url, key } = env.secrets.smartdc
+{ user, key } = env.secrets.smartdc
+url = 'https://us-east-1.api.joyentcloud.com'
 
 keyPath = path.resolve(key.replace(/^\~/, process.env.HOME))
 key = fs.readFileSync(keyPath, 'utf8')

@@ -4,6 +4,9 @@
 github = require('../../config/github')
 exec = require('child_process').exec
 async = require 'async'
+path = require 'path'
+
+rootDir = path.join(__dirname, '..', '..')
 
 module.exports = setupDeployKey = (options, next) ->
   team = options.team
@@ -11,9 +14,6 @@ module.exports = setupDeployKey = (options, next) ->
   if team.deployKey.private
     console.log team.slug, 'deploy key already created'
     return next()
-
-  execssh = (cmd, next) ->
-    exec "ssh root@#{team.ip} #{cmd}", cwd: __dirname, next
 
   createDeployKey = (next) ->
     console.log team.slug, 'create deploy key'
@@ -47,5 +47,9 @@ module.exports = setupDeployKey = (options, next) ->
   saveDeployKeypair = (next) ->
     console.log team.slug, 'save deploy keypair'
     team.save (err) -> next(err)
+
+  execssh = (cmd, next) ->
+    id_nko4 = path.join(rootDir, 'id_nko4')
+    exec "ssh -i #{id_nko4} root@#{team.ip} #{cmd}", cwd: __dirname, next
 
   async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, addDeployKeyToGithub, saveDeployKeypair ], (err) -> next(err)

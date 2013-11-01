@@ -23,13 +23,17 @@ git clone git@github.com:nko4/${slug}.git && cd ./${slug}/
 npm install
 npm start
 
-# deploying
-./deploy
+# deploying (to http://${slug}.2013.nodeknockout.com/)
+./deploy nko
 
 # ssh access
 ssh deploy@${ip}
 ssh root@${ip}
 ~~~
+
+Read more about this setup [on our blog][deploying-nko].
+
+[deploying-nko]: http://blog.nodeknockout.com/#TODO
 
 ## Tips
 
@@ -37,7 +41,7 @@ ssh root@${ip}
 
 We've already set up a basic node server for you. Details:
 
-* Ubuntu 12.10 (Precise) - 64-bit
+* Ubuntu 12.04 (Precise) - 64-bit
 * server.js is at: \`/home/deploy/current/server.js\`
 * logs are at: \`/home/deploy/shared/logs/server/current\`
 * \`runit\` keeps the server running.
@@ -50,7 +54,7 @@ We've already set up a basic node server for you. Details:
 You can use the \`./deploy\` script included in this repo to deploy to your
 server right now. Advanced users, feel free to tweak.
 
-[Find out more](http://blog.nodeknockout.com/deploying-to-joyent)
+Read more about this setup [on our blog][deploying-nko].
 
 ### Vote KO Widget
 
@@ -138,7 +142,7 @@ EOF
 
 cat <<EOF >deploy.conf
 # https://github.com/visionmedia/deploy
-[production]
+[nko]
 user deploy
 host $ip
 repo git@github.com:nko4/${slug}.git

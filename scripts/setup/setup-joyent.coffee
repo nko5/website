@@ -13,7 +13,7 @@ rootDir = path.join(__dirname, '..', '..')
 module.exports = setupJoyent = (options, next) ->
   team = options.team
   image = 'd2ba0f30-bbe8-11e2-a9a2-6bc116856d85' # ubuntu 12.04 - 64bit v2.4.2
-  packg = 'ec521e7a-8799-4ffc-a914-bb41233f25f5' # 512mb ram - kvm
+  packg = '4f262a43-1151-45a0-a29c-e726e878c582' # 512mb ram - kvm
 
   console.log team.slug, 'setting up joyent...'
 
