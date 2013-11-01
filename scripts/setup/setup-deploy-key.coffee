@@ -5,6 +5,7 @@ github = require('../../config/github')
 exec = require('child_process').exec
 async = require 'async'
 path = require 'path'
+fs = require('fs')
 
 rootDir = path.join(__dirname, '..', '..')
 
@@ -47,7 +48,7 @@ module.exports = setupDeployKey = (options, next) ->
   addDeployKeyToRepo = (next) ->
     console.log team.slug, 'add deploy key to repo'
     repoDir = path.join(rootDir, 'repos', team.slug)
-    exec 'mkdir -p "#{repoDir}"', (err) ->
+    exec "mkdir -p '#{repoDir}'", (err) ->
       return next(err) if err
       try
         fs.writeFileSync(path.join(repoDir, 'id_deploy'), team.deployKey.private)

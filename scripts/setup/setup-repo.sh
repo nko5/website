@@ -144,6 +144,7 @@ cat <<EOF >deploy.conf
 # https://github.com/visionmedia/deploy
 [nko]
 key ./id_deploy
+forward-agent yes
 user deploy
 host $ip
 repo git@github.com:nko4/${slug}.git
