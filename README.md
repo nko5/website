@@ -15,10 +15,7 @@ owes its roots to [rails rumble]. holla.
 
 dependencies:
 
-
-    brew install redis
-
-
+    brew install mongodb redis
 
 to install
 
@@ -30,3 +27,8 @@ to start server:
 
 to start console:
 
+    node
+
+to deploy
+
+    ./deploy production
