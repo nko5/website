@@ -23,7 +23,7 @@ module.exports = setupUbuntu = (options, next) ->
     spawnssh "bash setup-ubuntu.sh #{team.slug}.2013.nodeknockout.com", next
 
   runDeploySetupScript = (next) ->
-    setup = spawn 'deploy', ['setup']
+    setup = spawn 'deploy', ['setup'],
       cwd: path.join(__dirname, '..', '..', 'repos', team.slug)
       stdio: 'inherit'
     setup.on 'error', (err) -> next(err)
