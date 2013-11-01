@@ -26,7 +26,7 @@ include ../errors
 
       if team.regCode
         input( name='regCode', type='hidden', value=team.regCode )
-      
+
       input( name='peopleIds[]', type='hidden' )
       ol#members
         - if (typeof(people) === 'undefined') people = []

@@ -7,7 +7,7 @@ block body
 
   .inner-page.container.team-page
     .row
-      .col-lg-8.col-md-8.col-sm-4
+      .col-lg-8.col-md-8.col-sm-8
         - if (team.invited(session.invite))
           .well.row
             h2 You're invited to this team!
@@ -18,66 +18,78 @@ block body
           .well
             h3 This is your team.
 
-        - if (team.includes(user, session.team) || admin)
-          .pull-right
-            .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
 
-        h1= title(team.entry.name || team.name)
+        .header-box.row
+          .col-lg-8.col-md-8.col-sm-8
+            h1= title(team.entry.name || team.name)
+            if locations(members).length > 0
+              h2.location
+                = locations(members)
 
-        if coding || team.stats.pushes || team.stats.deploys
-          ul.team-stats( data-team-id=team.id )
-            li.commits
-              .number= team.stats.commits
-              .name Commits
-            li.pushes
-              .number= team.stats.pushes
-              .name Pushes
-            li.deploys
-              .number= team.stats.deploys
-              .name Deploys
+          .col-lg-4.col-md-4.col-sm-4
+            //- TODO: move this to actions section
+            - if (team.includes(user, session.team) || admin)
+              .edit: a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
+            if coding || team.stats.pushes || team.stats.deploys
+              ul.team-stats( data-team-id=team.id )
+                li.commits
+                  .number= team.stats.commits
+                  .name Commits
+                li.pushes
+                  .number= team.stats.pushes
+                  .name Pushes
+                li.deploys
+                  .number= team.stats.deploys
+                  .name Deploys
 
-        != markdown(team.description, { sanitize: true })
 
-        - if (coding && (admin || team.includes(user)))
-          include steps
 
-        - if (team.entry.name)
-          include entry
 
-        - if (people.length)
-          h2 Members
-          - if (admin)
-            a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
-          ul.people
-            - each person in people
-              li
-                img.avatar( src=avatar_url(person) )
-                a( href='/people/' + person )= person.github.login
-                - if (person.location)
-                  &nbsp;&mdash;&nbsp;#{person.location}
+        .team-content
+          != markdown(team.description, { sanitize: true })
 
-        - if (team.invites.length)
-          h2 Invites (#{team.invites.length} pending)
-          - if (admin)
-            a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email team
-            i  Created #{relativeDate(team.createdAt)}
-          - if (team.includes(user, session.team) || admin)
-            p Check your email for invites or resend invites below.
-            ul.invites
-              - each invite in team.invites
-                li
-                  = invite.email
-                  | &nbsp;&mdash;&nbsp;
-                  a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
-                    | resend
-                  span.sending
+          - if (coding && (admin || team.includes(user)))
+            include steps
 
-        - if (team.entry.colophon)
-          h2 How
-          != markdown(team.entry.colophon)
+          - if (team.entry.name)
+            include entry
 
-        - if (voting || publicVotes && publicVotes.length || votes && votes.length)
-          include votes
+          - if (team.entry.colophon)
+            h2 How
+            != markdown(team.entry.colophon)
+
+          - if (people.length)
+            .content-section
+              h2 Who
+              ul.people
+                - each person in people
+                  li
+                    img.avatar( src=avatar_url(person) )
+                    a( href='/people/' + person )= person.github.login
+                    - if (person.location)
+                      &nbsp;&mdash;&nbsp;#{person.location}
+              - if (admin)
+                a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
+
+          - if (team.invites.length)
+            h2 Invites (#{team.invites.length} pending)
+            - if (team.includes(user, session.team) || admin)
+              p Check your email for invites or resend invites below.
+              ul.invites
+                - each invite in team.invites
+                  li
+                    = invite.email
+                    | &nbsp;&mdash;&nbsp;
+                    a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
+                      | resend
+                    span.sending
+            - if (admin)
+              a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email invites
+              i  Created #{relativeDate(team.createdAt)}
+
+
+          - if (voting || publicVotes && publicVotes.length || votes && votes.length)
+            include votes
 
       .col-lg-4.col-md-4.col-sm-4
         include ../index/_sidebar

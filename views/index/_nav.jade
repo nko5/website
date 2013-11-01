@@ -13,8 +13,9 @@
           - var activeNav = "";
         ul.nav.navbar-nav
 
-          li(class=(activeNav === 'nko2013' ? 'active' : ''))
-            a.nav-item(href="/") NKO 2013
+          unless activeNav === 'home'
+            li
+              a.nav-item(href="/") NKO 2013
 
           if voting
             li(class=(activeNav === 'entries' ? 'active' : ''))
