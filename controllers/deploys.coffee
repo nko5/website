@@ -29,8 +29,8 @@ module.exports = (app) ->
       
       # If on prod
       teamURL = "#{team.slug}.2013.nodeknockout.com"
-      
-      request.get teamURL, (error, response, body) ->
+      teamURI = "http://#{team.slug}.2013.nodeknockout.com"
+      request.get teamURI, (error, response, body) ->
         if error
           console.log "THE ERROR IS:"
           console.log error
