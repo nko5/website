@@ -32,9 +32,9 @@ module.exports = (app) ->
       
       request.get teamURL, (error, response, body) ->
         if error
+          console.log "THE ERROR IS:"
           console.log error
-          console.log teamURL
-          console.log 'the url does not have nothing'
+          console.log 'the URL: #{teamURL} does not have nothing'
           return res.end "#{team.slug}.2013.nodeknockout.com is not ready"
         else  
           # save the deploy in the db
