@@ -23,9 +23,9 @@ block body
           h1= title(team.entry.name || team.name)
           .row
             .col-lg-6.col-md-6.col-sm-6
-              if locations(members).length > 0
+              if locations(people).length > 0
                 h2.location
-                  = locations(members)
+                  = locations(people)
 
             .col-lg-6.col-md-6.col-sm-6
               if coding || team.stats.pushes || team.stats.deploys

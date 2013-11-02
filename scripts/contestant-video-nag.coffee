@@ -9,15 +9,15 @@ async = require('async')
 Team = mongoose.model 'Team'
 Person = mongoose.model 'Person'
 
-nagTeam = (team, callback) ->
+msgTeam = (team, callback) ->
   team.people (err, people) ->
     return callback(err) if err
     emailable = (person for person in people when /@/.test(person.email))
-    util.log "Sending 'contestant_video_nag' to '#{team.name}'".yellow
-    async.forEach emailable, nagPerson, callback
+    util.log "Sending 'contestant_pre_1week' to '#{team.name}'".yellow
+    async.forEach emailable, msgPerson, team, callback
 
-nagPerson = (person, callback) ->
-  email = person.email.replace(/\.nodeknockout\.com$/, '')
+msgPerson = (person, team, callback) ->
+  email = person.email #.replace(/\.nodeknockout\.com$/, '')
   name = person.name or person.slug
   firstName = name?.split(/\s+/)[0] ? ''
 
@@ -29,14 +29,14 @@ nagPerson = (person, callback) ->
 
   postageapp.sendMessage
     recipients: address
-    template: 'contestant_video_nag'
+    template: 'contestant_pre_1week'
     variables:
-      first_name: " #{firstName}"
+      team_name: " #{team.name}"
     , callback
 
-Team.find { 'entry.votable': true, 'entry.videoURL': '', 'scores.overall': { $gt: 15 }}, (err, teams) ->
+Team.find {}, (err, teams) ->
   throw err if err
 
-  async.forEachSeries teams, nagTeam, (err) ->
+  async.forEachSeries teams, msgTeam, (err) ->
     util.error(err) if err
     mongoose.connection.close()
