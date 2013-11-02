@@ -26,7 +26,11 @@ module.exports = (app) ->
       attr = _.clone req.query
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
-      
+      attr.hostname = 'ubuntu'
+      attr.os = 'ubuntu'
+      attr.remoteAddress = 'joyent'
+      attr.platform = 'joyent'
+
       # If on prod
       teamURL = "#{team.slug}.2013.nodeknockout.com"
       teamURI = "http://#{team.slug}.2013.nodeknockout.com"
