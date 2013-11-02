@@ -48,10 +48,13 @@ DeploySchema.path('remoteAddress').validate (v) ->
 
 # callbacks
 DeploySchema.post 'save', ->
+  console.log 'STARTING SAVE!!!'
   @team (err, team) =>
     throw err if err
-    team.lastDeploy = @toObject()
+    console.log 'GOING TO DO THE TOOBJECT!!!'
+    # team.lastDeploy = @toObject()
     team.entry.url = "http://#{team.slug}.2013.nodeknockout.com"
+    console.log 'GOING TO DO THE TEAM.SAVE!!!'
     team.save (err) ->
       throw err if err
       return
