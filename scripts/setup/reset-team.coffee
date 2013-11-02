@@ -38,7 +38,7 @@ module.exports = resetTeam = (team, next) ->
           return next()
         return next(err) if err
         switch res.state
-          when 'running', 'provisioning', 'stopped', 'deleted'
+          when 'running', 'provisioning', 'stopping', 'stopped', 'deleted'
             console.log team.slug, "#{res.state} (#{i * secs}s)"
             setTimeout check, secs * 1000
             i += 1

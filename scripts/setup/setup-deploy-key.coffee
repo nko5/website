@@ -65,4 +65,4 @@ module.exports = setupDeployKey = (options, next) ->
     id_nko4 = path.join(rootDir, 'id_nko4')
     exec "ssh -i #{id_nko4} root@#{team.ip} #{cmd}", cwd: __dirname, next
 
-  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, addDeployKeyToGithub, saveDeployKeypair ], (err) -> next(err)
+  async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, addDeployKeyToGithub, addDeployKeyToRepo, saveDeployKeypair ], (err) -> next(err)
