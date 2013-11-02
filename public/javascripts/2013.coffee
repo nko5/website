@@ -33,7 +33,8 @@ load = ->
   $(':text:first').focus() # focus first input
 
   $(".with-tooltip").each ->
-    $(this).tooltip()
+    $(this).tooltip
+      container: "body"
 
   $(".with-popover").each ->
     $(this).popover

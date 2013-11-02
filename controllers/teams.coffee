@@ -126,10 +126,10 @@ app.get '/register/:reg_code', (req, res, next) ->
                 res.render2 'teams/max'
       else
         req.flash 'info', """
-          Sorry, we were unable to find registration code for #{code}          
+          Sorry, we were unable to find registration code for #{code}
         """
         res.redirect '/'
-    
+
 
 # create
 app.post '/teams', (req, res, next) ->
