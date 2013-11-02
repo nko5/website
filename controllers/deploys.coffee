@@ -32,6 +32,7 @@ module.exports = (app) ->
       
       request.get teamURL, (error, response, body) ->
         if error
+          console.log error
           console.log teamURL
           console.log 'the url does not have nothing'
           return res.end "#{team.slug}.2013.nodeknockout.com is not ready"
