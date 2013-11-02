@@ -41,7 +41,7 @@ Team.find {}, (err, teams) ->
       "bam-green-eggs-and-h": "green-eggs-and-ham"
       "node-group-tbd": "xyzzy"
       "tmp": "walbril"
-      "software-niagara-tea": "software-niagara" 
+      "software-niagara-tea": "software-niagarateam" 
       "swhite": "pimps-love"
       "front-end-developers": "fed-brazil"
       "cold-brew-rocket-fue": "brew-rocket-fuel"
@@ -54,7 +54,7 @@ Team.find {}, (err, teams) ->
       "team-awesome-1": "team-fried-chicken"
       "little-bobby-drop-ta": "bobby-drop-tables"
       "red-hot-pink-daisy-s": "red-hot-pink-daisy"
-      
+
 
 
 
