@@ -54,7 +54,8 @@ DeploySchema.post 'save', ->
     team.entry.url = "http://#{team.slug}.2013.nodeknockout.com"
     team.save (err) ->
       throw err if err
-      team.prettifyURL() unless team.entry.votable
+      return
+      # team.prettifyURL() unless team.entry.votable
       #team.updateScreenshot()  disable screenshot update after coding
 
 Deploy = mongoose.model 'Deploy', DeploySchema
