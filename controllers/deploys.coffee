@@ -27,6 +27,7 @@ module.exports = (app) ->
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
       
+      # If on prod
       teamURL = "#{team.slug}.2013.nodeknockout.com"
       
       request.get teamURL, (error, response, body) ->
