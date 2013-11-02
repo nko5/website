@@ -19,12 +19,44 @@ Team.find {}, (err, teams) ->
     # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
+    if team.setup.status == "ready"
+      return next(null, team) 
+    else
+      team.setup.status = "ready"
+
     changes = 
       "-1": "theteam"
       "3": "heart"
       "-3": "annteens"
       "-4": "tigercat"
       "-2": "hiten" 
+      "apple-pie": "religion"
+      "hello-world": "console-log"
+      "hashtaghashtag": "db2"
+      "david-kamm": "wittier-team-name"
+      "vancouver-gastown": "xuka"  
+      "father-son": "world-hello"
+      "204-no-content": "process-nexttick"
+      "streamsters-union-61": "streamsters-union612"
+      "bam-green-eggs-and-h": "green-eggs-and-ham"
+      "node-group-tbd": "xyzzy"
+      "tmp": "walbril"
+      "software-niagara-tea": "software-niagara" 
+      "swhite": "pimps-love"
+      "front-end-developers": "fed-brazil"
+      "cold-brew-rocket-fue": "brew-rocket-fuel"
+      "edlington": "rikoru"
+      "web-scale-or-web-fai": "web-scale-or-webfail"
+      "rock-em-sock-em-node": "rock-em-sock"
+      "dominican-node-assoc": "dominican-assoc"
+      "the-idea-hacker": "the-unbeatables"
+      "not-just-another-tea": "not-another-team"
+      "team-awesome-1": "team-fried-chicken"
+      "little-bobby-drop-ta": "bobby-drop-tables"
+      "red-hot-pink-daisy-s": "red-hot-pink-daisy"
+      
+
+
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
