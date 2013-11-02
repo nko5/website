@@ -42,7 +42,6 @@ if (env.development) {
       access_token_secret: process.env.TWITTER_USER_ACCESS_TOKEN_SECRET
     },
     smartdc: {
-      url: process.env.SDC_URL,
       user: process.env.SDC_ACCOUNT,
       key: process.env.SDC_KEY_PATH
     },

@@ -6,11 +6,16 @@ linode = require('../../config/linode')
 module.exports = setupDNS = (options, next) ->
   team = options.team
 
-  # linode.call 'domain.list', (err, res) -> console.log(res)
+  if team.linode?.ResourceID
+    console.log team.slug, 'dns already setup'
+    return next()
 
   console.log team.slug, 'creating dns entry'
-  linode 'resource.create'
+  linode 'resource.create',
     type: "A"
     name: "#{team}.2013.nodeknockout.com"
     target: team.ip
-  , next
+  , (err, res) ->
+    return next(err) if err?
+    team.linode = res
+    team.save (err) -> next(err)

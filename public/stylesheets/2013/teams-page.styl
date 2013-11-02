@@ -1,7 +1,7 @@
 @import "2013/_common"
 
 .teams-page
-  .header-section
+  .header-box
     padding-top: 5px
     h1
       font-size: 20px
@@ -49,13 +49,16 @@
           font-size: 15px
       .team-actions
         text-align: right
+        @media screen and (max-width: 767px)
+          text-align: left
+          margin-top: 10px
       ul.members
         margin 0
         padding: 0
         margin-top: 10px
         li
           display inline-block
-          margin-right 0px
+          margin-right 2px
         li.invites
           color hsla(0, 0%, 0%, 0.6)
           font-size x-small

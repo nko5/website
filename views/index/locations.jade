@@ -8,7 +8,7 @@ block body
 
   .inner-page.container
     .row
-      .col-lg-8.col-sm-8.col-md-8.col-xs-8
+      .col-lg-8.col-sm-8.col-md-8
         .locations
           :markdown
             Locations
@@ -52,7 +52,7 @@ block body
             know].**
 
             [Joyent]: http://www.joyent.com/
-            [Send us a pull request]: https://github.com/nko3/website/blob/master/views/index/locations.jade
+            [Send us a pull request]: https://github.com/nko4/website/blob/master/views/index/locations.jade
             [let us know]: mailto:all@nodeknockout.com
 
           ul.locations
@@ -99,17 +99,18 @@ block body
                 [2]: http://nodeknockout.nodejs.tw/
                 [@NodejsTaiwan]: http://twitter.com/NodejsTaiwan
 
-            // li
+            li
               h4#tokyo Tokyo, Japan
-              != address('東京都中央区日本橋浜町２丁目３１−１', 'maps.google.co.jp')
+              != address('東京都中央区銀座4-12-15', 'maps.google.co.jp')
               :markdown
                 ### [Node.js日本ユーザグループ] and [ドワンゴ]
-                ##### 東京都中央区日本橋浜町2-31-1 浜町センタービル10F
+                ##### 東京都中央区銀座4-12-15 歌舞伎座タワー12F
 
-                Everybody welcome during whole knockout with free drinks. Contact [@meso].
+                Register at [Connpass] or contact [@meso].
 
                 [Node.js日本ユーザグループ]: http://nodejs.jp/
                 [ドワンゴ]: http://info.dwango.co.jp/
+                [Connpass]: http://connpass.com/event/3962
                 [@meso]: http://twitter.com/meso
 
             // li
@@ -126,22 +127,25 @@ block body
                 [Node.js Weekend]: http://nodejsweekend.end3r.com/
                 [@end33r]: http://twitter.com/end33r
 
-            // li
+            li
               h4#reno Reno, Nevada
-              != address('522 Lander Street, Reno, NV, 89509')
+              != address('100 N Arlington Ave, Reno, NV, 89501')
               :markdown
                 ### [nodeko @ Reno Collective]
-                ##### 522 Lander Street, Reno, NV, 89509
+                ##### 100 N Arlington Ave, Reno, NV, 89501
 
-                [Reno Collective] is open for node.js ko. We've got a couple of teams
-                camping throughout the weekend. Come on by and play even if you're
-                not in the knockout. Did I mention we have a shower?
-
-                Contact [@elskwid] for info and to help coordinate supplies.
+                [Reno Collective] has brand new digs and will be open for the 
+                majority of NKO 2013 (hours coming soon). 
+                
+                Please let us know if your're planning on attending so we can come 
+                up with the best schedule. Contact [@elskwid] or [@rencollective] 
+                on Twitter or send an email (GASP!) to
+                _don at renocollective dot com_ for info and to help coordinate.
 
                 [nodeko @ Reno Collective]: http://renocollective.com
                 [Reno Collective]: http://renocollective.com
                 [@elskwid]: http://twitter.com/elskwid
+                [@renocollective]: http://twitter.com/renocollective
 
             // li
               h4#nyc New York
@@ -159,5 +163,5 @@ block body
                 [1]: http://nko.nodejitsu.com/
                 [@saadiq]: https://twitter.com/saadiq
 
-      .col-lg-4.col-sm-4.col-md-4.col-xs-4
+      .col-lg-4.col-sm-4.col-md-4
         include ../index/_sidebar

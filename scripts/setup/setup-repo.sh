@@ -4,6 +4,7 @@ set -eu
 slug=$1
 code=$2
 name=$3
+ip=$4
 
 mkdir -p repos/${slug}
 cp ./deploy repos/${slug}/
@@ -18,13 +19,21 @@ cat <<EOF >README.md
 # getting the code
 git clone git@github.com:nko4/${slug}.git && cd ./${slug}/
 
-# deploying the code
-./deploy
+# developing
+npm install
+npm start
 
-# ssh access to your server
-ssh deploy@${slug}.2013.nodeknockout.com
-ssh root@${slug}.2013.nodeknockout.com
+# deploying (to http://${slug}.2013.nodeknockout.com/)
+./deploy nko
+
+# ssh access
+ssh deploy@${ip}
+ssh root@${ip}
 ~~~
+
+Read more about this setup [on our blog][deploying-nko].
+
+[deploying-nko]: http://blog.nodeknockout.com/#TODO
 
 ## Tips
 
@@ -32,20 +41,20 @@ ssh root@${slug}.2013.nodeknockout.com
 
 We've already set up a basic node server for you. Details:
 
-* Ubuntu 12.10 (Precise) - 64-bit
+* Ubuntu 12.04 (Precise) - 64-bit
 * server.js is at: \`/home/deploy/current/server.js\`
-* logs are at: \`/home/deploy/shared/logs/server.log\`
+* logs are at: \`/home/deploy/shared/logs/server/current\`
 * \`runit\` keeps the server running.
   * \`sv restart serverjs\` - restarts
   * \`sv start serverjs\` - starts
   * \`sv stop serverjs\` - stops
-  * \`runsvdir -P /etc/service log\` - to see logs
+  * \`ps -ef | grep runsvdir\` - to see logs
   * \`cat /etc/service/serverjs/run\` - to see the config
 
 You can use the \`./deploy\` script included in this repo to deploy to your
 server right now. Advanced users, feel free to tweak.
 
-[Find out more](http://blog.nodeknockout.com/deploying-to-joyent)
+Read more about this setup [on our blog][deploying-nko].
 
 ### Vote KO Widget
 
@@ -104,7 +113,7 @@ cat <<EOF >package.json
     "url": "git@github.com:nko4/${slug}.git"
   },
   "dependencies": {
-    "nko": "*",
+    "nko": "*"
   },
   "engines": {
     "node": "0.10.x"
@@ -133,17 +142,19 @@ EOF
 
 cat <<EOF >deploy.conf
 # https://github.com/visionmedia/deploy
-[production]
+[nko]
+key ./id_deploy
+forward-agent yes
 user deploy
-host ${slug}.2013.nodeknockout.com
+host $ip
 repo git@github.com:nko4/${slug}.git
 ref origin/master
 path /home/deploy
-post-deploy npm install && sudo sv restart serverjs
+post-deploy npm install && sv restart serverjs
 test sleep 5 && wget -qO /dev/null localhost
 EOF
 
 git add .
 git commit -m Instructions
 git remote add origin git@github.com:nko4/${slug}.git
-git push origin master
+git push -u origin master

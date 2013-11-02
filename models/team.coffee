@@ -18,8 +18,9 @@ TeamSchema = module.exports = new mongoose.Schema
     unique: true
   description: String
   github: Object
+  joyent: {}
+  linode: {}
   regCode: String
-  machine: {}
   ip: String
   deployKey:
     public: String
@@ -48,7 +49,6 @@ TeamSchema = module.exports = new mongoose.Schema
   code:
     type: String
     default: -> crypto.randomBytes(12).toString('base64').replace(/\+/g, '-').replace(/\//g, '_')
-  linode: {}
   search: String
   scores:
     random: Number
@@ -85,6 +85,9 @@ TeamSchema = module.exports = new mongoose.Schema
       type: Number
       default: 0
   judgeVisitedAt: Date
+  setup:
+    status: String
+    log: String
 TeamSchema.plugin require('../lib/use-timestamps')
 TeamSchema.index updatedAt: -1
 TeamSchema.index 'entry.url': 1

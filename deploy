@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-VERSION="0.3.2"
+#
+# deploy(1) - Minimalistic shell script to deploy Git repositories.
+# Released under the MIT License.
+#
+# https://github.com/visionmedia/deploy
+#
+
+VERSION="0.6.0"
 CONFIG=./deploy.conf
 LOG=/tmp/deploy.log
 TEST=1
 REF=
-ENV=production
+ENV=
 
 #
 # Output usage information.
@@ -33,6 +40,7 @@ usage() {
     curr[ent]            output current release commit
     prev[ious]           output previous release commit
     exec|run <cmd>       execute the given <cmd>
+    console              open an ssh session to the host
     list                 list previous deploy commits
     [ref]                deploy to [ref], the 'ref' setting, or latest tag
 
@@ -97,19 +105,40 @@ version() {
 }
 
 #
+# Return the ssh command to run.
+#
+
+ssh_command() {
+  local url="`config_get user`@`config_get host`"
+  local key="`config_get key`"
+  local forward_agent="`config_get forward-agent`"
+  local port="`config_get port`"
+
+  test -n "$forward_agent" && local agent="-A"
+  test -n "$key" && local identity="-i $key"
+  test -n "$port" && local port="-p $port"
+  echo "ssh $agent $port $identity $url"
+}
+
+#
 # Run the given remote <cmd>.
 #
 
 run() {
-  local url="`config_get user`@`config_get host`"
-  local key=`config_get key`
-  if test -n "$key"; then
-    local shell="ssh -A -i $key $url"
-  else
-    local shell="ssh -A $url"
-  fi
+  local shell="`ssh_command`"
   echo $shell "\"$@\"" >> $LOG
   $shell $@
+}
+
+#
+# Launch an interactive ssh console session.
+#
+
+console() {
+  local path="`config_get path`/current"
+  local shell="`ssh_command`"
+  echo $shell
+  exec $shell -t "cd $path; \$SHELL --login"
 }
 
 #
@@ -158,6 +187,8 @@ setup() {
   log cloning $repo
   run "git clone $repo $path/source"
   test $? -eq 0 || abort failed to clone
+  run "ln -sfn $path/source $path/current"
+  test $? -eq 0 || abort symlink failed
   log setup complete
 }
 
@@ -279,6 +310,16 @@ require_env() {
 }
 
 #
+# Ensure all changes are committed and pushed before deploying.
+#
+
+check_for_local_changes() {
+  git --no-pager diff --exit-code --quiet          || abort "commit or stash your changes before deploying"
+  git --no-pager diff --exit-code --quiet --cached || abort "commit your staged changes before deploying"
+  [ -z "`git rev-list @{upstream}.. -n 1`" ]       || abort "push your changes before deploying"
+}
+
+#
 # Update deploy.
 #
 
@@ -304,7 +345,8 @@ while test $# -ne 0; do
     -c|--config) set_config_path $1; shift ;;
     -C|--chdir) log cd $1; cd $1; shift ;;
     -T|--no-tests) TEST=0 ;;
-    run|exec) require_env; run "cd `config_get path` && $@"; exit ;;
+    run|exec) require_env; run "cd `config_get path`/current && $@"; exit ;;
+    console) require_env; console; exit ;;
     curr|current) require_env; current_commit; exit ;;
     prev|previous) require_env; nth_deploy_commit 2; exit ;;
     revert) require_env; revert_to ${1-1}; exit ;;
@@ -323,6 +365,7 @@ while test $# -ne 0; do
 done
 
 require_env
+check_for_local_changes
 
 # deploy
 deploy "${REF:-`config_get ref`}"
