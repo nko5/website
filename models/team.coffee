@@ -85,6 +85,9 @@ TeamSchema = module.exports = new mongoose.Schema
       type: Number
       default: 0
   judgeVisitedAt: Date
+  setup:
+    status: String
+    log: String
 TeamSchema.plugin require('../lib/use-timestamps')
 TeamSchema.index updatedAt: -1
 TeamSchema.index 'entry.url': 1
