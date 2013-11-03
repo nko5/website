@@ -22,7 +22,6 @@ module.exports = (app) ->
       return res.send(404) unless team
 
       console.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
-      console.log req
       attr = _.clone req.query
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
@@ -36,11 +35,11 @@ module.exports = (app) ->
       teamURI = "http://#{team.slug}.2013.nodeknockout.com"
       request.get teamURI, (errorRequest, response, body) ->
         if errorRequest
-          console.log "THE ERROR IS:"
-          console.log errorRequest
           console.log 'the URL: #{teamURL} does not have nothing'
           return res.end "#{team.slug}.2013.nodeknockout.com is not ready"
         else  
+          console.log 'RESPONSE-RESPONSE-RESPONSE-RESPONSE'
+          console.log response
           # save the deploy in the db
           deploy = new Deploy attr
           
