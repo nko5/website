@@ -47,8 +47,8 @@ __Important: Not seeing your deploy count rise? Here's what to check:__
 * We ensure that your server responds to a HTTP GET request on port 80 before
   recording the deploy.
 * We ensure that the remote IP address from the ping matches the Joyent
-  instance we setup for your team. Starting up your development machine with
-  `NODE_ENV=production` will not affect your deploy count.
+  instance we setup for your team. (So starting up your development machine
+  with `NODE_ENV=production` will not affect your deploy count.)
 
 Problems?
 =========
