@@ -26,6 +26,7 @@ module.exports = (app) ->
       # attr.teamId = team.id
       console.log "TEAM"
       console.log team
+      console.log "--"
       attr.teamId = team._id
       attr.remoteAddress = req.socket.remoteAddress
       attr.hostname = 'ubuntu'
