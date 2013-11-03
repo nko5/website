@@ -35,15 +35,14 @@ module.exports = (app) ->
       deploy = new Deploy attr
       
       deploy.save (err, deploy) ->
-        if err 
-          return error(err)
+        return error(err) if err
 
         # increment overall/team deploy count
         $inc = deploys: 1
         app.stats.increment $inc
         team.incrementStats $inc, (err, team) ->
-          
           return error(err) if err
+
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
-          return res.send JSON.stringify deploy
+          res.send JSON.stringify(deploy)

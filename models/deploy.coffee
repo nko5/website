@@ -30,8 +30,7 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 DeploySchema.path('remoteAddress').validate (v, next) ->
   if inNetwork v, '127.0.0.1/24'
     v = "#{v}:8000" 
-  v = "http://#{v}"
-  request.get v, (err, response, body) ->
+  request.get "http://#{v}", (err, response, body) ->
     next(response?.statusCode is 200)
 , 'not responding to web requests correctly'
 
@@ -45,8 +44,10 @@ DeploySchema.post 'save', ->
     team.entry.url = @urlForTeam team unless team.entry.votable
     team.save (err) ->
       throw err if err
-      team.prettifyURL() unless team.entry.votable
-      return
+
+      unless team.entry.votable
+        team.prettifyURL()
+        team.updateScreenshot()
    
 Deploy = mongoose.model 'Deploy', DeploySchema
 
