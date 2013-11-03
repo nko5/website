@@ -17,8 +17,8 @@ you're lazy, or not interested in devops, all you need to do is:
     # deploy it to http://<team>.2013.nodeknockout.com/
     ./deploy nko
 
-The rest of this post will explain how we configured the Ubuntu instances for
-node production deployment.
+The rest of this post will explain how we set this up, in case people run into
+issues, or advanced contestants would like to make changes.
 
 <h2 id="configuring-ubuntu">Configuring Ubuntu</h2>
 
