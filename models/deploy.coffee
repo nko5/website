@@ -29,8 +29,8 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
   @team (err, team) ->
     console.log "TEAM IP IS: #{team.ip}"
     next(false) if err
-    # next(team.ip is v)
-    next(true)
+    next(team.ip is v)
+    # next(true)
 , 'not recognized'
 
 DeploySchema.path('remoteAddress').validate (v, next) ->
