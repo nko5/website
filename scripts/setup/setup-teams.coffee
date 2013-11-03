@@ -70,4 +70,7 @@ last = (err) ->
   else
     mongoose.connection.close()
 
-async.doWhilst processTeam, hasTeam, last
+async.doWhilst processTeam, hasTeam, (err) ->
+  return last(err) if err
+  console.log 'no more teams to setup'
+  last()
