@@ -28,7 +28,7 @@ loadTeam = (next) ->
 setupTeam = (next) ->
   return next() unless team
   console.log team.slug, 'setting up team...'
-  team.setup.log = ''
+  team.setup.log ?= ''
 
   setupData = (data) ->
     process.stdout.write data
@@ -56,10 +56,7 @@ setupTeam = (next) ->
 
 # atomically select a team that is not being setup
 selectTeam = (next) ->
-  query = {
-    'setup.status': null,
-    slug: { $in: ['organizers'] }
-  }
+  query = { 'setup.status': 'ready' }
   sort = []
   update = { $set: { 'setup.status': 'processing' }}
   options = {}
