@@ -19,7 +19,7 @@ module.exports = resetTeam = (team, next) ->
     return next() unless team.ip
     console.log team.slug, 'removing ip from known hosts'
     pattern = team.ip.replace(/\./g, '\\.')
-    exec "sed -i '' '/#{pattern}/d' ~/.ssh/known_hosts", (err) -> next(err)
+    exec "sed -i.bak '/#{pattern}/d' ~/.ssh/known_hosts", (err) -> next(err)
 
   removeJoyent = (next) ->
     return next() unless team.joyent?.id
