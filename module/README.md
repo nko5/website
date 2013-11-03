@@ -32,16 +32,23 @@ others unless you want them hijacking your deploys.
 If for whatever reason, you want to know when we've recorded the deploy, you
 can pass an optional callback as the second parameter:
 
-    require('nko')('correct horse battery staple', function(err, res) {
-      if (err) throw err
+    require('nko')('<your-team-secret>', function(err, res) {
+      if (err) throw err;
       res.on('data', function(d) { console.log(d.toString()); });
     });
 
-__Important: The module will only ping us if the `NODE_ENV` environment
-variable is set to `production`.__ If you're not seeing your deploy get
-recorded, make sure that's set correctly. Also, if you happen to have
-`NODE_ENV` set to `production` on your development machine, no worries: we'll
-be making sure the source IP address looks right before recording a deploy.
+__Important: Not seeing your deploy count rise? Here's what to check:__
+
+* The module will only ping us if the `NODE_ENV` environment
+  variable is set to `production`.
+* We wait until your server has been __running for 5 seconds__ before sending
+  the deploy ping, so your server crashes before that, your deploy will not
+  get recorded.
+* We ensure that your server responds to a HTTP GET request on port 80 before
+  recording the deploy.
+* We ensure that the remote IP address from the ping matches the Joyent
+  instance we setup for your team. (So starting up your development machine
+  with `NODE_ENV=production` will not affect your deploy count.)
 
 Problems?
 =========
