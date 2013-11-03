@@ -1,5 +1,6 @@
 mongoose = require 'mongoose'
 ObjectId = mongoose.Schema.ObjectId
+request = require 'request'
 
 DeploySchema = module.exports = new mongoose.Schema
   teamId:
@@ -18,16 +19,30 @@ DeploySchema.method 'team', (callback) ->
   Team.findById @teamId, callback
 
 
+      
+
 # validations
 DeploySchema.path('remoteAddress').validate (v, next) ->
+  @platform =
+    if inNetwork v, '127.0.0.1/24'
+      'localdomain'
+  if @platform is 'localdomain'
+    return next(true)
+
   @team (err, team) ->
     next(false) if err
     next(team.ip is v)
 , 'not recognized'
 
 DeploySchema.path('remoteAddress').validate (v, next) ->
-  request.get v, (error, response, body) ->
-  next(response?.statusCode is 200)
+  @platform =
+    if inNetwork v, '127.0.0.1/24'
+      'localdomain'
+  if @platform is 'localdomain'
+    v = "#{v}:8000" 
+  v = "http://#{v}"
+  request.get v, (err, response, body) ->
+    next(response?.statusCode is 200)
 , 'not responding to web requests correctly'
 
 # DeploySchema.path('remoteAddress').validate (v) ->

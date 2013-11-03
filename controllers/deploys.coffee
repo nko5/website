@@ -1,7 +1,7 @@
 _ = require 'underscore'
 m = require './middleware'
 # util = require 'util'
-request = require 'request'
+
 
 module.exports = (app) ->
   Team = app.db.model 'Team'

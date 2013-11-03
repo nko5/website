@@ -10,7 +10,7 @@
   "author": "NKO Team <all@nodeknockout.com>",
   "main": "./server.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon --debug ./server.js"
+    "start": "./node_modules/.bin/nodemon ./server.js"
   },
   "directories": {
     "lib": "."
