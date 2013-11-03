@@ -23,7 +23,6 @@ module.exports = (app) ->
 
       console.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
       attr = _.clone req.query
-      # attr.teamId = team.id
       attr.teamId = team._id
       attr.remoteAddress = req.socket.remoteAddress
       attr.hostname = 'ubuntu'
@@ -35,7 +34,6 @@ module.exports = (app) ->
       
       deploy.save (err, deploy) ->
         if err 
-          console.log 'I want to see the error here'
           return error(err)
         # return error(err) if err
 
@@ -47,7 +45,6 @@ module.exports = (app) ->
           return error(err) if err
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
-          console.log "All good, deploy count stored"
           return res.send JSON.stringify deploy
 
 

@@ -27,7 +27,6 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
     return next(true)
 
   @team (err, team) ->
-    console.log "TEAM IP IS: #{team.ip}"
     next(false) if err
     next(team.ip is v)
     # next(true)
@@ -76,7 +75,6 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 DeploySchema.post 'save', ->
   @team (err, team) =>
     throw err if err
-    # team.lastDeploy = @toObject()
     team.entry.url = "http://#{team.slug}.2013.nodeknockout.com"
     team.save (err) ->
       throw err if err
