@@ -19,7 +19,7 @@ block body
       them some love.
 
     ul.sponsors
-      - _.shuffle(sponsors).forEach(function(sponsor) {
+      - _.shuffle(platinumSponsors).forEach(function(sponsor) {
         li
           a( href=sponsor.url )
             img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )

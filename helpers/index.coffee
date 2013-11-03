@@ -2,6 +2,7 @@ _ = require 'underscore'
 qs = require 'querystring'
 md = require 'marked'
 mongoose = require 'mongoose'
+allSponsors = require '../models/sponsor'
 
 module.exports = (app) ->
 
@@ -28,7 +29,9 @@ module.exports = (app) ->
       else
         person.imageURL
 
-    sponsors: require '../models/sponsor'
+    sponsors: allSponsors
+
+    platinumSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('platinum') >= 0
 
     locations: (people) ->
       _(people).chain()
