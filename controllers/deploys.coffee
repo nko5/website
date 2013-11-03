@@ -23,7 +23,8 @@ module.exports = (app) ->
 
       console.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
       attr = _.clone req.query
-      attr.teamId = team.id
+      # attr.teamId = team.id
+      attr.teamId = team._id
       attr.remoteAddress = req.socket.remoteAddress
       attr.hostname = 'ubuntu'
       attr.os = req.query.os
