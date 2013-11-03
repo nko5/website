@@ -18,9 +18,6 @@ DeploySchema.method 'team', (callback) ->
   Team = mongoose.model 'Team'
   Team.findById @teamId, callback
 
-
-      
-
 # validations
 DeploySchema.path('remoteAddress').validate (v, next) ->
   @platform =
@@ -30,9 +27,9 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
     return next(true)
 
   @team (err, team) ->
-    console "TEAM IP IS: #{team.ip}"
+    console.log "TEAM IP IS: #{team.ip}"
     next(false) if err
-    console "TEAM IP IS: #{team.ip}"
+    console.log "TEAM IP IS: #{team.ip}"
     next(team.ip is v)
 , 'not recognized'
 
