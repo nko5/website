@@ -1,8 +1,6 @@
 # do everything needed to set up a single team
 
 async = require('async')
-mongoose = require('../../models')(require('../../config/env').mongo_url)
-Team = mongoose.model 'Team'
 
 setupTeam = (team, next) ->
   # skip empty teams
@@ -24,20 +22,13 @@ if require.main is module
     console.log "Usage: coffee setup-team.coffee <team-slug>"
     process.exit(1)
 
+  mongoose = require('../../models')(require('../../config/env').mongo_url)
+  Team = mongoose.model 'Team'
+
   loadTeam = (next) ->
     Team.findOne { slug: slug }, (err, team) ->
       return next(err) if err?
       return next("#{slug} not found") unless team?
-      next(null, team)
-
-  resetTeam = (team, next) ->
-    # setting RESET=team-slug will DELETE the team's setup
-    return next(null, team) unless process.env.RESET is slug
-    console.log team.slug, "resetting team..."
-
-    require('./reset-team') team, (err) ->
-      return next(err) if err?
-      console.log team.slug, "team reset!"
       next(null, team)
 
   last = (err) ->
@@ -47,4 +38,4 @@ if require.main is module
     else
       mongoose.connection.close()
 
-  async.waterfall [loadTeam, resetTeam, setupTeam], last
+  async.waterfall [loadTeam, setupTeam], last

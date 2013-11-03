@@ -92,3 +92,27 @@ module.exports = resetTeam = (team, next) ->
     exec "rm -rf ./#{team.slug}", cwd: reposDir, (err) -> next(err)
 
   async.waterfall [removeJoyent, waitUntilJoyentRemoved, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo], (err) -> next(err)
+
+if require.main is module
+  slug = process.argv[2]
+  unless slug
+    console.log "Usage: coffee reset-team.coffee <team-slug>"
+    process.exit(1)
+
+  mongoose = require('../../models')(require('../../config/env').mongo_url)
+  Team = mongoose.model 'Team'
+
+  loadTeam = (next) ->
+    Team.findOne { slug: slug }, (err, team) ->
+      return next(err) if err?
+      return next("#{slug} not found") unless team?
+      next(null, team)
+
+  last = (err) ->
+    if err
+      console.log(err)
+      process.exit(1)
+    else
+      mongoose.connection.close()
+
+  async.waterfall [loadTeam, resetTeam], last
