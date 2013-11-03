@@ -31,9 +31,8 @@ setupTeam = (next) ->
   team.setup.log = ''
 
   setupData = (data) ->
-    str = data.toString()
-    console.log(str)
-    team.setup.log += str
+    process.stdout.write data
+    team.setup.log += data.toString()
     team.save -> # nothing
 
   setupError = (err) ->

@@ -88,6 +88,19 @@ TeamSchema = module.exports = new mongoose.Schema
   setup:
     status: String
     log: String
+    done:
+      'deploy-key': Boolean
+      'deploy': Boolean
+      'dns': Boolean
+      'github-members': Boolean
+      'github': Boolean
+      'joyent': Boolean
+      'repo': Boolean
+      'ssh-keys': Boolean
+      'team': Boolean
+      'teams': Boolean
+      'ubuntu': Boolean
+
 TeamSchema.plugin require('../lib/use-timestamps')
 TeamSchema.index updatedAt: -1
 TeamSchema.index 'entry.url': 1
