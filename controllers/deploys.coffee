@@ -26,9 +26,9 @@ module.exports = (app) ->
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
       attr.hostname = 'ubuntu'
-      attr.os = 'ubuntu'
+      attr.os = req.query.os
       attr.remoteAddress = 'http://#{team.slug}.2013.nodeknockout.com'
-      attr.platform = 'joyent'
+      attr.platform = req.query.release
 
       # If on prod
       teamURL = "#{team.slug}.2013.nodeknockout.com"
@@ -38,8 +38,6 @@ module.exports = (app) ->
           console.log 'the URL: #{teamURL} does not have nothing'
           return res.end "#{team.slug}.2013.nodeknockout.com is not ready"
         else  
-          console.log 'RESPONSE-RESPONSE-RESPONSE-RESPONSE'
-          console.log response
           # save the deploy in the db
           deploy = new Deploy attr
           
