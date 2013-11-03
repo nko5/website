@@ -4,6 +4,9 @@ github = require('../../config/github')
 spawn = require('child_process').spawn
 async = require 'async'
 isArray = require('util').isArray
+path = require('path')
+
+rootDir = path.join(__dirname, '..', '..')
 
 module.exports = setupSSHKeys = (options, next) ->
   team = options.team
@@ -46,22 +49,38 @@ module.exports = setupSSHKeys = (options, next) ->
     return next("#{team} has no ssh keys") unless keyString
     next(null, keyString)
 
-  addAuthorizedKeys = (authorizedKeys, next) ->
+  addAuthorizedKeysToRoot = (authorizedKeys, next) ->
     console.log team.slug, 'appending to authorized keys file'
 
-    login = "root@#{team.ip}"
-    cmd = "cat /dev/stdin >> ~/.ssh/authorized_keys"
-
-    ssh = spawn "ssh", [
-      '-o', 'StrictHostKeyChecking=no',
-      '-i', './id_nko4',
-      login, cmd]
-    ssh.stdout.on 'data', (s) -> console.log s.toString()
-    ssh.stderr.on 'data', (s) -> console.log s.toString()
-    ssh.on 'error', next
-    ssh.on 'exit', next
+    ssh = spawnssh "cat /dev/stdin >> ~/.ssh/authorized_keys",
+      stdio: [null, process.stdout, process.stderr],
+      next
 
     ssh.stdin.write(authorizedKeys)
     ssh.stdin.end()
 
-  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeys], (err) -> next(err)
+  copyAuthorizedKeysToDeploy = (next) ->
+    console.log team.slug, 'copying authorized keys to deploy user'
+    cmd = """
+      cp ~/.ssh/authorized_keys /home/deploy/.ssh/authorized_keys
+      chown deploy /home/deploy/.ssh/authorized_keys
+    """.split("\n").join(' && ')
+    spawnssh cmd, next
+
+  spawnssh = (cmd, opts, next)->
+    unless next
+      next = opts
+      opts = {}
+
+    opts.stdio ?= 'inherit'
+
+    id_nko4 = path.join(rootDir, 'id_nko4')
+    login = "root@#{team.ip}"
+
+    ssh = spawn "ssh", ['-i', id_nko4, login, cmd], opts
+    ssh.on 'error', (err) -> next(err)
+    ssh.on 'exit', (err) -> next(err)
+    ssh
+
+
+  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeysToRoot, copyAuthorizedKeysToDeploy], (err) -> next(err)

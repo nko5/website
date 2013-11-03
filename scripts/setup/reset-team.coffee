@@ -12,8 +12,17 @@ reposDir = path.join(__dirname, '..', '..', 'repos')
 
 module.exports = resetTeam = (team, next) ->
 
+  team.setup ?= {}
+  team.setup.done ?= {}
+
+  removeKnownHost = (next) ->
+    return next() unless team.ip
+    console.log team.slug, 'removing ip from known hosts'
+    pattern = team.ip.replace(/\./g, '\\.')
+    exec "sed -i '' '/#{pattern}/d' ~/.ssh/known_hosts", (err) -> next(err)
+
   removeJoyent = (next) ->
-    return next(null, null) unless team.joyent?.id
+    return next() unless team.joyent?.id
     console.log team.slug, 'deleting joyent instance...'
 
     joyent.deleteMachine team.joyent.id, (err, res) ->
@@ -21,7 +30,13 @@ module.exports = resetTeam = (team, next) ->
 
       team.ip = null
       machine = team.joyent
+
       team.joyent = {}
+      team.setup.done['joyent'] = false
+      team.setup.done['ssh-keys'] = false
+      team.setup.done['ubuntu'] = false
+      team.setup.done['deploy'] = false
+
       team.save (err) -> next(err, machine)
 
   waitUntilJoyentRemoved = (machine, next) ->
@@ -39,7 +54,7 @@ module.exports = resetTeam = (team, next) ->
         return next(err) if err
         switch res.state
           when 'running', 'provisioning', 'stopping', 'stopped', 'deleted'
-            console.log team.slug, "#{res.state} (#{i * secs}s)"
+            console.log team.slug, "#{res.state} (#{i * secs}s)..."
             setTimeout check, secs * 1000
             i += 1
           else
@@ -54,7 +69,10 @@ module.exports = resetTeam = (team, next) ->
     , (err, res) ->
       return next(err) if err?
       console.log team.slug, 'dns entry removed!'
+
       team.linode = {}
+      team.setup.done['dns'] = false
+
       team.save (err) -> next(err)
 
   removeGithubRepo = (next) ->
@@ -80,18 +98,31 @@ module.exports = resetTeam = (team, next) ->
       console.log team.slug, 'github team deleted!'
 
       team.github = {}
+      team.setup.done['github'] = false
+      team.setup.done['github-members'] = false
+      team.setup.done['repo'] = false
+
       team.save (err) -> next(err)
 
   removeDeployKeys = (next) ->
     if team.deployKey?.public
       team.deployKey.public = null
       team.deployKey.private = null
+
+    team.setup.done['deploy-key'] = false
+
     team.save (err) -> next(err)
 
   removeRepo = (next) ->
     exec "rm -rf ./#{team.slug}", cwd: reposDir, (err) -> next(err)
 
-  async.waterfall [removeJoyent, waitUntilJoyentRemoved, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo], (err) -> next(err)
+  removeSetup = (next) ->
+    team.setup.status = null
+    team.setup.log = null
+    team.setup.done = null
+    team.save (err) -> next(err)
+
+  async.waterfall [removeKnownHost, removeJoyent, waitUntilJoyentRemoved, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo, removeSetup], (err) -> next(err)
 
 if require.main is module
   slug = process.argv[2]
