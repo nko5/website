@@ -34,10 +34,10 @@ module.exports = (app) ->
       # If on prod
       teamURL = "#{team.slug}.2013.nodeknockout.com"
       teamURI = "http://#{team.slug}.2013.nodeknockout.com"
-      request.get teamURI, (error, response, body) ->
-        if error
+      request.get teamURI, (errorRequest, response, body) ->
+        if errorRequest
           console.log "THE ERROR IS:"
-          console.log error
+          console.log errorRequest
           console.log 'the URL: #{teamURL} does not have nothing'
           return res.end "#{team.slug}.2013.nodeknockout.com is not ready"
         else  
