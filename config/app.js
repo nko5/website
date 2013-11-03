@@ -21,7 +21,7 @@ app.paths = {
 };
 
 // uncaught error handling
-// ratchetio.handleUncaughtExceptions(secrets.rollbar);
+ratchetio.handleUncaughtExceptions(secrets.rollbar);
 
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
