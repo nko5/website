@@ -1,7 +1,5 @@
 _ = require 'underscore'
 m = require './middleware'
-# util = require 'util'
-
 
 module.exports = (app) ->
   Team = app.db.model 'Team'
@@ -15,6 +13,11 @@ module.exports = (app) ->
       console.error err.toString().red
       res.end JSON.stringify(err)
 
+    try
+      req.session.destroy()
+    catch err
+      return error(err)
+
     teamcode = req.query.teamcode
 
     Team.findByCode teamcode, (err, team) ->
@@ -25,7 +28,6 @@ module.exports = (app) ->
       attr = _.clone req.query
       attr.teamId = team._id
       attr.remoteAddress = req.socket.remoteAddress
-      attr.hostname = 'ubuntu'
       attr.os = req.query.os
       attr.platform = req.query.release
 
@@ -35,7 +37,6 @@ module.exports = (app) ->
       deploy.save (err, deploy) ->
         if err 
           return error(err)
-        # return error(err) if err
 
         # increment overall/team deploy count
         $inc = deploys: 1
@@ -46,7 +47,3 @@ module.exports = (app) ->
           app.events.emit 'updateTeamStats', team
           app.events.emit 'deploy', deploy, team
           return res.send JSON.stringify deploy
-
-
-          
-      

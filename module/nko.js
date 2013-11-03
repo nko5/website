@@ -8,7 +8,6 @@ module.exports = function ping(code, callback) {
   if (typeof code !== 'string')
     throw Error('Go to http://nodeknockout.com/teams/mine to get your code.');
 
-
   var params = {
     os: os.type(),
     release: os.release(),
@@ -20,19 +19,10 @@ module.exports = function ping(code, callback) {
     path: '/deploys?' + qs.stringify(params)
   };
 
-  // For testing
-  // options = {
-  //   host: 'localhost',
-  //   port: 8003,
-  //   path: '/deploys?' + qs.stringify(params)
-  // };
-
 
   setTimeout(function (){
-    console.log('Sending ping to NKO team');
     http.get(options)
       .on('response', function (res) {
-        console.log('Ping NKO OK');
         if (callback) callback(null, res); 
      })
       .on('error', function (err) { 
