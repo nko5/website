@@ -22,7 +22,7 @@ module.exports = (app) ->
       return res.send(404) unless team
 
       console.log "#{'DEPLOY'.magenta} #{team.name} (#{team.id})"
-
+      console.log req
       attr = _.clone req.query
       attr.teamId = team.id
       attr.remoteAddress = req.socket.remoteAddress
