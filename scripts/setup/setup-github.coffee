@@ -20,7 +20,7 @@ module.exports = setupGitHub = (options, next) ->
       github.post 'orgs/nko4/repos',
         name: team.slug
         homepage: "http://2013.nodeknockout.com/teams/#{team}"
-        private: false
+        private: true
       , next
     (res, body, next) ->      # create push hook
       return next(Error(JSON.stringify(body))) unless body.id
