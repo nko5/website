@@ -28,7 +28,7 @@ module.exports = (app) ->
       attr.remoteAddress = req.socket.remoteAddress
       attr.hostname = 'ubuntu'
       attr.os = 'ubuntu'
-      attr.remoteAddress = 'joyent'
+      attr.remoteAddress = 'http://#{team.slug}.2013.nodeknockout.com'
       attr.platform = 'joyent'
 
       # If on prod
