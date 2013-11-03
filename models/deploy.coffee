@@ -30,6 +30,7 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
     return next(true)
 
   @team (err, team) ->
+    console "TEAM IP IS: #{team.ip}"
     next(false) if err
     console "TEAM IP IS: #{team.ip}"
     next(team.ip is v)
