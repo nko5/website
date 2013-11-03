@@ -366,8 +366,8 @@ module.exports = [
     '''
 
 ,
-  name: "Webshell.io"
-  image: 'services/webshell.jpg'
+  name: "OAuth.io"
+  image: 'services/oauth.jpg'
   type: ["service"]
   description:
     '''
