@@ -18,6 +18,7 @@ nap({
         "/public/javascripts/vendor/jquery.stars.coffee",
         '/public/javascripts/vendor/jquery.border-image.js',
         '/public/javascripts/vendor/jquery.transform.light.js',
+        '/public/javascripts/vendor/countdown.js',
         '/public/javascripts/vendor/md5.js',
         '/public/javascripts/vendor/moment.js',
         '/public/javascripts/vendor/polyfills.js',

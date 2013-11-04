@@ -44,6 +44,19 @@ load = ->
       trigger: "hover"
       container: "body"
 
+  $(".countdown .timer").each ->
+    el = $(this)
+    end = Date.parse($(this).data("from"))
+    update = ->
+      countdown end, (ts) ->
+        el.html """
+          <span class="time-section"><strong>#{ts.days}</strong>D</span>
+          <span class="time-section"><strong>#{ts.hours}</strong>H</span>
+          <span class="time-section"><strong>#{ts.minutes}</strong>M</span>
+          <span class="time-section"><strong>#{ts.seconds}</strong>S</span>
+        """
+    setInterval update, 1000
+
   # team and people delete confirm
   $('#page.teams-edit, #page.people-edit').each ->
     $('a.remove', this).click ->

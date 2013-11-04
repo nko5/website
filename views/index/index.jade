@@ -11,36 +11,48 @@ block body
       .main-section.landing-section.row
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
 
-          label Main Event
-          h2
-            | Nov 8-10
-            span.sep •
-            | 2013
+          if preCoding
+            .countdown
+              .with-popover
+                span.label.label-primary NodeKnockout starts in
+                .popover-content(style="display:none")
+                  | The competition starts at exactly 00:00UTC on Nov 9th, 2013 and goes for 48hrs.
 
-          if preRegistration
-            .pre-registration
-              p
-                | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
-                | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
-          else if registration
-            .registration
-              if req.myTeam
-                h3 You are all set to compete!
-                a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") #{req.myTeam.name}
-              else if req.canRegister
-                h3 Registration is Open
-                p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
-                  | Register Now
-                  i= req.teamsLeft + " spots remaining"
+              .timer(data-from="Nov 9, 2013 00:00 UTC")
 
-              else
-                h3 All team spots are currently full.
+
+          else
+            label Main Event
+            h2
+              | Nov 8-10
+              span.sep •
+              | 2013
+
+            if preRegistration
+              .pre-registration
                 p
-                  a.btn.btn-super.btn-default.btn-primary(href="/teams") Find a Team to join
+                  | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
+                  | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
+            else if registration
+              .registration
+                if req.myTeam
+                  h3 You are all set to compete!
+                  a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") #{req.myTeam.name}
+                else if req.canRegister
+                  h3 Registration is Open
+                  p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
+                    | Register Now
+                    i= req.teamsLeft + " spots remaining"
 
-                //- h3 Registration is currently full.
-                //-   p
-                //-     | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+                else
+                  h3 All team spots are currently full.
+                  p
+                    a.btn.btn-super.btn-default.btn-primary(href="/teams") Find a Team to join
+
+                  //- h3 Registration is currently full.
+                  //-   p
+                  //-     | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+
 
       .intro-section.landing-section
         hr
@@ -66,7 +78,7 @@ block body
                 .date-label
                   | COMPETITION DATES
                 .date-date
-                  | NOVEMBER 8-10, 2013
+                  | NOVEMBER 9-11 UTC, 2013
               .date-row
                 .date-label
                   | JUDGING PERIOD
