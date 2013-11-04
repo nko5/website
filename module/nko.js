@@ -8,21 +8,27 @@ module.exports = function ping(code, callback) {
   if (typeof code !== 'string')
     throw Error('Go to http://nodeknockout.com/teams/mine to get your code.');
 
-  var subdomain = process.env.SUBDOMAIN
-    , hostname = subdomain ? subdomain + '.jitsu.com' : os.hostname();
-
   var params = {
-    hostname: hostname,
     os: os.type(),
-    release: os.release()
+    release: os.release(),
+    teamcode: code,
   },
   options = {
     host: 'nodeknockout.com',
     port: 80,
-    path: '/teams/' + qs.escape(code) + '/deploys?' + qs.stringify(params)
+    path: '/deploys?' + qs.stringify(params)
   };
 
-  http.get(options)
-    .on('response', function (res) { if (callback) callback(null, res); })
-    .on('error', function (err) { if (callback) callback(err); });
+
+  setTimeout(function (){
+    http.get(options)
+      .on('response', function (res) {
+        if (callback) callback(null, res); 
+     })
+      .on('error', function (err) { 
+        if (callback) callback(err); 
+     })
+
+  }, 5000);
+
 };

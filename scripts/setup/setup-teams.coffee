@@ -28,7 +28,7 @@ loadTeam = (next) ->
 setupTeam = (next) ->
   return next() unless team
   console.log team.slug, 'setting up team...'
-  team.setup.log = ''
+  team.setup.log ?= ''
 
   setupData = (data) ->
     process.stdout.write data
@@ -56,10 +56,7 @@ setupTeam = (next) ->
 
 # atomically select a team that is not being setup
 selectTeam = (next) ->
-  query = {
-    'setup.status': null,
-    slug: { $in: ['organizers'] }
-  }
+  query = { 'setup.status': 'ready' }
   sort = []
   update = { $set: { 'setup.status': 'processing' }}
   options = {}
@@ -73,4 +70,7 @@ last = (err) ->
   else
     mongoose.connection.close()
 
-async.doWhilst processTeam, hasTeam, last
+async.doWhilst processTeam, hasTeam, (err) ->
+  return last(err) if err
+  console.log 'no more teams to setup'
+  last()

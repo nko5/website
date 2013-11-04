@@ -20,7 +20,7 @@ module.exports = setupGitHub = (options, next) ->
       github.post 'orgs/nko4/repos',
         name: team.slug
         homepage: "http://2013.nodeknockout.com/teams/#{team}"
-        private: false
+        private: true
       , next
     (res, body, next) ->      # create push hook
       return next(Error(JSON.stringify(body))) unless body.id
@@ -42,31 +42,10 @@ module.exports = setupGitHub = (options, next) ->
         repo_names: [ "nko4/#{team.slug}" ]
         permission: 'admin'
       , next
-    (res, body, next) ->      # save team id
+    (res, body, next) ->      # save team
       return next(Error(JSON.stringify(body))) unless body.id
 
       console.log team.slug, 'set github info'
       team.github = body
-      next()
-    (next) ->                 # get people
-      console.log team.slug, 'get people'
-      team.people (err, people) ->
-        next err, team, people
-    (team, people, next) ->   # add members
-      async.forEach people, (person, next) ->
-        console.log team.slug, 'add people', person.github.login
-        github.put "teams/#{team.github.id}/members/#{person.github.login}", next
-      , next
-    (next) ->                 # seed repo
-      console.log team.slug, 'seed repo'
-      createRepo = spawn path.join(__dirname, './setup-repo.sh'),
-        [ team.slug, team.code, team.name, team.ip ],
-        cwd: rootDir
-      createRepo.stdout.on 'data', (s) -> console.log s.toString()
-      createRepo.stderr.on 'data', (s) -> console.log s.toString()
-      createRepo.on 'error', (err) -> next(err)
-      createRepo.on 'exit', (err) -> next(err)
-    (next) ->                 # save team
-      console.log team.slug, 'save github info'
       team.save (err) -> next(err)
   ], (err) -> next(err)
