@@ -17,10 +17,10 @@ you're lazy, or not interested in devops, all you need to know is:**
     ./deploy nko
 
 The rest of this post will explain how these instances are setup. **You don't
-need to read this**, but you might find it interesting, or useful if you run
-into problems, or are interested in customizing your deployment setup.
+need to read this**, but you might find it useful if you run into problems, or
+interesting if you want to customize things.
 
-<h2 id="ubuntu-setup">How we setup Ubuntu</h2>
+<h2 id="ubuntu-setup">How we setup Ubuntu for NKO</h2>
 
 All the Ubuntu configuration happens in [the setup-ubuntu.sh script](https://github.com/nko4/website/blob/master/scripts/setup/setup-ubuntu.sh).
 
@@ -213,7 +213,7 @@ more. You can find the important ones below:
 
 See `man sv` for more info.
 
-<h2 id="deploy-setup">How we setup deploying</h2>
+<h2 id="deploy-setup">How we setup deploying for NKO</h2>
 
 Ok! The server's ready. Now onto our local development machine setup.
 
@@ -269,7 +269,7 @@ npm modules and restart the server after the code's been copied from Github.
 `test sleep 5 && wget -qO /dev/null localhost` will cause the script to roll
 back the deploy if the web server isn't responding after 5 seconds.
 
-<h2 id="server-setup">How we setup `server.js`</h2>
+<h2 id="server-setup">How we setup the `server.js` for NKO</h2>
 
 We also created a `server.js` file in your Github repo that includes some
 Node Knockout best practices.
