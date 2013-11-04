@@ -272,9 +272,7 @@ back the deploy if the web server isn't responding after 5 seconds.
 <h2 id="server-setup">How we setup the `server.js` for NKO</h2>
 
 We also created a `server.js` file in your Github repo that includes some
-Node Knockout best practices.
-
-Here's a quick summary.
+Node Knockout best practices. Here's a quick summary.
 
 ### NKO module
 
