@@ -22,7 +22,7 @@ module.exports = resetTeam = (team, next) ->
     exec "sed -i.bak '/#{pattern}/d' ~/.ssh/known_hosts", (err) -> next(err)
 
   removeJoyent = (next) ->
-    return next() unless team.joyent?.id
+    return next(null, null) unless team.joyent?.id
     console.log team.slug, 'deleting joyent instance...'
 
     joyent.deleteMachine team.joyent.id, (err, res) ->
