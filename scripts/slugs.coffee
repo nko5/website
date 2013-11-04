@@ -95,6 +95,7 @@ Team.find {}, (err, teams) ->
       "team-neo": "cornerstone-sys"
       "its-always-been-brok": "always-broken"
       "figure-it-out-guys": "makeshift"
+      "hooky": "toptal"
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
@@ -114,7 +115,7 @@ Team.find {}, (err, teams) ->
     console.log err if err
 
     console.log "#{pad 'slug'} name"
-    console.log "#{pad team.slug} #{team.name}" for team in teams
+    console.log "#{pad team.slug} #{team.name}" for team in teams when team
 
     mongoose.connection.close()
 
