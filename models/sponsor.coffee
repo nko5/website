@@ -51,6 +51,7 @@ module.exports = [
 
 ,
   name: "Segment.io"
+  url: "http://segment.io"
   image: 'prizes/segmentio.jpg'
   type: ["prize"]
   description:
@@ -60,6 +61,7 @@ module.exports = [
 
 ,
   name: "Twilio"
+  url: "http://twilio.com"
   image: 'prizes/twilio.jpg'
   type: ["prize", "service"]
   description:
@@ -69,6 +71,7 @@ module.exports = [
 
 ,
   name: "Node Summit"
+  url: "http://nodesummit.com"
   image: 'prizes/node-summit.jpg'
   type: ["prize"]
   description:
@@ -78,6 +81,7 @@ module.exports = [
 
 ,
   name: "Amazon Web Services"
+  url: "http://aws.amazon.com"
   image: 'prizes/amazonaws.jpg'
   type: ["prize"]
   description:
@@ -87,6 +91,7 @@ module.exports = [
 
 ,
   name: "Circle CI"
+  url: "http://circleci.com"
   image: 'prizes/circleci.jpg'
   type: ["prize"]
   description:
@@ -96,6 +101,7 @@ module.exports = [
 
 ,
   name: "KISSmetrics"
+  url: "http://kissmetrics.com"
   image: 'prizes/kissmetrics.jpg'
   type: ["prize"]
   description:
@@ -105,6 +111,7 @@ module.exports = [
 
 ,
   name: "Dashable"
+  url: "http://dashable.com"
   image: 'prizes/dashable.jpg'
   type: ["prize"]
   description:
@@ -114,6 +121,7 @@ module.exports = [
 
 ,
   name: "Digital Ocean"
+  url: "http://digitalocean.com"
   image: 'prizes/digitalocean.jpg'
   type: ["prize"]
   description:
@@ -123,6 +131,7 @@ module.exports = [
 
 ,
   name: "MongoLab"
+  url: "http://mongolab.com"
   image: 'prizes/mongolab.jpg'
   type: ["prize", "service"]
   description:
@@ -132,6 +141,7 @@ module.exports = [
 
 ,
   name: "MongoHQ"
+  url: "http://mongohq.com"
   image: 'prizes/mongohq.jpg'
   type: ["prize", "service", "job"]
   description:
@@ -141,6 +151,7 @@ module.exports = [
 
 ,
   name: "Firebase"
+  url: "http://firebase.com"
   image: 'prizes/firebase.jpg'
   type: ["prize", "service", "job"]
   description:
@@ -150,6 +161,7 @@ module.exports = [
 
 ,
   name: "Github"
+  url: "http://github.com"
   image: 'prizes/github.jpg'
   type: ["prize", "service"]
   description:
@@ -159,6 +171,7 @@ module.exports = [
 
 ,
   name: "Scoutzie"
+  url: "http://scoutzie.com"
   image: 'prizes/scoutzie.jpg'
   type: ["prize"]
   description:
@@ -168,6 +181,7 @@ module.exports = [
 
 ,
   name: "Uber"
+  url: "http://uber.com"
   image: 'prizes/uber.jpg'
   type: ["prize"]
   description:
@@ -177,6 +191,7 @@ module.exports = [
 
 ,
   name: "Modulus"
+  url: "http://modulus.io"
   image: 'prizes/modulus.jpg'
   type: ["prize", "service"]
   description:
@@ -186,6 +201,7 @@ module.exports = [
 
 ,
   name: "Pluralsight"
+  url: "http://pluralsight.com"
   image: 'prizes/pluralsight.jpg'
   type: ["prize"]
   description:
@@ -195,6 +211,7 @@ module.exports = [
 
 ,
   name: "Sentry"
+  url: "http://getsentry.com"
   image: 'prizes/sentry.jpg'
   type: ["prize", "service"]
   description:
@@ -204,6 +221,7 @@ module.exports = [
 
 ,
   name: "Hacker Monthly"
+  url: "http://hackermonthly.com"
   image: 'prizes/hackermonthly.jpg'
   type: ["prize"]
   description:
@@ -213,6 +231,7 @@ module.exports = [
 
 ,
   name: "O'Reilly"
+  url: "http://oreilly.com"
   image: 'prizes/oreilly.jpg'
   type: ["prize"]
   description:
@@ -222,6 +241,7 @@ module.exports = [
 
 ,
   name: "Coderwall"
+  url: "http://coderwall.com"
   image: 'prizes/coderwall.jpg'
   type: ["prize"]
   description:
@@ -231,6 +251,7 @@ module.exports = [
 
 ,
   name: "Northwoods Software"
+  url: "http://nwoods.com"
   image: 'prizes/gojs.jpg'
   type: ["prize"]
   description:
@@ -240,6 +261,7 @@ module.exports = [
 
 ,
   name: "Pivotal Labs"
+  url: "http://pivotallabs.com"
   image: 'prizes/pivotal.jpg'
   type: ["prize"]
   description:
@@ -249,6 +271,7 @@ module.exports = [
 
 ,
   name: "Trumaker"
+  url: "http://trumaker.com"
   image: 'prizes/trumaker.jpg'
   type: ["prize"]
   description:
@@ -258,6 +281,7 @@ module.exports = [
 
 ,
   name: "Pebble"
+  url: "http://getpebble.com"
   image: 'prizes/pebble.jpg'
   type: ["prize"]
   description:
@@ -267,6 +291,7 @@ module.exports = [
 
 ,
   name: "Blitline"
+  url: "http://blitline.com"
   image: 'prizes/blitline.jpg'
   type: ["prize"]
   description:
@@ -276,6 +301,7 @@ module.exports = [
 
 ,
   name: "Mapbox"
+  url: "http://mapbox.com"
   image: 'prizes/mapbox.jpg'
   type: ["prize", "service"]
   description:
@@ -285,6 +311,7 @@ module.exports = [
 
 ,
   name: "Lunacloud"
+  url: "http://lunacloud.com"
   image: 'services/lunacloud.jpg'
   type: ["service"]
   description:
@@ -294,6 +321,7 @@ module.exports = [
 
 ,
   name: "MaxCDN"
+  url: "http://maxcdn.com"
   image: 'services/maxcdn.jpg'
   type: ["service"]
   description:
@@ -303,6 +331,7 @@ module.exports = [
 
 ,
   name: "Pusher"
+  url: "http://pusher.com"
   image: 'services/pusher.jpg'
   type: ["service"]
   description:
@@ -312,6 +341,7 @@ module.exports = [
 
 ,
   name: "Walmart Labs"
+  url: "http://walmartlabs.com"
   image: 'services/walmartlabs.jpg'
   type: ["service"]
   description:
@@ -321,6 +351,7 @@ module.exports = [
 
 ,
   name: "Rollbar"
+  url: "http://rollbar.com"
   image: 'services/rollbar.jpg'
   type: ["service"]
   description:
@@ -330,6 +361,7 @@ module.exports = [
 
 ,
   name: "Zencoder"
+  url: "http://zencoder.com"
   image: 'services/zencoder.jpg'
   type: ["service"]
   description:
@@ -339,6 +371,7 @@ module.exports = [
 
 ,
   name: "Pubnub"
+  url: "http://pubnub.com"
   image: 'services/pubnub.jpg'
   type: ["service"]
   description:
@@ -346,9 +379,9 @@ module.exports = [
 
     '''
 
-
 ,
   name: "Balsamiq"
+  url: "http://balsamiq.com"
   image: 'services/balsamiq.jpg'
   type: ["service"]
   description:
@@ -358,6 +391,7 @@ module.exports = [
 
 ,
   name: "Travis CI"
+  url: "http://travisci.com"
   image: 'services/travisci.jpg'
   type: ["service"]
   description:
@@ -367,6 +401,7 @@ module.exports = [
 
 ,
   name: "OAuth.io"
+  url: "http://oauth.io"
   image: 'services/oauth.jpg'
   type: ["service"]
   description:

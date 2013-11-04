@@ -32,6 +32,8 @@ module.exports = (app) ->
     sponsors: allSponsors
 
     platinumSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('platinum') >= 0
+    serviceSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('service') >= 0
+    prizeSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('prize') >= 0
 
     locations: (people) ->
       _(people).chain()

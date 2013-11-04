@@ -19,7 +19,7 @@ block body
       them some love.
 
     ul.sponsors
-      - _.shuffle(platinumSponsors).forEach(function(sponsor) {
+      - _(platinumSponsors).shuffle().forEach(function(sponsor) {
         li
           a( href=sponsor.url )
             img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
@@ -28,3 +28,21 @@ block body
           .clear
       - });
 
+
+    h2 Service Sponsors
+
+    ul.sponsor-logos.clearfix
+      - _(serviceSponsors).shuffle().forEach(function(sponsor) {
+        li.with-tooltip(title=sponsor.name)
+          a( href=sponsor.url)
+            img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+      - });
+    hr
+
+    h2 Prize Sponsors
+    ul.sponsor-logos.clearfix
+      - _(prizeSponsors).shuffle().forEach(function(sponsor) {
+        li.with-tooltip(title=sponsor.name)
+          a( href=sponsor.url)
+            img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+      - });

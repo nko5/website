@@ -63,7 +63,7 @@ app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 #   else
 #     app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
 
-[ 'rules', 'sponsors', 'locations', 'prizes', 'prizes-draft', 'scoring', 'jobs', 'how-to-win', 'tell-me-a-story' ].forEach (p) ->
+[ 'rules', 'sponsors', 'locations', 'prizes', 'scoring', 'jobs', 'how-to-win', 'tell-me-a-story' ].forEach (p) ->
   app.get '/' + p, (req, res) -> res.render2 "index/#{p}"
 
 app.get '/sponsors/options', (req, res) -> res.render2 "index/sponsor-options"

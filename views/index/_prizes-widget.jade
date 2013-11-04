@@ -1,10 +1,10 @@
 mixin prize(name, img, url)
   li: a(href="#{url}", title="#{name}", data-toggle="tooltip")
-    img(src="/images/prizes/#{img}.jpg")
+    img(src="/images/sponsors/prizes/#{img}.jpg")
 
 mixin prize-logo(name, img, url)
   li: a(href="#{url}", title="Prize from #{name} (see below)", target="_blank", data-toggle="tooltip")
-    img(src="/images/prizes/#{img}.jpg")
+    img(src="/images/sponsors/prizes/#{img}.jpg")
 
 //- prize mixins (for reuse)
 mixin one-per-team
@@ -20,7 +20,7 @@ mixin goinstant-hoodie
   .with-popover
     | (+ Hoodies)
     .popover-content(style="display:none")
-      img(src="/images/prizes/goinstant-hoodie.jpg", width="250", height="250")
+      img(src="/images/sponsors/prizes/goinstant-hoodie.jpg", width="250", height="250")
 
 mixin twilio-book
   strong: a(href="http://twilio.com", target="_blank") Twilio
@@ -29,7 +29,7 @@ mixin twilio-book
     a(href="http://www.manning.com/cantelon/", target="_blank")
       | NodeJS in Action</a>
     .popover-content(style="display:none")
-      img(src="/images/prizes/nodejs-in-action.jpg", height="150")
+      img(src="/images/sponsors/prizes/nodejs-in-action.jpg", height="150")
   |  eBook
 
 .prizes-widget
@@ -90,7 +90,7 @@ mixin twilio-book
           mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
           mixin prize-logo("Uber", "uber", "http://uber.com")
           mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("PluralSight", "pluralsights", "http://pluralsight.com")
+          mixin prize-logo("PluralSight", "pluralsight", "http://pluralsight.com")
           mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
           mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
           mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
@@ -102,7 +102,7 @@ mixin twilio-book
           em
             |  / best overall score
 
-        img(src="/images/prizes/apple2k.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple2k.jpg", height="200")
         ul
           li: strong $2,000 Apple Store gift card
           li
@@ -240,7 +240,7 @@ mixin twilio-book
           em
             |  / best overall score for team of 1
 
-        img(src="/images/prizes/apple500.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple500.jpg", height="200")
         ul
           li: strong $500 Apple Store gift card
           li: strong Node Knockout Boxing Gloves & Trunks
@@ -261,7 +261,7 @@ mixin twilio-book
             .with-popover
               | (+ Hoodie)
               .popover-content(style="display:none")
-                img(src="/images/prizes/goinstant-hoodie.jpg", width="250", height="250")
+                img(src="/images/sponsors/prizes/goinstant-hoodie.jpg", width="250", height="250")
           li
             strong: a(href="http://www.nwoods.com/", target="_blank") Northwoods Software
             |  - OEM License for GoJS (HTML5) ($2,795 value)
@@ -351,7 +351,7 @@ mixin twilio-book
           em
             |  / best score for category of "Innovation"
 
-        img(src="/images/prizes/apple1k.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
 
         ul
           li: strong $1,000 Apple Store gift card
@@ -450,7 +450,7 @@ mixin twilio-book
           em
             |  / best score for category of "Design"
 
-        img(src="/images/prizes/apple1k.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
 
         ul
           li: strong $1,000 Apple Store gift card
@@ -553,7 +553,7 @@ mixin twilio-book
           em
             |  / best score for category of "Utility/Fun"
 
-        img(src="/images/prizes/apple1k.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
         ul
           li: strong $1,000 Apple Store gift card
           li
@@ -654,7 +654,7 @@ mixin twilio-book
           em
             |  / best score for category of "Complete"
 
-        img(src="/images/prizes/apple1k.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
         ul
           li: strong $1,000 Apple Store gift card
           li
@@ -668,7 +668,7 @@ mixin twilio-book
                 | Amazon Paperwhite Kindle (US) or gift cert ($119 value)
               mixin one-per-team
               .popover-content(style="display:none")
-                img(src="/images/prizes/kindle-paperwhite.jpg", height="200")
+                img(src="/images/sponsors/prizes/kindle-paperwhite.jpg", height="200")
 
           li
             .with-popover
@@ -761,7 +761,7 @@ mixin twilio-book
           | Popularity Winner
           em
             |  / team with the most votes
-        img(src="/images/prizes/apple500.jpg", height="200")
+        img(src="/images/sponsors/prizes/apple500.jpg", height="200")
         ul
           li
             strong Node Knockout Boxing Trunks

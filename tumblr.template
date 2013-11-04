@@ -1146,13 +1146,13 @@
 
                 <div class="sponsors-sidebar">
                   <h3>Thank you to our Platinum Sponsors</h3>
-                  <div class="row"><a href="http://joyent.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/joyent.png">
+                  <div class="row"><a href="http://joyent.com" class="sponsor"><img src="http://nodeknockout.com/images/sponsors/logos/sm/joyent.png">
                       <div class="img-content"></div></a></div>
-                  <div class="row"><a href="http://goinstant.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/goinstant.png">
+                  <div class="row"><a href="http://goinstant.com" class="sponsor"><img src="http://nodeknockout.com/images/sponsors/logos/sm/goinstant.png">
                       <div class="img-content"></div></a></div>
-                  <div class="row"><a href="http://thenodefirm.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/nodefirm.png">
+                  <div class="row"><a href="http://thenodefirm.com" class="sponsor"><img src="http://nodeknockout.com/images/sponsors/logos/sm/nodefirm.png">
                       <div class="img-content"></div></a></div>
-                  <div class="row"><a href="http://groupon.com" class="sponsor"><img src="http://nodeknockout.com/logos/sm/groupon.png">
+                  <div class="row"><a href="http://groupon.com" class="sponsor"><img src="http://nodeknockout.com/images/sponsors/logos/sm/groupon.png">
                       <div class="img-content"></div></a></div>
                 </div>
 
