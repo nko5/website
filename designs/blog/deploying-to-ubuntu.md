@@ -1,15 +1,14 @@
-# Deploying Your Node.js App to Ubuntu
+# Node Knockout deployment setup
 
-## Intro
+## Overview
 
 This year, we have created an Ubuntu 12.04 (Precise) instance for each Node
-Knockout team.
+Knockout team to use during the competition. A **huge thanks to
+[Joyent](http://www.joyent.com/)** for providing these instances to
+contestants for Node Knockout (through Nov 30).
 
-Thanks to [Joyent](http://www.joyent.com/) for providing these instances to
-contestants for free during Node Knockout (through 11/31).
-
-We have already configured each of these instances for easy deployment. If
-you're lazy, or not interested in devops, all you need to know is:
+We have already configured each of these instances for easy deployment. **If
+you're lazy, or not interested in devops, all you need to know is:**
 
     # get the code
     git clone git@github.com:nko4/<team>.git && cd ./<team>/
@@ -17,11 +16,11 @@ you're lazy, or not interested in devops, all you need to know is:
     # deploy it to http://<team>.2013.nodeknockout.com/
     ./deploy nko
 
-The rest of this post will explain how these instances are setup, in case
-contestants run into problems, or advanced teams are interested in
-customizing things.
+The rest of this post will explain how these instances are setup. **You don't
+need to read this**, but you might find it interesting, or useful if you run
+into problems, or are interested in customizing your deployment setup.
 
-<h2 id="configuring-ubuntu">Configuring Ubuntu</h2>
+<h2 id="ubuntu-setup">How we setup Ubuntu</h2>
 
 All the Ubuntu configuration happens in [the setup-ubuntu.sh script](https://github.com/nko4/website/blob/master/scripts/setup/setup-ubuntu.sh).
 
@@ -214,7 +213,7 @@ more. You can find the important ones below:
 
 See `man sv` for more info.
 
-<h2 id="deploying-code">Deploying code</h2>
+<h2 id="deploy-setup">How we setup deploying</h2>
 
 Ok! The server's ready. Now onto our local development machine setup.
 
@@ -269,6 +268,52 @@ npm modules and restart the server after the code's been copied from Github.
 
 `test sleep 5 && wget -qO /dev/null localhost` will cause the script to roll
 back the deploy if the web server isn't responding after 5 seconds.
+
+<h2 id="server-setup">How we setup `server.js`</h2>
+
+We also created a `server.js` file in your Github repo that includes some
+Node Knockout best practices.
+
+Here's a quick summary.
+
+### NKO module
+
+    // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
+    require('nko')('${code}');
+
+The first lines of the server add the nko module, which pings the nko website
+when the app is correctly deployed to production. This lets us hide the deploy
+instructions on the website after the team has deployed their app correctly,
+and also allows us to feature recently deployed apps on the front page of the
+website during the competition.
+
+<h3 id="vote-ko">Vote KO widget</h3>
+
+![Vote KO widget](http://f.cl.ly/items/1n3g0W0F0G3V0i0d0321/Screen%20Shot%202012-11-04%20at%2010.01.36%20AM.png)
+
+    var voteko = '<iframe src="http://nodeknockout.com/iframe/${slug}" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>';
+
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('<html><body>' + voteko + '</body></html>\n');
+
+Our Vote KO widget lets people vote for your team from within your web page.
+Including this widget helps you get as many votes as possible.
+
+### Downgrading permissions
+
+    // if run as root, downgrade to the owner of this file
+    if (process.getuid() === 0) {
+      require('fs').stat(__filename, function(err, stats) {
+        if (err) { return console.error(err); }
+        process.setuid(stats.uid);
+      });
+    }
+
+Because we're running node with `runit` (and therefore as root initially),
+node has the chance to bind to the privileged port 80. Once it's bound though,
+we downgrade the uid of the process to the owner of the `server.js` file (our
+`deploy` user). This is much more secure than running the server as the root
+user.
 
 # Problems?
 
