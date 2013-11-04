@@ -19,6 +19,8 @@ Team.find {}, (err, teams) ->
     # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
+    team.setup ?= {}
+
     if team.setup.status == "ready"
       return next(null, team) 
     else
@@ -54,8 +56,6 @@ Team.find {}, (err, teams) ->
       "team-awesome-1": "team-fried-chicken"
       "little-bobby-drop-ta": "bobby-drop-tables"
       "red-hot-pink-daisy-s": "red-hot-pink-daisy"
-
-
 
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
