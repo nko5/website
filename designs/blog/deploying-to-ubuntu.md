@@ -2,14 +2,14 @@
 
 ## Intro
 
-This year, we have created an Ubuntu 12.04 (Precise) Joyent instance for every
-team.
+This year, we have created an Ubuntu 12.04 (Precise) instance for each Node
+Knockout team.
 
-Special thanks to Joyent for providing these instances to contestants for free
-during Node Knockout (through 11/31).
+Thanks to [Joyent](http://www.joyent.com/) for providing these instances to
+contestants for free during Node Knockout (through 11/31).
 
 We have already configured each of these instances for easy deployment. If
-you're lazy, or not interested in devops, all you need to do is:
+you're lazy, or not interested in devops, all you need to know is:
 
     # get the code
     git clone git@github.com:nko4/<team>.git && cd ./<team>/
@@ -17,12 +17,13 @@ you're lazy, or not interested in devops, all you need to do is:
     # deploy it to http://<team>.2013.nodeknockout.com/
     ./deploy nko
 
-The rest of this post will explain how we set this up, in case people run into
-issues, or advanced contestants would like to make changes.
+The rest of this post will explain how these instances are setup, in case
+contestants run into problems, or advanced teams are interested in
+customizing things.
 
 <h2 id="configuring-ubuntu">Configuring Ubuntu</h2>
 
-All the Ubuntu configuration happens [setup-ubuntu.sh](https://github.com/nko4/website/blob/master/scripts/setup/setup-ubuntu.sh).
+All the Ubuntu configuration happens in [the setup-ubuntu.sh script](https://github.com/nko4/website/blob/master/scripts/setup/setup-ubuntu.sh).
 
 ### Setting the hostname
 
@@ -32,7 +33,7 @@ All the Ubuntu configuration happens [setup-ubuntu.sh](https://github.com/nko4/w
     echo "$hostname" > /etc/hostname
 
 We set the hostname so that your server knows its name. It's not strictly
-necessary, but the default was pretty ugly.
+necessary, but the default can be pretty ugly.
 
 ### Installing packages (including node)
 
@@ -51,7 +52,7 @@ necessary, but the default was pretty ugly.
 First, we update all the packages, then install git, since it's needed for the
 deploy script.
 
-Next, we install node & npm from a package in the [manner recommended by
+Next, we install `node` and `npm` from a package in the [manner recommended by
 Joyent](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os).
 
 ### Setting NODE_ENV
@@ -59,8 +60,8 @@ Joyent](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manag
     # Setting NODE_ENV=production...
     echo "export NODE_ENV=production" > /etc/profile.d/NODE_ENV.sh
 
-`NODE_ENV` should be `production` on production deployments we add a script to
-`/etc/profile.d/` to make sure that environment variable is always set.
+`NODE_ENV` should be `production` on production deployments, so we add a
+script to `/etc/profile.d/` to ensure that is the case.
 
 ### Setting up SSH
 
@@ -86,7 +87,7 @@ Joyent](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manag
 We create the ssh dir and make sure it has proper permissions. Then we add
 some recognized keys:
 
-* We add the Node Knockout organizers key to ensure that the organizers have
+* We add the Node Knockout organizers' key to ensure that the organizers have
   access to the box, so they can audit that no unauthorized code modifications
   happen during the competition.
 * We add the github public key so that there is no prompting when the deploy
@@ -142,7 +143,7 @@ what to do to start the service.
 
 Our run script does a couple things.
 
-1. It loads `/etc/profile` and `$deploy_home/.profile` primarily so that any
+1. It loads `/etc/profile` and `$deploy_home/.profile`. Primarily so that any
    environment variables that people add are passed through to the server.
    (Remember `NODE_ENV=production` from earlier?)
 2. It starts the server: `node $deploy_home/current/server.js`
@@ -162,12 +163,12 @@ would and it handles all the monitoring automatically.
     chmod +x /etc/service/serverjs/log/run
 
 `runit` also has some nice logging abilities built-in. If you create a `run`
-script inside of the `log/` directory of your service directory. It will
-automatically pipe the output from the your service into the logging script.
+script inside of the `log/` directory of your service directory, it will
+automatically pipe the output from your service into the logging script.
 
 Here we use the `runit` provided `svlogd` daemon to output the serverjs logs
 to `$deploy_home/shared/logs/server/`. `svlogd` handles log rotation and
-timestamping automatically. No need for `logrotate`.
+timestamping automatically.
 
 #### Cleaning up `runit`
 
@@ -184,8 +185,8 @@ timestamping automatically. No need for `logrotate`.
 It takes `runit` up to 5 seconds to recognize if a folder has been added to
 `/etc/service`, so we wait a bit to ensure everything is up and running.
 
-Then, since we don't want `runit` to try to keep the server up until the first
-deploy, we shut it down and clear the logs.
+Then, since we don't want `runit` to try to keep the server up until the code
+is first deployed, we shut down the service and clear the logs.
 
 Note: you can't run `rm $deploy_home/shared/logs/server/current` because
 `svlogd` will not recognize that the log file has been removed, so it won't
@@ -199,7 +200,7 @@ create a new one.
 
 A neat trick with `runit` is that you don't need to add sudo privileges to
 give certain users access to manage services. Instead, all you do is change
-the permissions on the `supervise/` directory. Which is what we do here.
+the permissions on the `supervise/` directory. That's what we do here.
 
 #### Using `runit`
 
@@ -211,7 +212,7 @@ more. You can find the important ones below:
 * `sv stop serverjs` - stops
 * `ps -ef | grep runsvdir` - to see runit ps logs
 
-`man sv` for more info.
+See `man sv` for more info.
 
 <h2 id="deploying-code">Deploying code</h2>
 
@@ -220,7 +221,7 @@ Ok! The server's ready. Now onto our local development machine setup.
 We use [TJ](https://github.com/visionmedia)'s [deploy shell script](https://github.com/visionmedia/deploy)
 to make deploying code repeatable and easy for everyone on the team.
 
-We've already added this script to your github repo. Along with a
+We've already added the deploy script to your github repo. Along with a
 `deploy.conf` file that configures it for the instance we just setup.
 
 This lets us deploy to the server by just typing `./deploy nko`.
@@ -266,8 +267,8 @@ is pulled from github.
 `post-deploy npm install && sv restart serverjs` tells the script to install
 npm modules and restart the server after the code's been copied from Github.
 
-`test sleep 5 && wget -qO /dev/null localhost` tells the script to roll back
-the deploy if the web server isn't responding after 5 seconds.
+`test sleep 5 && wget -qO /dev/null localhost` will cause the script to roll
+back the deploy if the web server isn't responding after 5 seconds.
 
 # Problems?
 
