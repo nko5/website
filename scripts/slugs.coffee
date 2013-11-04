@@ -19,12 +19,12 @@ Team.find {}, (err, teams) ->
     # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
-    team.setup ?= {}
 
-    if team.setup.status == "ready"
-      return next(null, team) 
-    else
-      team.setup.status = "ready"
+    # don't change any team that's already being setup
+    return next(null, team) if team.setup?.status
+
+    team.setup ?= {}
+    team.setup.status = "ready"
 
     changes = 
       "-1": "theteam"
@@ -104,19 +104,14 @@ Team.find {}, (err, teams) ->
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
       team.slug = 'waving'
-      team.save (err) ->
-        console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
-        return next err, team
-    else    
-      if changes[team.slug]
-        old = team.slug
-        team.slug = changes[team.slug]
-        team.save (err) ->
-          console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
-          return next err, team
-        # return next err, team
-      else
-        return next(null, team) # If it's not one of the odd cases, it's ok :)
+      console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+
+    if changes[team.slug]
+      old = team.slug
+      team.slug = changes[team.slug]
+      console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+
+    team.save (err) -> next(err, team)
   
   , (err, teams) ->
     console.log err if err
