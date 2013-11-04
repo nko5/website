@@ -19,10 +19,12 @@ Team.find {}, (err, teams) ->
     # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
-    if team.setup.status == "ready"
-      return next(null, team) 
-    else
-      team.setup.status = "ready"
+
+    # don't change any team that's already being setup
+    return next(null, team) if team.setup?.status
+
+    team.setup ?= {}
+    team.setup.status = "ready"
 
     changes = 
       "-1": "theteam"
@@ -37,43 +39,79 @@ Team.find {}, (err, teams) ->
       "vancouver-gastown": "xuka"  
       "father-son": "world-hello"
       "204-no-content": "process-nexttick"
-      "streamsters-union-61": "streamsters-union612"
+      "streamsters-union-61": "streamsters-612"
       "bam-green-eggs-and-h": "green-eggs-and-ham"
       "node-group-tbd": "xyzzy"
       "tmp": "walbril"
-      "software-niagara-tea": "software-niagarateam" 
+      "software-niagara-tea": "software-niagara"
       "swhite": "pimps-love"
       "front-end-developers": "fed-brazil"
       "cold-brew-rocket-fue": "brew-rocket-fuel"
       "edlington": "rikoru"
-      "web-scale-or-web-fai": "web-scale-or-webfail"
-      "rock-em-sock-em-node": "rock-em-sock"
+      "web-scale-or-web-fai": "web-scale-or-fail"
+      "rock-em-sock-em-node": "rockem-sockem"
       "dominican-node-assoc": "dominican-assoc"
       "the-idea-hacker": "the-unbeatables"
       "not-just-another-tea": "not-another-team"
       "team-awesome-1": "team-fried-chicken"
       "little-bobby-drop-ta": "bobby-drop-tables"
       "red-hot-pink-daisy-s": "red-hot-pink-daisy"
-
-
+      "kansas-city-expatria": "kansas-city-expats"
+      "the-flying-penguins": "the-flying-penguin"
+      "tasmanian-tigers": "node-out"
+      "interweb-slackers": "interweb-labs"
+      "dwango": "mesolabs"
+      "southern-riot": "sc-positronics"
+      "streamsters-union612": "streamsters-612"
+      "voxelperfect": "band-jamming"
+      "alsw": "machinarium"
+      "me-the-interns": "me-and-the-interns"
+      "imsowitty": "axias"
+      "gus-gorman-for-presi": "gus-gorman-for-prez"
+      "tem-lazors": "camarinhas"
+      "juggabots": "cool-ladies-gif"
+      "klandestino-ab": "klandestino"
+      "jedi-knights": "throw-42"
+      "node-rt": "nko-analytics"
+      "restort": "the-tickeros"
+      "tmp-1": "fifty-five"
+      "turbo-team": "nodespots"
+      "parmenides": "heraclitus"
+      "andrew-in-demton": "time-ghost"
+      "comorichweb": "devcomo"
+      "team-js": "node-ninja-turtles"
+      "1999-land": "ninety-nine-land"
+      "sloweak": "sloweak-quickly"
+      "witty-team-name": "rock-em-sock-em"
+      "strongloop": "destroyer"
+      "groupon-team-tbd": "node-fire"
+      "we-shall-be-oranges": "madison-ivy"
+      "sprint-run": "bab"
+      "amit-m": "linearity"
+      "5-cent-arcade": "nickel-arcade"
+      "over-9000": "brogrammers"
+      "ca-god": "ca"
+      "1up": "one-up"
+      "7digital": "seven-digital"
+      "aveiroberlinconnecti": "aveiro-berlin"
+      "apprehensive-apparit": "apprehensive"
+      "rde": "rome-team"
+      "team-neo": "cornerstone-sys"
+      "its-always-been-brok": "always-broken"
+      "figure-it-out-guys": "makeshift"
 
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
       team.slug = 'waving'
-      team.save (err) ->
-        console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
-        return next err, team
-    else    
-      if changes[team.slug]
-        old = team.slug
-        team.slug = changes[team.slug]
-        team.save (err) ->
-          console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
-          return next err, team
-        # return next err, team
-      else
-        return next(null, team) # If it's not one of the odd cases, it's ok :)
+      console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+
+    if changes[team.slug]
+      old = team.slug
+      team.slug = changes[team.slug]
+      console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+
+    team.save (err) -> next(err, team)
   
   , (err, teams) ->
     console.log err if err
