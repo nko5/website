@@ -13,18 +13,14 @@ Team.find {}, (err, teams) ->
   return err if err
 
   async.mapSeries teams, (team, next) -> 
-    console.log "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})" if team.peopleIds.length is 0
-
-    return next(null, team) if team.peopleIds.length is 0  # skip empty
-    # return next(null, team) if team.slug is team.slugBase
     # return next(null, team) # don't modify right now
 
+    if team.peopleIds.length is 0
+      console.log "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})"
+      return next(null, team)
 
     # don't change any team that's already being setup
     return next(null, team) if team.setup?.status
-
-    team.setup ?= {}
-    team.setup.status = "ready"
 
     changes = 
       "-1": "theteam"
@@ -43,7 +39,7 @@ Team.find {}, (err, teams) ->
       "bam-green-eggs-and-h": "green-eggs-and-ham"
       "node-group-tbd": "xyzzy"
       "tmp": "walbril"
-      "software-niagara-tea": "software-niagara"
+      "software-niagara-tea": "niagara-team"
       "swhite": "pimps-love"
       "front-end-developers": "fed-brazil"
       "cold-brew-rocket-fue": "brew-rocket-fuel"
@@ -100,7 +96,6 @@ Team.find {}, (err, teams) ->
       "its-always-been-brok": "always-broken"
       "figure-it-out-guys": "makeshift"
 
-
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
       team.slug = 'waving'
@@ -110,6 +105,8 @@ Team.find {}, (err, teams) ->
       old = team.slug
       team.slug = changes[team.slug]
       console.log "#{old.red} -> #{team.slug.green} (#{team.name})"
+
+    team.setup = { status: 'ready' }
 
     team.save (err) -> next(err, team)
   
