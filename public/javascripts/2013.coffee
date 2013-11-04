@@ -55,6 +55,8 @@ load = ->
           <span class="time-section"><strong>#{ts.minutes}</strong>M</span>
           <span class="time-section"><strong>#{ts.seconds}</strong>S</span>
         """
+    update()
+    el.closest(".countdown").show()
     setInterval update, 1000
 
   # team and people delete confirm

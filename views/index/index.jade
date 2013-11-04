@@ -12,7 +12,7 @@ block body
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
 
           if preCoding
-            .countdown
+            .countdown(style="display:none")
               .with-popover
                 span.label.label-primary NodeKnockout starts in
                 .popover-content(style="display:none")
@@ -20,13 +20,38 @@ block body
 
               .timer(data-from="Nov 9, 2013 00:00 UTC")
 
-
-          else
-            label Main Event
-            h2
-              | Nov 8-10
-              span.sep •
-              | 2013
+            if req.myTeam
+              .button-boxes.row
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    //- img(src="/images/button-box.png", width="100%")
+                    a.btn.btn-primary.btn-block(href="#")
+                      i.icon-upload-cloud
+                      | Deploying
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    //- img(src="/images/button-box.png", width="100%")
+                    a.btn.btn-primary.btn-block(href="/teams/mine/edit")
+                      i.icon-users
+                      | Manage Your Team
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    //- img(src="/images/button-box.png", width="100%")
+                    a.btn.btn-primary.btn-block(href="#")
+                      i.icon-list
+                      | Competition Rules
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    //- img(src="/images/button-box.png", width="100%")
+                    a.btn.btn-primary.btn-block(href="#")
+                      i.icon-beaker
+                      | Resources / Services
+            else
+              label Main Event
+              h2
+                | Nov 8-10
+                span.sep •
+                | 2013
 
             if preRegistration
               .pre-registration
