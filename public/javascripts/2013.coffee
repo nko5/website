@@ -50,15 +50,16 @@ load = ->
 
   $(".countdown .timer").each ->
     el = $(this)
-    end = Date.parse($(this).data("from"))
+    end = moment.utc($(this).data("from")).toDate()
+
     update = ->
-      countdown end, (ts) ->
-        el.html """
-          <span class="time-section"><strong>#{pad(ts.days,2)}</strong>D</span>
-          <span class="time-section"><strong>#{pad(ts.hours,2)}</strong>H</span>
-          <span class="time-section"><strong>#{pad(ts.minutes,2)}</strong>M</span>
-          <span class="time-section"><strong>#{pad(ts.seconds,2)}</strong>S</span>
-        """
+      ts = countdown(moment.utc().toDate(), end)
+      el.html """
+        <span class="time-section"><strong>#{pad(ts.days,2)}</strong>D</span>
+        <span class="time-section"><strong>#{pad(ts.hours,2)}</strong>H</span>
+        <span class="time-section"><strong>#{pad(ts.minutes,2)}</strong>M</span>
+        <span class="time-section"><strong>#{pad(ts.seconds,2)}</strong>S</span>
+      """
     update()
     el.closest(".countdown").show()
     setInterval update, 1000
