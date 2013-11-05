@@ -409,6 +409,16 @@ module.exports = [
 
     '''
 
+,
+  name: "Concurix"
+  url: "http://concurix.com"
+  image: 'services/concurix.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
+
 
 ]
 
