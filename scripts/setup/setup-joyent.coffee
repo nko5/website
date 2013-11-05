@@ -39,7 +39,7 @@ module.exports = setupJoyent = (options, next) ->
       joyent.getMachine machine, (err, res) ->
         return next(err) if err
         switch res.state
-          when 'provisioning'
+          when 'provisioning', 'stopped', 'ready'
             console.log team.slug, "#{res.state} (#{i * secs}s)"
             setTimeout check, secs * 1000
             i += 1
