@@ -29,6 +29,10 @@ $.fx.speeds._default = 200
 $(document).on 'mousedown', 'a[href^=http]', (e) ->
   $.post "/notify", { url: this.href }
 
+pad = (num, size) ->
+  s = "000000000" + num
+  s.substr s.length - size
+
 load = ->
   $(':text:first').focus() # focus first input
 
@@ -50,10 +54,10 @@ load = ->
     update = ->
       countdown end, (ts) ->
         el.html """
-          <span class="time-section"><strong>#{ts.days}</strong>D</span>
-          <span class="time-section"><strong>#{ts.hours}</strong>H</span>
-          <span class="time-section"><strong>#{ts.minutes}</strong>M</span>
-          <span class="time-section"><strong>#{ts.seconds}</strong>S</span>
+          <span class="time-section"><strong>#{pad(ts.days,2)}</strong>D</span>
+          <span class="time-section"><strong>#{pad(ts.hours,2)}</strong>H</span>
+          <span class="time-section"><strong>#{pad(ts.minutes,2)}</strong>M</span>
+          <span class="time-section"><strong>#{pad(ts.seconds,2)}</strong>S</span>
         """
     update()
     el.closest(".countdown").show()
