@@ -30,7 +30,8 @@ nap({
         "/public/javascripts/2013/judges.coffee",
         "/public/javascripts/2013/prizes.coffee",
         "/public/javascripts/2013/jobs.coffee",
-        "/public/javascripts/2013/votes.coffee"
+        "/public/javascripts/2013/votes.coffee",
+        '/public/javascripts/2013/websocket.coffee'
 
       ],
       "2012": [
