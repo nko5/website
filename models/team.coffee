@@ -275,11 +275,12 @@ TeamSchema.virtual('screenshot').get ->
       url: url
       viewport: '1024x595'
       thumbnail_max_width: '320'
+      unique: @lastDeploy?.createdAt?.toISOString()
     md5 = crypto.createHash 'md5'
     md5.update qs.toString(), 'ascii'
     md5.update env.secrets.url2png, 'ascii'
     token = md5.digest 'hex'
-    "http://alpha.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
+    "http://beta.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
 
 TeamSchema.method 'updateScreenshot', (callback) ->
   return unless @entry.url
