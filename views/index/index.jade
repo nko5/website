@@ -14,9 +14,10 @@ block body
           if preCoding
             .countdown(style="display:none")
               .with-popover
-                span.label.label-primary NodeKnockout starts in
+                a(href="http://www.wolframalpha.com/input/?i=November+9th%2C+2013+00%3A00+UTC", target="_blank")
+                  span.label.label-primary NodeKnockout starts in
                 .popover-content(style="display:none")
-                  | The competition starts at exactly 00:00UTC on Nov 9th, 2013 and goes for 48hrs.
+                  | The competition starts at exactly 00:00UTC on Nov 9th, 2013 and goes for 48hrs. Click to see what time it starts in your local time zone.
 
               .timer(data-from="Nov 9, 2013 00:00")
 
@@ -45,7 +46,7 @@ block body
           else
             label Main Event
             h2
-              | Nov 8-10
+              | Nov 9-11 UTC
               span.sep •
               | 2013
 
