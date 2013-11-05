@@ -17,10 +17,10 @@ Team.find {}, (err, teams) ->
 
     if team.peopleIds.length is 0
       console.log "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})"
-      return next(null, team)
+      return next()
 
     # don't change any team that's already being setup
-    return next(null, team) if team.setup?.status
+    return next() if team.setup?.status
 
     changes = 
       "-1": "theteam"
@@ -96,6 +96,8 @@ Team.find {}, (err, teams) ->
       "its-always-been-brok": "always-broken"
       "figure-it-out-guys": "makeshift"
       "hooky": "toptal"
+      "frost-tw": "isdmd"
+      "sporky-dorky": "sporkydorky"
 
     if team.name == "ヽ( ´¬`)ノ" #special that there was no slug previously
       old = team.slug
