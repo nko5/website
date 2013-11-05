@@ -33,7 +33,7 @@ ssh root@${ip}
 
 Read more about this setup [on our blog][deploying-nko].
 
-[deploying-nko]: http://blog.nodeknockout.com/#TODO
+[deploying-nko]: http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup
 
 ## Tips
 
