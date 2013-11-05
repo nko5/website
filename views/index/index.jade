@@ -42,37 +42,37 @@ block body
                     a.btn.btn-primary.btn-block(href="/resources")
                       i.icon-beaker
                       | Resources / Services
-            else
-              label Main Event
-              h2
-                | Nov 8-10
-                span.sep •
-                | 2013
+          else
+            label Main Event
+            h2
+              | Nov 8-10
+              span.sep •
+              | 2013
 
-            if preRegistration
-              .pre-registration
+          if preRegistration
+            .pre-registration
+              p
+                | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
+                | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
+          else if registration
+            .registration
+              if req.myTeam
+                h3 You are all set to compete!
+                a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") #{req.myTeam.name}
+              else if req.canRegister
+                h3 Registration is Open
+                p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
+                  | Register Now
+                  i= req.teamsLeft + " spots remaining"
+
+              else
+                h3 All team spots are currently full.
                 p
-                  | Registration is set to open on <strong>Sept 17, 2013</strong>.<br>
-                  | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know the moment it's up.
-            else if registration
-              .registration
-                if req.myTeam
-                  h3 You are all set to compete!
-                  a.btn.btn-super.btn-default.btn-primary(href="/teams/mine") #{req.myTeam.name}
-                else if req.canRegister
-                  h3 Registration is Open
-                  p: a.register.btn.btn-super.btn-primary( href="/teams/new" )
-                    | Register Now
-                    i= req.teamsLeft + " spots remaining"
+                  a.btn.btn-super.btn-default.btn-primary(href="/teams") Find a Team to join
 
-                else
-                  h3 All team spots are currently full.
-                  p
-                    a.btn.btn-super.btn-default.btn-primary(href="/teams") Find a Team to join
-
-                  //- h3 Registration is currently full.
-                  //-   p
-                  //-     | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
+                //- h3 Registration is currently full.
+                //-   p
+                //-     | <a class="subscribe-btn" href="#subscribe">Subscribe</a> and we'll let you know when spots become available.
 
 
       .intro-section.landing-section
