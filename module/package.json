@@ -5,7 +5,7 @@
                   "Gerad Suyderhoud <gerads@gmail.com>"],
   "author": "Danny Coates <dannycoates@gmail.com>",
   "description": "node.js knockout deploy check-in",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "http://nodeknockout.com",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "keywords": [ "node.js knockout", "knockout", "nko" ],
   "bugs": {
     "email": "all@nodeknockout.com",
-    "url": "https://github.com/nko2/website/issues"
+    "url": "https://github.com/nko4/website/issues"
   },
   "contributors": [
     "Danny Coates <dannycoates@gmail.com>",
