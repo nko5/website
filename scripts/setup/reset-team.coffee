@@ -110,6 +110,7 @@ module.exports = resetTeam = (team, next) ->
       team.deployKey.private = null
 
     team.setup.done['deploy-key'] = false
+    team.setup.done['deploy-key-fixes'] = false
 
     team.save (err) -> next(err)
 

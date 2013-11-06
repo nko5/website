@@ -90,6 +90,7 @@ TeamSchema = module.exports = new mongoose.Schema
     log: String
     done:
       'deploy-key': Boolean
+      'deploy-key-fixes': Boolean
       'deploy': Boolean
       'dns': Boolean
       'github-members': Boolean
