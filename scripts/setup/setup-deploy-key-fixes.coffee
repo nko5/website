@@ -17,6 +17,7 @@ module.exports = setupDeployKeyFixes = (options, next) ->
   addDeployKeyToDeployUser = (next) ->
     console.log team.slug, 'set up deploy key on deploy user'
     cmd = """
+      cp ~/.ssh/authorized_keys /home/deploy/.ssh/authorized_keys
       cp ~/.ssh/id_deploy /home/deploy/.ssh/id_rsa
       cp ~/.ssh/id_deploy.pub /home/deploy/.ssh/id_rsa.pub
       chown deploy /home/deploy/.ssh/id_rsa*

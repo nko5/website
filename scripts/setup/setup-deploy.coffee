@@ -7,7 +7,8 @@ module.exports = setupDeploy = (options, next) ->
   team = options.team
   console.log team.slug, 'running deploy setup'
 
-  setup = spawn './deploy', ['nko', 'setup'],
+  setup = spawn path.join(__dirname, './setup-deploy.sh'),
+    [team.ip],
     cwd: path.join(rootDir, 'repos', team.slug)
     stdio: 'inherit'
   setup.on 'error', (err) -> next(err)
