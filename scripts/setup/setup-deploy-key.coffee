@@ -43,7 +43,10 @@ module.exports = setupDeployKey = (options, next) ->
     github.post "repos/nko4/#{team.slug}/keys",
       title: "deploy@#{team.slug}.2013.nodeknockout.com"
       key: team.deployKey.public
-    , (err) -> next(err)
+    , (err, res, body) ->
+      return next(err) if err
+      return next(body ? res.statusCode) unless (res.statusCode is 201)
+      next()
 
   addDeployKeyToRepo = (next) ->
     console.log team.slug, 'add deploy key to repo'
