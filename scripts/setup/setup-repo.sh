@@ -155,6 +155,6 @@ test sleep 5 && wget -qO /dev/null localhost
 EOF
 
 git add .
-git commit -m Instructions
+git commit -m Initial
 git remote add origin git@github.com:nko4/${slug}.git
 git push -u origin master

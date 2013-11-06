@@ -55,7 +55,7 @@ module.exports = setupDeployKey = (options, next) ->
         fs.writeFileSync(path.join(repoDir, 'id_deploy.pub'), team.deployKey.public)
       catch err
         return next(err)
-      next()
+      exec "chmod 600 '#{repoDir}'/id_deploy*", (err) -> next(err)
 
   saveDeployKeypair = (next) ->
     console.log team.slug, 'save deploy keypair'

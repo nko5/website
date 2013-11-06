@@ -67,6 +67,15 @@ module.exports = setupSSHKeys = (options, next) ->
     """.split("\n").join(' && ')
     spawnssh cmd, next
 
+  addDeployKeyToDeploy = (next) ->
+    console.log team.slug, 'setting up deploy key on deploy user'
+    cmd = """
+      cp ~/.ssh/id_deploy /home/deploy/.ssh/id_rsa
+      cp ~/.ssh/id_deploy.pub /home/deploy/.ssh/id_rsa.pub
+      chown deploy /home/deploy/.ssh/id_rsa*
+    """.split("\n").join(' && ')
+    spawnssh cmd, next
+
   spawnssh = (cmd, opts, next)->
     unless next
       next = opts
@@ -83,4 +92,4 @@ module.exports = setupSSHKeys = (options, next) ->
     ssh
 
 
-  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeysToRoot, copyAuthorizedKeysToDeploy], (err) -> next(err)
+  async.waterfall [getGithubLogins, getGithubSSHKeys, createAuthorizedKeys, addAuthorizedKeysToRoot, copyAuthorizedKeysToDeploy, addDeployKeyToDeploy], (err) -> next(err)
