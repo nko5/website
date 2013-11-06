@@ -71,7 +71,7 @@ and provide as much information as possible about your issue!
 **Git Like Crazy**:
 You must use git for Node Knockout.
 So, make sure you know how to use it.
-That means being gamiliar with commits, branches, merge/rebase, and revert.
+That means being familiar with commits, branches, merge/rebase, and revert.
 
 **Don’t Ignore Architecture**:
 You are never going too fast to skip spending time
