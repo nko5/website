@@ -60,8 +60,8 @@ if (secrets.twitterUser) {
 // state (getting pretty gross)
 app.disable('pre-registration');  // just the countdown
 app.disable('registration');       // months beforehand
-app.disable('pre-coding');        // week beforehand
-app.enable('coding');            // coding + several hours before
+app.enable('pre-coding');        // week beforehand
+app.disable('coding');            // coding + several hours before
 app.disable('voting');            // after
 app.disable('winners');        // after winners are selected
 
