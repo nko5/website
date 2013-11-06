@@ -46,9 +46,14 @@ loadFeaturedJudges = (req, res, next) ->
 
 # app.get '/', (req, res, next) ->
 #   res.render2 'index/index'
-
 app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
-  res.render2 'index/index',
+
+  if app.enabled('coding')
+    template = 'index/coding'
+  else
+    template = 'index/index'
+
+  res.render2 template,
     team: req.team
     stats: app.stats
     recentDeploys: req.recentDeploys

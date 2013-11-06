@@ -2,12 +2,13 @@ extends ../layout-2013
 
 block body
   - activeNav = "people"
-  include ../index/_header-mini
+  .contained
+    include ../index/_header-mini
 
   .inner-page.container.profile-page
     - if (canEdit(person))
       .edit.pull-right
-        
+
         - if (admin)
           - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + person.twitterScreenName).replace('@@', '@') + ' ');
           - if (person.nomination)
@@ -23,7 +24,7 @@ block body
     .profile-content
       h1.name= title(person.name)
       h2.title= person.title
-    
+
       include details
     hr
 
@@ -102,4 +103,3 @@ block body
         else
           p Votes are hidden until this person votes for your entry.
 
-    
