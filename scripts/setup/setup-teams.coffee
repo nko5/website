@@ -33,7 +33,6 @@ setupTeam = (next) ->
   setupData = (data) ->
     process.stdout.write data
     team.setup.log += data.toString()
-    team.save -> # nothing
 
   setupError = (err) ->
     team.setup.status = 'error'

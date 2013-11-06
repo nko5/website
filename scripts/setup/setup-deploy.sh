@@ -10,7 +10,7 @@ fi
 ip=$1
 
 # replace the hostname in the deploy.conf with the ip
-sed -i .bak "s/^host .*/host $ip/" deploy.conf
+sed -i.bak "s/^host .*/host $ip/" deploy.conf
 
 # setup the deploy with the ip address
 ./deploy nko setup

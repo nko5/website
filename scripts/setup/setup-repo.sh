@@ -158,7 +158,7 @@ git add .
 git commit -m Initial
 git remote add origin git@github.com:nko4/${slug}.git
 
-cat <<EOF >gitssh.sh
+cat <<'EOF' >gitssh.sh
 #!/bin/sh
 exec /usr/bin/ssh -i ./id_deploy "$@"
 EOF
