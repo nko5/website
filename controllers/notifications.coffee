@@ -18,10 +18,8 @@ message = ->
 app.post '/notify', (req, res, next) ->
   # only notify during voting
   return res.send(200) unless app.enabled('voting')
-  console.log 'IM VOTING'
   # only notify when judges click through
   return res.send(200) unless req.user?.judge
-  console.log 'IM JUDGE'
 
   # see if the url being clicked belongs to a team entry
   url = req.body.url
