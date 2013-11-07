@@ -16,7 +16,7 @@ msgTeam = (team, callback) ->
   currentTeam.people (err, people) ->
     return callback(err) if err
     emailable = (person for person in people when /@/.test(person.email))
-    util.log "Sending 'contestant_pre_1week' to '#{team.name}'".yellow
+    util.log "Sending 'contestant_pre_2days' to '#{team.name}'".yellow
     async.forEach emailable, msgPerson, callback
 
 msgPerson = (person, callback) ->
