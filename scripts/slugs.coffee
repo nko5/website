@@ -16,8 +16,7 @@ Team.find {}, (err, teams) ->
     # return next(null, team) # don't modify right now
 
     if team.peopleIds.length is 0
-      console.log "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})"
-      return next()
+      console.warn "EMPTY TEAM - nodeknockout.com/teams/#{team.slug} (#{team.name})"
 
     # don't change any team that's already being setup
     return next() if team.setup?.status
