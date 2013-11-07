@@ -45,23 +45,12 @@ app.post '/notify', (req, res, next) ->
         return next(err) if err
 
         util.log("NOTIFY #{team} (#{handles.join(', ')})".magenta)
-
         # DM the team with the message
-     
-        console.log handles
-
-
         handles.map (username) ->
           params = 
             screen_name: username
             text: "#{message()} - join at your team page"
-    
           app.twitter.post 'direct_messages/new', params , (err, res) ->
-            throw err if err
-            console.log res         
-        
+            throw err if err        
         res.send(200)
-        # app.twitter.dm handles, "#{message()} - join at http://nodeknockout.com/teams/mine", (err, result) ->
-        #   return next(err) if err
-        #   console.dir(result)
-        #   res.send(200)
+        
