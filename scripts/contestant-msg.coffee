@@ -32,7 +32,7 @@ msgPerson = (person, callback) ->
 
   postageapp.sendMessage
     recipients: address
-    template: 'contestant_pre_1week'
+    template: 'contestant_pre_2days'
     variables:
       team_name: " #{currentTeam.name}"
     , (args...) ->
