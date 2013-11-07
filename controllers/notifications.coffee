@@ -18,9 +18,10 @@ message = ->
 app.post '/notify', (req, res, next) ->
   # only notify during voting
   return res.send(200) unless app.enabled('voting')
-
+  console.log 'IM VOTING'
   # only notify when judges click through
   return res.send(200) unless req.user?.judge
+  console.log 'IM JUDGE'
 
   # see if the url being clicked belongs to a team entry
   url = req.body.url
@@ -46,7 +47,21 @@ app.post '/notify', (req, res, next) ->
         util.log("NOTIFY #{team} (#{handles.join(', ')})".magenta)
 
         # DM the team with the message
-        app.twitter.dm handles, "#{message()} - join at #{url}", (err, result) ->
-          return next(err) if err
-          console.dir(result)
-          res.send(200)
+     
+        console.log handles
+
+
+        handles.map (username) ->
+          params = 
+            screen_name: username
+            text: "#{message()} - join at your team page"
+    
+          app.twitter.post 'direct_messages/new', params , (err, res) ->
+            throw err if err
+            console.log res         
+        
+        res.send(200)
+        # app.twitter.dm handles, "#{message()} - join at http://nodeknockout.com/teams/mine", (err, result) ->
+        #   return next(err) if err
+        #   console.dir(result)
+        #   res.send(200)
