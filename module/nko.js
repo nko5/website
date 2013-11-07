@@ -19,7 +19,6 @@ module.exports = function ping(code, callback) {
     path: '/deploys?' + qs.stringify(params)
   };
 
-
   setTimeout(function (){
     http.get(options)
       .on('response', function (res) {
@@ -28,7 +27,5 @@ module.exports = function ping(code, callback) {
       .on('error', function (err) { 
         if (callback) callback(err); 
      })
-
   }, 5000);
-
 };

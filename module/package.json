@@ -1,19 +1,21 @@
 {
   "name": "nko",
-  "maintainers": "visnup <visnupx@gmail.com>",
+  "maintainers": ["visnup <visnupx@gmail.com>",
+                  "David Dias <daviddias.p@gmail.com>",
+                  "Gerad Suyderhoud <gerads@gmail.com>"],
   "author": "Danny Coates <dannycoates@gmail.com>",
   "description": "node.js knockout deploy check-in",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "homepage": "http://nodeknockout.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nko2/website.git"
+    "url": "git://github.com/nko4/website.git"
   },
-  "homepage": "https://github.com/nko2/website/tree/master/module#readme",
+  "homepage": "https://github.com/nko4/website/tree/master/module#readme",
   "keywords": [ "node.js knockout", "knockout", "nko" ],
   "bugs": {
     "email": "all@nodeknockout.com",
-    "url": "https://github.com/nko2/website/issues"
+    "url": "https://github.com/nko4/website/issues"
   },
   "contributors": [
     "Danny Coates <dannycoates@gmail.com>",
@@ -21,7 +23,7 @@
   ],
   "main": "nko",
   "engines": {
-    "node": ">=0.4"
+    "node": ">=0.10"
   },
   "dependencies": {},
   "devDependencies": {},
