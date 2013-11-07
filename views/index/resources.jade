@@ -43,160 +43,35 @@ block body
           3. [Cross-platform graphics with Bonsai](http://blog.nodeknockout.com/post/35145390645/telling-stories-with-bonsai-js)
           4. [Sending email with Nodemailer](http://blog.nodeknockout.com/post/34641712180/sending-email-from-node-js)
 
-        //- :markdown
-        //-   # <a name="services"></a>Services
+        :markdown
+          # <a name="services"></a>Services
 
-        //-   ## <a name="nodejitsu">Nodejitsu</a>
+          We have a fantastic list of service sponsors this year. These APIs, tools, and services are allowed and encouraged to be used during the competition this weekend.
 
-        //-   Nodejitsu's platform actually gives you access to [free instances of several
-        //-   popular databases](https://github.com/nodejitsu/handbook#databases).
-
-        //-   - **[CouchDB](https://github.com/nodejitsu/handbook#couchdb)** —
-        //-     If you run `jitsu databases create couchdb myCouch`, jitsu will tell you
-        //-     the url for your new couchdb from iriscouch.
-
-        //-   - **[Redis](https://github.com/nodejitsu/handbook#redis)** —
-        //-     Running `jitsu databases create redis myRedis` will create a redis instance
-        //-     supplied by iris-redis. If you'd like more than the 20MB default, please
-        //-     contact <all@nodeknockout.com>.
-
-        //-   - **[MongoDB](https://github.com/nodejitsu/handbook#mongodb)** —
-        //-     Both [MongoLab](#mongolab) and [MongoHQ](#mongohq) are providing larger
-        //-     instances for use during Node.js Knockout. Find instructions for each
-        //-     below. If you want, `jitsu databases create mongo myMongo` works though.
-
-        //-   ## <a name="mongolab">MongoLab</a>
-
-        //-   [MongoLab](http://mongolab.com) is a full-featured MongoDB-as-a-Service
-        //-   cloud solution that completely automates the operational aspects of running
-        //-   MongoDB. With the MongoLab cloud platform developers can deploy and manage
-        //-   highly available databases for their applications and leverage automated
-        //-   backups, web-based tools, 24/7 monitoring, and expert support. Free 500MB
-        //-   databases are available on Amazon AWS, Azure, Joyent, and Rackspace.
-
-        //-   No special credentials are needed to use MongoLab's free 500MB plan during
-        //-   Node Knockout. Just [sign up to get a free
-        //-   account](https://mongolab.com/signup/).
-
-        //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35339780516/mongolabs-joyent-hosted-mongodb-quick-start)
-        //-   for how to quickly get up and running with MongoLab.
-
-        //-   ## <a name="mongohq">MongoHQ</a>
-        //-   MongoHQ is the fastest and easiest way to create a MongoDB database to use
-        //-   with your application. Our goal is to allow developers to focus on what they
-        //-   do best while we keep your database fast, optimized and reliable. It takes
-        //-   [less than 30 seconds to sign up and create a MongoDB
-        //-   database](https://www.mongohq.com/signup).
-
-        //-   For NodeKnockout, we have available 512MB plans in multiple data centers.
-        //-   Simply sign up and create a database and you will have full access to our
-        //-   industry-leading tools and a friendly and intelligent support team. We're
-        //-   excited to see what you build ... Good luck!
-
-        //-   ## <a name="apigee">Apigee</a>
-
-        //-   **Apigee will give out $4,000 in November to great apps that use node.js + App Services — read the [blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node) for details!**
-
-        //-   [Apigee App Services](http://apigee.com/about/developers) is a hosted cloud
-        //-   service to store, retrieve & query your data — and so much more. Create a
-        //-   user record in our database and boom — we automatically give you a method to
-        //-   let that user sign-in to the service (using OAuth), let him own other pieces
-        //-   of data, post stuff to his activity wall, and the ability to become friends
-        //-   & share data with other users — without having to write a single line of
-        //-   code. Want to store arbitrary data? If you can express it as JSON, we can
-        //-   store it!
-
-        //-   Check out the [getting started blog post](http://blog.nodeknockout.com/post/35360694905/using-apigee-with-node)
-        //-   for more&hellip;
-
-        //-   **To sign up during the knockout, please [go here](https://accounts.apigee.com/accounts/sign_up)**.
-
-        //-   We have a [node SDK](https://github.com/apigee/usergrid-node-js-sdk) and
-        //-   plenty of [documentation](http://apigee.com/docs/app_services). If you need
-        //-   any help during the weekend, you can ping Rod or Tim on IRC (rockerston, timanglade in
-        //-   \#nodeknockout on Freenode), GTalk (rsimpson@apigee.com, tanglade@apigee.com), email
-        //-   (<rsimpson@apigee.com>, <tanglade@apigee.com>) or Skype (rockerston, timanglade).
-
-        //-   ## <a name="ratchetio">Ratchet.io</a>
-
-        //-   [Ratchet.io](https://ratchet.io) is real-time execption tracking on steroids.
-        //-   It has the basics covered&mdash;de-duplication, alerts, context, graphs, a
-        //-   solid backend&mdash;and adds a dashboard, search, replays, Github integration,
-        //-   an API, and more. Set it up in 5 minutes.
-
-        //- if !user
-        //-   p
-        //-     a(href="/login") Sign in
-        //-     |  for the super-secret free signup link.
-        //- else if user && (user.contestant || user.judge)
-        //-   b For free access to Ratchet.io for Node Knockout
-        //-   p: a(href="https://ratchet.io/fasttrack/nk2012/") https://ratchet.io/fasttrack/nk2012/
-
-        //- :markdown
-        //-   ## <a name="teleportd">Teleportd</a>
-
-        //-   [Teleportd](http://teleportd.com) provides an API for accessing mobile
-        //-   photos that are publicly shared online. It aggregates photos from Twitter,
-        //-   Instagram and a dozen other social networks, seeing an average of 100
-        //-   photos/s. Geolocation and keyword tags are associated with the photos,
-        //-   opening up a wide range of use cases.
-
-        //- if services.teleportd
-        //-   if !user
-        //-     p
-        //-       a(href="/login") Sign in
-        //-       |  to see how to get
-        //-       strong free access to Teleportd's unlimited api
-        //-       |  during Node Knockout.
-        //-   else if user && (user.contestant || user.judge)
-        //-     b For free access to Teleportd's api for Node Knockout
-        //-     != markdown(services.teleportd)
-
-        //- :markdown
-        //-   ## <a name="impactjs">Impact.js</a>
-
-        //-   [Impact](http://impactjs.com/) is a JavaScript Game Engine that allows you
-        //-   to develop HTML5 Games for desktop and mobile browsers. It has recently been
-        //-   called "the first truly professional-grade JavaScript game engine to hit the
-        //-   market" in a review by the Game Developer Magazine. Impact comes with a
-        //-   versatile Level Editor that helps you create your game worlds with ease -
-        //-   whether it's for an arcade game, a side-scrolling Jump'n'Run or a top-down
-        //-   RPG.
-
-        //-   Email <dominic.szablewski@gmail.com> if you want to use Impact for your
-        //-   Knockout project.
-
-        //-   ## <a name="pusher">Pusher</a>
-
-        //-   Looking to build realtime awesomeness with WebSockets at Node Knockout? Want
-        //-   to have scalable connection handling sorted out without any server
-        //-   configuration? Want to get things like PubSub message filtering,
-        //-   authentication, and presence for free? You should try out [Pusher](http://pusher.com/).
-
-        //- if services.pusher
-        //-   if !user
-        //-     p
-        //-       a(href="/login") Sign in
-        //-       |  for a coupon to get
-        //-       strong one month of the 500 connection Startup plan
-        //-       |  for free.
-        //-   else if user && (user.contestant || user.judge)
-        //-     b To get one month of the 500 connection Startup plan for free
-        //-     != markdown(services.pusher)
-
-        //- :markdown
-        //-   ## <a name="s3">Amazon S3</a>
-
-        //-   You can use your own Amazon S3 account during the competition for files. If
-        //-   you'd like to use a Knockout provided account, please contact <all@nodeknockout.com>.
-
-        //-   ## <a name="monitaur">Monitaur</a>
-
-        //-   [Monitaur](http://monitaur.net) is instant server monitoring. Set it up in
-        //-   30 seconds (seriously, it's really easy). Record and view your system stats
-        //-   in real time. [Try it out!](http://monitaur.net)
-
-        //-   _Want to be on this list? [Become a sponsor](/sponsors/options#service)._
+        //- this nightmare html block was generated from https://hackpad.com/Services-VrXnus8vMc7
+        | <h3><b>Joyent Manta</b></h3>
+        | <p>Separate from the official <a href='http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup'/>Joyent-sponsored NKO ubuntu instance</a>, <a href='http://www.joyent.com/'/>Joyent</a> is also offering up to $130 worth* of access to <a href='https://gist.github.com/benzenwen/www.joyent.com/products/manta'/>Manta</a>. If you haven&rsquo;t heard of Manta yet, it&rsquo;s Joyent&rsquo;s object store with built in map/reduce. In other words &quot;upload your data, then crunch on it in-place&quot;.</p><p></p><p>Some examples of how you can use Manta:</p><ul><li>Upload your server logs, do some clickstream analysis.</li>
+        | <li>Upload photos, resize, feature extract them &quot;in place&quot;.</li>
+        | <li>Upload db dumps, do some data analytics, produce some graphs.</li></ul>
+        | <h3><b>GoInstant</b></h3>
+        | <p><a href='http://goinstant.com/'/>GoInstant</a> is a JavaScript API for adding realtime, collaborative experiences into any web or mobile app. They provide a full stack solution, including <a href='https://developers.goinstant.com/beta/v1/index.html'/>client-side</a> widgets, low latency pub/sub messaging, and a hierarchical data store. They make it easier and faster to build realtime, multi-user apps.&nbsp;</p><p></p><p>There&rsquo;s a quick <a href='https://developers.goinstant.com/v1/'/>getting started tutorial</a> available. It&rsquo;s free to use, you can signup <a href='https://goinstant.com/signup'/>here</a>. If you use GoInstant during Node Knockout, you&rsquo;ll be considered for an <a href='https://goinstant.com/blog/goinstant-is-sponsoring-node-knockout-2013-giving-away-awesome-prizes'/>extra prize</a>!</p><p></p><h3><b>Amazon Web Services&nbsp;</b></h3>
+        | <p><a href='http://aws.amazon.com/'/>Amazon Web Services (AWS)</a> delivers a set of services that together form a reliable, scalable, and inexpensive computing platform in the cloud. AWS is offering $100 in free AWS credits to every team.</p><p></p><p>Please note all of your project&rsquo;s executable code assets still need to be hosted on Joyent during the competition for auditing purposes.</p><p></p><h3><b>Auth0</b></h3>
+        | <p><a href='http://blog.auth0.com/2013/11/06/node-knockout-devs-forget-about-authentication/'/>Auth0</a> is a cloud identity service for quickly and securely adding social and enterprise authentication, user management and auditing functionality to your web and mobile apps. With just a few lines of code you can accept users logged in with more than 10 different social identity providers: GitHub, LinkedIn, Facebook, Twitter, LiveID, 37Signals, Fitbit, and many others. The same API allows you to connect with popular enterprise systems such as Google Apps, Office 365, Active Directory, LDAP and SAML based identity providers. It ships with great extensibility features based on simple to develop JavaScript extensions.&nbsp;&nbsp; Sign up for a free developer account <a href='http://blog.auth0.com/2013/11/06/node-knockout-devs-forget-about-authentication/'/>here</a>.</p><p></p><h3><b>Balsamiq</b></h3>
+        | <p><a href='http://balsamiq.com/products/mockups/mybalsamiq/'/>myBalsamiq</a> is the cloud-based version of Mockups, the rapid wireframing software that combines the comfort and simplicity of paper sketching with the power of a digital tool. myBalsamiq makes Mockups more powerful for teams with features for remote collaborative design including versioning and branching, web-accessible low-fi prototypes, project access levels, SSL, RSS, and email integration.</p><p></p><p>Balsamiq can be used for digital wireframing of your NKO entry beforehand. Just please no digital assets, and post screenshots of all your wireframes to your team resources page at the end of the competition.</p><p></p><h3><b>Cloudant</b></h3>
+        | <p><a href='https://cloudant.com/'/>Cloudant</a> database as a service (DBaaS) is the first data management platform to leverage the availability, elasticity, and reach of the cloud to create a global data delivery network (DDN) that enables applications to scale larger and remain available to users wherever they are. Sign up <a href='https://cloudant.com/sign-up/'/>here</a>.&nbsp;</p><p></p><h3><b>Concurix</b></h3>
+        | <p><a href='http://concurix.com/'/>Concurix</a> is a real-time visual profiler, Node.js debuggger, and offers production snapshot debugging. They&rsquo;re offering unlimited usage of analysis tools for participants during and after the competition. Sign up for an account <a href='https://www.dailycred.com/oauth/authorize?response_type=token&amp;redirect_uri=http%3A%2F%2Fconcurix.com%2F&amp;client_id=7939c904-841f-4226-937c-6c03200d7361'/>here</a>. You can find a detailed tutorial on how to use it is <a href='http://concurix.com/blog/post/62916900514'/>here</a>.&nbsp;</p><p></p><h3><b>Firebase</b></h3>
+        | <p><a href='http://firebase.com/'/>Firebase</a> is a real-time backend for building collaborative, modern applications. By replacing the traditional request / response model with a data synchronization approach, developers can get apps up and running in minutes. Apps built with Firebase can be written entirely with client-side code, scale automatically, and update across clients in real-time. Sign up for a free developer account <a href='https://www.firebase.com/signup/'/>here</a>.</p><p></p><h3><b>Max CDN</b></h3>
+        | <p>HTTP Caching (<a href='http://www.maxcdn.com/products/edgecaching/'/>EdgeCaching</a>) allows you to handle any amount of traffic directly from the edge. MaxCDN’s advanced hardware and always-on provisioning make a fast and cost-effective solution to handle your traffic.</p><p></p><p>For free access, please fill out the form here: <a href="http://j.mp/kno13-maxcdn"><a href='http://j.mp/kno13-maxcdn'/>http://j.mp/kno13-maxcdn</a></a>&nbsp;</p><p></p><h3><b>MongoHQ</b></h3>
+        | <p>Blazing-fast, SSD-Backed MongoDB Hosting. <a href='http://mongohq.com/'/>MongoHQ</a> is offering a $100 service credit code for all participants.&nbsp;</p><p></p><h3><b>MongoLab</b></h3>
+        | <p><a href='https://mongolab.com/'/>MongoLab</a> is a fully-managed MongoDB-as-a-Service featuring highly-available MongoDB databases, automated backups, web-based tools, 24/7 monitoring, and expert support. <a href='https://mongolab.com/signup/'/>Sign up here</a> for a free sandbox account.</p><p></p><h3><b>PubNub</b></h3>
+        | <p><a href='http://www.pubnub.com/'/>PubNub</a> is the world&rsquo;s only global real-time network. They make it easy to build, deploy and scale real-time apps for any device. PubNub provides all of the key building blocks for real-time apps, including Data Push - so you can push data to global audiences on any device using persistent socket connections. Presence - so you can detect when users enter/leave your app and whether machines are online. And Storage &amp; Playback - so you can store real-time data streams for future retrieval and playback. Use the Worlds Fastest and Largest Global Real-time Network for your hackathon for free! Check out the <a href='http://www.pubnub.com/blog/node-knockout-2013-supercharge-your-app-with-pubnub/'/>getting started guide</a>.</p><p></p><h3><b>Pusher</b></h3>
+        | <p><a href='http://pusher.com/'/>Pusher</a> is a hosted API for quickly, easily and securely adding scalable realtime functionality to web and mobile apps. They believe that your developer time is best spent making awesome features, not creating infrastructure. Use Pusher to build features such as notifications, activity streams, chat, data visualisations, Social TV experiences and multiplayer games. Sign up for the <a href='http://pusher.com/'/>free Sandbox account</a>.</p><p></p><h3><b>Oauth.io</b></h3>
+        | <p>Integrate 80+ OAuth providers in minutes. Sign up <a href='https://oauth.io/signup'/>here</a>.</p><p></p><h3><b>Rollbar</b></h3>
+        | <p><a href='https://rollbar.com/'/>Rollbar</a> collects and analyzes errors so you can find and fix them faster. Sign up for a <a href='https://rollbar.com/signup/'/>free trial</a>.</p><p></p><h3><b>Segment.io</b></h3>
+        | <p><a href='https://segment.io/'/>Segment.io</a> lets you send your analytics data to any service you&rsquo;d like, without having to integrate each one individually. With the click of a button, you can start sending data to any of our 50+ integrations using a single, clean API.&nbsp;</p><p></p><p>To get started, head over to <a href='http://segment.io/'/>segment.io</a>, sign up, and drop their javascript on the page. For the purists out there, there&rsquo;s also a <a href='https://github.com/segmentio/analytics-node'/>server-side node module</a> so that you can still use all those juicy --harmony features. You&rsquo;ll be up and running before you can say `process.nextTick`.</p><p></p><h3><b>Sentry</b></h3>
+        | <p><a href='https://getsentry.com/'/>Sentry</a> is a modern take on error logging. It’s a highly context-aware, multi-language, and open source platform for drilling into your exceptions. Sign up for a <a href='https://www.getsentry.com/register/'/>free trial</a>.</p><p></p><h3><b>Twilio</b></h3>
+        | <p><a href='http://www.twilio.com/'/>Twilio</a> allows you to programmatically make and receive phone calls and send and receive text messages using its API. They&rsquo;re offering $30 of free credit to every NKO team.</p><p></p><h3><b>ZenCoder</b></h3>
+        | <p>If you’re doing anything with audio or video in your application, <a href='http://zencoder.com/'/>Zencoder</a> is here to make things easier. They provide a simple API for transcoding files or live streams, and are giving free transcoding minutes to all participants. Learn more <a href='http://blog.zencoder.com/2013/10/22/node-knockout-2013-a-video-is-worth-a-bajillion-words/'/>here</a>.</p>
 
       .col-lg-4.col-sm-4.col-md-4
         include ../index/_sidebar

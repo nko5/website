@@ -88,15 +88,6 @@ module.exports = [
     '''
 
     '''
-,
-  name: "Auth0"
-  url: "http://Auth0.com"
-  image: 'services/auth0.jpg'
-  type: ["service"]
-  description:
-    '''
-
-    '''
 
 ,
   name: "Circle CI"
@@ -422,6 +413,16 @@ module.exports = [
   name: "Concurix"
   url: "http://concurix.com"
   image: 'services/concurix.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
+
+,
+  name: "Auth0"
+  url: "http://auth0.com"
+  image: 'services/auth0.jpg'
   type: ["service"]
   description:
     '''
