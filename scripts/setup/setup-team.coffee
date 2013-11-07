@@ -3,8 +3,7 @@
 async = require('async')
 
 setupTeam = (team, next) ->
-  # skip empty teams
-  return next("Error: #{team} team empty") if team.peopleIds.length is 0
+  console.warn("WARNING: #{team} team empty") if team.peopleIds.length is 0
 
   team.setup ?= {}
   team.setup.done ?= {}
