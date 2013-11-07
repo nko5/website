@@ -30,7 +30,10 @@ block body
       - });
 
 
-    h2 Service Sponsors
+    h2
+      | Service Sponsors
+      a(href="/resources#services")
+        | see what they're offering...
 
     ul.sponsor-logos.clearfix
       - _(serviceSponsors).shuffle().forEach(function(sponsor) {
@@ -40,7 +43,11 @@ block body
       - });
     hr
 
-    h2 Prize Sponsors
+    h2
+      | Prize Sponsors
+      a(href="/prizes")
+        | see what they're offering...
+
     ul.sponsor-logos.clearfix
       - _(prizeSponsors).shuffle().forEach(function(sponsor) {
         li.with-tooltip(title=sponsor.name)
