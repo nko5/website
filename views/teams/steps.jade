@@ -20,11 +20,11 @@ ul.steps
     h2.pending Not Yet Deployed
 
   h4 GitHub &mdash;
-    a( href='https://github.com/organizations/nko3/teams/#{team.github && team.github.id}' ) Team
+    a( href='https://github.com/organizations/nko4/teams/#{team.github && team.github.id}' ) Team
     | ,
-    a( href='https://github.com/nko3/#{team.slug}' ) Repo
+    a( href='https://github.com/nko4/#{team.slug}' ) Repo
   pre: code.
-    $ git clone <b>git@github.com:nko3/#{team.slug}.git</b>
+    $ git clone <b>git@github.com:nko4/#{team.slug}.git</b>
 
   //- h4 Nodejitsu &mdash;
   //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
@@ -32,7 +32,7 @@ ul.steps
   //-   a( href='http://handbook.jit.su' ) Handbook
   //- pre: code.
   //-   $ npm install -g jitsu
-  //-   $ jitsu login --username <b>nko3-#{team.slug}</b> --password <b>#{team.code}</b>
+  //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
   //-   $ jitsu deploy
 
 .step#entry
