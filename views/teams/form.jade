@@ -5,22 +5,23 @@ include ../errors
 
 .row
   .col-lg-8.col-md-8.col-sm-8.col-xs-12
-    .name
+    .name.field
       h3: label( for='name' ) Team Name
       input.form-control( type='text', name='name', id='name', placeholder='Witty Team Name',
         value=team.name )
 
       if admin
-        h3: label( for='slug' ) Slug
-        input.form-control( type='text', name='slug', id='slug', value=team.slug )
+        .slug.field
+          h3: label( for='slug' ) Slug
+          input.form-control( type='text', name='slug', id='slug', value=team.slug )
 
     - if (!team.isNew)
-      .description
+      .description.field
         h3: label( for='description' ) Description
         textarea.form-control( name='description', id='description', placeholder="If you're looking for more members, advertise here." )= team.description
         .note!= markdown_ok
 
-    .members
+    .members.field
       h3 Member Emails (including yours)
       .note We don&rsquo;t spam.
 

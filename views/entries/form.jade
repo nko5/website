@@ -1,74 +1,79 @@
-:markdown
-  Feel free to fill out this information any time before judging begins. Use
-  it to help judges get an idea of what you've accomplished. [Markdown][1] ok
-  for all fields.
+.row
+  .col-lg-8.col-md-8.col-sm-8.col-xs-12
 
-  [1]: http://daringfireball.net/projects/markdown/syntax
+    :markdown
+      Feel free to fill out this information any time before judging begins. Use
+      it to help judges get an idea of what you've accomplished. [Markdown][1] ok
+      for all fields.
 
-.name
-  h3: label( for='entryName' ) Entry Name
-  input( type='text', name='entry[name]', id='entryName', value=entry.name, placeholder='Name your creation' )
+      [1]: http://daringfireball.net/projects/markdown/syntax
 
-- if (admin)
-  .url
-    h3: label( for='entryURL' ) Entry URL
-    input( type='text', name='entry[url]', id='entryURL', value=entry.url )
+    .name.field
+      h3: label( for='entryName' ) Entry Name
+      input.form-control( type='text', name='entry[name]', id='entryName', value=entry.name, placeholder='Name your creation' )
 
-#pitch.video
-  h3: label( for='videoURL' ) Pitch Video URL
-  p.note
-    != '~2 minute <a href="http://blog.nodeknockout.com/post/35353987436/protip-create-a-perfect-pitch-video-this-year">video demo</a> of your entry. '
-    b.scary Required for expert judging.
-  input( type='text', name='entry[videoURL]', id='videoURL', value=entry.videoURL, placeholder="http://youtu.be/nZf29IBoXGg" )
-  p.note.more
-    | You can add a pitch video any time between now and the end of
-    | judging. We recommend doing it as soon as you can after the
-    | coding ends.
+    - if (admin)
+      .url.field
+        h3: label( for='entryURL' ) Entry URL
+        input.form-control( type='text', name='entry[url]', id='entryURL', value=entry.url )
 
-.description
-  h3: label( for='entryDescription' ) Description
-  p.note
-    | What does your entry do?
-  textarea( name='entry[description]', id='entryDescription' )= entry.description
+    #pitch.video
+      .field
+        h3: label( for='videoURL' ) Pitch Video URL
+        p.note
+          != '~2 minute <a href="http://blog.nodeknockout.com/post/35353987436/protip-create-a-perfect-pitch-video-this-year">video demo</a> of your entry. '
+          b.scary Required for expert judging.
+        input.form-control( type='text', name='entry[videoURL]', id='videoURL', value=entry.videoURL, placeholder="http://youtu.be/nZf29IBoXGg" )
+        p.note
+          | You can add a pitch video any time between now and the end of
+          | judging. We recommend doing it as soon as you can after the
+          | coding ends.
 
-.instructions
-  h3: label( for='entryInstructions' ) Instructions
-  p.note
-    | Give judges a summary of how to use your entry. 
-    b If your entry only works on certain browsers list them here.
-  textarea( name='entry[instructions]', id='entryInstructions' )= entry.instructions
+    .description.field
+      h3: label( for='entryDescription' ) Description
+      p.note
+        | What does your entry do?
+      textarea.form-control( name='entry[description]', id='entryDescription' )= entry.description
 
-.colophon
-  h3: label( for='entryColophon' ) Colophon
-  p.note
-    | What libraries, icons, web service APIs, and tools did you use?
-  textarea( name='entry[colophon]', id='entryColophon' )= entry.colophon
+    .instructions.field
+      h3: label( for='entryInstructions' ) Instructions
+      p.note
+        | Give judges a summary of how to use your entry.
+        b If your entry only works on certain browsers list them here.
+      textarea.form-control( name='entry[instructions]', id='entryInstructions' )= entry.instructions
 
-.votable
-  input( type='hidden', name='entry[votable]', value=0 )
-  input( type='checkbox', name='entry[votable]', id='entryVotable', checked=entry.votable )
-  | &nbsp;
-  label( for='entryVotable' ) Yes! I want judges to vote on my entry.
-  p.note.more
-    | Uncheck this box if your entry isn't ready to be judged when the
-    | competition ends.
+    .colophon.field
+      h3: label( for='entryColophon' ) Colophon
+      p.note
+        | What libraries, icons, web service APIs, and tools did you use?
+      textarea.form-control( name='entry[colophon]', id='entryColophon' )= entry.colophon
 
-.technical
-  input( type='hidden', name='entry[technical]', value=0 )
-  input( type='checkbox', name='entry[technical]', id='entryTechnical', checked=entry.technical )
-  | &nbsp;
-  label( for='entryTechnical' )!= "I'd prefer <a href='/judges/technical'>technical judges</a>."
-  p.note.more
-    | Please only select this box if your entry cannot be evaluated fairly
-    | by non-technical judges.
+    hr
+    .form-box.votable.field
+      input( type='hidden', name='entry[votable]', value=0 )
+      input( type='checkbox', name='entry[votable]', id='entryVotable', checked=entry.votable )
+      | &nbsp;
+      label( for='entryVotable' ) Yes! I want judges to vote on my entry.
+      p.note
+        | Uncheck this box if your entry isn't ready to be judged when the
+        | competition ends.
 
-.alert
-  input( type='hidden', name='entry[alert]', value=0 )
-  input( type='checkbox', name='entry[alert]', id='entryAlert', checked=entry.alert )
-  | &nbsp;
-  label( for='entryAlert' ) Alert me when judges visit my site.
-  p.note.more
-    | We will DM you on Twitter so you can join judges evaluating your site. 
-    strong To receive tweets, ensure your profile has your
-      != ' <a href="/people/me/edit">Twitter username</a> and that you'
-      != ' follow <a href="http://twitter.com/node_knockout">@node_knockout</a>.'
+    .form-box.technical.field
+      input( type='hidden', name='entry[technical]', value=0 )
+      input( type='checkbox', name='entry[technical]', id='entryTechnical', checked=entry.technical )
+      | &nbsp;
+      label( for='entryTechnical' )!= "I'd prefer <a href='/judges/technical'>technical judges</a>."
+      p.note
+        | Please only select this box if your entry cannot be evaluated fairly
+        | by non-technical judges.
+
+    .form-box.field
+      input( type='hidden', name='entry[alert]', value=0 )
+      input( type='checkbox', name='entry[alert]', id='entryAlert', checked=entry.alert )
+      | &nbsp;
+      label( for='entryAlert' ) Alert me when judges visit my site.
+      p.note
+        | We will DM you on Twitter so you can join judges evaluating your site.
+        strong To receive tweets, ensure your profile has your
+          != ' <a href="/people/me/edit">Twitter username</a> and that you'
+          != ' follow <a href="http://twitter.com/node_knockout">@node_knockout</a>.'
