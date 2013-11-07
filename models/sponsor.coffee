@@ -88,6 +88,15 @@ module.exports = [
     '''
 
     '''
+,
+  name: "Auth0"
+  url: "http://Auth0.com"
+  image: 'services/auth0.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
 
 ,
   name: "Circle CI"
