@@ -1,92 +1,121 @@
-ul.steps
-  li( class=team.lastDeploy ? 'done' : 'pending' )
-    a( href='#deploy' ) Deploy
-  li( class=team.entry.name ? 'done' : 'pending' )
-    a( href='#entry' ) Entry info
-  li( class=team.entry.votable && team.entry.videoURL ? 'done' : 'pending' )
-    a( href='#votable' ) Submit for voting
+#steps-info.jumbotron
+  h1 The competition has started!
 
-.step#deploy
-  if lastDeploy = team.lastDeploy
-    h2.done Successfully Deployed
-      .details
-        - lastDeployedAt = new Date(lastDeploy.createdAt)
-        time( datetime=lastDeployedAt.toISOString(),
-              title=lastDeployedAt.toISOString() )
-          = relativeDate(lastDeployedAt)
-        |  &mdash;
-        a( href=team.entry.url )= team.entry.url
-  else
-    h2.pending Not Yet Deployed
+  h2 Steps to complete:
+  ol.steps
+    li( class=team.lastDeploy ? 'done' : 'pending' )
+      h3: a( href='#deploy' ) Deploy
 
-  h4 GitHub &mdash;
-    a( href='https://github.com/organizations/nko4/teams/#{team.github && team.github.id}' ) Team
-    | ,
-    a( href='https://github.com/nko4/#{team.slug}' ) Repo
-  pre: code.
-    $ git clone <b>git@github.com:nko4/#{team.slug}.git</b>
+      .step#deploy
+        .status
+          if lastDeploy = team.lastDeploy
+            span.label.label-success
+              | Deployed
 
-  //- h4 Nodejitsu &mdash;
-  //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
-  //-   | ,
-  //-   a( href='http://handbook.jit.su' ) Handbook
-  //- pre: code.
-  //-   $ npm install -g jitsu
-  //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
-  //-   $ jitsu deploy
+            .details
+              - lastDeployedAt = new Date(lastDeploy.createdAt)
+              time( datetime=lastDeployedAt.toISOString(),
+                    title=lastDeployedAt.toISOString() )
+                = relativeDate(lastDeployedAt)
+              |  &mdash;
+              a( href=team.entry.url )= team.entry.url
 
-.step#entry
-  if !team.entry.name
-    h2.pending Entry Info Missing
-    p Describe to judges what your entry is about.
-      a.button( href='/teams/' + team + '/edit' ) Add &raquo;
-  else
-    h2.done Entry Info Complete
-    p Change this information at any time.
-      a.button( href='/teams/' + team + '/edit' ) Edit &raquo;
+          else
+            span.label.label-danger
+              | Not Yet Deployed
 
-.step#votable
-  form( method='POST', action='/teams/' + team )
-    != _csrf
-    input( type='hidden', name='_method', value='PUT' )
+        p
+          a(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
+            | Instructions on how to deploy
 
-    if !team.entry.votable
-      h2.pending Not Officially Submitted
-      p
-        | Your app is not yet officially submitted for voting. When you
-        | submit it for voting, judges will review it at:
-        a( href=team.entry.url )= team.entry.url
-        | .
+        h4 GitHub &mdash;
+          a( href='https://github.com/organizations/nko4/teams/#{team.github && team.github.id}' )
+            |  Team
+          | ,
+          a( href='https://github.com/nko4/#{team.slug}' )  Repo
+        pre: code $ git clone <b>git@github.com:nko4/#{team.slug}.git</b>
 
-      input( type='hidden', name='entry[votable]', value=1 )
-      .buttons: input.scary( type='submit', value='Submit for Voting' )
+        //- h4 Nodejitsu &mdash;
+        //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
+        //-   | ,
+        //-   a( href='http://handbook.jit.su' ) Handbook
+        //- pre: code.
+        //-   $ npm install -g jitsu
+        //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
+        //-   $ jitsu deploy
 
-      p.note
-        | You can submit your app for voting any time between now and the end
-        | of judging. You can also change your mind and remove it from voting
-        | at any time.
-      p.note
-        strong You may submit your app for voting without a pitch video,
-        |  but it will not be visible to expert judges until you add a video.
-    else if !team.entry.videoURL
-      h2.pending Not Ready for Expert Review
+    li( class=team.entry.name ? 'done' : 'pending' )
+      h3: a( href='#entry' ) Entry info
 
-      p
-        | Your app is submitted for public and contestant voting. But, it is
-        b not ready for expert review, as it doesn't have a pitch video.
+      .step#entry
+        .status
+          if !team.entry.name
+            span.label.label-danger
+              | Not yet complete
+            .details
+              p Describe to judges what your entry is about.&nbsp;
+              p: a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' ) Add Entry Info
+          else
+            span.label.label-success
+              | Complete
 
-      .buttons: a.button.scary( href='/teams/mine/edit#pitch' ) Add a Video &raquo;
+            .details
+              p Change this information at any time.
+              p: a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' ) Edit Entry Info
 
-      p.note
-        | You can add a pitch video any time between now and the end of
-        | judging. We recommend doing it as soon as you can after the
-        | 48 hours ends.
+    li( class=team.entry.votable && team.entry.videoURL ? 'done' : 'pending' )
+      h3: a( href='#votable' ) Submit for voting
 
-    else
-      h2.done Submitted for Voting
-      p Judges will review your app at:
-        a( href=team.entry.url)= team.entry.url
-        | .
+      .step#votable
+        form( method='POST', action='/teams/' + team )
+          != _csrf
+          input( type='hidden', name='_method', value='PUT' )
+          .status
+            if !team.entry.votable
+              span.label.label-danger
+                | Not yet submitted
+              .details
+                if team.entry.url
+                  p.note
+                    | Your app is not yet officially submitted for voting. When you
+                    | submit it for voting, judges will review it at:&nbsp;
+                    a( href=team.entry.url )= team.entry.url
+                    | .
+                p.note
+                  | You can submit your app for voting any time between now and the end
+                  | of judging. You can also change your mind and remove it from voting
+                  | at any time.
+                p.note
+                  strong You may submit your app for voting without a pitch video,
+                  |  but it will not be visible to expert judges until you add a video.
 
-      input( type='hidden', name='entry[votable]', value=0 )
-      .buttons: input( type='submit', value='Remove from Voting' )
+
+                input( type='hidden', name='entry[votable]', value=1 )
+                .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Submit for Voting' )
+
+
+            else if !team.entry.videoURL
+              span.label.label-danger
+                | Not ready for Expert Review
+
+              p
+                | Your app is submitted for public and contestant voting. But, it is
+                b not ready for expert review, as it doesn't have a pitch video.
+
+              .buttons: a.btn.btn-sm.btn-primary( href='/teams/mine/edit#pitch' ) Add a Video &raquo;
+
+              p.note
+                | You can add a pitch video any time between now and the end of
+                | judging. We recommend doing it as soon as you can after the
+                | 48 hours ends.
+
+            else
+              span.label.label-success
+                | Submitted for Voting
+              .details
+                p Judges will review your app at:&nbsp;
+                  a( href=team.entry.url)= team.entry.url
+                  | .
+
+                input( type='hidden', name='entry[votable]', value=0 )
+                .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Remove from Voting' )

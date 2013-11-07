@@ -43,6 +43,10 @@ block body
 
 
         .team-content
+          - if (coding && (admin || team.includes(user)))
+            .content-section
+              include steps
+
           .pull-right
             .actions
               - if (team.includes(user, session.team) || admin)
@@ -51,9 +55,6 @@ block body
           .content-section
             != markdown(team.description, { sanitize: true })
 
-          - if (coding && (admin || team.includes(user)))
-            .content-section
-              include steps
 
           - if (team.entry.name)
             .content-section
