@@ -115,15 +115,15 @@ TeamSchema.static 'findByCode', (code, rest...) ->
 
 TeamSchema.static 'canRegister', (regCode, next) ->
   if typeof(regCode) == "function"
-    next = regCode 
+    next = regCode
     regCode = null
 
-  return next null, false, 0 if mongoose.app.disabled('registration')  
+  return next null, false, 0 if mongoose.app.disabled('registration') and mongoose.app.disabled('pre-coding')
 
   findOptions = {}
   if regCode
     findOptions.regCode = regCode
-  
+
   Team.count findOptions, (err, count) ->
     return next err if err
 
@@ -134,7 +134,7 @@ TeamSchema.static 'canRegister', (regCode, next) ->
 
         newLimit = regCodeResult.limit - count
         next null, newLimit > 0, newLimit
-     
+
     else
       TeamLimit.current (err, limit) ->
         return next err if err
