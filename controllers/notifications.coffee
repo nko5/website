@@ -18,7 +18,6 @@ message = ->
 app.post '/notify', (req, res, next) ->
   # only notify during voting
   return res.send(200) unless app.enabled('voting')
-
   # only notify when judges click through
   return res.send(200) unless req.user?.judge
 
@@ -44,9 +43,12 @@ app.post '/notify', (req, res, next) ->
         return next(err) if err
 
         util.log("NOTIFY #{team} (#{handles.join(', ')})".magenta)
-
         # DM the team with the message
-        app.twitter.dm handles, "#{message()} - join at #{url}", (err, result) ->
-          return next(err) if err
-          console.dir(result)
-          res.send(200)
+        handles.map (username) ->
+          params = 
+            screen_name: username
+            text: "#{message()} - join at your team page"
+          app.twitter.post 'direct_messages/new', params , (err, res) ->
+            throw err if err        
+        res.send(200)
+        
