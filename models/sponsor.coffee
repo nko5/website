@@ -39,7 +39,7 @@ module.exports = [
   name:  'The Node Firm'
   image: 'logos/sm/nodefirm.png'
   type: ["platinum"]
-  url:   'http://www.nodefirm.com/'
+  url:   'http://www.thenodefirm.com/'
   description:
     '''
     The Node Firm provides the absolute best technical and business insights into using Node.js effectively. We want to be sure that you have people you can trust when you need to learn Node.js.
