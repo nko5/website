@@ -2,6 +2,17 @@
 
 You read it right! We have this year with us, an amazing group of people that volunteered themselves to help you during the 48 hours of hackathon!
 
+Give a big cheers to (make sure you send them a big <3):
+
+* [Stu Radnidge](https://twitter.com/sturadnidge) 
+* [Dav Glass](https://twitter.com/davglass)
+* [Michael Pierce](https://twitter.com/mkklz)
+* [Rod Vagg](https://twitter.com/rvagg)
+* [Sara Chipps](https://twitter.com/SaraJChipps)
+* [Dan Jenkins](https://twitter.com/dan_jenkins)
+* [Matej Nemcek](https://twitter.com/YangWao)
+* [Mark Wolfe](https://twitter.com/wolfeidau)
+
 If you feel that you need some support, don't hesitate to ask, for that you can send an email to help@nodeknockout.com, or join us at our IRC Channel on Freenode, the #nodeknockout.
 
 You can count on NKO Volunteers to: help you, answer your questions, give you hints about any problems you might be facing while testing your app, give you a tip on which could be the best approach and more.
