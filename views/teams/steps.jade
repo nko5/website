@@ -2,38 +2,57 @@
   h1 The competition has started!
 
   h2 Steps to complete:
-  ol.steps
+  ul.steps
     li( class=team.lastDeploy ? 'done' : 'pending' )
-      h3: a( href='#deploy' ) Deploy
+      .number 1
+      h3 Deploy
 
       .step#deploy
         .status
           if lastDeploy = team.lastDeploy
             span.label.label-success
               | Deployed
-
-            .details
-              - lastDeployedAt = new Date(lastDeploy.createdAt)
+            - lastDeployedAt = new Date(lastDeploy.createdAt)
+            strong
               time( datetime=lastDeployedAt.toISOString(),
                     title=lastDeployedAt.toISOString() )
                 = relativeDate(lastDeployedAt)
-              |  &mdash;
+            if team.entry.url
+              |  &mdash;&nbsp;
               a( href=team.entry.url )= team.entry.url
+
+            h4
+              pre
+                a( href='https://github.com/nko4/#{team.slug}' ) https://github.com/nko4/#{team.slug}
 
           else
             span.label.label-danger
               | Not Yet Deployed
 
+            .instructions
+              span.label.label-default Quick start instructions
+              pre.
+                # getting the code
+                git clone git@github.com:nko4/organizers.git && cd ./organizers/
+                &nbsp;
+                # developing
+                npm install
+                npm start
+                &nbsp;
+                # deploying (to http://organizers.2013.nodeknockout.com/)
+                ./deploy nko
+                &nbsp;
+                # ssh access
+                ssh deploy@#.2013.nodeknockout.com
+                ssh root@organizers.2013.nodeknockout.com
+                # or, if you get prompted for a password
+                ssh -i ./id_deploy deploy@organizers.2013.nodeknockout.com
+                ssh -i ./id_deploy root@organizers.2013.nodeknockout.com
+
         p
           a(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
             | Instructions on how to deploy
 
-        h4 GitHub &mdash;
-          a( href='https://github.com/organizations/nko4/teams/#{team.github && team.github.id}' )
-            |  Team
-          | ,
-          a( href='https://github.com/nko4/#{team.slug}' )  Repo
-        pre: code $ git clone <b>git@github.com:nko4/#{team.slug}.git</b>
 
         //- h4 Nodejitsu &mdash;
         //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
@@ -43,9 +62,17 @@
         //-   $ npm install -g jitsu
         //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
         //-   $ jitsu deploy
-
     li( class=team.entry.name ? 'done' : 'pending' )
-      h3: a( href='#entry' ) Entry info
+      .number 2
+      .action-panel
+        a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' )
+          if !team.entry.name
+            | Add
+          else
+            | Edit
+          |  Entry Info &raquo;
+
+      h3 Entry info
 
       .step#entry
         .status
@@ -54,20 +81,30 @@
               | Not yet complete
             .details
               p Describe to judges what your entry is about.&nbsp;
-              p: a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' ) Add Entry Info
           else
             span.label.label-success
               | Complete
 
             .details
               p Change this information at any time.
-              p: a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' ) Edit Entry Info
 
     li( class=team.entry.votable && team.entry.videoURL ? 'done' : 'pending' )
-      h3: a( href='#votable' ) Submit for voting
+      .number 3
+      form( method='POST', action='/teams/' + team )
 
-      .step#votable
-        form( method='POST', action='/teams/' + team )
+        .action-panel
+          if !team.entry.votable
+            input( type='hidden', name='entry[votable]', value=1 )
+            .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Submit for Voting' )
+          else if !team.entry.videoURL
+            .buttons: a.btn.btn-sm.btn-primary( href='/teams/mine/edit#pitch' ) Add a Video &raquo;
+          else
+            input( type='hidden', name='entry[votable]', value=0 )
+            .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Remove from Voting', data-confirm="This will delete everything you've entered in Entry Info. Are you sure?" )
+
+        h3 Submit for voting
+
+        .step#votable
           != _csrf
           input( type='hidden', name='_method', value='PUT' )
           .status
@@ -89,20 +126,13 @@
                   strong You may submit your app for voting without a pitch video,
                   |  but it will not be visible to expert judges until you add a video.
 
-
-                input( type='hidden', name='entry[votable]', value=1 )
-                .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Submit for Voting' )
-
-
             else if !team.entry.videoURL
               span.label.label-danger
                 | Not ready for Expert Review
 
-              p
+              p.note
                 | Your app is submitted for public and contestant voting. But, it is
-                b not ready for expert review, as it doesn't have a pitch video.
-
-              .buttons: a.btn.btn-sm.btn-primary( href='/teams/mine/edit#pitch' ) Add a Video &raquo;
+                b  not ready for expert review, as it doesn't have a pitch video.
 
               p.note
                 | You can add a pitch video any time between now and the end of
@@ -118,4 +148,4 @@
                   | .
 
                 input( type='hidden', name='entry[votable]', value=0 )
-                .buttons: input.btn.btn-sm.btn-primary( type='submit', value='Remove from Voting' )
+

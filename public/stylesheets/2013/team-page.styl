@@ -77,9 +77,32 @@ body
             text-decoration none
             transition .3s
             background #A6293E
-
+    .screenshot
+      border: 1px solid #eee
     #steps-info
       padding: 20px
+      ul
+        padding-left: 0
+        li
+          list-style: none;
+          position: relative;
+          padding-left: 28px;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 19px;
+          padding-bottom: 10px;
+          &:last-child
+            border: none
+            padding-bottom: 0
+            margin-bottom: 0
+      .number
+        position: absolute;
+        left: 1px;
+        top: 0px;
+        line-height: 1;
+        font-size: 13px;
+        background-color: #999;
+        color: #fff;
+        padding: 3px 5px;
       h1
         font-size: 40px
         font-family: league-gothic
@@ -95,11 +118,16 @@ body
         padding: 0
         text-transform: uppercase
         font-size: 18px
+        margin-bottom: 6px
       h4
         font-weight: normal
         font-size: 16px
       ol
         margin: 0
+      .action-panel
+        float: right
+        padding-top: 0px
+        margin-top: -10px
       .step
         line-height: 1.2
         .label
@@ -114,3 +142,18 @@ body
           margin-top: -10px
           strong
            font-size: 14px
+
+      .label-danger
+        background: #E05D29
+      .btn
+        text-transform: uppercase
+      .instructions
+        position: relative
+        .label-default
+          position: absolute
+          left: 5px
+          background: transparent
+          color: #888
+          top: 9px
+        pre
+          padding: 30px 10px 10px
