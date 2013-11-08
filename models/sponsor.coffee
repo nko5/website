@@ -429,6 +429,15 @@ module.exports = [
 
     '''
 
+,
+  name: "POP.co"
+  url: "http://pop.co"
+  image: 'prizes/popco.jpg'
+  type: ["service", "prize"]
+  description:
+    '''
+
+    '''
 
 ]
 
