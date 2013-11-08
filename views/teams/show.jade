@@ -15,7 +15,7 @@ block body
             p.accept.col-md-4
               a.btn.btn-primary.btn-lg.btn-danger.btn-block( href='/login/github' ) Accept Invitation
               != "via <i class='icon-github'></i> github"
-        - else if (registration && team.includes(user, session.team))
+        - else if ((registration || preCoding) && team.includes(user, session.team))
           .well
             h3 This is your team.
 
