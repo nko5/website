@@ -17,9 +17,8 @@
               time( datetime=lastDeployedAt.toISOString(),
                     title=lastDeployedAt.toISOString() )
                 = relativeDate(lastDeployedAt)
-            if team.entry.url
-              |  &mdash;&nbsp;
-              a( href=team.entry.url )= team.entry.url
+              if team.entry.url
+                != "to <a href='" + team.entry.url + "'>" + team.entry.url.replace(/^https?:\/\//, '').replace(/\/.*/, '') + "</a>"
 
             h4
               pre
