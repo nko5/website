@@ -12,8 +12,7 @@ welcome = (judge, callback) ->
   email = judge.email
   util.log "Sending 'judge_intro' to '#{email}'".yellow
   postageapp.sendMessage
-    # recipients: email,
-    recipients: "jacques@nodeknockout.com",
+    recipients: email,
     template: 'judge_intro'
     variables:
       first_name: judge.name.split(/\s/)[0]
