@@ -28,12 +28,13 @@ load = ->
     for k, v of stats
       $el.find(".#{k} .number").text(v)
 
+  # TODO: update this for new DOM structure of .recent-deploys
   updateEntryInfo = ($el, team) ->
-    $toAdd = template 'entry-info', team: team
+    $toAdd = template 'recent-deploy', team: team
 
-    $toRemove = $el.find(".entry-info[data-team-id=#{team.id}]:first")
+    $toRemove = $el.find(".recent-deploy[data-team-id=#{team.id}]:first")
     if $toRemove.length is 0
-      $toRemove = $el.find('.entry-info:last')
+      $toRemove = $el.find('.recent-deploy:last')
 
     $toRemove.remove()
     $toAdd.hide().prependTo($el).animate width: 'show'
