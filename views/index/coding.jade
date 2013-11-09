@@ -64,13 +64,6 @@ block body
                       | Resources / Services
 
         .support-section.landing-section.row
-          .col.col-lg-12.col-md-12.col-xs-12.col-sm-12
-            .support-inner(style="width:720px;margin:auto")
-              | <iframe width="720" height="437" src="http://www.ustream.tv/embed/16402128?ub=ff3d23&amp;lc=ff3d23&amp;oc=ffffff&amp;uc=ffffff&amp;v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>
-
-        //- TODO: cycle through recentDeploys
-
-        .support-section.landing-section.row
           .col.col-lg-8.col-md-8
             h3
               strong IRC / #nodeknockout on freenode
@@ -89,6 +82,23 @@ block body
               li Video chat live with volunteers and other participants
               li Get feedback on your app
               li Feel free to create breakout rooms for your team
+
+        //- TODO: cycle through recentDeploys
+        //- .recent-deploys.landing-section.row
+        //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+        //-     h3
+        //-       strong Recent Deploys
+
+        //-     - each team in recentDeploys
+        //-       .deploy
+        //-         .screenshot(style="background-image:url('#{team.screenshot}')")
+        //-         //- name
+        //-         //- location
+        //-         //- team stats
+        //-         //- * commits
+        //-         //- * pushers
+        //-         //- * deploys
+        //-         //- show team button
 
         .sponsors-section.landing-section.row
           hr
