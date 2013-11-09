@@ -360,6 +360,16 @@ module.exports = [
     '''
 
 ,
+  name: "New Relic"
+  url: "http://newrelic.com"
+  image: 'services/newrelic.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
+
+,
   name: "Zencoder"
   url: "http://zencoder.com"
   image: 'services/zencoder.jpg'
