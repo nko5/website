@@ -198,6 +198,15 @@ module.exports = [
     '''
 
     '''
+,
+  name: "PayPal"
+  url: "http://paypal.com"
+  image: 'prizes/paypal.jpg'
+  type: ["prize"]
+  description:
+    '''
+
+    '''
 
 ,
   name: "Pluralsight"
