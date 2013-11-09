@@ -208,7 +208,7 @@ module.exports = [
 
 ,
   slug: "devatory"
-  # image: 'prizes/devatory.jpg'
+  image: 'devatory.jpg'
   description:
     '''
     **[Devatory](http://devatory.com/)** is a lab for aspiring developers. Our focus is on the HTML5/CSS3/JavaScript front end stack along with C# and .NET MVC. We are looking for seasoned experts in these technologies to join our team.
