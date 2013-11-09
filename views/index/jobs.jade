@@ -11,14 +11,18 @@ block body
     .row
       .col-lg-8.col-sm-8.col-md-8
         .jobs-list
-          :markdown
-            # Jobs
+          a.btn.btn-sm.btn-default(href="/sponsors/options#job-listing") Post a job &raquo;
+          h1 Jobs
 
-            Want to be listed on this page? [Become a sponsor](/sponsors/options#job-listing).
-            <hr/>
+          p
+            | Need a new gig? These great companies are hiring Node.js developers.
+
+          hr
 
           - _(jobSponsors).shuffle().forEach(function(sponsor) {
-            div
+            .job.clearfix
+              if sponsor.image
+                img(src="/images/sponsors/#{sponsor.image}")
               a(name=sponsor.slug)
               != markdown(sponsor.description)
             hr

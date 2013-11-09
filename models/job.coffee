@@ -1,5 +1,6 @@
 module.exports = [
   type: ["platinum"]
+  image: 'prizes/joyent.jpg'
   slug: "joyent"
   description:
     '''
@@ -13,6 +14,7 @@ module.exports = [
     '''
 ,
   type: ["platinum"]
+  image: 'prizes/groupon.jpg'
   slug: "groupon"
   description:
     '''
@@ -23,6 +25,7 @@ module.exports = [
     '''
 ,
   type: ["platinum"]
+  image: 'prizes/goinstant.jpg'
   slug: "goinstant"
   description:
     '''
@@ -32,6 +35,7 @@ module.exports = [
     '''
 ,
   slug: "balderdash"
+  # image: 'prizes/balderdash.jpg'
   description:
     '''
     **[Balderdash](http://balderdash.co)**  is the web studio in Austin, TX who created Sails.js. We're looking for an expert JavaScript developer to help us build products for startup and Fortune 500 clients.
@@ -45,6 +49,7 @@ module.exports = [
     '''
 ,
   slug: "paypal"
+  image: 'prizes/paypal.jpg'
   description:
     '''
     **[Paypal](http://paypal.com)** has fully embraced Node.JS in their technology stack to transform the way they enable commerce at a global scale. Join some of the brightest engineers in the industry as a User Interface Engineer to build the new face of PayPal.com
@@ -55,7 +60,8 @@ module.exports = [
 
     '''
 ,
-  slug: "mongo"
+  slug: "mongohq"
+  image: 'prizes/mongohq.jpg'
   description:
     '''
     **[MongoHQ](http://mongohq.com)** are doing fun things with databases and are seeking smart, dedicated hackers to help us tackle larger problems.
@@ -71,6 +77,7 @@ module.exports = [
 
 ,
   slug: "brandcast"
+  # image: 'prizes/brandcast.jpg'
   description:
     '''
     **[Brandcast](http://brandcast.com)** has a vision of helping people express themselves, unlocking the hidden powers of the Web, and bringing the last major pillars of enterprise technology into the cloud. [more...](#more)
@@ -87,6 +94,7 @@ module.exports = [
 
 ,
   slug: "firebase"
+  image: 'prizes/firebase.jpg'
   description:
     '''
     **[Firebase](http://firebase.com)** is building incredible products that help developers create real time applications 100x faster than traditional development. We are growing exceptionally fast with hundreds of new developers signing up everyday. [more...](#more)
@@ -100,6 +108,7 @@ module.exports = [
 
 ,
   slug: "messagebus"
+  # image: 'prizes/messagebus.jpg'
   description:
     '''
     **[Messagebus](http://messagebus.com)** is a cloud-based messaging platform that enables anyone to easily integrate email, SMS, brand protection, and delivery & user behavior tracking into their products.
@@ -118,6 +127,7 @@ module.exports = [
 
 ,
   slug: "mapbox"
+  image: 'prizes/mapbox.jpg'
   description:
     '''
     **[Mapbox](http://mapbox.com)** builds tools that erase clouds, improve roads, navigate countries, and task satellites. Come build the geospatial software of the future.
@@ -129,6 +139,7 @@ module.exports = [
 
 ,
   slug: "diyorg"
+  # image: 'prizes/diyorg.jpg'
   description:
     '''
     **[DIY.org](http://diy.org)** <3 Node.js.   We are active contributors to the Node.js and JavaScript communities. In fact, we have even done two seperate NodeUp episodes about it! A few projects we support and hack on:  Restify, Open Badges, Troll, Grunt, Browserify
@@ -138,6 +149,7 @@ module.exports = [
 
 ,
   slug: "gigzolo"
+  # image: 'prizes/gigzolo.jpg'
   description:
     '''
     **[Gigzolo](http://gigzolo.org)** is changing the landscape of booking musicians, photographers, videographers, and other artists.
@@ -147,6 +159,7 @@ module.exports = [
 
 ,
   slug: "segmentio"
+  image: 'prizes/segmentio.jpg'
   description:
     '''
     **[Segment.io](http://segment.io)** is an analytics app store. We simplify data collection across web, mobile and server apps, letting people send their data wherever they need it. Our goal is to make using data easy.
@@ -161,6 +174,7 @@ module.exports = [
 
 ,
   slug: "vevo"
+  # image: 'prizes/vevo.jpg'
   description:
     '''
     **[Vevo](http://vevo.com)** values innovative, self-driven, fast moving individuals with a passion for music and music videos.  They foster a collaborative environment where you have a say in what gets built.
@@ -170,6 +184,7 @@ module.exports = [
 
 ,
   slug: "b2msolutions"
+  # image: 'prizes/b2msolutions.jpg'
   description:
     '''
     **[B2M Solutions](http://www.b2m-solutions.com/)** is unlocking the power of big data analytics for mobile ‘things’ by developing a sophisticated analytics engine that provides real-time analysis of a world of occasionally connected devices. We are currently going through rapid growth and have a number of openings for passionate developers/geeks who want to work with the latest technologies in contemporary offices on an orchard near Oxford in the UK.
@@ -180,6 +195,7 @@ module.exports = [
 
 ,
   slug: "twilio"
+  image: 'prizes/twilio.jpg'
   description:
     '''
     **[Twilio](http://www.twilio.com/)** is looking for seasoned hackers to help us in our ongoing mission to serve developer communities around the world.  As a developer evangelist for Twilio, you will teach others how to code (both with and without Twilio APIs), organize and support local developer events, and produce software (both crazy hacks and production code) that will touch tens of thousands of people around the world.  You'll meet amazing people using Twilio for everything from fighting human trafficking to turning cityscapes into interactive art installations.
@@ -192,6 +208,7 @@ module.exports = [
 
 ,
   slug: "devatory"
+  # image: 'prizes/devatory.jpg'
   description:
     '''
     **[Devatory](http://devatory.com/)** is a lab for aspiring developers. Our focus is on the HTML5/CSS3/JavaScript front end stack along with C# and .NET MVC. We are looking for seasoned experts in these technologies to join our team.
