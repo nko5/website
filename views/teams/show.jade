@@ -32,13 +32,13 @@ block body
               if coding || team.stats.pushes || team.stats.deploys
                 ul.team-stats( data-team-id=team.id )
                   li.commits
-                    span.count= team.stats.commits
+                    span.count.number= team.stats.commits
                     |  Commits
                   li.pushes
-                    span.count= team.stats.pushes
+                    span.count.number= team.stats.pushes
                     |  Pushes
                   li.deploys
-                    span.count= team.stats.deploys
+                    span.count.number= team.stats.deploys
                     |  Deploys
 
 

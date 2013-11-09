@@ -124,11 +124,8 @@ body
         background: #232323
 
       #recent-deploys
-        max-height: 537px
-        overflow: auto
         padding-top: 40px
         padding-bottom: 40px
-
         .recent-deploy
           border-bottom: 1px solid #3C3C3C
           padding-bottom: 20px
@@ -136,11 +133,60 @@ body
           text-align: left
           margin-left: 40px
           margin-right: 40px
+          position: relative
+          &:last-child
+            margin-bottom: 0
+            padding-bottom: 0
+            border-bottom: 0
+          .col
+            position: static
           .screenshot
-            width: 100%
-            margin: auto
-            border-radius: 3px
-            border: 1px solid #2A2A2A
+            img
+              width: 100%
+              border-radius: 3px
+              border: 1px solid #2A2A2A
+          .team-name
+            font-size: 29px
+            a
+              color: #fff
+          .team-deployed-at
+            font-size: 18px
+            color: #7E7E7E
+          .team-stats
+            list-style: none
+            padding: 0
+            margin: 0
+            @media (min-width: 768px)
+              position: absolute
+              bottom: 14px
+
+            li
+              float: left
+              margin-right: 15px
+              font-size: 18px
+              color: #7E7E7E
+              font-weight: bold
+              text-transform: lowercase
+
+              .number
+                font-size: 27px
+                color: #535353
+                font-weight: bold
+          .actions
+            float: right
+            margin-left: 20px
+            .btn-primary
+              background: #522429
+              color: #656565
+              font-size: 16px
+              padding: 10px 20px
+              border: none
+              box-shadow: none
+              font-weight: bold
+              &:hover
+                background: #BF293B
+                color: #fff
+
 
       h3
         text-align: left
