@@ -3,6 +3,7 @@ qs = require 'querystring'
 md = require 'marked'
 mongoose = require 'mongoose'
 allSponsors = require '../models/sponsor'
+allJobs = require '../models/job'
 
 module.exports = (app) ->
 
@@ -34,6 +35,8 @@ module.exports = (app) ->
     platinumSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('platinum') >= 0
     serviceSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('service') >= 0
     prizeSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('prize') >= 0
+
+    jobSponsors: allJobs
 
     locations: (people) ->
       _(people).chain()
