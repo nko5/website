@@ -1,0 +1,25 @@
+.recent-deploy.clearfix(data-team-id=team.id)
+  .row
+    .col.col-lg-4.col-md-4.col-sm-4
+      .screenshot
+        img(src="#{team.screenshot}")
+    .col.col-lg-8.col-md-8.col-sm-8
+      .actions
+        a.btn.btn-primary(href="/teams/#{team.slug}") Show Team
+      .team-name
+        a(href="/teams/#{team.slug}")= team.name
+      .team-deployed-at
+        if lastDeploy = team.lastDeploy
+          | deployed&nbsp;
+          - lastDeployedAt = new Date(lastDeploy.createdAt)
+          = relativeDate(lastDeployedAt)
+      .team-stats.clearfix(data-team-id=team.id)
+        li.commits
+          span.count.number= team.stats.commits
+          |  Commits
+        li.pushes
+          span.count.number= team.stats.pushes
+          |  Pushes
+        li.deploys
+          span.count.number= team.stats.deploys
+          |  Deploys

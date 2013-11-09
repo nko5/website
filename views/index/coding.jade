@@ -83,7 +83,6 @@ block body
               li Get feedback on your app
               li Feel free to create breakout rooms for your team
 
-        //- TODO: cycle through recentDeploys
         .recent-deploys.landing-section.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
             .recent-deploys-inner
@@ -91,42 +90,8 @@ block body
                 strong Recent Deploys
 
               #recent-deploys
-                - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
                 - each team in recentDeploys
-                  .recent-deploy.clearfix(data-team-id=team.id)
-                    .row
-                      .col.col-lg-4.col-md-4.col-sm-4.col-xs-4
-                        .screenshot
-                          img(src="#{team.screenshot}")
-                      .col.col-lg-8.col-md-8.col-sm-8.col-xs-8
-                        .actions
-                          a.btn.btn-primary(href="/teams/#{team.slug}") Show Team
-                        .team-name
-                          a(href="/teams/#{team.slug}")= team.name
-                        .team-deployed-at
-                          if lastDeploy = team.lastDeploy
-                            | deployed&nbsp;
-                            - lastDeployedAt = new Date(lastDeploy.createdAt)
-                            = relativeDate(lastDeployedAt)
-                        .team-stats.clearfix(data-team-id=team.id)
-                          li.commits
-                            span.count.number= team.stats.commits
-                            |  Commits
-                          li.pushes
-                            span.count.number= team.stats.pushes
-                            |  Pushes
-                          li.deploys
-                            span.count.number= team.stats.deploys
-                            |  Deploys
-
-
-                      //- name
-                      //- location
-                      //- team stats
-                      //- * commits
-                      //- * pushers
-                      //- * deploys
-                      //- show team button
+                  include recent-deploy
 
         .sponsors-section.landing-section.row
           hr

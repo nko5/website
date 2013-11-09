@@ -28,16 +28,16 @@ load = ->
     for k, v of stats
       $el.find(".#{k} .number").text(v)
 
-  # TODO: update this for new DOM structure of .recent-deploys
   updateEntryInfo = ($el, team) ->
-    $toAdd = template 'recent-deploy', team: team
+    # JADEVU does NOT work
+    # $toAdd = template 'recent-deploy', team: team
 
-    $toRemove = $el.find(".recent-deploy[data-team-id=#{team.id}]:first")
-    if $toRemove.length is 0
-      $toRemove = $el.find('.recent-deploy:last')
+    # $toRemove = $el.find(".recent-deploy[data-team-id=#{team.id}]:first")
+    # if $toRemove.length is 0
+    #   $toRemove = $el.find('.recent-deploy:last')
 
-    $toRemove.remove()
-    $toAdd.hide().prependTo($el).animate width: 'show'
+    # $toRemove.remove()
+    # $toAdd.hide().prependTo($el).animate width: 'show'
 
 $(load)
 # note no pjax load here
