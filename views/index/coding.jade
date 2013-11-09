@@ -24,18 +24,18 @@ block body
 
           .col.col-md-4.col-lg-4
             .competition-counts
-              .row
+              #overall-stats.row
                 .col-md-4.col-lg-4.col-sm-4.col-xs-4
-                  .count
-                    strong= stats.commits
+                  .count.commits
+                    strong.number= stats.commits
                     span.label-primary commits
                 .col-md-4.col-lg-4.col-sm-4.col-xs-4
-                  .count
-                    strong= stats.pushes
+                  .count.pushes
+                    strong.number= stats.pushes
                     span.label-primary pushes
                 .col-md-4.col-lg-4.col-sm-4.col-xs-4
-                  .count
-                    strong= stats.deploys
+                  .count.deploys
+                    strong.number= stats.deploys
                     span.label-primary deploys
 
         .row
@@ -83,22 +83,25 @@ block body
               li Get feedback on your app
               li Feel free to create breakout rooms for your team
 
-        //- TODO: cycle through recentDeploys
+        //- //- TODO: cycle through recentDeploys
         //- .recent-deploys.landing-section.row
         //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-        //-     h3
-        //-       strong Recent Deploys
+        //-     .recent-deploys-inner
+        //-       h3
+        //-         strong Recent Deploys
 
-        //-     - each team in recentDeploys
-        //-       .deploy
-        //-         .screenshot(style="background-image:url('#{team.screenshot}')")
-        //-         //- name
-        //-         //- location
-        //-         //- team stats
-        //-         //- * commits
-        //-         //- * pushers
-        //-         //- * deploys
-        //-         //- show team button
+        //-       - each team in recentDeploys
+        //-         .deploy
+        //-           .screenshot(style="background-image:url('#{team.screenshot}')")
+        //-           h4
+        //-             a(href="/teams/#{team.slug}")= team.name
+        //-           //- name
+        //-           //- location
+        //-           //- team stats
+        //-           //- * commits
+        //-           //- * pushers
+        //-           //- * deploys
+        //-           //- show team button
 
         .sponsors-section.landing-section.row
           hr
