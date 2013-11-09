@@ -36,7 +36,7 @@ load = ->
       $toRemove = $el.find('.recent-deploy:last')
 
     $toRemove.remove()
-    $toAdd.hide().prependTo($el).animate width: 'show'
+    $toAdd.hide().prependTo($el).animate height: 'show'
 
 $(load)
 # note no pjax load here
