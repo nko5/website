@@ -24,6 +24,7 @@ nap({
         '/public/javascripts/vendor/moment.js',
         '/public/javascripts/vendor/polyfills.js',
         '/public/javascripts/vendor/underscore-1.3.3.js',
+        '/public/javascripts/vendor/jade.runtime.js',
         "/public/javascripts/2013/tumblr.js",
         "/public/javascripts/2013.coffee",
         "/public/javascripts/2013/teams.coffee",
@@ -32,8 +33,8 @@ nap({
         "/public/javascripts/2013/prizes.coffee",
         "/public/javascripts/2013/jobs.coffee",
         "/public/javascripts/2013/votes.coffee",
+        "/public/javascripts/2013/recent-deploy.js",
         '/public/javascripts/2013/websocket.coffee'
-
       ],
       "2012": [
         '/public/javascripts/polyfills.js',

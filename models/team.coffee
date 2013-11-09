@@ -315,6 +315,10 @@ TeamSchema.method 'entryInfoJSON', ->
   entry:
     url: @entry.url
     name: @entry.name
+  stats:
+    commits: @stats.commits
+    pushes: @stats.pushes
+    deploys: @stats.deploys
 
 # associations
 TeamSchema.method 'people', (next) ->

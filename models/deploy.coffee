@@ -35,7 +35,7 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 , 'not responding to web requests correctly'
 
 DeploySchema.method 'urlForTeam', (team) ->
-  return "http://#{team.slug}.2013.nodeknockout.com"
+  "http://#{team.slug}.2013.nodeknockout.com"
 
 # callbacks
 DeploySchema.post 'save', ->
