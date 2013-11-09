@@ -29,15 +29,14 @@ load = ->
       $el.find(".#{k} .number").text(v)
 
   updateEntryInfo = ($el, team) ->
-    # JADEVU does NOT work
-    # $toAdd = template 'recent-deploy', team: team
+    $toAdd = $(recentDeploy(team: team))
 
-    # $toRemove = $el.find(".recent-deploy[data-team-id=#{team.id}]:first")
-    # if $toRemove.length is 0
-    #   $toRemove = $el.find('.recent-deploy:last')
+    $toRemove = $el.find(".recent-deploy[data-team-id=#{team.id}]:first")
+    if $toRemove.length is 0
+      $toRemove = $el.find('.recent-deploy:last')
 
-    # $toRemove.remove()
-    # $toAdd.hide().prependTo($el).animate width: 'show'
+    $toRemove.remove()
+    $toAdd.hide().prependTo($el).animate height: 'show'
 
 $(load)
 # note no pjax load here

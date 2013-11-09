@@ -1,13 +1,12 @@
 .recent-deploy.clearfix(data-team-id=team.id)
   .row
     .col.col-lg-3.col-md-3.col-sm-3
-      .screenshot
+      a(href="#{team.entry.url}").screenshot
         img(src="#{team.screenshot}")
     .col.col-lg-9.col-md-9.col-sm-9
       .actions
         a.btn.btn-primary(href="/teams/#{team.slug}") Show Team
-        if team.entry && team.entry.url
-          a.btn.btn-primary(href="#{team.entry.url}") Launch Site
+        a.btn.btn-primary(href="#{team.entry.url}") Launch Site
       .team-name
         a(href="/teams/#{team.slug}")= team.name
       .team-deployed-at

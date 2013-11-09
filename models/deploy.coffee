@@ -1,6 +1,7 @@
 mongoose = require 'mongoose'
 ObjectId = mongoose.Schema.ObjectId
 request = require 'request'
+app = require '../config/app'
 
 DeploySchema = module.exports = new mongoose.Schema
   teamId:
@@ -35,20 +36,18 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 , 'not responding to web requests correctly'
 
 DeploySchema.method 'urlForTeam', (team) ->
-  return "http://#{team.slug}.2013.nodeknockout.com"
+  "http://#{team.slug}.2013.nodeknockout.com"
 
 # callbacks
 DeploySchema.post 'save', ->
+  return unless app.enabled('coding')
   @team (err, team) =>
     throw err if err
     team.lastDeploy = @toObject()
-    team.entry.url = @urlForTeam team unless team.entry.votable
+    team.entry.url = @urlForTeam team
     team.save (err) ->
       throw err if err
-
-      unless team.entry.votable
-        team.prettifyURL()
-        team.updateScreenshot()
+      team.prettifyURL()
    
 Deploy = mongoose.model 'Deploy', DeploySchema
 
