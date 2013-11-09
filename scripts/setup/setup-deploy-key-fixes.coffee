@@ -12,7 +12,7 @@ module.exports = setupDeployKeyFixes = (options, next) ->
   fixDeployKeyPermissions = (next) ->
     console.log team.slug, 'fix deploy key repo permissions'
     repoDir = path.join(rootDir, 'repos', team.slug)
-    exec "chmod 600 '#{repoDir}'/id_deploy*", (err) -> next(err)
+    exec "chmod 400 '#{repoDir}'/id_deploy*", (err) -> next(err)
 
   addDeployKeyToDeployUser = (next) ->
     console.log team.slug, 'set up deploy key on deploy user'
