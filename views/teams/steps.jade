@@ -13,12 +13,13 @@
             span.label.label-success
               | Deployed
             - lastDeployedAt = new Date(lastDeploy.createdAt)
-            strong
-              time( datetime=lastDeployedAt.toISOString(),
-                    title=lastDeployedAt.toISOString() )
-                = relativeDate(lastDeployedAt)
-              if team.entry.url
-                != "to <a href='" + team.entry.url + "'>" + team.entry.url.replace(/^https?:\/\//, '').replace(/\/.*/, '') + "</a>"
+            p
+              strong
+                time( datetime=lastDeployedAt.toISOString(),
+                      title=lastDeployedAt.toISOString() )
+                  = relativeDate(lastDeployedAt)
+                if team.entry.url
+                  != " to <a href='" + team.entry.url + "'>" + team.entry.url.replace(/^https?:\/\//, '').replace(/\/.*/, '') + "</a>"
 
             h4
               pre
