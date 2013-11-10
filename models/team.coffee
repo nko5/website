@@ -29,6 +29,7 @@ TeamSchema = module.exports = new mongoose.Schema
     name: String
     url: String
     description: String
+    quickIntro: String
     instructions: String
     colophon: String
     votable:
@@ -414,11 +415,12 @@ TeamSchema.pre 'save', (next) ->
     @search =
       """
       #{@name}
-      #{@description}
+      #{@quickIntro}
       #{_.pluck(people, 'login').join(';')}
       #{_.pluck(people, 'location').join(';')}
       #{@entry?.name || ''}
       #{@entry?.description || ''}
+      #{@entry?.quickIntro || ''}
       """
     next()
 

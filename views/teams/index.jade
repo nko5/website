@@ -29,7 +29,7 @@ block body
                       span.sep /
                       = locations(members)
 
-                .description!= markdown(team.description)
+                .description= team.entry.quickIntro
 
                 ul.members
                   - each m in members

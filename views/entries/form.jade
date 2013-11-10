@@ -29,6 +29,12 @@
           | judging. We recommend doing it as soon as you can after the
           | coding ends.
 
+    .quickintro.field
+      h3: label( for='entryQuickIntro' ) Quick Intro
+      p.note
+        | 1 or 2 lines about your project for the Leaderboard. <strong>(no markdown)</stron>
+      textarea.form-control( name='entry[quickIntro]', id='entryQuickIntro' )= entry.quickIntro
+
     .description.field
       h3: label( for='entryDescription' ) Description
       p.note
