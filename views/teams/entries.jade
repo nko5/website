@@ -12,7 +12,12 @@ block body
       .col-lg-8.col-md-8.col-sm-8
 
         .header-box.clearfix
-          h1 Entries <span class='count'>(#{teams.count})</span>
+          h1
+            if winners
+              | Leaderboard
+            else
+              | Entries
+            span.count  (#{teams.count})
           form.search
             input( type='search', name='q', value=req.query.q, placeholder='Search' )
 

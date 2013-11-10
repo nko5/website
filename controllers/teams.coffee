@@ -57,6 +57,9 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   if voting and not req.user?.contestant and not req.user?.admin and not req.user?.judge
     sort = null
 
+  if app.enabled("winners") and sort == null
+    sort = "team"
+
   # handle overall vs solo (TODO should be team, not overall)
   score = sort
   if sort is 'solo'
