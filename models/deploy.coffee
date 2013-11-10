@@ -1,7 +1,6 @@
 mongoose = require 'mongoose'
 ObjectId = mongoose.Schema.ObjectId
 request = require 'request'
-app = require '../config/app'
 
 DeploySchema = module.exports = new mongoose.Schema
   teamId:
@@ -40,7 +39,7 @@ DeploySchema.method 'urlForTeam', (team) ->
 
 # callbacks
 DeploySchema.post 'save', ->
-  return unless app.enabled('coding')
+  return unless mongoose.app.enabled('coding')
   @team (err, team) =>
     throw err if err
     team.lastDeploy = @toObject()
