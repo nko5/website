@@ -19,10 +19,12 @@
 
           if voting
             li(class=(activeNav === 'entries' ? 'active' : ''))
-              a.nav-item(href="/entries") Leaderboard
+              a.nav-item(href="/entries") Entries
           else if winners
             li(class=(activeNav === 'winners' ? 'active' : ''))
               a.nav-item(href="/winners") Winners
+            li(class=(activeNav === 'entries' ? 'active' : ''))
+              a.nav-item(href="/entries") Entries
           else
             li(class=(activeNav === 'teams' ? 'active' : ''))
               a.nav-item(href="/teams") Teams
