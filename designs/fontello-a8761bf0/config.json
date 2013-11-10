@@ -19,9 +19,27 @@
       "src": "fontawesome"
     },
     {
+      "uid": "0f99ab40ab0b4d64a74f2d0deeb03e42",
+      "css": "videocam",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
       "uid": "de2fc7a5c986ab8c622f63455d7cf814",
       "css": "upload-cloud",
       "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d35a1d35efeb784d1dc9ac18b9b6c2b6",
+      "css": "pencil",
+      "code": 59398,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ab656e280958018a7859eba9a1eabbc7",
+      "css": "award",
+      "code": 59397,
       "src": "fontawesome"
     },
     {

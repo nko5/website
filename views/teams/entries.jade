@@ -48,6 +48,7 @@ block body
                     - if (m)
                       li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
                         img.avatar( src=avatar_url(m))
+
                   - if (team.invites.length > 0)
                     li.invites
                       |  (#{team.invites.length} invited)

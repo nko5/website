@@ -50,6 +50,8 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
 
   if app.enabled('coding')
     template = 'index/coding'
+  else if app.enabled('post-coding')
+    template = 'index/postcoding'
   else
     template = 'index/index'
 

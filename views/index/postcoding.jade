@@ -1,0 +1,124 @@
+extends ../layout-2013
+
+block body
+  #landing.coding
+    - activeNav = "home"
+    include ../index/_header-mini
+
+    .body-wrapper.container
+      .header-section.landing-section
+        a.logo( href="/" ) Node Knockout
+        .logo-description
+          | Node Knockout is the world's biggest Node.js programming competition
+
+      .main-section.landing-section
+        .row
+          .col.col-md-8.col-lg-8
+            .countdown
+              .done-msg
+
+          .col.col-md-4.col-lg-4
+            .competition-counts
+              #overall-stats.row
+                .col-md-4.col-lg-4.col-sm-4.col-xs-4
+                  .count.commits
+                    strong.number= stats.commits
+                    span.label-primary commits
+                .col-md-4.col-lg-4.col-sm-4.col-xs-4
+                  .count.pushes
+                    strong.number= stats.pushes
+                    span.label-primary pushes
+                .col-md-4.col-lg-4.col-sm-4.col-xs-4
+                  .count.deploys
+                    strong.number= stats.deploys
+                    span.label-primary deploys
+
+        .row
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            if req.myTeam
+              h4.next-steps Next Steps
+              .button-boxes.row
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    a.btn.btn-primary.btn-block(href="/teams/mine")
+                      i.icon-pencil
+                      | Edit Your Entry
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    a.btn.btn-primary.btn-block(href="http://blog.nodeknockout.com/post/35353987436/protip-create-a-perfect-pitch-video-this-year")
+                      i.icon-videocam
+                      | Creating a Pitch Video
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    a.btn.btn-primary.btn-block(href="/judges")
+                      i.icon-users
+                      | See the Judges
+                .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                  .button-box
+                    a.btn.btn-primary.btn-block(href="/prizes")
+                      i.icon-award
+                      | See the Prize
+
+        //- TODO: put USTREAM here of demos
+
+        .sponsors-section.landing-section.row
+          hr
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            h3 THANKS TO OUR PLATINUM SPONSORS
+            .sponsor-grid
+
+              .row
+                a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://joyent.com", style="background-image:url(/images/sponsors/logos/joyent_inverted.png);")
+                a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://goinstant.com", style="background-image:url(/images/sponsors/logos/goinstant_inverted.png);")
+                a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://thenodefirm.com", style="background-image:url(/images/sponsors/logos/nodefirm_inverted.png);")
+                a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://engineering.groupon.com", style="background-image:url(/images/sponsors/logos/groupon_inverted.png);")
+
+            p
+              a.btn.btn-super.btn-primary(href="/sponsors") See all our 2013 sponsors
+
+    .connect.landing-section
+      .container
+        .row
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            //- POPULATED WITH TWEETS
+            | <a class="twitter-timeline" href="https://twitter.com/node_knockout" data-widget-id="377277154146283520">Tweets by @node_knockout</a>
+            | <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            h3
+              | FROM OUR BLOG
+
+            //- POPULATED WITH TUMBLR POSTS
+            div#tumblr-posts
+
+
+    footer
+      .container
+        .subscribe-section.row
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            a(name="subscribe")
+            div#mc_embed_signup
+              form.validate.signup-form(action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", target="_blank", novalidate)
+                input.email-field.email(type="email", value="", name="EMAIL", id="mce-EMAIL", placeholder="Subscribe with your email to stay up to date on NKO...", required)
+                input.btn.btn-super.btn-primary(type="submit", value="Subscribe", name="subscribe", id="mc-embedded-subscribe")
+
+        .footer-bottom.row
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            | © 2013 NodeKnockout
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6.contact-links
+            a(href="mailto:all@nodeknockout.com")
+              i.icon-email2
+              | all@nodeknockout.com
+            a(href="http://twitter.com/node_knockout")
+              i.icon-twitter2
+              | @node_knockout
+
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3.previous-competition-links
+            a(href="http://2010.nodeknockout.com")
+              | 2010
+            a(href="http://2011.nodeknockout.com")
+              | 2011
+            a(href="http://2012.nodeknockout.com")
+              | 2012
