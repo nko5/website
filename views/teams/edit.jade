@@ -9,7 +9,7 @@ block body
     form.edit-team( method='POST', action='/teams/' + team )
       input( type='hidden', name='_method', value='PUT' )
 
-      if coding
+      if coding || postCoding
         h1 Entry Details
         #entry
           entry = team.entry

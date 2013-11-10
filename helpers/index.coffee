@@ -62,6 +62,7 @@ module.exports = (app) ->
     registration: app.enabled 'registration'
     preCoding: app.enabled 'pre-coding'
     coding: app.enabled 'coding'
+    postCoding: app.enabled 'post-coding'
     voting: app.enabled 'voting'
     winners: app.enabled 'winners'
 
