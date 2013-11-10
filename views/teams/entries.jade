@@ -1,26 +1,27 @@
-- title('Leaderboard')
+- title('2013 Teams')
 extends ../layout-2013
 
 block body
 
-  - activeNav = "teams"
+  - activeNav = "entries"
   .contained
     include ../index/_header-mini
 
   .inner-page.container.teams-page
     .row
-      .col-lg-8.col-sm-8.col-md-8
-        h1 Entries (#{teams.count})
+      .col-lg-8.col-md-8.col-sm-8
 
-        form.search
-          input( type='search', name='q', value=req.query.q, placeholder='Search' )
+        .header-box.clearfix
+          h1 Entries <span class='count'>(#{teams.count})</span>
+          form.search
+            input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-        if (req.user && (req.user.contestant || req.user.admin || req.user.judge)) || !voting
+        if winners || (req.user && (req.user.admin || req.user.judge))
           ul.sorts
             li Order by:
             if voting
               li( class=(!sort ? 'current': '' ) )
-                a( href='/entries' ) Random
+                a( href='/entries' ) Randomddsfasdf
             each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
               - s = k.split(/\W/)[0].toLowerCase()
               li( class= sort === s ? 'current' : '' )
@@ -33,25 +34,44 @@ block body
               |  to get a better idea of your rank.
 
         ul.teams
-          each team in teams
-            li
-              - url = team.entry.url
-              a( href=url )
-                img.screenshot( src=team.screenshot )
-              h2: a( href=url )= team.entry.name
-              h4 by
-                a( href='/teams/' + team )= team.name
-              .description
-                if p = markdown(team.entry.description).match(/<p>[\s\S]+?<\/p>/)
-                  != p
-              if sort && score
-                team.scores
-                  .score
-                    h3= team.scores[score] != null ? team.scores[score].toFixed(2) : '?'
-                    .dimension= sort
-              .clear
+          - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
+          - each team in teams
+            - members = toPeople(team)
+            li.row
+              .col-lg-8.col-md-8.col-sm-8
+                h2
+                  a( href='/teams/' + team )= team.name
+                  if locations(members).length > 0
+                    span.location
+                      span.sep /
+                      = locations(members)
+
+                .description= team.entry.quickIntro
+
+                ul.members
+                  - each m in members
+                    - if (m)
+                      li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
+                        img.avatar( src=avatar_url(m))
+                  - if (team.invites.length > 0)
+                    li.invites
+                      |  (#{team.invites.length} invited)
+
+              .col-lg-4.col-md-4.col-sm-4
+                if team.screenshot && team.entry.url
+                  .team-screenshot
+                    img(src=team.screenshot)
+                    .team-actions
+                      a.btn.btn-primary(href='#{team.entry.url}') Launch
+                      a.btn.btn-primary(href='/teams/' + team) Team
+
+                else
+                  .team-actions
+                    a.btn.btn-primary(href='/teams/' + team) View Team
+
+
           - nextPage = (+req.query.page || 1) + 1
           .more: a( href=urlFor({ page: nextPage }) ) more
 
-      .col-lg-4.col-sm-4.col-md-4
+      .col-lg-4.col-md-4.col-sm-4
         include ../index/_sidebar

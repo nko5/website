@@ -110,7 +110,7 @@ app.get '/reload', (req, res, next) ->
   res.redirect '/'
 
 app.get '/scores', (req, res, next) ->
-  return next(401) unless req.user?.admin or not app.enabled('voting')
+  return next(401) unless req.user?.admin and not app.enabled('voting')
   Team.sortedByScore (error, teams) ->
     return next error if error
     res.render2 'index/scores', teams: teams

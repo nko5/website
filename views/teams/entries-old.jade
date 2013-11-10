@@ -1,0 +1,57 @@
+- title('Leaderboard')
+extends ../layout-2013
+
+block body
+
+  - activeNav = "entries"
+  .contained
+    include ../index/_header-mini
+
+  .inner-page.container.teams-page
+    .row
+      .col-lg-8.col-sm-8.col-md-8
+        h1 Entries (#{teams.count})
+
+        form.search
+          input( type='search', name='q', value=req.query.q, placeholder='Search' )
+
+        if (req.user && (req.user.contestant || req.user.admin || req.user.judge)) || !voting
+          ul.sorts
+            li Order by:
+            if voting
+              li( class=(!sort ? 'current': '' ) )
+                a( href='/entries' ) Random
+            each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
+              - s = k.split(/\W/)[0].toLowerCase()
+              li( class= sort === s ? 'current' : '' )
+                a( href=urlFor({ sort: s }) )= k
+          if voting && sort && (req.user && req.user.contestant && !req.user.admin && !req.user.judge)
+            p
+              strong.scary This list only shows teams that you've voted on.
+              |
+              a( href="/people/#{req.user}#instructions" ) Vote on more teams
+              |  to get a better idea of your rank.
+
+        ul.teams
+          each team in teams
+            li
+              - url = team.entry.url
+              a( href=url )
+                img.screenshot( src=team.screenshot )
+              h2: a( href=url )= team.entry.name
+              h4 by
+                a( href='/teams/' + team )= team.name
+              .description
+                if p = markdown(team.entry.description).match(/<p>[\s\S]+?<\/p>/)
+                  != p
+              if sort && score
+                team.scores
+                  .score
+                    h3= team.scores[score] != null ? team.scores[score].toFixed(2) : '?'
+                    .dimension= sort
+              .clear
+          - nextPage = (+req.query.page || 1) + 1
+          .more: a( href=urlFor({ page: nextPage }) ) more
+
+      .col-lg-4.col-sm-4.col-md-4
+        include ../index/_sidebar

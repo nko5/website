@@ -53,7 +53,7 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
     else
       null
 
-  # during voting, only contestants can sort by category
+  # during voting, public cant sort by category
   if voting and not req.user?.contestant and not req.user?.admin and not req.user?.judge
     sort = null
 
@@ -81,20 +81,38 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
   renderEntries = ->
     Team.find query, {}, options, (err, teams) ->
       return next err if err
-      Team.count query, (err, count) ->
+
+      ids = _.reduce teams, ((r, t) -> r.concat(t.peopleIds)), []
+      only =
+        email: 1
+        slug: 1
+        name: 1
+        location: 1
+        imageURL: 1
+        'github.gravatarId': 1
+        'github.login': 1
+        'twit.screenName': 1
+      Person.find _id: { $in: ids }, only, (err, people) ->
         return next err if err
-        teams.count = count
-        layout = req.header('x-pjax')? || !req.xhr
-        res.render2 'teams/entries', teams: teams, sort: sort, score: score, layout: layout
+        people = _.reduce people, ((h, p) -> h[p.id] = p; h), {}
+        Team.count query, (err, count) ->
+          return next err if err
+          teams.count = count
+          layout = req.header('x-pjax')? || !req.xhr
+          res.render2 'teams/entries', teams: teams, sort: sort, people: people, score: score, layout: layout
+
 
   # while voting is going on, only allow sorting for teams that the user is on
   # or has voted on
+
   if voting and score and not req.user?.admin and not req.user?.judge
-    req.user.votedOnTeamIds (err, teamIds) ->
+    # contestants and public
+    req.user.votedOnTeamIds (err, teamIdsVotedOn) ->
       return next(err) if err
       req.user.team (err, team) ->
         return next(err) if err
-        query._id = ($in: teamIds.concat(team.id))
+        teamIdsVotedOn = teamIdsVotedOn.concat(team.id) if team
+        query._id = ($in: teamIdsVotedOn)
         renderEntries()
   else # voting is over, allow everything to be seen
     renderEntries()
