@@ -24,6 +24,17 @@ load = ->
       $.post @href, ->
         $n.text('done').delay(500).fadeOut 'slow', -> $t.show()
 
+    $(".team-screenshot").click (e) ->
+      return true if $(e.target).is("a")
+      anchor = $(this).find("a:first")
+
+      if anchor.length > 0
+        e.preventDefault()
+        window.location = anchor.attr("href")
+      else
+        return true
+
+
     # deploy instructions
     $('.step')
       .addClass(-> $(this).attr('id'))

@@ -26,6 +26,24 @@
 
   .sorts
     padding: 0
+    list-style: none
+    margin: 0
+    margin-top: 15px
+    margin-bottom: 0px
+    li
+      float: left
+      margin-right: 5px
+      background: #F4F4F4
+      border-radius: 3px
+      font-size: 14px
+      padding: 5px 15px
+      margin-bottom: 5px
+      a
+        color: #8C8C8C
+      &.current
+        background: #BF2A3B
+        a
+          color: #fff
   ul.teams
     overflow hidden
     padding: 0
@@ -57,18 +75,44 @@
           font-size: 15px
       .team-screenshot
         position: relative
+        min-height: 100px
+        border: 1px solid #efefef
+        border-radius: 3px
         img
           width: 100%
-          border: 1px solid #efefef
-          border-radius: 3px
           max-height: 150px
+          position: relative
+          z-index: 10
+
+        .team-score
+          position: absolute
+          z-index: 11
+          right: 0
+          bottom: 0
+          background: #BF293B
+          text-align: center
+          color: #fff
+          width: 85px
+          height: 55px
+          padding: 8px 10px
+          line-height: 1.1
+          .dimension
+            font-size: 11px
+            margin-bottom: 3px
+
+          .number
+            font-weight: bold
+            font-size: 23px
+            letter-spacing: 1px
+
         .team-actions
           position: absolute
           left: 0
+          z-index: 10
           right: 0
           top: 0
           bottom: 0
-          background: rgba(0,0,0,0.50)
+          background: rgba(0,0,0,0.75)
           text-align: center
           cursor: pointer
           border-radius: 3px
@@ -76,6 +120,18 @@
             margin-top: 20px
             @media screen and (max-width: 767px)
               margin-top: 0
+          .vote-btn
+            margin-top: 10px
+            display: inline-block
+            color: #fff
+            font-size: 25px
+            text-transform: uppercase
+            text-decoration: none
+            em
+              font-style: normal
+              color: #BC293E
+            @media screen and (max-width: 767px)
+              margin-top: 10px
 
       .team-actions
         text-align: right
@@ -106,7 +162,7 @@
           border-radius: 2px
       .description
         font-size: 13px
-        max-height: 150px
+        max-height: 120px
         overflow: hidden
         p, ul
           margin 0.5em 0

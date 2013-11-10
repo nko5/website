@@ -17,7 +17,7 @@ block body
             input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
         if winners || (req.user && (req.user.admin || req.user.judge))
-          ul.sorts
+          ul.sorts.clearfix
             each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
               - s = k.split(/\W/)[0].toLowerCase()
               li( class= sort === s ? 'current' : '' )
@@ -53,8 +53,8 @@ block body
                     img(src=team.screenshot)
 
                   if voting
-                    .vote-actions
-                      a.vote-btn(href='/teams/' + team) Vote
+                    .team-actions
+                      a.vote-btn(href='/teams/' + team) Vote <em>&raquo;</em>
 
                   else
                     if team.entry.url
