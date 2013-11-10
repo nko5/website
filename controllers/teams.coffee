@@ -10,7 +10,13 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
   query = {}
   query.peopleIds = { $size: 0 } if req.params[0]
   query.search = new RegExp(req.param('q'), 'i') if req.param('q')
-  options = { sort: [['updatedAt', -1]], limit: 50, skip: 50 * page }
+
+  if app.enabled('coding')
+    sort = { 'lastDeploy.createdAt': -1 }
+  else
+    sort = [['updatedAt', -1]]
+
+  options = { sort: sort, limit: 50, skip: 50 * page }
   # TODO move this join-thing into the Team model (see Vote <-> Person)
   Team.find query, {}, options, (err, teams) ->
     return next err if err

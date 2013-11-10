@@ -41,8 +41,16 @@ block body
                       |  (#{team.invites.length} invited)
 
               .col-lg-4.col-md-4.col-sm-4
-                .team-actions
-                  a.btn.btn-primary(href='/teams/' + team) View Team
+                if team.screenshot && team.entry.url
+                  .team-screenshot
+                    img(src=team.screenshot)
+                    .team-actions
+                      a.btn.btn-primary(href='#{team.entry.url}') Launch Site
+                      a.btn.btn-primary(href='/teams/' + team) View Team
+
+                else
+                  .team-actions
+                    a.btn.btn-primary(href='/teams/' + team) View Team
 
 
           - nextPage = (+req.query.page || 1) + 1

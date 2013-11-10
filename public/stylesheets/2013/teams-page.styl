@@ -36,6 +36,10 @@
       margin-top: 10px
       margin-bottom: 10px
 
+      &:hover .team-actions
+        opacity: 1.0
+        transition: opacity .5s
+
       h2
         font-size: 20px
         margin-top: -9px
@@ -49,8 +53,30 @@
           color: #7E7E7E
           font-weight: normal
           font-size: 15px
+      .team-screenshot
+        position: relative
+        img
+          width: 100%
+          border: 1px solid #efefef
+          border-radius: 3px
+          max-height: 150px
+        .team-actions
+          position: absolute
+          left: 0
+          right: 0
+          top: 0
+          bottom: 0
+          background: rgba(0,0,0,0.50)
+          text-align: center
+          cursor: pointer
+          border-radius: 3px
+          .btn
+            margin-top: 20px
       .team-actions
         text-align: right
+        opacity: 0
+        .btn
+          margin-left: 5px
         @media screen and (max-width: 767px)
           text-align: left
           margin-top: 10px
@@ -58,6 +84,7 @@
         margin 0
         padding: 0
         margin-top: 10px
+        margin-bottom: 20px
         li
           display inline-block
           margin-right 2px
