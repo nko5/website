@@ -6,10 +6,11 @@
       span(class="caret")
 
     ul(class="dropdown-menu", role="menu")
+      if req.myTeam
+        li
+          a(href="/teams/mine") My Team
       li
-        a(href="/teams/mine") My Team
-      li
-        a(href="/teams") All Teams
+        a(href="/people/me") My Profile
       li
         a(href="/logout") Sign Out
   else
