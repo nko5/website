@@ -18,20 +18,10 @@ block body
 
         if winners || (req.user && (req.user.admin || req.user.judge))
           ul.sorts
-            li Order by:
-            if voting
-              li( class=(!sort ? 'current': '' ) )
-                a( href='/entries' ) Randomddsfasdf
             each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
               - s = k.split(/\W/)[0].toLowerCase()
               li( class= sort === s ? 'current' : '' )
                 a( href=urlFor({ sort: s }) )= k
-          if voting && sort && (req.user && req.user.contestant && !req.user.admin && !req.user.judge)
-            p
-              strong.scary This list only shows teams that you've voted on.
-              |
-              a( href="/people/#{req.user}#instructions" ) Vote on more teams
-              |  to get a better idea of your rank.
 
         ul.teams
           - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
@@ -58,16 +48,31 @@ block body
                       |  (#{team.invites.length} invited)
 
               .col-lg-4.col-md-4.col-sm-4
-                if team.screenshot && team.entry.url
-                  .team-screenshot
+                .team-screenshot
+                  if team.screenshot
                     img(src=team.screenshot)
-                    .team-actions
-                      a.btn.btn-primary(href='#{team.entry.url}') Launch
-                      a.btn.btn-primary(href='/teams/' + team) Team
 
-                else
-                  .team-actions
-                    a.btn.btn-primary(href='/teams/' + team) View Team
+                  if voting
+                    .vote-actions
+                      a.vote-btn(href='/teams/' + team) Vote
+
+                  else
+                    if team.entry.url
+                      .team-actions
+                        a.btn.btn-primary(href='#{team.entry.url}') Launch
+                        a.btn.btn-primary(href='/teams/' + team) Team
+                    else
+                      .team-actions
+                        a.btn.btn-primary(href='/teams/' + team) View Team
+
+                  if winners || (req.user && (req.user.admin || req.user.judge))
+                    - scoreKey = sort
+                    - if(scoreKey == "team" || scoreKey == "solo"){ scoreKey = "overall" }
+                    - scoreKey = scoreKey || "overall"
+
+                    .team-score
+                      .dimension= scoreKey
+                      .number= (team.scores[scoreKey] || 0).toFixed(2)
 
 
           - nextPage = (+req.query.page || 1) + 1
