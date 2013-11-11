@@ -17,14 +17,15 @@
       color: #696969
   div.stars
     display inline-block
+    margin-top: -1px
     .star
       display inline-block
-      width 16px
-      height 16px
-      background transparent url(/images/star.png) no-repeat 0 0
+      width 29px
+      height 27px
+      background transparent url(/images/stars-new.png) no-repeat 0 -27px
       cursor: pointer
       &.filled
-        background transparent url(/images/star.png) no-repeat 0 -16px
+        background transparent url(/images/stars-new.png) no-repeat 0 0
 
   .team-info
     .btn-super.btn-block
@@ -107,6 +108,9 @@
       p
         font-size: 14px
         color: #696969
+
+    .vote-comment textarea
+      min-height: 80px
 
     .vote-actions
       margin-top: 15px
