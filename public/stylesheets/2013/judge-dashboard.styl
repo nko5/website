@@ -1,6 +1,20 @@
 @import "2013/_common"
 
 .judge-dashboard
+
+  h1
+    font-size: 16px
+    text-transform: uppercase
+    color: #606060
+
+  .intro
+    font-size: 16px
+    line-height: 1.2
+    color: #696969
+    p
+      margin: 0
+    a
+      color: #696969
   div.stars
     display inline-block
     .star
@@ -11,3 +25,90 @@
       cursor: pointer
       &.filled
         background transparent url(/images/star.png) no-repeat 0 -16px
+
+  .team-info
+    .btn-super.btn-block
+      max-width: 375px
+    h2
+      margin-top: 20px
+      font-size: 29px
+      color: #363636
+      margin-bottom: 0px
+    h3
+      font-size: 16px
+      font-weight: normal
+      color: #979797
+      margin-top: 0px
+    .screencast
+      padding-top: 20px
+      padding-bottom: 20px
+      .label-primary
+        background: #B21B2B
+        border: 0
+        text-transform: uppercase
+        font-size: 12px
+        border-radius: 0
+        letter-spacing: 1px
+        padding: 3px 6px
+      img
+        margin-top: 5px
+      .screencast-thumb
+        position: relative
+        display: inline-block
+        .play-btn
+          width: 80px
+          height: 80px
+          margin: auto
+          position: absolute
+          left: 0
+          right: 0
+          top: 0
+          bottom: 0
+          background-image: url('/images/play-btn.png')
+          background-repeat: no-repeat
+          display: block
+
+    .team-content
+      padding-top: 5px
+      padding-bottom: 5px
+      font-size: 14px
+      .title
+        font-weight: 600
+        margin: 0
+        padding: 0
+        font-size: 16px
+        color: #444545
+        text-transform: uppercase
+      h1, h2, h3, h4, h5, h6
+        font-size: 14px
+        color: #444545
+        font-weight: normal
+      h1
+        font-size: 14px
+
+  .vote-section
+    background: #FBFBFB
+    border: 1px solid #DFDFDF
+    border-radius: 3px
+    padding: 20px
+
+    .stars
+      float: right
+    .vote-category
+      border-bottom: 1px solid #F2F2F2
+      margin-bottom: 20px
+      padding-bottom: 10px
+      label
+        font-size: 16px
+        color: #606060
+        text-transform: uppercase
+      p
+        font-size: 14px
+        color: #696969
+
+    .vote-actions
+      margin-top: 15px
+      .submit-btn
+        float: left
+        margin-right: 30px
+      form

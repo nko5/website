@@ -21,7 +21,8 @@ block body
           | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
 
       p
-        | You've judged <a href="/people/me">#{votes.length}</a>
+        br
+        | You've judged <strong><a href="/people/me">#{votes.length}</a></strong>
         if votes.length >= 10
           |  entries.
         else
@@ -42,91 +43,107 @@ block body
 
             .screencast
               if nextTeam.entry.videoURL
-                span.label.label-primary Screencast
+                div
+                  span.label.label-primary Screencast
 
-                - if (embed = embedVideo(nextTeam.entry.videoURL))
-                  a(href=nextTeam.entry.videoURL, data-toggle="lightbox")
-                    img(src=nextTeam.screenshot)
-                - else
-                  a(href=nextTeam.entry.videoURL)
-                    img(src=nextTeam.screenshot)
+                .screencast-thumb
+                  - if (embed = embedVideo(nextTeam.entry.videoURL))
+                    a(href=nextTeam.entry.videoURL, data-toggle="lightbox")
+                      span.play-btn
+                      img(src=nextTeam.screenshot)
+                  - else
+                    a(href=nextTeam.entry.videoURL)
+                      span.play-btn
+                      img(src=nextTeam.screenshot)
+              else
+                .screencast-thumb
+                  img(src=nextTeam.screenshot)
 
             if nextTeam.entry.quickIntro
               .team-content
-                h4 Quick Intro
+                .title Quick Intro
                 p= nextTeam.entry.quickIntro
 
             if nextTeam.entry.description
               .team-content
-                h4 Description
+                .title Description
                 != markdown(nextTeam.entry.description)
 
             if nextTeam.entry.instructions
               .team-content
-                h4 Judging Instructions
+                .title Judging Instructions
                 != markdown(nextTeam.entry.instructions)
 
             if nextTeam.entry.colophon
               .team-content
-                h4 What they Used
+                .title What they Used
                 != markdown(nextTeam.entry.colophon)
 
-            //- TODO: team members
+            //- if nextTeam.members
+            //-   .team-content
+            //-     .title Team Members
+            //-     - each person in nextTeam.members
+            //-       img.avatar( src=avatar_url(person) )
+            //-       a( href='/people/' + person )= person.github.login
+            //-       - if (person.location)
+            //-         &nbsp;&mdash;&nbsp;#{person.location}
+
 
         .col.col-lg-6.col-md-6.col-sm-6
-          form.vote(action='/teams/' + nextTeam + '/votes', method='POST')
-            != _csrf
+          .vote-section
+            form.vote(action='/teams/' + nextTeam + '/votes', method='POST')
+              != _csrf
 
-            input( type='hidden', name='nextTeam', value="true" )
-            input( type='hidden', name='audit[userAgent]', value=req.header('user-agent') )
-            input( type='hidden', name='audit[referrer]', value=req.header('referrer') )
-            input( type='hidden', name='audit[accept]', value=req.header('accept') )
-            - each f in [ 'requestAt', 'hoverAt' ]
-              input( type='hidden', name='audit[' + f + ']', class=f )
+              input( type='hidden', name='nextTeam', value="true" )
+              input( type='hidden', name='audit[userAgent]', value=req.header('user-agent') )
+              input( type='hidden', name='audit[referrer]', value=req.header('referrer') )
+              input( type='hidden', name='audit[accept]', value=req.header('accept') )
+              - each f in [ 'requestAt', 'hoverAt' ]
+                input( type='hidden', name='audit[' + f + ']', class=f )
 
-            .vote-category
-              label Utility / Fun
-              .stars
-                input( name="utility", id="utility", type='range', min=0, max=5, value=0 )
+              .vote-category
+                label Utility / Fun
+                .stars
+                  input( name="utility", id="utility", type='range', min=0, max=5, value=0 )
+                p
+                  | How useful is the app?<br>
+                  | If it's intended on being a game, how entertaining is it?
+
+              .vote-category
+                label Design
+                .stars
+                  input( name="design", id="design", type='range', min=0, max=5, value=0 )
+                p
+                  | Is the product aesthetically pleasing?<br>
+                  | Is it clear and understandable?
+
+              .vote-category
+                label Innovation
+                .stars
+                  input( name="innovation", id="innovation", type='range', min=0, max=5, value=0 )
+                p
+                  | How novel or inventive is the concept?  Did it make you think "Wow, I haven't seen like something like this in a while!"
+
+              .vote-category
+                label Completeness
+                .stars
+                  input( name="completeness", id="completeness", type='range', min=0, max=5, value=0 )
+                p
+                  | Is the app usable as it is?  How much did the team accomplish this weekend?
+
+              .vote-comment
+                textarea.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
+
+              .vote-actions
+                input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote
+
+            form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
+              input( type='hidden', name='_method', value='PUT' )
+              != _csrf
+              input( type='hidden', name='skipTeamId', value=nextTeam.id)
+              input.hidden( type='submit', value='Skip Entry' )
               p
-                | How useful is the app?<br>
-                | If it's intended on being a game, how entertaining is it?
-
-            .vote-category
-              label Design
-              .stars
-                input( name="design", id="design", type='range', min=0, max=5, value=0 )
-              p
-                | Is the product aesthetically pleasing?<br>
-                | Is it clear and understandable?
-
-            .vote-category
-              label Innovation
-              .stars
-                input( name="innovation", id="innovation", type='range', min=0, max=5, value=0 )
-              p
-                | How novel or inventive is the concept?  Did it make you think "Wow, I haven't seen like something like this in a while!"
-
-            .vote-category
-              label Completeness
-              .stars
-                input( name="completeness", id="completeness", type='range', min=0, max=5, value=0 )
-              p
-                | Is the app usable as it is?  How much did the team accomplish this weekend?
-
-            .vote-comment
-              textarea.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
-
-            .vote-actions
-              input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote
-
-          form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
-            input( type='hidden', name='_method', value='PUT' )
-            != _csrf
-            input( type='hidden', name='skipTeamId', value=nextTeam.id)
-            input.hidden( type='submit', value='Skip Entry' )
-            p
-              | <a href="#" onclick="$(this).parents('form:first').submit()">Skip Entry</a>
+                | <a href="#" onclick="$(this).parents('form:first').submit()">Skip Entry</a>
 
     else
 
