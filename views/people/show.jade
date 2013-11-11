@@ -35,58 +35,12 @@ block body
         | .
 
     - if (voting && req.user && (person.id === req.user.id) && (req.user.judge || req.user.contestant))
-      p.instructions#instructions
-        if req.user.judge
-          | You've reviewed
-          b #{votes.length} of 10
-          | entries we'd like you to look at.
-        - if (votes.length)
-          | See below for the entry we suggest you review next.
-        - else
-          a( href='#next-vote' ) See below
-          |  for a suggestion about where to get started.
-      - if (!nextVote.team)
-        h1 No More Entries to Review
-        p.no-more-teams: img(src='http://images.memegenerator.net/instances/500x/9715681.jpg' )
+      .well
+        p Please help us review submitted entries and give scores.
+        a.btn.btn-primary.btn-lg(href="/judges/dashboard") Review an Entry
     - else
-      .bio!= markdown(person.bio)
 
-    - if (voting)
-      - if (nextVote.team)
-        h1#next-vote Suggested Entry to Review
-        p
-          | We think you should take a look at&nbsp;
-          a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
-          |  below.
-
-        .next-vote
-          .entry-info
-            a( href=nextVote.team.entry.url, target='entry' ): img.screenshot( src=nextVote.team.screenshot )
-            h2: a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
-            h3
-              | by&nbsp;
-              a( href='/teams/' + nextVote.team, target='team' )= nextVote.team.name
-            .buttons
-              a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
-            .clear
-            != markdown(nextVote.team.entry.description)
-            - if (nextVote.team.entry.videoURL)
-              - if (embed = embedVideo(nextVote.team.entry.videoURL))
-                p: iframe( width="560", height="315", src=embed, frameborder="0", allowfullscreen=true )
-              - else
-                h4 Screencast
-                  p: a.button.small( href=nextVote.team.entry.videoURL, target='screencast' ) ▶ Play
-            - if (nextVote.team.entry.instructions)
-              h4 Judging Instructions
-              != markdown(nextVote.team.entry.instructions)
-
-          vote = nextVote
-          include ../votes/form
-          form.skip-vote.confirm-form( action='/people/' + user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
-            input( type='hidden', name='_method', value='PUT' )
-            != _csrf
-            input( type='hidden', name='skipTeamId', value=nextVote.team.id)
-            input( type='submit', value='Skip Entry' )
+    .bio!= markdown(person.bio)
 
     - if (votes.length)
       - if (req.user && (req.user.id === req.person.id))
