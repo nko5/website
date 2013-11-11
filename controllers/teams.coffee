@@ -43,8 +43,8 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
 app.get /^\/(entries)?\/?$/, (req, res, next) ->
   voting = app.enabled('voting')
 
-  # only show entries that are deployed and marked votable
-  query = { 'entry.votable': true, lastDeploy: {$ne: null} }
+  # only show entries that are marked votable
+  query = { 'entry.votable': true }
   query.search = new RegExp(req.param('q'), 'i') if req.param('q')
 
   # determine what category to show
