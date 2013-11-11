@@ -9,6 +9,11 @@
       if req.myTeam
         li
           a(href="/teams/mine") My Team
+
+      if voting && req.user && (req.myTeam || req.user.judge || req.user.admin)
+        li
+          a(href="/judges/dashboard") Judging
+
       li
         a(href="/people/me") My Profile
       li

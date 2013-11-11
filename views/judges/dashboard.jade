@@ -1,0 +1,100 @@
+extends ../layout-2013
+
+block body
+
+  - activeNav = "entries"
+  .contained
+    include ../index/_header-mini
+
+  .inner-page.container.judge-dashboard
+    .intro
+      h1 Judging NodeKnockout
+      p
+        | Please spend 5-10 minutes per entry and tell the team what you think about their entry.
+
+      form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
+        input( type='hidden', name='_method', value='PUT' )
+        != _csrf
+        input( type='hidden', name='skipTeamId', value=nextTeam.id)
+        input.hidden( type='submit', value='Skip Entry' )
+        p
+          | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
+
+      p
+        | You've judged <a href="/people/me">#{votes.length}</a>
+        if votes.length >= 10
+          |  entries.
+        else
+          |  out of <strong>10 entries</strong>.
+
+    hr
+
+    if nextTeam
+      h1 Suggested team to judge next:
+      .row
+        .col.col-lg-6.col-md-6.col-sm-6
+          .team-info
+            a.btn.btn-super.btn-primary.btn-block(href=nextTeam.entry.url) Launch Site
+            h2= nextTeam.name
+            h3
+              | By&nbsp;
+              a(href="/teams/#{nextTeam}")= nextTeam.name
+
+        .col.col-lg-6.col-md-6.col-sm-6
+          form.vote(action='/teams/' + nextTeam + '/votes', method='POST')
+            != _csrf
+
+            input( type='hidden', name='nextTeam', value="true" )
+            input( type='hidden', name='audit[userAgent]', value=req.header('user-agent') )
+            input( type='hidden', name='audit[referrer]', value=req.header('referrer') )
+            input( type='hidden', name='audit[accept]', value=req.header('accept') )
+            - each f in [ 'requestAt', 'hoverAt' ]
+              input( type='hidden', name='audit[' + f + ']', class=f )
+
+            .vote-category
+              label Utility / Fun
+              .stars
+                input( name="utility", id="utility", type='range', min=0, max=5, value=0 )
+              p
+                | How useful is the app?<br>
+                | If it's intended on being a game, how entertaining is it?
+
+            .vote-category
+              label Design
+              .stars
+                input( name="design", id="design", type='range', min=0, max=5, value=0 )
+              p
+                | Is the product aesthetically pleasing?<br>
+                | Is it clear and understandable?
+
+            .vote-category
+              label Innovation
+              .stars
+                input( name="innovation", id="innovation", type='range', min=0, max=5, value=0 )
+              p
+                | How novel or inventive is the concept?  Did it make you think "Wow, I haven't seen like something like this in a while!"
+
+            .vote-category
+              label Completeness
+              .stars
+                input( name="completeness", id="completeness", type='range', min=0, max=5, value=0 )
+              p
+                | Is the app usable as it is?  How much did the team accomplish this weekend?
+
+            .vote-comment
+              textarea.edit(name='comment', placeholder='Be awesome. Give some feedback.')
+
+            .vote-actions
+              input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote
+
+          form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
+            input( type='hidden', name='_method', value='PUT' )
+            != _csrf
+            input( type='hidden', name='skipTeamId', value=nextTeam.id)
+            input.btn.btn-default.btn-sm( type='submit', value='Skip Entry' )
+
+    else
+
+      h1 No other teams to vote on. You got em all!
+      p
+        a.btn.btn-primary.btn-lg(href="/people/me") View Votes

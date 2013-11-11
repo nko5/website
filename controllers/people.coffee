@@ -63,7 +63,9 @@ app.put '/people/:id', [m.loadPerson, m.ensureAccess], (req, res) ->
   _.extend req.person, req.body
   req.person.save (err) ->
     return next err if err && err.name != 'ValidationError'
-    if req.person.errors
+    if skip
+      res.redirect "/judges/dashboard"
+    else if req.person.errors
       res.render2 'people/edit', person: req.person
     else
       res.redirect "/people/#{req.person}"

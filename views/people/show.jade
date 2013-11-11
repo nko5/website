@@ -55,7 +55,7 @@ block body
       - if (nextVote.team)
         h1#next-vote Suggested Entry to Review
         p
-          | We think you should take a look at
+          | We think you should take a look at&nbsp;
           a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
           |  below.
 
@@ -64,7 +64,7 @@ block body
             a( href=nextVote.team.entry.url, target='entry' ): img.screenshot( src=nextVote.team.screenshot )
             h2: a( href=nextVote.team.entry.url, target='entry' )= nextVote.team.entry.name
             h3
-              | by
+              | by&nbsp;
               a( href='/teams/' + nextVote.team, target='team' )= nextVote.team.name
             .buttons
               a.button( href=nextVote.team.entry.url, target='entry' ) View Entry
@@ -82,7 +82,7 @@ block body
 
           vote = nextVote
           include ../votes/form
-          form.skip-vote( action='/people/' + user, method='POST' )
+          form.skip-vote.confirm-form( action='/people/' + user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
             input( type='hidden', name='_method', value='PUT' )
             != _csrf
             input( type='hidden', name='skipTeamId', value=nextVote.team.id)

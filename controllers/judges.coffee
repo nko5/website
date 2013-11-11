@@ -1,5 +1,6 @@
 _ = require 'underscore'
 app = require '../config/app'
+m = require './middleware'
 Person = app.db.model 'Person'
 
 # index
@@ -10,6 +11,18 @@ app.get '/judges', (req, res, next) ->
     Person.find { role: 'judge' }, (err, judges) ->
       return next err if err
       res.render2 'judges', judges: _.shuffle(judges)
+
+# judging dashboard
+app.get '/judges/dashboard', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes, m.loadCanSeeVotes], (req, res, next) ->
+  if app.enabled('voting') and req.user and (req.user?.admin || req.user?.judge || req.myTeam)
+    # pick the next entry for you to judge
+    req.user.nextTeam (err, nextTeam) ->
+      return next err if err
+      res.render2 'judges/dashboard', nextTeam: nextTeam, votes: req.votes || []
+
+  else
+    res.redirect("/teams")
+
 
 app.get '/judges/nominations', (req, res, next) ->
   Person.find { role: 'nomination' }, {}, {sort: [['updatedAt', -1]]}, (err, judges) ->

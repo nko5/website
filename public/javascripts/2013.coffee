@@ -48,6 +48,10 @@ load = ->
       trigger: "hover"
       container: "body"
 
+  $(".confirm-form").submit (e) ->
+    return confirm($(this).data('confirm-msg') || "Are you sure?")
+
+
   $(".countdown .timer").each ->
     el = $(this)
     end = moment.utc($(this).data("from")).toDate()
