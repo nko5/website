@@ -189,7 +189,7 @@ PersonSchema.method 'nextTeam', (next) ->
   filter =
     'entry.name': /\w/ # has name
     'entry.votable': true # votable
-    'lastDeploy': ($ne: null) # deployed
+    # 'lastDeploy': ($ne: null) # deployed
     'peopleIds': ($ne: @id) # not mine
   # TBD - running
 
@@ -213,14 +213,14 @@ PersonSchema.method 'nextTeam', (next) ->
     next err if err
 
     # judges focus on good stuff
-    if @judge and votedOn.length < 15
-      filter['$or'] = [
-        { 'scores.judge_count': { $lt: 3 }},
-        { 'scores.judge_utility': { $gt: 3 }},
-        { 'scores.judge_design': { $gt: 3 }},
-        { 'scores.judge_innovation': { $gt: 3 }},
-        { 'scores.judge_completeness': { $gt: 3 }}
-      ]
+    # if @judge and votedOn.length < 15
+    #   filter['$or'] = [
+    #     { 'scores.judge_count': { $lt: 3 }},
+    #     { 'scores.judge_utility': { $gt: 3 }},
+    #     { 'scores.judge_design': { $gt: 3 }},
+    #     { 'scores.judge_innovation': { $gt: 3 }},
+    #     { 'scores.judge_completeness': { $gt: 3 }}
+    #   ]
 
     # every third vote should be for something good
     # if votedOn.length % 3 is 0
