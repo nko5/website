@@ -12,13 +12,14 @@ block body
       p
         | Please spend 5-10 minutes per entry and tell the team what you think about their entry.
 
-      form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
-        input( type='hidden', name='_method', value='PUT' )
-        != _csrf
-        input( type='hidden', name='skipTeamId', value=nextTeam.id)
-        input.hidden( type='submit', value='Skip Entry' )
-        p
-          | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
+      if nextTeam
+        form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
+          input( type='hidden', name='_method', value='PUT' )
+          != _csrf
+          input( type='hidden', name='skipTeamId', value=nextTeam.id)
+          input.hidden( type='submit', value='Skip Entry' )
+          p
+            | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
 
       p
         br
