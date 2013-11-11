@@ -125,7 +125,7 @@ PersonSchema.method 'toString', -> @id
 ROLES.forEach (t) ->
   PersonSchema.virtual(t).get -> @role == t
 PersonSchema.virtual('login').get ->
-  @github?.login or @twit?.screenName or @name.split(' ')[0]
+  @github?.login or @twit?.screenName or (@name or "").split(' ')[0]
 PersonSchema.virtual('githubLogin').get -> @github?.login
 # twitterScreenName isn't here because you can edit it
 
