@@ -16,7 +16,7 @@ msgTeam = (team, callback) ->
   currentTeam.people (err, people) ->
     return callback(err) if err
     emailable = (person for person in people when /@/.test(person.email))
-    util.log "Sending 'contestant_start' to '#{team.name}'".yellow
+    util.log "Sending 'contestant_end_3hrs' to '#{team.name}'".yellow
     async.forEach emailable, msgPerson, callback
 
 msgPerson = (person, callback) ->
@@ -32,7 +32,7 @@ msgPerson = (person, callback) ->
 
   postageapp.sendMessage
     recipients: address
-    template: 'contestant_start'
+    template: 'contestant_end_3hrs'
     variables:
       team: " #{currentTeam.name}"
       slug: " #{currentTeam.slug}"
