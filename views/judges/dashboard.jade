@@ -34,11 +34,44 @@ block body
       .row
         .col.col-lg-6.col-md-6.col-sm-6
           .team-info
-            a.btn.btn-super.btn-primary.btn-block(href=nextTeam.entry.url) Launch Site
+            a.btn.btn-super.btn-primary.btn-block(href=nextTeam.entry.url, target="_blank") Launch Site
             h2= nextTeam.name
             h3
               | By&nbsp;
               a(href="/teams/#{nextTeam}")= nextTeam.name
+
+            .screencast
+              if nextTeam.entry.videoURL
+                span.label.label-primary Screencast
+
+                - if (embed = embedVideo(nextTeam.entry.videoURL))
+                  a(href=nextTeam.entry.videoURL, data-toggle="lightbox")
+                    img(src=nextTeam.screenshot)
+                - else
+                  a(href=nextTeam.entry.videoURL)
+                    img(src=nextTeam.screenshot)
+
+            if nextTeam.entry.quickIntro
+              .team-content
+                h4 Quick Intro
+                p= nextTeam.entry.quickIntro
+
+            if nextTeam.entry.description
+              .team-content
+                h4 Description
+                != markdown(nextTeam.entry.description)
+
+            if nextTeam.entry.instructions
+              .team-content
+                h4 Judging Instructions
+                != markdown(nextTeam.entry.instructions)
+
+            if nextTeam.entry.colophon
+              .team-content
+                h4 What they Used
+                != markdown(nextTeam.entry.colophon)
+
+            //- TODO: team members
 
         .col.col-lg-6.col-md-6.col-sm-6
           form.vote(action='/teams/' + nextTeam + '/votes', method='POST')
@@ -82,7 +115,7 @@ block body
                 | Is the app usable as it is?  How much did the team accomplish this weekend?
 
             .vote-comment
-              textarea.edit(name='comment', placeholder='Be awesome. Give some feedback.')
+              textarea.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
 
             .vote-actions
               input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote
@@ -91,10 +124,14 @@ block body
             input( type='hidden', name='_method', value='PUT' )
             != _csrf
             input( type='hidden', name='skipTeamId', value=nextTeam.id)
-            input.btn.btn-default.btn-sm( type='submit', value='Skip Entry' )
+            input.hidden( type='submit', value='Skip Entry' )
+            p
+              | <a href="#" onclick="$(this).parents('form:first').submit()">Skip Entry</a>
 
     else
 
       h1 No other teams to vote on. You got em all!
       p
         a.btn.btn-primary.btn-lg(href="/people/me") View Votes
+
+

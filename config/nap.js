@@ -25,6 +25,7 @@ nap({
         '/public/javascripts/vendor/polyfills.js',
         '/public/javascripts/vendor/underscore-1.3.3.js',
         '/public/javascripts/vendor/jade.runtime.js',
+        '/public/javascripts/vendor/ekko-lightbox.coffee',
         "/public/javascripts/2013/tumblr.js",
         "/public/javascripts/2013.coffee",
         "/public/javascripts/2013/teams.coffee",
