@@ -123,7 +123,7 @@ block body
                 .stars
                   input( name="innovation", id="innovation", type='range', min=0, max=5, value=0 )
                 p
-                  | How novel or inventive is the concept?  Did it make you think "Wow, I haven't seen something like this in a while!"
+                  | How novel or inventive is the concept?  Did it make you think "Wow, I haven't seen like something like this in a while!"
 
               .vote-category
                 label Completeness
@@ -136,7 +136,7 @@ block body
                 textarea.autosized.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
 
               .vote-actions
-                input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote
+                input.submit-btn.btn.btn-primary.btn-lg(type="submit", value="Submit Vote")
 
             form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
               input( type='hidden', name='_method', value='PUT' )
