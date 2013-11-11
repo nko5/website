@@ -43,7 +43,7 @@ block body
 
 
         .team-content
-          - if (coding && (admin || team.includes(user)))
+          - if ((coding || postCoding || voting) && (admin || team.includes(user)))
             .content-section
               include steps
 

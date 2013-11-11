@@ -1,69 +1,78 @@
 #steps-info.jumbotron
-  h1 The competition has started!
+  - step = 1
+  if coding
+    h1 The competition has started!
+  else if (postCoding)
+    h1 Coding has completed!
+  else if (voting)
+    h1 Judging has begun!
 
   h2 Steps to complete:
   ul.steps
-    li( class=team.lastDeploy ? 'done' : 'pending' )
-      .number 1
-      h3 Deploy
+    if coding
+      li( class=team.lastDeploy ? 'done' : 'pending' )
+        .number= step
+        - step = step + 1
+        h3 Deploy
 
-      .step#deploy
-        .status
-          if lastDeploy = team.lastDeploy
-            span.label.label-success
-              | Deployed
-            - lastDeployedAt = new Date(lastDeploy.createdAt)
-            strong
-              time( datetime=lastDeployedAt.toISOString(), title=lastDeployedAt.toISOString() )
-                &nbsp;
-                = relativeDate(lastDeployedAt)
-              if team.entry.url
-                != " to <a href='" + team.entry.url + "'>" + team.entry.url.replace(/^https?:\/\//, '').replace(/\/.*/, '') + "</a>"
+        .step#deploy
+          .status
+            if lastDeploy = team.lastDeploy
+              span.label.label-success
+                | Deployed
+              - lastDeployedAt = new Date(lastDeploy.createdAt)
+              strong
+                time( datetime=lastDeployedAt.toISOString(), title=lastDeployedAt.toISOString() )
+                  &nbsp;
+                  = relativeDate(lastDeployedAt)
+                if team.entry.url
+                  != " to <a href='" + team.entry.url + "'>" + team.entry.url.replace(/^https?:\/\//, '').replace(/\/.*/, '') + "</a>"
 
-            h4
-              pre
-                a( href='https://github.com/nko4/#{team.slug}' ) https://github.com/nko4/#{team.slug}
+              h4
+                pre
+                  a( href='https://github.com/nko4/#{team.slug}' ) https://github.com/nko4/#{team.slug}
 
-          else
-            span.label.label-danger
-              | Not Yet Deployed
+            else
+              span.label.label-danger
+                | Not Yet Deployed
 
-            .instructions
-              span.label.label-default Quick start instructions
-              pre.
-                # getting the code
-                git clone git@github.com:nko4/#{team.slug}.git && cd ./#{team.slug}/
-                chmod 600 ./id_deploy*
-                &nbsp;
-                # developing
-                npm install
-                npm start
-                &nbsp;
-                # deploying (to http://#{team.slug}.2013.nodeknockout.com/)
-                ./deploy nko
-                &nbsp;
-                # ssh access
-                ssh deploy@#{team.slug}.2013.nodeknockout.com
-                ssh root@#{team.slug}.2013.nodeknockout.com
-                # or, if you get prompted for a password
-                ssh -i ./id_deploy deploy@#{team.slug}.2013.nodeknockout.com
-                ssh -i ./id_deploy root@#{team.slug}.2013.nodeknockout.com
+              .instructions
+                span.label.label-default Quick start instructions
+                pre.
+                  # getting the code
+                  git clone git@github.com:nko4/#{team.slug}.git && cd ./#{team.slug}/
+                  chmod 600 ./id_deploy*
+                  &nbsp;
+                  # developing
+                  npm install
+                  npm start
+                  &nbsp;
+                  # deploying (to http://#{team.slug}.2013.nodeknockout.com/)
+                  ./deploy nko
+                  &nbsp;
+                  # ssh access
+                  ssh deploy@#{team.slug}.2013.nodeknockout.com
+                  ssh root@#{team.slug}.2013.nodeknockout.com
+                  # or, if you get prompted for a password
+                  ssh -i ./id_deploy deploy@#{team.slug}.2013.nodeknockout.com
+                  ssh -i ./id_deploy root@#{team.slug}.2013.nodeknockout.com
 
-        p
-          a(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
-            | Instructions on how to deploy
+          p
+            a(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
+              | Instructions on how to deploy
 
 
-        //- h4 Nodejitsu &mdash;
-        //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
-        //-   | ,
-        //-   a( href='http://handbook.jit.su' ) Handbook
-        //- pre: code.
-        //-   $ npm install -g jitsu
-        //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
-        //-   $ jitsu deploy
+          //- h4 Nodejitsu &mdash;
+          //-   a( href='http://blog.nodeknockout.com/post/35279199042/introduction-to-jitsu-deployment' ) More details
+          //-   | ,
+          //-   a( href='http://handbook.jit.su' ) Handbook
+          //- pre: code.
+          //-   $ npm install -g jitsu
+          //-   $ jitsu login --username <b>nko4-#{team.slug}</b> --password <b>#{team.code}</b>
+          //-   $ jitsu deploy
     li( class=team.entry.name ? 'done' : 'pending' )
-      .number 2
+      .number= step
+      - step = step + 1
       .action-panel
         a.btn.btn-sm.btn-primary( href='/teams/' + team + '/edit' )
           if !team.entry.name
@@ -89,7 +98,8 @@
               p Change this information at any time.
 
     li( class=team.entry.votable && team.entry.videoURL ? 'done' : 'pending' )
-      .number 3
+      .number= step
+      - step = step + 1
       form( method='POST', action='/teams/' + team )
 
         .action-panel
