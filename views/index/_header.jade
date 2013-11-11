@@ -2,12 +2,21 @@
   .affix-placeholder
   .affix-inner
     .header
-      #header-gloves.container
-        include _user_nav
-        .header-inner.row
-          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-            .gloves
-            a.logo( href="/" ) Node Knockout
+        if voting
+          #header-gloves
+            .header-inner.row.voting
+              .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+                a.logo( href="/" ) Node Knockout
+                a.btn.btn-primary.votenow(href="/login") Start voting now
 
-#landing-nav
-  include _nav
+        else
+          #header-gloves.container
+            include _user_nav
+            .header-inner.row
+              .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+                .gloves
+                a.logo( href="/" ) Node Knockout
+
+if !voting
+  #landing-nav
+    include _nav

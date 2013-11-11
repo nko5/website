@@ -1,0 +1,258 @@
+extends ../layout-2013
+
+block body
+  #landing
+    - activeNav = "home"
+    include ../index/_header-mini
+
+    #header-judging
+      include _header
+
+    .body-wrapper.container
+
+      //- if req.myTeam
+      //-   .main-section.landing-section.row
+      //-     .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+      //-       .button-boxes.row
+      //-         .col-lg-3.col-md-3.col-sm-6.col-xs-6
+      //-           .button-box
+      //-             a.btn.btn-primary.btn-block(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
+      //-               i.icon-upload-cloud
+      //-               | Deploying
+      //-         .col-lg-3.col-md-3.col-sm-6.col-xs-6
+      //-           .button-box
+      //-             a.btn.btn-primary.btn-block(href="/teams/mine")
+      //-               i.icon-users
+      //-               | Manage Your Team
+      //-         .col-lg-3.col-md-3.col-sm-6.col-xs-6
+      //-           .button-box
+      //-             a.btn.btn-primary.btn-block(href="/rules")
+      //-               i.icon-list
+      //-               | Competition Rules
+      //-         .col-lg-3.col-md-3.col-sm-6.col-xs-6
+      //-           .button-box
+      //-             a.btn.btn-primary.btn-block(href="/resources")
+      //-               i.icon-beaker
+      //-               | Resources / Services
+      //-       hr
+
+      .intro-section.landing-section.voting
+        .row
+          .col.col-md-5.col-sm-12.col-xs-12.col-lg-5
+            p.about(style="padding-top:14px")
+              | Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.
+
+          .col.col-md-6.col-md-offset-1.col-lg-6.col-lg-offset-1.col-sm-12.col-xs-12
+            .nko-dates
+              h4
+                | IMPORTANT DATES TO REMEMBER
+              .date-row
+                .date-label
+                  | OPEN FOR REGISTRATION
+                .date-date
+                  | SEPTEMBER 17, 2013
+              .date-row
+                .date-label
+                  | COMPETITION DATES
+                .date-date
+                  | NOVEMBER 9-11 UTC, 2013
+              .date-row
+                .date-label
+                  | JUDGING PERIOD
+                .date-date
+                  | NOVEMBER 11-17, 2013
+              .date-row
+                .date-label
+                  | WINNERS ANNOUNCED
+                .date-date
+                  | NOVEMBER 18, 2013
+
+              .clear
+
+
+      .sponsors-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          h3 THANKS TO OUR PLATINUM SPONSORS
+          .sponsor-grid
+
+            .row
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://joyent.com", style="background-image:url(/images/sponsors/logos/joyent.jpg);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://goinstant.com", style="background-image:url(/images/sponsors/logos/goinstant.png);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://thenodefirm.com", style="background-image:url(/images/sponsors/logos/nodefirm.png);")
+              a.col.col-md-3.col-sm-3.col-xs-3.col-lg-3(href="http://engineering.groupon.com", style="background-image:url(/images/sponsors/logos/groupon.png);")
+
+          p
+            a.btn.btn-super.btn-primary(href="/sponsors") See all our 2013 sponsors
+
+
+      .prizes-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          h3 PRIZES
+          include ../index/_prizes-widget
+
+      .judges-section.landing-section.row
+        hr
+        .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+          p.nominate-msg
+            | Nominate a judge by filling out <a href="/judges/new">this form</a>, or just tweeting <a href="http://twitter.com/node_knockout">@node_knockout</a> their name.
+          h3 2013 JUDGES
+
+          each judgeGroup in featuredJudges
+            .judges-grid.row
+              each judge in judgeGroup
+                .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+                  .person
+                    a(href="/people/#{judge}")
+                      .avatar(style="background-image:url('#{judge.imageURL}');")
+                        img(src="/images/2013/transparent.png")
+                      label= judge.name
+                      label.about= judge.title
+                    ul.links
+                      if judge.twitterScreenName
+                        li
+                          a(href="http://twitter.com/#{judge.twitterScreenName}")
+                            i.icon-twitter
+                      if judge.linkedinPath
+                        li
+                          a(href="http://www.linkedin.com/in/#{judge.linkedinPath}")
+                            i.icon-linkedin
+
+      .about-section.landing-section.row
+        hr
+        .col.col-md-4.col-sm-4.col-xs-4.col-lg-4.press-section
+          h3 POSTER
+
+          .download
+            a.poster-thumbnail(href="/poster.pdf")
+            a.btn.btn-md.btn-primary(href="/poster.pdf")
+              | Download Poster
+
+            p.download-step
+              strong Step 1:
+              | Download and print this poster and put it in your break room.
+            p.download-step
+              strong Step 2:
+              | Get fired up!
+
+
+        .col.col-md-8.col-sm-8.col-xs-8.col-lg-8
+          h3 NKO 2013 ORGANIZERS
+          .row
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/gerad")
+                  .avatar(style="background-image:url('/avatars/gerad.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Gerad Suyderhoud
+                ul.links
+                  li
+                    a(href="http://twitter.com/gerad")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/geradsuyderhoud")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:gerad@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/ashbhoopathy")
+                  .avatar(style="background-image:url('/avatars/ashbhoopathy.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Ash Bhoopathy
+                ul.links
+                  li
+                    a(href="http://twitter.com/ashbhoopathy")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/ashbhoopathy")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:ash@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/jacquescrocker")
+                  .avatar(style="background-image:url('/avatars/jacquescrocker.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Jacques Crocker
+                ul.links
+                  li
+                    a(href="http://twitter.com/jacquescrocker")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/jacquescrocker")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:jacques@nodeknockout.com")
+                      i.icon-email
+
+            .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+              .person
+                a(href="http://twitter.com/richlengsavath")
+                  .avatar(style="background-image:url('/avatars/humanbagel.png');")
+                    img(src="/images/2013/transparent.png")
+                  label Rich Lengsavath
+                ul.links
+                  li
+                    a(href="http://twitter.com/richlengsavath")
+                      i.icon-twitter
+                  li
+                    a(href="http://www.linkedin.com/in/richlengsavath")
+                      i.icon-linkedin
+                  li
+                    a(href="mailto:rich@nodeknockout.com")
+                      i.icon-email
+
+
+
+    .connect.landing-section
+      .container
+        .row
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            //- POPULATED WITH TWEETS
+            | <a class="twitter-timeline" href="https://twitter.com/node_knockout" data-widget-id="377277154146283520">Tweets by @node_knockout</a>
+            | <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6
+            h3
+              | FROM OUR BLOG
+
+            //- POPULATED WITH TUMBLR POSTS
+            div#tumblr-posts
+
+
+    footer
+      .container
+        .subscribe-section.row
+          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+            a(name="subscribe")
+            div#mc_embed_signup
+              form.validate.signup-form(action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;id=e94fe23fd3", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", target="_blank", novalidate)
+                input.email-field.email(type="email", value="", name="EMAIL", id="mce-EMAIL", placeholder="Subscribe with your email to stay up to date on NKO...", required)
+                input.btn.btn-super.btn-primary(type="submit", value="Subscribe", name="subscribe", id="mc-embedded-subscribe")
+
+        .footer-bottom.row
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            | © 2013 NodeKnockout
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6.contact-links
+            a(href="mailto:all@nodeknockout.com")
+              i.icon-email2
+              | all@nodeknockout.com
+            a(href="http://twitter.com/node_knockout")
+              i.icon-twitter2
+              | @node_knockout
+
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3.previous-competition-links
+            a(href="http://2010.nodeknockout.com")
+              | 2010
+            a(href="http://2011.nodeknockout.com")
+              | 2011
+            a(href="http://2012.nodeknockout.com")
+              | 2012

@@ -11,13 +11,13 @@ body
         right: 0px
         z-index: 100
 
-
     .header
       background: black
       .header-inner
         min-height: 441px
         background: url('/images/2013/gloves-bg.jpg') no-repeat center center
         position: relative
+
       .logo
         background: transparent url('/images/2013/nko-logo.png') no-repeat center center
         width: 393px
@@ -30,6 +30,24 @@ body
         left: 50%
         top: 350px
 
+      .header-inner.voting
+        // background: #000
+        background: #181818
+        border-bottom: 5px solid #353439
+        .votenow
+          position absolute
+          top 270px
+          left 50%
+          font-size 20px
+          text-transform uppercase
+          padding 20px
+          border-radius 8px
+          box-shadow 0 0 30px rgba(0,0,0,.8)
+          width 250px
+          margin-left -125px
+          letter-spacing 1px
+        .logo
+          top: 150px
     .navbar-header
       position: absolute
       right: 10px
