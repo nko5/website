@@ -73,7 +73,6 @@ nap({
         "/public/stylesheets/vendor/bootstrap-vertical-tabs.css",
         "/public/stylesheets/2013.styl",
         "/public/stylesheets/2013/landing-animations.css",
-        "/public/stylesheets/2013/landing-animations2.styl",
         "/public/stylesheets/fontello.css"
       ],
       "2012": [
