@@ -207,7 +207,12 @@ app.put '/teams/:id', [m.loadTeam, m.ensureAccess], (req, res, next) ->
   unless req.user?.admin
     delete req.body[attr] for attr in ['slug', 'code', 'search', 'scores']
     delete req.body.entry.url if req.body.entry
+
+  entry = req.body.entry
+  delete req.body.entry
   _.extend req.team, req.body
+  _.extend req.team.entry, entry
+
   req.team.save (err) ->
     return next err if err and err.name != 'ValidationError'
     if req.team.errors
