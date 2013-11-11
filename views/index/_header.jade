@@ -4,8 +4,14 @@
     .header
         if voting
           #header-gloves
-            .header-inner.row.voting
+            .header-inner.row.voting.animating
               .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+                .projectbg
+                  .projectbg-inner
+                    - for (var i = 0; i < 8; i++) {
+                      .projectbg-banner
+                    - }
+
                 a.logo( href="/" ) Node Knockout
                 if req.user
                   a.btn.btn-primary.votenow(href="/judges/dashboard") Start voting now
