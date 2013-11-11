@@ -120,6 +120,7 @@ app.configure(function() {
   app.use(express.methodOverride());
 
   // hacky solution for post commit hooks not to check csrf
+  app.use(require('../controllers/ok')(app));
   app.use(require('../controllers/commits')(app));
   app.use(require('../controllers/deploys')(app));
 
