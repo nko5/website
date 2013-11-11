@@ -33,6 +33,12 @@ block body
                     strong.number= stats.deploys
                     span.label-primary deploys
 
+        //- TODO: put USTREAM here of demos
+        .support-section.landing-section.row
+          .col.col-lg-12.col-md-12.col-xs-12.col-sm-12
+            .support-inner(style="width:720px;margin:auto")
+              | <iframe width="720" height="437" src="http://www.ustream.tv/embed/16402128?ub=ff3d23&amp;lc=ff3d23&amp;oc=ffffff&amp;uc=ffffff&amp;v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>
+
         .row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
             if req.myTeam
@@ -59,7 +65,6 @@ block body
                       i.icon-award
                       | See the Prizes
 
-        //- TODO: put USTREAM here of demos
 
         .sponsors-section.landing-section.row
           hr
