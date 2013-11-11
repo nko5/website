@@ -8,7 +8,7 @@ table
         value=vote[d] || 0
         disabled=!vote.isNew )
   tr: td( colspan=4 )
-    textarea.edit( name='comment',
+    textarea.autosized.edit( name='comment',
               placeholder='Be awesome. Give some feedback.'
             )= vote.comment
     - if (!vote.isNew)

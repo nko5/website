@@ -7,7 +7,10 @@
             .header-inner.row.voting
               .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
                 a.logo( href="/" ) Node Knockout
-                a.btn.btn-primary.votenow(href="/login") Start voting now
+                if req.user
+                  a.btn.btn-primary.votenow(href="/judges/dashboard") Start voting now
+                else
+                  a.btn.btn-primary.votenow(href="/login?returnTo=/judges/dashboard") Start voting now
 
         else
           #header-gloves.container

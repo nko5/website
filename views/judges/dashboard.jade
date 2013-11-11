@@ -23,8 +23,8 @@ block body
       p
         br
         | You've judged <strong><a href="/people/me">#{votes.length}</a></strong>
-        if votes.length >= 10
-          |  entries.
+        if votes.length >= 10 || !req.user.judge
+          |  entries so far.
         else
           |  out of <strong>10 entries</strong>.
 
@@ -132,7 +132,7 @@ block body
                   | Is the app usable as it is?  How much did the team accomplish this weekend?
 
               .vote-comment
-                textarea.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
+                textarea.autosized.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
 
               .vote-actions
                 input.submit-btn.btn.btn-primary.btn-lg(type="submit") Submit Vote

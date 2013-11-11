@@ -51,6 +51,7 @@ load = ->
   $(".confirm-form").submit (e) ->
     return confirm($(this).data('confirm-msg') || "Are you sure?")
 
+  $("textarea.autosized").autosize()
 
   $(".countdown .timer").each ->
     el = $(this)
