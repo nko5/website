@@ -21,7 +21,7 @@ app.get '/judges/dashboard', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes,
       res.render2 'judges/dashboard', nextTeam: nextTeam, votes: req.votes || []
 
   else
-    res.redirect("/teams")
+    res.redirect("/entries")
 
 
 app.get '/judges/nominations', (req, res, next) ->
