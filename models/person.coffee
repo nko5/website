@@ -150,6 +150,9 @@ PersonSchema.method 'canSeeVotes', (votes, callback) ->
   # judges can see all votes
   return callback(null, true) if @judge
 
+  # admins can see all votes
+  return callback(null, true) if @admin
+
   # if you've left any of the votes in the list, then you can see them all
   #
   # this works on the team page (since you can see all the votes for any of

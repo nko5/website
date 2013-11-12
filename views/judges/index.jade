@@ -32,9 +32,9 @@ block body
                   if admin && judge.nomination
                     p.buttons
                       - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + judge.twitterScreenName).replace('@@', '@') + ' ');
-                      a.button( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 11-16."), target='twitter' ) Confirm
-                      |
-                      a.button.scary.delete( href='/people/' + judge ) Delete
+                      a.btn.btn-primary.btn-sm( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 11-16."), target='twitter' ) Confirm
+                      &nbsp;
+                      a.btn.btn-primary.btn-sm.delete( href='/people/' + judge ) Delete
 
       .col-lg-4.col-sm-4.col-md-4
         include ../index/_sidebar
