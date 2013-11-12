@@ -40,7 +40,7 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
         res.render2 'teams', teams: teams, people: people, layout: layout
 
 # entries index
-app.get /^\/(entries)?\/?$/, (req, res, next) ->
+app.get /^\/entries\/?$/, (req, res, next) ->
   voting = app.enabled('voting')
 
   # only show entries that are marked votable
@@ -53,8 +53,8 @@ app.get /^\/(entries)?\/?$/, (req, res, next) ->
     else
       null
 
-  # during voting, public cant sort by category
-  if voting and not req.user?.contestant and not req.user?.admin and not req.user?.judge
+  # during voting, only judges and admins can sort by score
+  unless app.enabled('winners') or req.user?.admin or req.user?.judge
     sort = null
 
   if app.enabled("winners") and sort == null
