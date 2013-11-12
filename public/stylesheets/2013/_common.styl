@@ -10,3 +10,16 @@ icon(name, width, height)
   background-size: cover
   width: width
   height: height
+
+
+button, input[type=submit], a.button
+  white-space nowrap
+  &.scary
+    background-color #CA3C49
+    color white !important
+    border: none
+    border-radius 5px
+    padding 10px 20px
+    &:hover
+      text-decoration none
+      background-color hsl(0, 80%, 60%)
