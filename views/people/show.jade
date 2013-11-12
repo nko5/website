@@ -44,12 +44,12 @@ block body
 
     - if (votes.length)
       - if (req.user && (req.user.id === req.person.id))
-        h1#votes Your Votes (#{votes.length})
+        h3#votes Your Votes (#{votes.length})
         .votes
           - each vote in votes
             include ../votes/form
       - else if (shouldShowVoteList)
-        h1#votes Votes (#{votes.length})
+        h3#votes Total Votes (#{votes.length})
         if canSeeVotes
           ul.votes
             each vote in votes

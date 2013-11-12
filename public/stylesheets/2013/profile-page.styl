@@ -3,6 +3,10 @@
 body
   .profile-page
     padding-top: 20px
+
+    ul, ol
+      padding 0 // one would think this would be in the css reset
+
     .avatar-and-role
       float: left
       margin-right: 20px
@@ -29,3 +33,12 @@ body
   .details
     label
       margin-right: 5px
+
+  .info.team
+    a
+      color #888
+      font-weight  bold
+      &:hover
+        color #CA3C49
+        transition color, .3s
+        text-decoration none

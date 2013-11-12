@@ -114,7 +114,7 @@ app.get '/reload', (req, res, next) ->
   res.redirect '/'
 
 app.get '/scores', (req, res, next) ->
-  return next(401) unless req.user?.admin
+  return next(401) unless app.enabled('winners') or req.user?.admin
   Team.sortedByScore (error, teams) ->
     return next error if error
     res.render2 'index/scores', teams: teams
