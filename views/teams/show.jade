@@ -27,8 +27,8 @@ block body
           h1
             = title(team.entry.name || team.name)
             if locations(people).length > 0
-              &nbsp;
               span.locations
+                span.sep  /&nbsp;
                 = locations(people)
           if coding || team.stats.pushes || team.stats.deploys
             ul.team-stats( data-team-id=team.id )
