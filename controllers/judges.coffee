@@ -26,7 +26,12 @@ app.get '/judges/dashboard', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes,
     # pick the next entry for you to judge
     req.user.nextTeam (err, nextTeam) ->
       return next err if err
-      res.render2 'judges/dashboard', nextTeam: nextTeam, votes: req.votes || []
+
+      if nextTeam
+        nextTeam.people (err, people) ->
+          res.render2 'judges/dashboard', nextTeam: nextTeam, people: people, votes: req.votes || []
+      else
+        res.render2 'judges/dashboard', nextTeam: nextTeam, people: [], votes: req.votes || []
 
   else
     res.redirect("/entries")

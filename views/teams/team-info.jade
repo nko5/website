@@ -44,16 +44,15 @@
       .title What they Used
       != markdown(team.entry.colophon)
 
-  //- - people = team.people
-  //- - if (people.length)
-  //-   .team-content
-  //-     .title Who
-  //-     ul.people
-  //-       - each person in people
-  //-         li
-  //-           img.avatar( src=avatar_url(person) )
-  //-           a( href='/people/' + person )= person.github.login
-  //-           - if (person.location)
-  //-             &nbsp;&mdash;&nbsp;#{person.location}
-  //-     - if (admin)
-  //-       a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
+  - if (typeof(people) != "undefined" && people.length)
+    .team-content
+      .title Who
+      ul.people
+        - each person in people
+          li
+            img.avatar( src=avatar_url(person) )
+            a( href='/people/' + person )= person.github.login
+            - if (person.location)
+              &nbsp;&mdash;&nbsp;#{person.location}
+      - if (admin)
+        a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
