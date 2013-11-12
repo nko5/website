@@ -1,0 +1,59 @@
+.team-info
+  a.btn.btn-super.btn-primary.btn-block(href=team.entry.url, target="_blank") Launch Site
+  .team-info-name
+    h2= team.entry.name
+    h3
+      | By&nbsp;
+      a(href="/teams/#{team}")= team.name
+
+  .screencast
+    if team.entry.videoURL
+      div
+        span.label.label-primary Screencast
+
+      .screencast-thumb
+        - if (embed = embedVideo(team.entry.videoURL))
+          a(href=team.entry.videoURL, data-toggle="lightbox")
+            span.play-btn
+            img(src=team.screenshot)
+        - else
+          a(href=team.entry.videoURL)
+            span.play-btn
+            img(src=team.screenshot)
+    else
+      .screencast-thumb
+        img(src=team.screenshot)
+
+  if team.entry.quickIntro
+    .team-content
+      .title Quick Intro
+      p= team.entry.quickIntro
+
+  if team.entry.description
+    .team-content
+      .title Description
+      != markdown(team.entry.description)
+
+  if team.entry.instructions
+    .team-content
+      .title Judging Instructions
+      != markdown(team.entry.instructions)
+
+  if team.entry.colophon
+    .team-content
+      .title What they Used
+      != markdown(team.entry.colophon)
+
+  //- - people = team.people
+  //- - if (people.length)
+  //-   .team-content
+  //-     .title Who
+  //-     ul.people
+  //-       - each person in people
+  //-         li
+  //-           img.avatar( src=avatar_url(person) )
+  //-           a( href='/people/' + person )= person.github.login
+  //-           - if (person.location)
+  //-             &nbsp;&mdash;&nbsp;#{person.location}
+  //-     - if (admin)
+  //-       a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team

@@ -19,8 +19,12 @@ block body
           .well
             h3 This is your team.
 
-
         .header-box
+          .pull-right
+            .actions
+              - if (team.includes(user, session.team) || admin)
+                a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit Team
+
           h1= title(team.entry.name || team.name)
           .row
             .col-lg-6.col-md-6.col-sm-6
@@ -47,36 +51,12 @@ block body
             .content-section
               include steps
 
-          .pull-right
-            .actions
-              - if (team.includes(user, session.team) || admin)
-                a.btn.btn-primary.btn-lg( href='/teams/' + team + '/edit' ) Edit
-
-          .content-section
-            != markdown(team.description, { sanitize: true })
-
+          //- .content-section
+          //-   != markdown(team.description, { sanitize: true })
 
           - if (team.entry.name)
             .content-section
-              include entry
-
-          - if (team.entry.colophon)
-            .content-section
-              h2 How
-              != markdown(team.entry.colophon)
-
-          - if (people.length)
-            .content-section
-              h2 Who
-              ul.people
-                - each person in people
-                  li
-                    img.avatar( src=avatar_url(person) )
-                    a( href='/people/' + person )= person.github.login
-                    - if (person.location)
-                      &nbsp;&mdash;&nbsp;#{person.location}
-              - if (admin)
-                a.btn.btn-primary( href='mailto:' + _.pluck(people, 'email').join(',') ) Email team
+              include team-info
 
           - if (team.invites.length)
             h2 Invites (#{team.invites.length} pending)
@@ -93,7 +73,6 @@ block body
             - if (admin)
               a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email invites
               i  Created #{relativeDate(team.createdAt)}
-
 
           - if (voting || publicVotes && publicVotes.length || votes && votes.length)
             include votes

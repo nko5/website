@@ -22,6 +22,7 @@ if votes.length || publicVotes.length
             - if (vote.person)
               a( href='/people/' + vote.person, title=vote.person.login )
                 img.avatar( src=avatar_url(vote.person, 30) )
+
   if shouldShowVoteList
     ul.votes
       if canSeeVotes

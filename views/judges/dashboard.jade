@@ -34,60 +34,8 @@ block body
     if nextTeam
       .row
         .col.col-lg-6.col-md-6.col-sm-6
-          .team-info
-            a.btn.btn-super.btn-primary.btn-block(href=nextTeam.entry.url, target="_blank") Launch Site
-            h2= nextTeam.name
-            h3
-              | By&nbsp;
-              a(href="/teams/#{nextTeam}")= nextTeam.name
-
-            .screencast
-              if nextTeam.entry.videoURL
-                div
-                  span.label.label-primary Screencast
-
-                .screencast-thumb
-                  - if (embed = embedVideo(nextTeam.entry.videoURL))
-                    a(href=nextTeam.entry.videoURL, data-toggle="lightbox")
-                      span.play-btn
-                      img(src=nextTeam.screenshot)
-                  - else
-                    a(href=nextTeam.entry.videoURL)
-                      span.play-btn
-                      img(src=nextTeam.screenshot)
-              else
-                .screencast-thumb
-                  img(src=nextTeam.screenshot)
-
-            if nextTeam.entry.quickIntro
-              .team-content
-                .title Quick Intro
-                p= nextTeam.entry.quickIntro
-
-            if nextTeam.entry.description
-              .team-content
-                .title Description
-                != markdown(nextTeam.entry.description)
-
-            if nextTeam.entry.instructions
-              .team-content
-                .title Judging Instructions
-                != markdown(nextTeam.entry.instructions)
-
-            if nextTeam.entry.colophon
-              .team-content
-                .title What they Used
-                != markdown(nextTeam.entry.colophon)
-
-            //- if nextTeam.members
-            //-   .team-content
-            //-     .title Team Members
-            //-     - each person in nextTeam.members
-            //-       img.avatar( src=avatar_url(person) )
-            //-       a( href='/people/' + person )= person.github.login
-            //-       - if (person.location)
-            //-         &nbsp;&mdash;&nbsp;#{person.location}
-
+          - team = nextTeam
+          include ../teams/team-info
 
         .col.col-lg-6.col-md-6.col-sm-6
           .vote-section
