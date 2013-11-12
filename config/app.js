@@ -30,6 +30,7 @@ process.on('uncaughtException', function(e) {
 
 
 // utilities & hacks
+require('graceful-fs');
 require('colors');
 require('../lib/render2');
 require('../lib/underscore.shuffle');

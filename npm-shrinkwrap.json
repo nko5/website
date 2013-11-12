@@ -1171,6 +1171,10 @@
           "resolved": "https://registry.npmjs.org/request/-/request-1.9.9.tgz"
         }
       }
+    },
+    "graceful-fs": {
+      "version": "2.0.1",
+      "from": "graceful-fs@"
     }
   }
 }
