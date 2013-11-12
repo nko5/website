@@ -47,7 +47,8 @@
     "twit": "~1.1.9",
     "smartdc": "~7.1.1",
     "ssh-fingerprint": "0.0.0",
-    "linode-api": "~0.1.2"
+    "linode-api": "~0.1.2",
+    "graceful-fs": "~2.0.1"
   },
   "devDependencies": {
     "nodemon": "*",

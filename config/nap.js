@@ -35,8 +35,8 @@ nap({
         "/public/javascripts/2013/prizes.coffee",
         "/public/javascripts/2013/jobs.coffee",
         "/public/javascripts/2013/votes.coffee",
-        "/public/javascripts/2013/recent-deploy.js",
-        '/public/javascripts/2013/websocket.coffee'
+        "/public/javascripts/2013/recent-deploy.js"
+        // '/public/javascripts/2013/websocket.coffee'
       ],
       "2012": [
         '/public/javascripts/polyfills.js',
@@ -63,8 +63,8 @@ nap({
         '/public/javascripts/2012/login.coffee',
         '/public/javascripts/2012/nodeconf.js',
         '/public/javascripts/2012/people.coffee',
-        '/public/javascripts/2012/teams.coffee',
-        '/public/javascripts/2012/websocket.coffee'
+        '/public/javascripts/2012/teams.coffee'
+        // '/public/javascripts/2012/websocket.coffee'
       ]
     },
     css: {

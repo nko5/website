@@ -8,7 +8,7 @@ require('coffee-script');
   'twitter',
   'teams',
   'votes',
-  'websocket',
+  // 'websocket',
   'live',
   'redirect',
   'notifications'
