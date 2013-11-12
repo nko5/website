@@ -20,30 +20,30 @@ block body
             h3 This is your team.
 
         .header-box
-          .pull-right
-            .actions
-              - if (team.includes(user, session.team) || admin)
-                a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit Team
+          .actions.pull-right
+            - if (team.includes(user, session.team) || admin)
+              a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit Team
 
-          h1= title(team.entry.name || team.name)
-          .row
-            .col-lg-6.col-md-6.col-sm-6
-              if locations(people).length > 0
-                h2.location
-                  = locations(people)
+          h1
+            = title(team.entry.name || team.name)
+            if locations(people).length > 0
+              &nbsp;
+              span.locations
+                = locations(people)
+          if coding || team.stats.pushes || team.stats.deploys
+            ul.team-stats( data-team-id=team.id )
+              li.commits
+                span.count.number= team.stats.commits
+                |  Commits
+              li.pushes
+                span.count.number= team.stats.pushes
+                |  Pushes
+              li.deploys
+                span.count.number= team.stats.deploys
+                |  Deploys
 
-            .col-lg-6.col-md-6.col-sm-6
-              if coding || team.stats.pushes || team.stats.deploys
-                ul.team-stats( data-team-id=team.id )
-                  li.commits
-                    span.count.number= team.stats.commits
-                    |  Commits
-                  li.pushes
-                    span.count.number= team.stats.pushes
-                    |  Pushes
-                  li.deploys
-                    span.count.number= team.stats.deploys
-                    |  Deploys
+
+
 
 
         .team-content
