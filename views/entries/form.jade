@@ -17,6 +17,10 @@
         h3: label( for='entryURL' ) Entry URL
         input.form-control( type='text', name='entry[url]', id='entryURL', value=entry.url )
 
+      .screenshot.field
+        h3: label( for='entryScreenshot' ) Screenshot Override (make sure w = 320px, h = 186px) 
+        input.form-control( type='text', name='entry[screenshotOverride]', id='entryScreenshot', value=entry.screenshotOverride )
+
     #pitch.video
       .field
         h3: label( for='videoURL' ) Pitch Video URL

@@ -39,6 +39,7 @@ TeamSchema = module.exports = new mongoose.Schema
     alert: Boolean
     videoURL: String
     pinkyurl: Boolean
+    screenshotOverride: String
   emails:
     type: [ mongoose.SchemaTypes.Email ]
     validate: [ ((v) -> v.length <= 4), 'max' ]
@@ -269,6 +270,9 @@ TeamSchema.method 'prettifyURL', ->
 
 TeamSchema.virtual('screenshot').get ->
   return unless url = @entry.url
+
+  screenshotOverride = @entry.screenshotOverride
+  return screenshotOverride if screenshotOverride
   qs = querystring.stringify
     url: url
     viewport: '1024x595'
