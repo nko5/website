@@ -2,14 +2,26 @@ li.vote, div.vote
   margin 1em 0
   border solid 1px #DFDFDF
   border-radius 4px
-  padding 10px
+  padding 15px
   background-color #FBFBFB
   clear left
   overflow hidden
   line-height 100%
   list-style-type none
-  // &.my
-  //   background-color hsla(200, 30%, 80%, 0.2)
+
+  table
+    th
+      width: 25%
+      text-align center
+    td
+      p
+        text-align left
+    label
+      text-transform uppercase
+      letter-spacing: 1px
+      color: #999
+      font-size: 12px
+
   .info
     float left
     width 140px
@@ -50,13 +62,14 @@ li.vote, div.vote
     width 396px
     border-collapse collapse
     margin-left 150px
+
   .clear
     clear both
   .voter
     text-align center
     line-height 150%
   div.stars
-    display inline-block
+    display block
     .star
       display inline-block
       width 16px
