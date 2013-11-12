@@ -35,6 +35,8 @@ body
         background: url('/images/final-banner3.jpg') no-repeat center center
         background-size cover
         border-bottom: 5px solid #353439
+        margin-left: 0
+        margin-right: 0
         .votenow
           position absolute
           top 242px
@@ -56,6 +58,77 @@ body
         .logo
           top: 135px
 
+        &.animating
+          @media (min-width: 768px)
+            background: #000
+            .col
+              overflow: hidden
+              height: 435px
+
+            .projectbg
+              opacity: 0.3
+              -webkit-transform-origin: 50% 0
+              -moz-transform-origin: 50% 0
+              -o-transform-origin: 50% 0
+              margin-left: -1600px
+              width: 100%
+              height: 495px
+
+              .projectbg-inner
+                position: relative
+                -webkit-animation: banner 40s linear infinite
+                animation: banner 40s linear infinite
+                -moz-animation: banner 40s linear infinite
+                -ms-animation: banner 40s linear infinite
+                -o-animation: banner 40s linear infinite
+
+                .projectbg-banner
+                  background-image url("/images/banner-entries.jpg")
+                  background-repeat repeat
+                  width: 4070px
+                  height: 540px
+                  background-position: 0 0
+
+                  &:nth-child(1)
+                    background-position: 925px 0px
+                  &:nth-child(2)
+                    background-position: 1850px 0px
+                  &:nth-child(3)
+                    background-position: 2775px 0px
+                  &:nth-child(4)
+                    background-position: 3700px 0px
+                  &:nth-child(5)
+                    background-position: 4625px 0px
+                  &:nth-child(6)
+                    background-position: 5550px 0px
+                  &:nth-child(7)
+                    background-position: 6475px 0px
+                  &:nth-child(8)
+                    background-position: 7400px 0px
+                  &:nth-child(9)
+                    background-position: 8325px 0px
+                  &:nth-child(10)
+                    background-position: 9250px 0px
+                  &:nth-child(11)
+                    background-position: 10175px 0px
+                  &:nth-child(12)
+                    background-position: 11100px 0px
+                  &:nth-child(13)
+                    background-position: 12025px 0px
+                  &:nth-child(14)
+                    background-position: 12950px 0px
+                  &:nth-child(15)
+                    background-position: 13875px 0px
+                  &:nth-child(16)
+                    background-position: 14800px 0px
+                  &:nth-child(17)
+                    background-position: 15725px 0px
+                  &:nth-child(18)
+                    background-position: 16650px 0px
+                  &:nth-child(19)
+                    background-position: 17575px 0px
+                  &:nth-child(20)
+                    background-position: 18500px 0px
 
     .navbar-header
       position: absolute
