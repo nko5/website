@@ -39,7 +39,6 @@ DeploySchema.method 'urlForTeam', (team) ->
 
 # callbacks
 DeploySchema.post 'save', ->
-  return unless mongoose.app.enabled('coding')
   @team (err, team) =>
     throw err if err
     team.lastDeploy = @toObject()

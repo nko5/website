@@ -6,6 +6,7 @@ module.exports = (app) ->
   Deploy = app.db.model 'Deploy'
 
   (req, res, next) ->
+    return next() unless app.enabled('coding')
     return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys' 
   
     # custom error handler (since the default one dies w/o session)
