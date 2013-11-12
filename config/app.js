@@ -178,11 +178,11 @@ require('../helpers')(app);
 
 // express 3 requires instantiating a http.Server to attach socket.io to
 var server = require('http').createServer(app)
-app.ws = require('socket.io').listen(server);
+// app.ws = require('socket.io').listen(server);
 server.listen(port);
 
-app.ws.set('log level', 1);
-app.ws.set('browser client minification', true);
+// app.ws.set('log level', 1);
+// app.ws.set('browser client minification', true);
 
 server.on('listening', function() {
   require('util').log('listening on ' + ('0.0.0.0:' + port).cyan);
