@@ -13,8 +13,11 @@ setReturnTo = (req, res, next) ->
   next()
 
 app.get '/login', [setReturnTo], (req, res) ->
-  req.session.returnTo = req.returnTo
-  res.render2 'login'
+  if req.loggedIn
+    res.redirect req.returnTo
+  else
+    req.session.returnTo = req.returnTo
+    res.render2 'login'
 
 app.get '/login/done', [ensureAuth, loadPerson, loadPersonTeam], (req, res, next) ->
   if !req.person

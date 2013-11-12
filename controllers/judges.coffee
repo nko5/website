@@ -12,6 +12,14 @@ app.get '/judges', (req, res, next) ->
       return next err if err
       res.render2 'judges', judges: _.shuffle(judges)
 
+# start (just redirects to judges/dashboard with twitter login)
+app.get '/judges/start', (req, res, next) ->
+  judgesDashboardPath = "/judges/dashboard"
+  if req.loggedIn
+    res.redirect judgesDashboardPath
+  else
+    res.redirect "/login/twitter?returnTo=#{judgesDashboardPath}"
+
 # judging dashboard
 app.get '/judges/dashboard', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes, m.loadCanSeeVotes], (req, res, next) ->
   if app.enabled('voting') and req.user and (req.user?.admin || req.user?.judge || req.myTeam)
