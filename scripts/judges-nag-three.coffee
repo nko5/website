@@ -27,7 +27,12 @@ nag = (judge, callback) ->
         variables:
           first_name: judge.name.split(/\s/)[0]
           entries_left: 10 - count
-        , callback
+        , (args...) ->
+          # console.log "completed sending"
+          # console.log args
+          # callback(args...)
+          callback()
+
     else
       util.log "Skipping '#{email}' (#{count})"
       callback()

@@ -26,7 +26,11 @@ nag = (judge, callback) ->
         template: 'judge_nag_one'
         variables:
           first_name: judge.name.split(/\s/)[0]
-        , callback
+        , (args...) ->
+          # console.log "completed sending"
+          # console.log args
+          # callback(args...)
+          callback()
     else
       util.log "Skipping '#{email}' (#{count})"
       callback()
