@@ -9,14 +9,15 @@
   - if (!user)
     - var returnTo = '?returnTo=' + encodeURIComponent(req.url + '#votes');
     .sign-in
-      a.scary.button( href='/login/facebook' + returnTo )
-        | Sign in with
-        i.icon-facebook
-        | Facebook
-      .or
-        | or sign in as a
+      div
+        a.scary.button( href='/login/facebook' + returnTo )
+          | Sign in with
+          i.icon-facebook
+          | Facebook
+      .or(style="margin-top:20px")
+        | or sign in as a&nbsp;
         a( href='/login/github' + returnTo ) contestant
-        |  or
+        |  or&nbsp;
         a( href='/login/twitter' + returnTo ) expert judge
   - else
     .vote.my

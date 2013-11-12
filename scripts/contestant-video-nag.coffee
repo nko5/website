@@ -38,7 +38,8 @@ nagPerson = (person, callback) ->
       # callback(args...)
       callback()
 
-Team.find { 'entry.votable': true, 'entry.videoURL': '', 'scores.overall': { $gt: 15 }}, (err, teams) ->
+
+Team.find { 'entry.votable': true, 'entry.videoURL':  {$in: ["",null]}}, (err, teams) ->
   throw err if err
 
   async.forEachSeries teams, nagTeam, (err) ->
