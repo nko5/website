@@ -32,7 +32,11 @@ nagPerson = (person, callback) ->
     template: 'contestant_video_nag'
     variables:
       first_name: " #{firstName}"
-    , callback
+    , (args...) ->
+      # console.log "completed sending"
+      # console.log args
+      # callback(args...)
+      callback()
 
 Team.find { 'entry.votable': true, 'entry.videoURL': '', 'scores.overall': { $gt: 15 }}, (err, teams) ->
   throw err if err
