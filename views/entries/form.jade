@@ -18,7 +18,7 @@
         input.form-control( type='text', name='entry[url]', id='entryURL', value=entry.url )
 
       .screenshot.field
-        h3: label( for='entryScreenshot' ) Screenshot Override (make sure w = 320px, h = 186px) 
+        h3: label( for='entryScreenshot' ) Screenshot Override (make sure w = 320px, h = 186px)
         input.form-control( type='text', name='entry[screenshotOverride]', id='entryScreenshot', value=entry.screenshotOverride )
 
     #pitch.video
@@ -37,26 +37,26 @@
       h3: label( for='entryQuickIntro' ) Quick Intro
       p.note
         | 1 or 2 lines about your project for the Leaderboard. <strong>(no markdown)</strong>
-      textarea.form-control( name='entry[quickIntro]', id='entryQuickIntro' )= entry.quickIntro
+      textarea.autosized.form-control( name='entry[quickIntro]', id='entryQuickIntro' )= entry.quickIntro
 
     .description.field
       h3: label( for='entryDescription' ) Description
       p.note
         | What does your entry do?
-      textarea.form-control( name='entry[description]', id='entryDescription' )= entry.description
+      textarea.autosized.form-control( name='entry[description]', id='entryDescription' )= entry.description
 
     .instructions.field
       h3: label( for='entryInstructions' ) Instructions
       p.note
         | Give judges a summary of how to use your entry.
         b If your entry only works on certain browsers list them here.
-      textarea.form-control( name='entry[instructions]', id='entryInstructions' )= entry.instructions
+      textarea.autosized.form-control( name='entry[instructions]', id='entryInstructions' )= entry.instructions
 
     .colophon.field
       h3: label( for='entryColophon' ) Colophon
       p.note
         | What libraries, icons, web service APIs, and tools did you use?
-      textarea.form-control( name='entry[colophon]', id='entryColophon' )= entry.colophon
+      textarea.autosized.form-control( name='entry[colophon]', id='entryColophon' )= entry.colophon
 
     hr
     .form-box.votable.field
