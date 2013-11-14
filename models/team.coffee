@@ -253,9 +253,11 @@ TeamSchema.static 'updateAllSavedScores', (next) ->
           contestant: scores.contestant_count
           voter: scores.popularity_count
 
+        judge_count_priority = 100.0/((scores.judge_count + 1) * Math.log(scores.judge_count + Math.E))
+        contestant_count_priority = 100.0/((scores.contestant_count + 1) * Math.log(scores.contestant_count + Math.E))
         _.extend team.votePriorities,
-          judge: (50.0/(scores.judge_count + 1)) + scores.overall + (10 * Math.random())
-          contestant: (50.0/(scores.contestant_count + 1)) + scores.overall + (10 * Math.random())
+          judge: judge_count_priority + scores.overall + (15 * Math.random())
+          contestant: contestant_count_priority + scores.overall + (15 * Math.random())
 
         scores.random = Math.random()
         scores.team_size = team.peopleIds.length
