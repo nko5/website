@@ -411,22 +411,6 @@
       "from": "postageapp@*",
       "resolved": "https://registry.npmjs.org/postageapp/-/postageapp-1.1.2.tgz"
     },
-    "ratchetio": {
-      "version": "0.1.4",
-      "from": "ratchetio@*",
-      "resolved": "https://registry.npmjs.org/ratchetio/-/ratchetio-0.1.4.tgz",
-      "dependencies": {
-        "node-uuid": {
-          "version": "1.4.0",
-          "from": "node-uuid@~1.4.0"
-        },
-        "lru-cache": {
-          "version": "2.2.2",
-          "from": "lru-cache@~2.2.1",
-          "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.2.2.tgz"
-        }
-      }
-    },
     "relative-date": {
       "version": "1.1.1",
       "from": "relative-date@*"
@@ -1175,6 +1159,22 @@
     "graceful-fs": {
       "version": "2.0.1",
       "from": "graceful-fs@"
+    },
+    "rollbar": {
+      "version": "0.2.8",
+      "from": "rollbar@",
+      "resolved": "https://registry.npmjs.org/rollbar/-/rollbar-0.2.8.tgz",
+      "dependencies": {
+        "node-uuid": {
+          "version": "1.4.1",
+          "from": "node-uuid@1.4.x"
+        },
+        "lru-cache": {
+          "version": "2.2.4",
+          "from": "lru-cache@~2.2.1",
+          "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.2.4.tgz"
+        }
+      }
     }
   }
 }

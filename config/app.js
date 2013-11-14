@@ -7,7 +7,7 @@ var express = require('express')
   , EventEmitter = require('events').EventEmitter
   , Stats = require('../models/stats')
   , Twitter = require('../models/twitter')
-  , ratchetio = require('ratchetio');
+  , rollbar = require('rollbar');
 
 require('jadevu');
 
@@ -22,8 +22,6 @@ app.paths = {
 };
 
 // uncaught error handling
-ratchetio.handleUncaughtExceptions(secrets.rollbar);
-
 process.on('uncaughtException', function(e) {
   util.debug(e.stack.red);
 });
@@ -74,6 +72,11 @@ app.configure(function() {
   app.use(express.compress());
 
   app.use(flash());
+
+  rollbar.init(secrets.rollbar);
+  rollbar.reportMessage('Starting nko4');
+  rollbar.shutdown();
+  app.use(rollbar.errorHandler(secrets.rollbar));
 });
 
 app.configure('development', function() {
