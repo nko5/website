@@ -205,8 +205,7 @@ PersonSchema.method 'nextTeam', (next) ->
     filter['entry.videoURL'] = /./
 
   sort = []
-  # sort by minimum vote count for your type
-  sort.push ['voteCounts.' + @role, 1] if @judge or @contestant
+  sort.push ['votePriorities.' + @role , -1] if @judge or @contestant
   sort.push ['scores.overall', -1]
   sort.push ['updatedAt', -1]
 
@@ -214,22 +213,6 @@ PersonSchema.method 'nextTeam', (next) ->
   Vote = mongoose.model 'Vote'
   @votedOnTeamIds (err, votedOn) =>
     next err if err
-
-    # judges focus on good stuff
-    # if @judge and votedOn.length < 15
-    #   filter['$or'] = [
-    #     { 'scores.judge_count': { $lt: 3 }},
-    #     { 'scores.judge_utility': { $gt: 3 }},
-    #     { 'scores.judge_design': { $gt: 3 }},
-    #     { 'scores.judge_innovation': { $gt: 3 }},
-    #     { 'scores.judge_completeness': { $gt: 3 }}
-    #   ]
-
-    # every third vote should be for something good
-    # if votedOn.length % 3 is 0
-    #   dimensions = Vote.dimensions.concat('overall')
-    #   dimension = dimensions[Math.floor(Math.random() * dimensions.length)]
-    #   sort.unshift ["scores.#{dimension}", -1]
 
     # not already voted on or skipped
     filter._id = $nin: votedOn.concat @skippedTeamIds

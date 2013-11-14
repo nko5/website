@@ -76,6 +76,9 @@ TeamSchema = module.exports = new mongoose.Schema
     judge: Number
     contestant: Number
     voter: Number
+  votePriorities:
+    judge: Number
+    contestant: Number
   stats:
     pushes:
       type: Number
@@ -249,6 +252,11 @@ TeamSchema.static 'updateAllSavedScores', (next) ->
           judge: scores.judge_count
           contestant: scores.contestant_count
           voter: scores.popularity_count
+
+        _.extend team.votePriorities,
+          judge: (50.0/(scores.judge_count + 1)) + scores.overall + (10 * Math.random())
+          contestant: (50.0/(scores.contestant_count + 1)) + scores.overall + (10 * Math.random())
+
         scores.random = Math.random()
         scores.team_size = team.peopleIds.length
         team.save()
