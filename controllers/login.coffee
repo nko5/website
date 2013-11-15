@@ -13,7 +13,7 @@ setReturnTo = (req, res, next) ->
   next()
 
 app.get '/login', [setReturnTo], (req, res) ->
-  if req.loggedIn? and req.returnTo?
+  if req.loggedIn and req.returnTo
     res.redirect req.returnTo
   else
     req.session.returnTo = req.returnTo
