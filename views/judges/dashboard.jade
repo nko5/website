@@ -12,7 +12,7 @@ block body
       .row
         .col-lg-7.col-md-7
           p
-            | Please spend 5-10 minutes per entry and tell the team what you think about their entry.
+            | Please spend 5-10 minutes per entry and tell the team what you think. <a href="/scoring">Scoring criteria</a>.
 
           if nextTeam
             form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
@@ -23,8 +23,7 @@ block body
               p
                 | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
 
-          p
-            br
+          p.judge-tally
             | You've judged <strong><a href="/people/me">#{votes.length}</a></strong>
             if votes.length >= 10 || !req.user.judge
               |  entries so far.
@@ -91,7 +90,7 @@ block body
                   | Is the app usable as it is?  How much did the team accomplish this weekend?
 
               .vote-comment
-                textarea.autosized.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback.')
+                textarea.autosized.form-control.edit(name='comment', placeholder='Be awesome. Give some feedback on why you scored the way you did.')
 
               .vote-actions
                 input.submit-btn.btn.btn-primary.btn-lg(type="submit", value="Submit Vote")
