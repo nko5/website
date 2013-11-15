@@ -12,12 +12,12 @@
         span.label.label-primary Screencast
 
       .screencast-thumb
-        - if (embed = embedVideo(team.entry.videoURL))
+        - if (team.entry.videoURL.indexOf('youtu') >= 0)
           a(href=team.entry.videoURL, data-toggle="lightbox")
             span.play-btn
             img(src=team.screenshot)
         - else
-          a(href=team.entry.videoURL)
+          a(href=team.entry.videoURL, target="_blank")
             span.play-btn
             img(src=team.screenshot)
     else
