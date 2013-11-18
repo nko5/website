@@ -19,22 +19,28 @@ block body
                 strong  If you know a good judge candidate, please <a href="/judges/new">nominate her or him</a>.
 
 
-            ul.judges
-              - each judge in judges
-                li
-                  img.avatar( src=avatar_url(judge, 80) )
-                  h3: a( href='/people/' + judge )= judge.name
-                  person = judge
-                  include ../people/details
-                  if (judge.hiring)
-                    a.button.hiring( href="/jobs#" + judge.hiring ) Hiring
-                  .bio!= markdown(judge.bio)
-                  if admin && judge.nomination
-                    p.buttons
-                      - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + judge.twitterScreenName).replace('@@', '@') + ' ');
-                      a.btn.btn-primary.btn-sm( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 11-16."), target='twitter' ) Confirm
-                      &nbsp;
-                      a.btn.btn-primary.btn-sm.delete( href='/people/' + judge ) Delete
+            .judges-section.row
+              hr
+              .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+                each judgeGroup in judgesGrouped
+                  .judges-grid.row
+                    each judge in judgeGroup
+                      .person-col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+                        .person
+                          a(href="/people/#{judge}")
+                            .avatar(style="background-image:url('#{judge.imageURL}');")
+                              img(src="/images/2013/transparent.png")
+                            label= judge.name
+                            label.about= judge.title || judge.company
+                          ul.links
+                            if judge.twitterScreenName
+                              li
+                                a(href="http://twitter.com/#{judge.twitterScreenName}")
+                                  i.icon-twitter
+                            if judge.linkedinPath
+                              li
+                                a(href="http://www.linkedin.com/in/#{judge.linkedinPath}")
+                                  i.icon-linkedin
 
       .col-lg-4.col-sm-4.col-md-4
         include ../index/_sidebar

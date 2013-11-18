@@ -10,7 +10,10 @@ app.get '/judges', (req, res, next) ->
   else
     Person.find { role: 'judge' }, (err, judges) ->
       return next err if err
-      res.render2 'judges', judges: _.shuffle(judges)
+
+      res.render2 'judges',
+        judges: _.shuffle(judges)
+        judgesGrouped: _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/4)).value()
 
 # start (just redirects to judges/dashboard with twitter login)
 app.get '/judges/start', (req, res, next) ->

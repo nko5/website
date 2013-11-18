@@ -41,3 +41,39 @@
 100% {
     transform: translate3d(0,  -2160px,  0);
 }
+}
+
+@keyframes sidewaysLeft {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+@-webkit-keyframes sidewaysLeft {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+@-ms-keyframes sidewaysLeft {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+@-moz-keyframes sidewaysLeft {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+
+
+@keyframes sidewaysRight {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+@-webkit-keyframes sidewaysRight {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+@-ms-keyframes sidewaysRight {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+@-moz-keyframes sidewaysRight {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}

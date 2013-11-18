@@ -1,0 +1,40 @@
+extends ../layout-2013
+
+block body
+  - activeNav = "judges"
+  .contained
+    include ../index/_header-mini
+
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8
+        .judges-list
+          if judges.length > 0
+            h1= title((typeof(subset) === 'undefined' ? '': subset + ' ') + 'Judges') + ' (' + judges.length + ')'
+
+            p
+              | Node Knockout judges are industry insiders: founders, CEOs, CTOs, VCs, journalists, open source hackers, etc.
+
+              if !voting && !winners
+                strong  If you know a good judge candidate, please <a href="/judges/new">nominate her or him</a>.
+
+
+            ul.judges
+              - each judge in judges
+                li
+                  img.avatar( src=avatar_url(judge, 80) )
+                  h3: a( href='/people/' + judge )= judge.name
+                  person = judge
+                  include ../people/details
+                  if (judge.hiring)
+                    a.button.hiring( href="/jobs#" + judge.hiring ) Hiring
+                  .bio!= markdown(judge.bio)
+                  if admin && judge.nomination
+                    p.buttons
+                      - var twitterBase = 'http://twitter.com/intent/tweet?text=' + encodeURIComponent(('@' + judge.twitterScreenName).replace('@@', '@') + ' ');
+                      a.btn.btn-primary.btn-sm( href=twitterBase + encodeURIComponent("You've been nominated to judge @node_knockout! Interested? Takes ~2hrs online, at your convenience, Nov 11-16."), target='twitter' ) Confirm
+                      &nbsp;
+                      a.btn.btn-primary.btn-sm.delete( href='/people/' + judge ) Delete
+
+      .col-lg-4.col-sm-4.col-md-4
+        include ../index/_sidebar
