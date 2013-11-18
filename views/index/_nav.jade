@@ -17,7 +17,7 @@
             li
               a.nav-item(href="/") NKO 2013
 
-          if voting
+          if voting || postVoting
             li(class=(activeNav === 'entries' ? 'active' : ''))
               a.nav-item(href="/entries") Entries
           else if winners

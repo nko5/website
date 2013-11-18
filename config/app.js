@@ -63,7 +63,8 @@ app.disable('registration');       // months beforehand
 app.disable('pre-coding');        // week beforehand
 app.disable('coding');            // coding + several hours before
 app.disable('post-coding');            // coding + several hours before
-app.enable('voting');            // after
+app.disable('voting');            // after
+app.enable('post-voting');            // coding + several hours before
 app.disable('winners');        // after winners are selected
 
 app.configure(function() {

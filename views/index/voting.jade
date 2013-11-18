@@ -20,15 +20,19 @@ block body
                       - }
 
                   a.logo( href="/" ) Node Knockout
-                  if req.user
-                    a.btn.btn-primary.votenow(href="/judges/dashboard")
-                      em The entries are in.
-                      | Start voting now
+                  if voting
+                    if req.user
+                      a.btn.btn-primary.votenow(href="/judges/dashboard")
+                        em The entries are in.
+                        | Start voting now
+                    else
+                      a.btn.btn-primary.votenow(href="/login?returnTo=/judges/dashboard")
+                        em The entries are in.
+                        | Start voting now
                   else
-                    a.btn.btn-primary.votenow(href="/login?returnTo=/judges/dashboard")
-                      em The entries are in.
-                      | Start voting now
-
+                    a.btn.btn-primary.votenow(href="/entries")
+                      em Votes have been cast.
+                      | Final result soon!
 
     .body-wrapper.container
 

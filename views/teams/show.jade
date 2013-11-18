@@ -74,7 +74,7 @@ block body
               a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email invites
               i  Created #{relativeDate(team.createdAt)}
 
-          - if (voting || publicVotes && publicVotes.length || votes && votes.length)
+          - if (winners || postVoting || voting || (publicVotes && publicVotes.length) || (votes && votes.length))
             include votes
 
       .col-lg-4.col-md-4.col-sm-4

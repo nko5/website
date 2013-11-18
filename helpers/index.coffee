@@ -64,6 +64,7 @@ module.exports = (app) ->
     coding: app.enabled 'coding'
     postCoding: app.enabled 'post-coding'
     voting: app.enabled 'voting'
+    postVoting: app.enabled 'post-voting'
     winners: app.enabled 'winners'
 
     Vote: mongoose.model 'Vote'

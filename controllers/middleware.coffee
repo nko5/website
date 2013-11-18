@@ -86,7 +86,7 @@ module.exports =
     # exclude my vote from the vote list on the team page
     if req.user && !req.user.voter
       query.personId = $ne: req.user.id
-    else
+    else if app.enabled('voting')
       req.publicVotes = []
       req.votes = []
       return next()

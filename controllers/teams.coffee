@@ -42,6 +42,7 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
 # entries index
 app.get /^\/entries\/?$/, (req, res, next) ->
   voting = app.enabled('voting')
+  postVoting = app.enabled('post-voting')
 
   # only show entries that are marked votable
   query = { 'entry.votable': true }
@@ -108,7 +109,7 @@ app.get /^\/entries\/?$/, (req, res, next) ->
   # while voting is going on, only allow sorting for teams that the user is on
   # or has voted on
 
-  if voting and score and not req.user?.admin and not req.user?.judge
+  if (voting or postVoting) and score and not req.user?.admin and not req.user?.judge
     # contestants and public
     req.user.votedOnTeamIds (err, teamIdsVotedOn) ->
       return next(err) if err

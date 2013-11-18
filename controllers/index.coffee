@@ -52,7 +52,7 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     template = 'index/coding'
   else if app.enabled('post-coding')
     template = 'index/postcoding'
-  else if app.enabled('voting')
+  else if app.enabled('voting') or app.enabled('post-voting')
     template = 'index/voting'
   else
     template = 'index/index'

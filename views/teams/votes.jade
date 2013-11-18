@@ -8,6 +8,7 @@ h2 Your Vote
   - if (req.user)
     p: a( href='/people/' + req.user + '#votes' )  View all your votes &rarr;
 
+
 if votes.length || publicVotes.length
   h2 Other Votes
   if publicVotes.length
@@ -22,7 +23,6 @@ if votes.length || publicVotes.length
             - if (vote.person)
               a( href='/people/' + vote.person, title=vote.person.login )
                 img.avatar( src=avatar_url(vote.person, 30) )
-
   if shouldShowVoteList
     ul.votes
       if canSeeVotes
