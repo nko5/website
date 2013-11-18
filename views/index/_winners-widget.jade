@@ -1,40 +1,212 @@
 #winners-widget.container
   .row
-    .col.col-md-10.col-sm-10.col-xs-10.col-lg-10.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-lg-offset-1
+    .col.col-md-10.col-sm-12.col-xs-12.col-lg-10.col-md-offset-1.col-lg-offset-1
 
       .widget-header
-        h1 2013 Node Knockout Winners
-        //- facebook/twitter urls
+        .icons
+          a(target="_blank", href="http://twitter.com/home?status=Node%20Knockout%202013%20winners%20announced!%20http://nodeknockout.com" )
+            img(src="/images/winners-twitter-icon.png", data-toggle="tooltip", data-placement="top", title="Share on Twitter", class="with-tooltip")
+          a(target="_blank", href="http://www.facebook.com/sharer.php?u=http://nodeknockout.com/&t=Node Knockout 2013 Winners")
+            img(src="/images/winners-facebook-icon.png", data-toggle="tooltip", data-placement="top", title="Share on Facebook", class="with-tooltip")
+        h1
+
+          | 2013 Node Knockout Winners
+          a(href="/prizes")
+            | (see the prizes...)
 
 
       .widget-body
-        - for(i=1;i<5;i++)
-          .winner-row.clearfix
-            a.team-name(href="/")
-              | Culpa Officia
 
-            .winner-badge
-              img(src="/images/awards/team.png")
-              p
-                | Team with the best overall score
-            .team
+        //- WINNING TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/rikoru")
+            | Rikoru
 
-              .team-screenshot
-                img(src="/images/test/test-screenshot.png")
+          .winner-badge
+            img(src="/images/awards/team.png")
+            p
+              | Team with the best overall score
+          .team
 
-                .team-actions
-                  a.btn.btn-primary(href='#') Launch Site
-                  a.btn.btn-primary(href='/teams/') Team Page
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/57f1acc9d943dc7c5210f1070e3ce5c1/png/?url=http%3A%2F%2Frikoru.2013.nodeknockout.com&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-10T22%3A33%3A40.939Z")
 
-                .team-score
-                  .dimension overall
-                  .number 32.65
+              .team-actions
+                a.btn.btn-primary(href='http://rikoru.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/rikoru') Team Page
 
-              .team-details
-                ul.members
-                  li: a.with-tooltip( href='/people/', data-toggle="tooltip", data-placement="top", title="Test" )
-                    img.avatar( src="http://gravatar.com/avatar/41041169880bec75fbe51de48443cefb?s=60&d=retro")
-                  li: a.with-tooltip( href='/people/', data-toggle="tooltip", data-placement="top", title="Test" )
-                    img.avatar( src="http://gravatar.com/avatar/f36e71078177bb2b582a2c111c33ce05?s=60&d=retro")
-                .description
-                  p Non equidem invideo, miror magis posuere velit aliquet. Quid securi etiam tamquam eu fugiat nulla pariatur. Fabio vel iudice vincam, sunt in culpa qui officia.
+              .team-score
+                .dimension overall
+                .number 42.23
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5239fc5668ce0d44520003c6" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="balintferenczi"><img src="http://gravatar.com/avatar/7b954450013b022870342b8eb767c9cc?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/523a036068ce0d44520003f5" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="leventehollo"><img src="http://gravatar.com/avatar/1e9607bd1b47f32bfa086e2e768451f0?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5277e300ade070472c00032e" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="krisoft"><img src="http://gravatar.com/avatar/fd5e06ed5db34224dbe568749cd63639?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Realtime multiplayer memory game!
+
+        //- SOLO TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/srobin")
+            | Imdex
+
+          .winner-badge
+            img(src="/images/awards/solo.png")
+            p
+              | One-person team with the best overall score
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/6bc42f8747589942c8f396f194b5aa65/png/?url=http%3A%2F%2Fsrobin.2013.nodeknockout.com%2F&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-09T03%3A20%3A35.669Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://srobin.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/srobin') Team Page
+
+              .team-score
+                .dimension overall
+                .number 39.16
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5255bf3497b213667400027a" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="sdrobs"><img src="http://gravatar.com/avatar/370c4b7bfc4c4f8313c417426767b3b4?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Imdex is an OCR-Indexed image searching engine, making text within images searchable.
+
+
+        //- INNOVATION TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/shoop-team")
+            | Tidbit
+
+          .winner-badge
+            img(src="/images/awards/innovation.png")
+            p
+              | Team with the highest innovation score
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/18372b979f6208d89a3b97c5ffe757ca/png/?url=http%3A%2F%2Fshoop-team.2013.nodeknockout.com&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-10T23%3A48%3A18.930Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://shoop-team.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/shoop-team') Team Page
+
+              .team-score
+                .dimension innovation
+                .number 8.95
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5269bd25371d910c0c00011a" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="oliversong"><img src="http://gravatar.com/avatar/78f0399adb421fbb04f9be9734ca2691?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5271d3fc9f7cd9453d000189" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="carolynz"><img src="http://gravatar.com/avatar/7ed789b260b1ce8857d307546ca1b5ff?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/527341a84f9511034c000125" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="kcking"><img src="http://gravatar.com/avatar/2f22a99ddc44ab78ec0e90a5cd18221d?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/527d4121d181466a49000024" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="JeremyRubin"><img src="http://gravatar.com/avatar/5c4812e3185fb83606852f471af0f152?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Tidbit is a service that lets you make money mining bitcoins on your clients' computers.
+
+        //- DESIGN TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/theteam")
+            | Zoom the Balloon
+
+          .winner-badge
+            img(src="/images/awards/design.png")
+            p
+              | Team with the highest design score
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/dc0c53c55a1575fb2321a48199880b02/png/?url=http%3A%2F%2Ftheteam.2013.nodeknockout.com&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-11T00%3A07%3A34.366Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://theteam.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/theteam') Team Page
+
+              .team-score
+                .dimension design
+                .number 8.80
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5238ee00655c81e34d000030" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="samccone"><img src="http://gravatar.com/avatar/41041169880bec75fbe51de48443cefb?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5239a318655c81e34d000804" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="wkf"><img src="http://gravatar.com/avatar/03e7c4b18cd54a3a348605fafa248e8c?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5239aabb655c81e34d000907" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="cpjolicoeur"><img src="http://gravatar.com/avatar/cf8a610127d1108dfe67f673320b5fe5?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/526d74a1e856a9c35a0006ff" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="marstoyship"><img src="http://gravatar.com/avatar/f27b746fdcf3ef0ef611da1dd803af5d?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Get to the moon in a balloon, simple addicting game.
+
+
+        //- UTILITY/FUN TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/devcomo")
+            | Video Funhouse
+
+          .winner-badge
+            img(src="/images/awards/utility-fun.png")
+            p
+              | Team with the highest utility/fun score
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/0ffa7bb54aba0c39e44138f2ccd1d29b/png/?url=http%3A%2F%2Fdevcomo.2013.nodeknockout.com%2F&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-11T00%3A02%3A35.928Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://devcomo.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/devcomo') Team Page
+
+              .team-score
+                .dimension utility/fun
+                .number 9.06
+
+            .team-details
+              | <ul class="members"><li><a href="/people/524b8a0a7e71f80a73000095" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="aaronm67"><img src="http://gravatar.com/avatar/dcf63ceaa687d95e1756e8a245002ef9?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/525899a2dea6ba6535000039" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="nicolegrinstead"><img src="http://gravatar.com/avatar/710a0874d9cac6ef7a4a40b41d8ca3c3?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5258bd17dea6ba65350000f2" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="bgrins"><img src="http://gravatar.com/avatar/5572003a2d29e47e0d8084ac35ba3a42?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Video Funhouse is a video converter that runs entirely in your browser.
+
+
+        //- COMPLETENESS TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/iceddev")
+            | Harp Hook
+
+          .winner-badge
+            img(src="/images/awards/completeness.png")
+            p
+              | Team with the highest completeness score
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/216b97a9f5a358405bcc075e003673f1/png/?url=http%3A%2F%2Ficeddev.2013.nodeknockout.com%2F&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-10T23%3A54%3A37.789Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://iceddev.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/iceddev') Team Page
+
+              .team-score
+                .dimension completeness
+                .number 8.81
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5276ddf24c617e4e17000153" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="phated"><img src="http://gravatar.com/avatar/ac1c67fd906c9fecd823ce302283b4c1?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/527713de986f77e32300010e" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="hoobdeebla"><img src="http://gravatar.com/avatar/ead2b62920a6edab7954f5ae5360a8c3?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5277fac6ade070472c00044e" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="monteslu"><img src="http://gravatar.com/avatar/ee4b7c6eeee4b05cb685576e8d5341f4?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/527d5d64d181466a490000f7" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="Geekner"><img src="http://gravatar.com/avatar/c0ffcfed8c1725c06efaec328ff6f5bc?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p Automatic Harp-based compiler for Github Pages.
+
+
+        //- POPULARITY TEAM
+        .winner-row.clearfix
+          a.team-name(href="/teams/team-name-goes-here")
+            | Hub
+
+          .winner-badge
+            img(src="/images/awards/popularity.png")
+            p
+              | Team with the most votes
+
+          .team
+            .team-screenshot
+              img(src="http://beta.url2png.com/v6/P50A14826D8629/216b97a9f5a358405bcc075e003673f1/png/?url=http%3A%2F%2Ficeddev.2013.nodeknockout.com%2F&viewport=1024x595&thumbnail_max_width=320&unique=2013-11-10T23%3A54%3A37.789Z")
+
+              .team-actions
+                a.btn.btn-primary(href='http://hub.2013.nodeknockout.com/') Launch Site
+                a.btn.btn-primary(href='/teams/team-name-goes-here') Team Page
+
+              .team-score
+                .dimension popularity
+                .number 9.85
+
+            .team-details
+              | <ul class="members"><li><a href="/people/5259b3dfdea6ba65350003c6" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="glenwayguy"><img src="http://gravatar.com/avatar/75062970dfbbbf538f1b99d883197482?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5259b3e0dea6ba65350003c7" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="lennykhazan"><img src="http://gravatar.com/avatar/a9cd20afa8e57ae9da267dfa37de2bcf?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/5259b574dea6ba65350003de" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="penman"><img src="http://gravatar.com/avatar/77918e91b8abaecb212903b8cd2e798f?s=60&amp;d=retro" class="avatar"></a></li><li><a href="/people/525a0674dea6ba65350004e1" data-toggle="tooltip" data-placement="top" title="" class="with-tooltip" data-original-title="ws"><img src="http://gravatar.com/avatar/6c59d3ae2c6df1b1de25e252152602b8?s=60&amp;d=retro" class="avatar"></a></li></ul>
+              .description
+                p GitHub + Chat = :D
+

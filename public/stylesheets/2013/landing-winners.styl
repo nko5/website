@@ -31,9 +31,14 @@ body
 
      #header .header .header-inner
       background: #181818 url('/images/winners-bg.png') repeat center center
-
+      height: auto !important
+      margin-left: 0
+      margin-right: 0
 
   #winners-widget
+    > .row
+      margin-left: 0
+      margin-right: 0
     .widget-header
       background: #971F2E
       padding: 20px 25px
@@ -43,6 +48,15 @@ body
         font-size: 23px
         margin: 0
         padding: 0
+        a
+          margin-left: 15px
+          font-size: 18px
+          color: rgba(255,255,255,0.5)
+      .icons
+        float: right
+        padding-top: 2px
+        img
+          margin-left: 20px
     .widget-body
       background: #2F2F2F
       color: #fff
@@ -79,6 +93,7 @@ body
         margin-right: 40px
         width: 244px
         position: relative
+        margin-bottom: 25px
         img
           width: 100%
           border: 1px solid #4F4E4E
