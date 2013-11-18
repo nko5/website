@@ -1,0 +1,148 @@
+@import "2013/_common"
+
+body
+  #landing.winners
+    .header-section
+      position: relative
+      padding-top: 75px
+      padding-bottom: 45px
+      text-align: center
+      .logo
+        background: transparent url('/images/2013/nko-logo.png') no-repeat center center
+        width: 393px
+        height: 73px
+        text-indent: -9999px
+        display: inline-block
+        z-index: 100
+        margin: auto
+        vertical-align: center
+        position: relative
+        left: auto
+        top: auto
+      .logo-description
+        display: inline-block
+        max-width: 200px
+        margin-left: 10px
+        color: #D1D1D1
+        text-align: left
+        vertical-align: -43px
+        font-size: 15px
+        line-height: 1.3
+
+     #header .header .header-inner
+      background: #181818 url('/images/winners-bg.png') repeat center center
+
+
+  #winners-widget
+    .widget-header
+      background: #971F2E
+      padding: 20px 25px
+      h1
+        color: #fff
+        font-weight: normal
+        font-size: 23px
+        margin: 0
+        padding: 0
+    .widget-body
+      background: #2F2F2F
+      color: #fff
+      padding-bottom: 20px
+
+    .winner-row
+      padding: 25px 10px
+      border-bottom: 1px solid #414141
+      margin-left: 15px
+      margin-right: 15px
+      &:last-child
+        border-bottom: 0
+
+      .winner-badge
+        width: 205px
+        float: left
+        margin-right: 40px
+        text-align: center
+        margin-top: -50px
+        img
+          margin-bottom: 10px
+        p
+          margin: auto
+          width: 150px
+
+      .team-name
+        display: block
+        color: #fff
+        font-size: 36px
+        margin-left: 245px
+        margin-bottom: 10px
+      .team-screenshot
+        float: left
+        margin-right: 40px
+        width: 244px
+        position: relative
+        img
+          width: 100%
+          border: 1px solid #4F4E4E
+          border-radius: 3px
+
+        &:hover .team-actions
+          opacity: 1.0
+          transition: opacity .5s
+
+        .team-actions
+          position: absolute
+          left: 0
+          z-index: 10
+          right: 0
+          top: 0
+          bottom: 0
+          background: rgba(0,0,0,0.75)
+          text-align: center
+          cursor: pointer
+          border-radius: 3px
+          text-align: center
+          opacity: 0
+
+          .btn
+            margin-top: 20px
+            margin-left: 5px
+            @media screen and (max-width: 767px)
+              margin-top: 0
+              text-align: left
+              margin-top: 10px
+
+        .team-score
+          position: absolute
+          z-index: 11
+          right: 0
+          bottom: 0
+          background: #BF293B
+          text-align: center
+          color: #fff
+          width: 85px
+          height: 55px
+          padding: 8px 10px
+          line-height: 1.1
+          .dimension
+            font-size: 11px
+            margin-bottom: 3px
+
+          .number
+            font-weight: bold
+            font-size: 23px
+            letter-spacing: 1px
+
+      ul.members
+        list-style: none
+        margin 0
+        padding: 0
+        margin-top: 10px
+        margin-bottom: 20px
+        li
+          display inline-block
+          margin-right 2px
+        img.avatar
+          margin 0
+          width: 45px
+          height: 45px
+          border-radius: 2px
+          margin-right: 5px

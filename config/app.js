@@ -64,8 +64,8 @@ app.disable('pre-coding');        // week beforehand
 app.disable('coding');            // coding + several hours before
 app.disable('post-coding');            // coding + several hours before
 app.disable('voting');            // after
-app.enable('post-voting');            // coding + several hours before
-app.disable('winners');        // after winners are selected
+app.disable('post-voting');            // coding + several hours before
+app.enable('winners');        // after winners are selected
 
 app.configure(function() {
   require('./nap');

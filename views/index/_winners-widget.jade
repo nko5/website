@@ -1,0 +1,40 @@
+#winners-widget.container
+  .row
+    .col.col-md-10.col-sm-10.col-xs-10.col-lg-10.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-lg-offset-1
+
+      .widget-header
+        h1 2013 Node Knockout Winners
+        //- facebook/twitter urls
+
+
+      .widget-body
+        - for(i=1;i<5;i++)
+          .winner-row.clearfix
+            a.team-name(href="/")
+              | Culpa Officia
+
+            .winner-badge
+              img(src="/images/awards/team.png")
+              p
+                | Team with the best overall score
+            .team
+
+              .team-screenshot
+                img(src="/images/test/test-screenshot.png")
+
+                .team-actions
+                  a.btn.btn-primary(href='#') Launch Site
+                  a.btn.btn-primary(href='/teams/') Team Page
+
+                .team-score
+                  .dimension overall
+                  .number 32.65
+
+              .team-details
+                ul.members
+                  li: a.with-tooltip( href='/people/', data-toggle="tooltip", data-placement="top", title="Test" )
+                    img.avatar( src="http://gravatar.com/avatar/41041169880bec75fbe51de48443cefb?s=60&d=retro")
+                  li: a.with-tooltip( href='/people/', data-toggle="tooltip", data-placement="top", title="Test" )
+                    img.avatar( src="http://gravatar.com/avatar/f36e71078177bb2b582a2c111c33ce05?s=60&d=retro")
+                .description
+                  p Non equidem invideo, miror magis posuere velit aliquet. Quid securi etiam tamquam eu fugiat nulla pariatur. Fabio vel iudice vincam, sunt in culpa qui officia.
