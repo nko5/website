@@ -46,25 +46,30 @@ loadFeaturedJudges = (req, res, next) ->
 
 # app.get '/', (req, res, next) ->
 #   res.render2 'index/index'
-app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
+if app.enabled('winners')
+  app.get '/', (req, res, next) ->
+    res.render2 'index/winners'
 
-  if app.enabled('coding')
-    template = 'index/coding'
-  else if app.enabled('post-coding')
-    template = 'index/postcoding'
-  else if app.enabled('voting') or app.enabled('post-voting')
-    template = 'index/voting'
-  else if app.enabled('winners')
-    template = 'index/winners'
-  else
-    template = 'index/index'
+else
+  app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
 
-  res.render2 template,
-    team: req.team
-    stats: app.stats
-    recentDeploys: req.recentDeploys
-    interestingTeams: req.interestingTeams
-    featuredJudges: req.featuredJudges
+    if app.enabled('coding')
+      template = 'index/coding'
+    else if app.enabled('post-coding')
+      template = 'index/postcoding'
+    else if app.enabled('voting') or app.enabled('post-voting')
+      template = 'index/voting'
+    else if app.enabled('winners')
+      template = 'index/winners'
+    else
+      template = 'index/index'
+
+    res.render2 template,
+      team: req.team
+      stats: app.stats
+      recentDeploys: req.recentDeploys
+      interestingTeams: req.interestingTeams
+      featuredJudges: req.featuredJudges
 
 app.get '/blog', (req, res) -> res.redirect("http://blog.nodeknockout.com/")
 
