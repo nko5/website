@@ -152,6 +152,11 @@ TeamSchema.static 'sortedByScore', (next) ->
   spec = { 'entry.votable': true, lastDeploy: {$ne:null} }
   sort = { sort: [['scores.overall', -1]] }
   Team.find spec, {}, sort, next
+TeamSchema.static 'top100', (next) ->
+  spec = { 'entry.votable': true, lastDeploy: {$ne:null} }
+  sort = { sort: [['scores.overall', -1]], limit: 100 }
+  Team.find spec, {}, sort, next
+
 
 TeamSchema.static 'updateAllSavedScores', (next) ->
   map = ->
