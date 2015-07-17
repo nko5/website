@@ -13,7 +13,7 @@ you're lazy, or not interested in devops, all you need to know is:**
     # get the code
     git clone git@github.com:nko4/<team>.git && cd ./<team>/
 
-    # deploy it to http://<team>.2013.nodeknockout.com/
+    # deploy it to http://<team>.2015.nodeknockout.com/
     ./deploy nko
 
 The rest of this post will explain how these instances are setup. **You don't

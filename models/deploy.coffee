@@ -29,13 +29,13 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 
 DeploySchema.path('remoteAddress').validate (v, next) ->
   if inNetwork v, '127.0.0.1/24'
-    v = "#{v}:8000" 
+    v = "#{v}:8000"
   request.get "http://#{v}", (err, response, body) ->
     next(response?.statusCode is 200)
 , 'not responding to web requests correctly'
 
 DeploySchema.method 'urlForTeam', (team) ->
-  "http://#{team.slug}.2013.nodeknockout.com"
+  "http://#{team.slug}.2015.nodeknockout.com"
 
 # callbacks
 DeploySchema.post 'save', ->
@@ -46,7 +46,7 @@ DeploySchema.post 'save', ->
     team.save (err) ->
       throw err if err
       team.prettifyURL()
-   
+
 Deploy = mongoose.model 'Deploy', DeploySchema
 
 toBytes = (ip) ->
