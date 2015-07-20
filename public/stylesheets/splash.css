@@ -64,7 +64,7 @@ body a:hover {
     left: 0;
     margin: auto;
 
-    background: url("/images/splash/bg.jpg") no-repeat center 180px;
+    /*background: url("/images/splash/bg.jpg") no-repeat center 180px;*/
   }
 }
 
