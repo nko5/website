@@ -5,6 +5,57 @@ body.index-splash
   background-size: cover
   background-repeat: no-repeat
   background-position: top center
+
+  .splash-frame
+    background-image: url("/images/splash-frame-bg.png")
+    border-radius: 20px
+    width: 736px
+    height: 665px
+    margin: 50px auto
+    margin-bottom: 25px
+    padding: 40px 30px
+    text-align: center
+    color: #fff
+    .line1
+      font-size: 55px
+      text-transform: uppercase
+      font-family: league-gothic
+      letter-spacing: -0.01em
+      strong
+        color: #B1112A
+        font-weight: normal
+    .line2
+      font-family: league-gothic
+      font-size: 221px
+      text-transform: uppercase
+      line-height: 191px
+      margin-bottom: 30px
+    .line3
+      font-family: league-gothic
+      font-size: 60px
+      text-transform: lowercase
+      letter-spacing: -0.01em
+  .splash-btns
+    width: 736px
+    margin: auto
+    text-align: center
+    margin-bottom: 30px
+    .splash-btns-wrapper
+      margin: 0 -10px
+    a
+      width: 232px
+      height: 232px
+      display: inline-block
+      text-indent: -9999px
+      margin: 0 10px
+      &.splash-btn-registration
+        background-image: url("/images/splash-btn-registration.png")
+      &.splash-btn-platinum
+        background-image: url("/images/splash-btn-platinum.png")
+      &.splash-btn-prize
+        background-image: url("/images/splash-btn-prize.png")
+
+
   #nav-mini
     display: none
   #nav-mini #user-nav-mini
@@ -12,27 +63,45 @@ body.index-splash
 
   .signup-form
     text-align: center
-    padding: 25px 0
     margin-bottom: 20px
     input[type=email]
       font-size: 18px
       height: 66px
       vertical-align: middle
       margin: 0
-      width: 500px
+      width: 540px
       padding: 20px
       margin-right: -5px
       margin-bottom: 10px
-      border-radius: 6px
-      border-top-right-radius: 0px
-      border-bottom-right-radius: 0px
+      // border-radius: 6px
+      // border-top-right-radius: 0px
+      // border-bottom-right-radius: 0px
       border: none
 
     input[type=submit]
       margin: 0
       margin-bottom: 10px
-      border-radius: 4px
-      border-top-left-radius: 0px
-      border-bottom-left-radius: 0px
+      border-radius: 0
+      border: 1px solid #C2233A
+      // border-radius: 4px
+      // border-top-left-radius: 0px
+      // border-bottom-left-radius: 0px
+      background: #C2233A
       font-weight normal
       font-size 14px
+      &:hover
+        background: #C53B48
+        border-color: #C53B48
+
+  footer
+
+    background: none
+    .footer-bottom
+      border-top: 1px solid #4D2A32
+
+    // a
+    //   color: #921E36
+
+    .contact-links
+      a
+        color: #921E36

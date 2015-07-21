@@ -3,10 +3,46 @@ extends ../layout-2013
 block body
   #splash
     include ../index/_header-mini
+    .splash-frame
+      div.line1 NodeKnockout <strong>is back</strong> for 2015
+      div.line2 Nov 6-8
+      | <div id="mc_embed_signup">
+      |   <form action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;amp;id=e94fe23fd3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate class="validate signup-form">
+      |     <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Keep me updated on Event News..." required class="email-field email">
+      |     <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-super btn-primary">
+      |   </form>
+      | </div>
+      div.line3 compete in the world's biggest node.js programming competition
+    .splash-btns
+      .splash-btns-wrapper
+        a.splash-btn-registration(href="mailto:all@nodeknockout.com")
+          | Registration Opens <strong>Sept 15</strong>
+        a.splash-btn-platinum(href="mailto:all@nodeknockout.com")
+          | Support Node Knockout, Be a <strong>Platinum Sponsor</strong>
+        a.splash-btn-prize(href="mailto:all@nodeknockout.com")
+          | Sponsor a Prize (let's talk!)
 
-    | <div id="mc_embed_signup">
-    |   <form action="http://nodeknockout.us5.list-manage2.com/subscribe/post?u=fcdc37b83386a2769efad961d&amp;amp;id=e94fe23fd3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate class="validate signup-form">
-    |     <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Keep me updated on Event News..." required class="email-field email">
-    |     <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-super btn-primary">
-    |   </form>
-    | </div>
+    footer
+      .container
+        .footer-bottom.row
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3
+            | © 2015 NodeKnockout
+
+          .col.col-md-6.col-sm-6.col-xs-6.col-lg-6.contact-links
+            a(href="mailto:all@nodeknockout.com")
+              i.icon-email2
+              | all@nodeknockout.com
+            a(href="http://twitter.com/node_knockout")
+              i.icon-twitter2
+              | @node_knockout
+
+          .col.col-md-3.col-sm-3.col-xs-3.col-lg-3.previous-competition-links
+            a(href="#2010")
+              | 2010
+            a(href="#2011")
+              | 2011
+            a(href="#2012")
+              | 2012
+            a(href="/entries")
+              | 2013
+
