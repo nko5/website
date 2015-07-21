@@ -53,7 +53,9 @@ if app.enabled('winners')
 else
   app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
 
-    if app.enabled('coding')
+    if app.enabled('splash')
+      template = 'index/splash'
+    else if app.enabled('coding')
       template = 'index/coding'
     else if app.enabled('post-coding')
       template = 'index/postcoding'
@@ -65,6 +67,14 @@ else
       template = 'index/index'
 
     res.render2 template,
+      team: req.team
+      stats: app.stats
+      recentDeploys: req.recentDeploys
+      interestingTeams: req.interestingTeams
+      featuredJudges: req.featuredJudges
+
+app.get '/2013', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
+    res.render2 "index/index",
       team: req.team
       stats: app.stats
       recentDeploys: req.recentDeploys
