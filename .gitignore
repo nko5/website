@@ -9,6 +9,7 @@ config/secrets.js
 testuser.md
 scripts/restore.sh
 *.sublime-workspace
+public/assets
 restore.sh
 scripts/tmp/*
 .vagrant
