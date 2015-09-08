@@ -9,14 +9,11 @@
   },
   "author": "NKO Team <all@nodeknockout.com>",
   "main": "./server.js",
-  "scripts": {
-    "start": "./node_modules/.bin/nodemon --debug ./server.js"
-  },
   "directories": {
     "lib": "."
   },
   "engines": {
-    "node": "~0.10.0"
+    "node": "0.10.21"
   },
   "dependencies": {
     "async": "*",
