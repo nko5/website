@@ -133,13 +133,14 @@ body
       .team-screenshot
         float: left
         margin-right: 40px
-        width: 244px
+        width: 100px
         position: relative
         margin-bottom: 25px
         img
           width: 100%
           border: 1px solid #4F4E4E
           border-radius: 3px
+          display: none
 
         &:hover .team-actions
           opacity: 1.0
@@ -158,6 +159,7 @@ body
           border-radius: 3px
           text-align: center
           opacity: 0
+          display: none
 
           .btn
             margin-top: 20px
@@ -168,7 +170,7 @@ body
               margin-top: 10px
 
         .team-score
-          position: absolute
+          position: static
           z-index: 11
           right: 0
           bottom: 0
