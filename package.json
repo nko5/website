@@ -19,6 +19,7 @@
     "async": "0.2.9",
     "coffee-script": "1.6.3",
     "colors": "0.6.2",
+    "connect": "2.11.0",
     "connect-assetmanager": "0.0.28",
     "connect-redis": "1.4.5",
     "express": "3.4.4",
