@@ -30,5 +30,8 @@ to start console:
     node
 
 to deploy
+    
+    NODE_ENV=production ./node_modules/.bin/coffee scripts/package-assets.coffee
+    modulus deploy
 
-    ./deploy production
+
