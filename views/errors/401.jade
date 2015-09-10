@@ -2,7 +2,7 @@ extends ../layout
 
 block body
 
-  h1= title('Unauthorized (401)')
+  h1 Unauthorized (401)
   if !req.user && req.session && req.session.twitterScreenName
     - var twitterScreenName = req.session.twitterScreenName;
     - delete req.session.twitterScreenName;
