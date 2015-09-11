@@ -21,7 +21,7 @@ if (env.development) {
 	  channels: ['#nodeknockout', '#node.js']
 	};
 } else {
-  env.hostname = 'http://nodeknockout.com';
+  env.hostname = 'http://2013.nodeknockout.com';
 
   env.facebook_app_id = '228877970485637';
   env.github_app_id = 'a8e4746fff0c7e1a06d0';
