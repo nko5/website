@@ -51,5 +51,8 @@
   "devDependencies": {
     "nodemon": "*",
     "node-inspector": "*"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/coffee scripts/package-assets.coffee"
   }
 }
