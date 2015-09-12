@@ -5,6 +5,8 @@ body.index-splash
   background-size: cover
   background-repeat: no-repeat
   background-position: top center
+  .relative-wrapper
+    position: relative
 
   .splash-frame
     background-image: url("/images/splash-frame-bg.png")
@@ -16,6 +18,7 @@ body.index-splash
     padding: 40px 30px
     text-align: center
     color: #fff
+
     .line1
       font-size: 55px
       text-transform: uppercase
@@ -30,6 +33,11 @@ body.index-splash
       text-transform: uppercase
       line-height: 191px
       margin-bottom: 30px
+    .utc-line
+      position: absolute
+      right: 44px
+      top: 12px
+      font-size: 27px
     .line3
       font-family: league-gothic
       font-size: 60px
@@ -98,10 +106,13 @@ body.index-splash
     background: none
     .footer-bottom
       border-top: 1px solid #4D2A32
+      color: #fff
 
     // a
     //   color: #921E36
-
+    .previous-competition-links
+      a
+        color: #fff
     .contact-links
       a
-        color: #921E36
+        color: #fff
