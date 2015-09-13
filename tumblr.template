@@ -942,7 +942,6 @@
                   <li><a href="http://nodeknockout.com/about" data-toggle="dropdown" class="nav-item dropdown-toggle">About<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                       <li><a href="http://nodeknockout.com/rules">Rules</a></li>
-                      <li><a href="http://nodeknockout.com/locations">Locations</a></li>
                       <li><a href="http://nodeknockout.com/resources">Resources</a></li>
                       <li><a href="http://nodeknockout.com/about">About Us</a></li>
                     </ul>

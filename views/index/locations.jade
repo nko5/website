@@ -1,200 +1,200 @@
-- title('Locations')
-extends ../layout-2013
+//- - title('Locations')
+//- extends ../layout-2013
 
-block body
+//- block body
 
-  - activeNav = "locations"
-  .contained
-    include ../index/_header-mini
+//-   - activeNav = "locations"
+//-   .contained
+//-     include ../index/_header-mini
 
-  .inner-page.container
-    .row
-      .col-lg-8.col-sm-8.col-md-8
-        .locations
-          :markdown
-            Locations
-            =========
+//-   .inner-page.container
+//-     .row
+//-       .col-lg-8.col-sm-8.col-md-8
+//-         .locations
+//-           :markdown
+//-             Locations
+//-             =========
 
-            _Contestants may compete "virtually" from anywhere in the world_, but
-            [Joyent] will be hosting Knockout HQ in San Francisco and several groups worldwide have graciously organized space for
-            contestants to work from, meet up, and have an awesome time.
+//-             _Contestants may compete "virtually" from anywhere in the world_, but
+//-             [Joyent] will be hosting Knockout HQ in San Francisco and several groups worldwide have graciously organized space for
+//-             contestants to work from, meet up, and have an awesome time.
 
-            <a name="sf"></a>
-            San Francisco
-            -------------
+//-             <a name="sf"></a>
+//-             San Francisco
+//-             -------------
 
-            NKO HQ is setting up at [Joyent]’s downtown San Francisco office. Doors open
-            at 4 PM PST. Duke it out in the ring with your closest Node.js friends.
-            We’ll serve up drinks, chow, and a rockin’ good time including ping pong!
+//-             NKO HQ is setting up at [Joyent]’s downtown San Francisco office. Doors open
+//-             at 4 PM PST. Duke it out in the ring with your closest Node.js friends.
+//-             We’ll serve up drinks, chow, and a rockin’ good time including ping pong!
 
-            Registration is required to attend (participants / judges only).
+//-             Registration is required to attend (participants / judges only).
 
-            <p class="button">
-              <a href="http://nko2013.eventbrite.com/" class="btn btn-primary">Register to attend</a>
-            </p>
+//-             <p class="button">
+//-               <a href="http://nko2013.eventbrite.com/" class="btn btn-primary">Register to attend</a>
+//-             </p>
 
-            <p class="map">
-              <iframe width="576" height="324" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=1+Embarcadero+Center,+9th+Floor,+San+Francisco,+CA+(Knockout+HQ+@+Joyent)&output=embed"></iframe>
-            </p>
+//-             <p class="map">
+//-               <iframe width="576" height="324" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=1+Embarcadero+Center,+9th+Floor,+San+Francisco,+CA+(Knockout+HQ+@+Joyent)&output=embed"></iframe>
+//-             </p>
 
-            <div class="with-popover">
-              <p><strong>Get there via Uber. $20 off your first ride. Coupon code: NODEKNOCKOUT13</strong></p>
-              <div class="popover-content" style="display:none">
-                Up to $20 off a ride for all new riders. Text NodeKnockout13 to 827-222, follow the link to download the app, and create an account. The promotion will be automatically applied when you take your first trip.
-              </div>
-            </div>
+//-             <div class="with-popover">
+//-               <p><strong>Get there via Uber. $20 off your first ride. Coupon code: NODEKNOCKOUT13</strong></p>
+//-               <div class="popover-content" style="display:none">
+//-                 Up to $20 off a ride for all new riders. Text NodeKnockout13 to 827-222, follow the link to download the app, and create an account. The promotion will be automatically applied when you take your first trip.
+//-               </div>
+//-             </div>
 
-            <hr>
+//-             <hr>
 
-            Other Locations
-            ---------------
+//-             Other Locations
+//-             ---------------
 
-            Not in San Francisco? Find node.js-loving enthusiasts worldwide.
-            **Want to host a satellite location? [Send us a pull request] or [let us
-            know].**
+//-             Not in San Francisco? Find node.js-loving enthusiasts worldwide.
+//-             **Want to host a satellite location? [Send us a pull request] or [let us
+//-             know].**
 
-            [Joyent]: http://www.joyent.com/
-            [Send us a pull request]: https://github.com/nko4/website/blob/master/views/index/locations.jade
-            [let us know]: mailto:all@nodeknockout.com
+//-             [Joyent]: http://www.joyent.com/
+//-             [Send us a pull request]: https://github.com/nko4/website/blob/master/views/index/locations.jade
+//-             [let us know]: mailto:all@nodeknockout.com
 
-          ul.locations
-            // li
-              h4#seattle Seattle, WA
-              != address('1617 Boylston Ave, Seattle, WA 98122')
-              :markdown
-                ### [NKO @ Office Nomads]
-                ##### 1617 Boylston Ave, Seattle, WA 98122
+//-           ul.locations
+//-             // li
+//-               h4#seattle Seattle, WA
+//-               != address('1617 Boylston Ave, Seattle, WA 98122')
+//-               :markdown
+//-                 ### [NKO @ Office Nomads]
+//-                 ##### 1617 Boylston Ave, Seattle, WA 98122
 
-                [Office Nomads] is hosting the CascadiaJS after-hack!
-                Come hang out and code from noon - 6pm on Saturday.
-                Contact [@CarterRabasa] if you have any questions.
+//-                 [Office Nomads] is hosting the CascadiaJS after-hack!
+//-                 Come hang out and code from noon - 6pm on Saturday.
+//-                 Contact [@CarterRabasa] if you have any questions.
 
-                [Office Nomads]: http://officenomads.com/
-                [NKO @ Office Nomads]: http://officenomads.com/
-                [@end33r]: http://twitter.com/carterrabasa
+//-                 [Office Nomads]: http://officenomads.com/
+//-                 [NKO @ Office Nomads]: http://officenomads.com/
+//-                 [@end33r]: http://twitter.com/carterrabasa
 
-            // li
-              h4#paris Paris, France
-              != address('100 Rue de la folie mericourt, Paris, France')
-              :markdown
-                ### [Joshfire]
-                ##### 100 Rue de la folie mericourt, Paris, France
+//-             // li
+//-               h4#paris Paris, France
+//-               != address('100 Rue de la folie mericourt, Paris, France')
+//-               :markdown
+//-                 ### [Joshfire]
+//-                 ##### 100 Rue de la folie mericourt, Paris, France
 
-                [Joshfire] will be hosting teams and onlookers, then party to celebrate
-                Node and French house music.
+//-                 [Joshfire] will be hosting teams and onlookers, then party to celebrate
+//-                 Node and French house music.
 
-                [Joshfire]: http://www.joshfire.com/
+//-                 [Joshfire]: http://www.joshfire.com/
 
-            li
-              h4#tokyo Tokyo, Japan
-              != address('東京都中央区銀座4-12-15', 'maps.google.co.jp')
-              :markdown
-                ### [Node.js日本ユーザグループ] and [ドワンゴ]
-                ##### 東京都中央区銀座4-12-15 歌舞伎座タワー12F
+//-             li
+//-               h4#tokyo Tokyo, Japan
+//-               != address('東京都中央区銀座4-12-15', 'maps.google.co.jp')
+//-               :markdown
+//-                 ### [Node.js日本ユーザグループ] and [ドワンゴ]
+//-                 ##### 東京都中央区銀座4-12-15 歌舞伎座タワー12F
 
-                Register at [Connpass] or contact [@meso].
+//-                 Register at [Connpass] or contact [@meso].
 
-                [Node.js日本ユーザグループ]: http://nodejs.jp/
-                [ドワンゴ]: http://info.dwango.co.jp/
-                [Connpass]: http://connpass.com/event/3962
-                [@meso]: http://twitter.com/meso
+//-                 [Node.js日本ユーザグループ]: http://nodejs.jp/
+//-                 [ドワンゴ]: http://info.dwango.co.jp/
+//-                 [Connpass]: http://connpass.com/event/3962
+//-                 [@meso]: http://twitter.com/meso
 
-            // li
-              h4#warsaw Warsaw, Poland
-              != address('Pokrzywnicka 3A, Warsaw, Poland')
-              :markdown
-                ### [Node.js Weekend]
-                ##### Pokrzywnicka 3A, Warsaw, Poland
+//-             // li
+//-               h4#warsaw Warsaw, Poland
+//-               != address('Pokrzywnicka 3A, Warsaw, Poland')
+//-               :markdown
+//-                 ### [Node.js Weekend]
+//-                 ##### Pokrzywnicka 3A, Warsaw, Poland
 
-                [Node.js Weekend] will be the host for the Warsaw event - come and enjoy
-                the weekend with free beer and pizza. Contact [@end33r] if you have any
-                questions.
+//-                 [Node.js Weekend] will be the host for the Warsaw event - come and enjoy
+//-                 the weekend with free beer and pizza. Contact [@end33r] if you have any
+//-                 questions.
 
-                [Node.js Weekend]: http://nodejsweekend.end3r.com/
-                [@end33r]: http://twitter.com/end33r
+//-                 [Node.js Weekend]: http://nodejsweekend.end3r.com/
+//-                 [@end33r]: http://twitter.com/end33r
 
-            li
-              h4#reno Reno, Nevada
-              != address('100 N Arlington Ave, Reno, NV, 89501')
-              :markdown
-                ### [nodeko @ Reno Collective]
-                ##### 100 N Arlington Ave, Reno, NV, 89501
+//-             li
+//-               h4#reno Reno, Nevada
+//-               != address('100 N Arlington Ave, Reno, NV, 89501')
+//-               :markdown
+//-                 ### [nodeko @ Reno Collective]
+//-                 ##### 100 N Arlington Ave, Reno, NV, 89501
 
-                [Reno Collective] has brand new digs and will be open for the
-                majority of NKO 2013 (hours coming soon).
+//-                 [Reno Collective] has brand new digs and will be open for the
+//-                 majority of NKO 2013 (hours coming soon).
 
-                Please let us know if your're planning on attending so we can come
-                up with the best schedule. Contact [@elskwid] or [@rencollective]
-                on Twitter or send an email (GASP!) to
-                _don at renocollective dot com_ for info and to help coordinate.
+//-                 Please let us know if your're planning on attending so we can come
+//-                 up with the best schedule. Contact [@elskwid] or [@rencollective]
+//-                 on Twitter or send an email (GASP!) to
+//-                 _don at renocollective dot com_ for info and to help coordinate.
 
-                [nodeko @ Reno Collective]: http://renocollective.com
-                [Reno Collective]: http://renocollective.com
-                [@elskwid]: http://twitter.com/elskwid
-                [@renocollective]: http://twitter.com/renocollective
+//-                 [nodeko @ Reno Collective]: http://renocollective.com
+//-                 [Reno Collective]: http://renocollective.com
+//-                 [@elskwid]: http://twitter.com/elskwid
+//-                 [@renocollective]: http://twitter.com/renocollective
 
-            // li
-              h4#nyc New York
-              != address('902 Broadway 4th Floor, New York, NY, 10016')
-              :markdown
-                ### [nodejitsu]<br/> [@ General Assembly]
-                ##### 902 Broadway, 4th Floor<br/> New York, NY, 10016
+//-             // li
+//-               h4#nyc New York
+//-               != address('902 Broadway 4th Floor, New York, NY, 10016')
+//-               :markdown
+//-                 ### [nodejitsu]<br/> [@ General Assembly]
+//-                 ##### 902 Broadway, 4th Floor<br/> New York, NY, 10016
 
-                Beverages and snacks on hand as well as team Nodejitsu
-                and a few other tech startups to help you out with their
-                APIs and tools. [Check out all the details][1]. Contact [@saadiq].
+//-                 Beverages and snacks on hand as well as team Nodejitsu
+//-                 and a few other tech startups to help you out with their
+//-                 APIs and tools. [Check out all the details][1]. Contact [@saadiq].
 
-                [nodejitsu]: http://www.nodejitsu.com/#/home
-                [@ General Assembly]: http://www.generalassemb.ly/
-                [1]: http://nko.nodejitsu.com/
-                [@saadiq]: https://twitter.com/saadiq
+//-                 [nodejitsu]: http://www.nodejitsu.com/#/home
+//-                 [@ General Assembly]: http://www.generalassemb.ly/
+//-                 [1]: http://nko.nodejitsu.com/
+//-                 [@saadiq]: https://twitter.com/saadiq
 
-            li
-              h4#chi Chicago
-              != address('600 W Chicago Ave, Chicago, IL 60654')
-              :markdown
-                ### [Chicago Node.js]
-                ##### 600 W Chicago Ave, Chicago, IL 60654
+//-             li
+//-               h4#chi Chicago
+//-               != address('600 W Chicago Ave, Chicago, IL 60654')
+//-               :markdown
+//-                 ### [Chicago Node.js]
+//-                 ##### 600 W Chicago Ave, Chicago, IL 60654
 
-                Food, drinks, and space provided by Groupon!
-                You must RSVP [here][1] for building access.
-                Contact [@endangeredmassa] with questions.
+//-                 Food, drinks, and space provided by Groupon!
+//-                 You must RSVP [here][1] for building access.
+//-                 Contact [@endangeredmassa] with questions.
 
-                [Chicago Node.js]: http://www.meetup.com/Chicago-Nodejs/
-                [@endangeredmassa]: https://twitter.com/endangeredmassa
-                [1]: http://www.meetup.com/Chicago-Nodejs/events/149178302/
+//-                 [Chicago Node.js]: http://www.meetup.com/Chicago-Nodejs/
+//-                 [@endangeredmassa]: https://twitter.com/endangeredmassa
+//-                 [1]: http://www.meetup.com/Chicago-Nodejs/events/149178302/
 
-            li
-              h4#venice Venice, Italy
-              != address('Via Marignana, 86, Mogliano Veneto, Treviso')
-              :markdown
-                ### [Meme Coworking]
-                ##### Via Marignana, 86, Mogliano Veneto, Treviso
+//-             li
+//-               h4#venice Venice, Italy
+//-               != address('Via Marignana, 86, Mogliano Veneto, Treviso')
+//-               :markdown
+//-                 ### [Meme Coworking]
+//-                 ##### Via Marignana, 86, Mogliano Veneto, Treviso
 
-                Space provided by Meme Coworking.
-                Bring your own food and drinks.
-                Contact [@johnnyaboh] with questions.
-                More info and RSVP at G+ [event page][1].
+//-                 Space provided by Meme Coworking.
+//-                 Bring your own food and drinks.
+//-                 Contact [@johnnyaboh] with questions.
+//-                 More info and RSVP at G+ [event page][1].
 
-                [Meme Coworking]: http://www.memecoworking.com/
-                [@johnnyaboh]: https://twitter.com/johnnyaboh
-                [1]: https://plus.google.com/events/cmjc06jjkbbq1pcq8nah9fkligs
+//-                 [Meme Coworking]: http://www.memecoworking.com/
+//-                 [@johnnyaboh]: https://twitter.com/johnnyaboh
+//-                 [1]: https://plus.google.com/events/cmjc06jjkbbq1pcq8nah9fkligs
 
-            li
-              h4#taipei Taipei, Taiwan
-              != address('台北市內湖區堤頂大道二段187號', 'maps.google.com.tw')
-              :markdown
-                ### [Node.js 台灣社群][1]
-                ##### 台北市內湖區堤頂大道二段187號
+//-             li
+//-               h4#taipei Taipei, Taiwan
+//-               != address('台北市內湖區堤頂大道二段187號', 'maps.google.com.tw')
+//-               :markdown
+//-                 ### [Node.js 台灣社群][1]
+//-                 ##### 台北市內湖區堤頂大道二段187號
 
-                歡迎各位 Node.js 開發者一起參與，共同奮戰 48
-                小時，活動時間台北時間，11/09  08:00 - 11/10 21:00
+//-                 歡迎各位 Node.js 開發者一起參與，共同奮戰 48
+//-                 小時，活動時間台北時間，11/09  08:00 - 11/10 21:00
 
-                Register at [Node KO 台灣活動網站][2] or contact [@NodejsTaiwan].
+//-                 Register at [Node KO 台灣活動網站][2] or contact [@NodejsTaiwan].
 
-                [1]: http://nodejs.tw/
-                [2]: http://nodeknockout.nodejs.tw/
-                [@NodejsTaiwan]: http://twitter.com/NodejsTaiwan
+//-                 [1]: http://nodejs.tw/
+//-                 [2]: http://nodeknockout.nodejs.tw/
+//-                 [@NodejsTaiwan]: http://twitter.com/NodejsTaiwan
 
-      .col-lg-4.col-sm-4.col-md-4
-        include ../index/_sidebar
+//-       .col-lg-4.col-sm-4.col-md-4
+//-         include ../index/_sidebar

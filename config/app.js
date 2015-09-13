@@ -58,8 +58,8 @@ if (secrets.twitterUser) {
 }
 
 // state (getting pretty gross)
-app.enable('splash');
-app.disable('pre-registration');  // just the countdown
+app.disable('splash');
+app.enable('pre-registration');  // just the countdown
 app.disable('registration');       // months beforehand
 app.disable('pre-coding');        // week beforehand
 app.disable('coding');            // coding + several hours before
