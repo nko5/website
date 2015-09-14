@@ -16,7 +16,7 @@ block body
           | Not sure? No worries! You can update these details (including membership
           | changes) after registration too.
 
-        form( method='POST', action='/teams' )
+        form.autofocus( method='POST', action='/teams' )
           include form
           input.btn.btn-primary.btn-large( type='submit', value='Register' )
 

@@ -34,7 +34,7 @@ pad = (num, size) ->
   s.substr s.length - size
 
 load = ->
-  $(':text:first').focus() # focus first input
+  $('.autofocus :text:first').focus() # focus first input
 
   $(".with-tooltip").each ->
     $(this).tooltip

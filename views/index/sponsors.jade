@@ -10,7 +10,7 @@ block body
   .inner-page.container.content-sponsors
 
     .sponsors-btn
-      a.btn.btn-primary(href="/sponsors/options") Want to sponsor NKO 2013?
+      a.btn.btn-primary(href="/sponsors/options") Want to sponsor NKO 2015?
 
 
     h1 Platinum Sponsors
@@ -30,27 +30,27 @@ block body
       - });
 
 
-    h2
-      | Service Sponsors
-      a(href="/resources#services")
-        | see what they're offering...
+    //- h2
+    //-   | Service Sponsors
+    //-   a(href="/resources#services")
+    //-     | see what they're offering...
 
-    ul.sponsor-logos.clearfix
-      - _(serviceSponsors).shuffle().forEach(function(sponsor) {
-        li.with-tooltip(title=sponsor.name)
-          a( href=sponsor.url)
-            img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
-      - });
-    hr
+    //- ul.sponsor-logos.clearfix
+    //-   - _(serviceSponsors).shuffle().forEach(function(sponsor) {
+    //-     li.with-tooltip(title=sponsor.name)
+    //-       a( href=sponsor.url)
+    //-         img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+    //-   - });
+    //- hr
 
-    h2
-      | Prize Sponsors
-      a(href="/prizes")
-        | see what they're offering...
+    //- h2
+    //-   | Prize Sponsors
+    //-   a(href="/prizes")
+    //-     | see what they're offering...
 
-    ul.sponsor-logos.clearfix
-      - _(prizeSponsors).shuffle().forEach(function(sponsor) {
-        li.with-tooltip(title=sponsor.name)
-          a( href=sponsor.url)
-            img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
-      - });
+    //- ul.sponsor-logos.clearfix
+    //-   - _(prizeSponsors).shuffle().forEach(function(sponsor) {
+    //-     li.with-tooltip(title=sponsor.name)
+    //-       a( href=sponsor.url)
+    //-         img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
+    //-   - });
