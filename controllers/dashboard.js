@@ -6,7 +6,7 @@ module.exports = function(app) {
     client.on('join', function(room){
       client.join(room);
       // If the user wants to get twitter messages we also want to send
-      // the @node_knockout ones separate
+      // the @nodeknockout ones separate
       if (room === 'twitter') {
         client.join('usertwitter');
       }
@@ -56,7 +56,7 @@ module.exports = function(app) {
     }
     var TwitterNode = require('twitter-node').TwitterNode;
 
-    var stickyUser = '148922824'; // @node_knockout
+    var stickyUser = '148922824'; // @nodeknockout
 
     var searchBacklog = new Backlog('twitter', 30);
     var userBacklog = new Backlog('usertwitter', 2);

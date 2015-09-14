@@ -53,10 +53,10 @@ __Important: Not seeing your deploy count rise? Here's what to check:__
 Problems?
 =========
 
-As always, you can contact us at [all@nodeknockout.com] or [@node_knockout].
+As always, you can contact us at [all@nodeknockout.com] or [@nodeknockout].
 You can also try checking the [issue tracker].
 
 [your team page]: http://nodeknockout.com/teams/mine
 [all@nodeknockout.com]: mailto:all@nodeknockout.com
-[@node_knockout]: http://twitter.com/node_knockout
+[@nodeknockout]: http://twitter.com/nodeknockout
 [issue tracker]: https://github.com/nko2/website/issues
