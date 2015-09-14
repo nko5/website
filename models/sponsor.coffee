@@ -5,6 +5,7 @@ module.exports = [
   url:   'http://www.modulus.io/'
   description:
     '''
+      Modulus is a premier application-hosting platform offering features to address the needs of individual developers and enterprises alike. Modulus is the best way to deploy, scale and monitor Node.js, Java, PHP, Nginx, and Python applications in the cloud, on-premises or a hybrid of the two.  Modulus is a home for web applications, Node.js hosting, integrated MongoDB and performance metrics, as well as helping enterprises drive Docker and container adoption.
     '''
 ,
   name:  'NodeSource'
@@ -13,7 +14,7 @@ module.exports = [
   url:   'http://www.nodesource.com/'
   description:
     '''
-
+    NodeSource is dedicated to creating a sustainable ecosystem for Node. We aim to drive and expand market adoption of Node by providing software products that empower businesses, government and the enterprise to use Node in the most effective way. Our products are backed by our industry-defining educational services and support to provide the additional lift needed in many organizations.
     '''
 # ,
 #   name:  'GoInstant'
