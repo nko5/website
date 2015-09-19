@@ -12,9 +12,10 @@ module.exports = [
   image: 'logos/sm/nodesource.png'
   type: ["platinum"]
   url:   'http://www.nodesource.com/'
+  descriptionStyle: "padding-top:15px"
   description:
     '''
-    NodeSource is dedicated to creating a sustainable ecosystem for Node. We aim to drive and expand market adoption of Node by providing software products that empower businesses, government and the enterprise to use Node in the most effective way. Our products are backed by our industry-defining educational services and support to provide the additional lift needed in many organizations.
+    NodeSource, the Enterprise Node.js company(TM), provides enterprise-grade products and services that empower you to be efficient and productive with Node.
     '''
 # ,
 #   name:  'GoInstant'

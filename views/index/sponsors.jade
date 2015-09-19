@@ -24,7 +24,7 @@ block body
         li
           a( href=sponsor.url )
             img( src='/images/sponsors/' + sponsor.image, class=sponsor.image.replace(/\.\w+$/, '') )
-          .sponsor-description
+          .sponsor-description(style=sponsor.descriptionStyle)
             != markdown(sponsor.description)
           .clear
       - });
