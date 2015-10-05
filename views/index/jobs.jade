@@ -11,12 +11,15 @@ block body
     .row
       .col-lg-8.col-sm-8.col-md-8
         .jobs-list
-          a.btn.btn-sm.btn-default(href="/sponsors/options#job-listing") Post a job &raquo;
+          a.btn.btn-sm.btn-default(href="mailto:all@nodeknockout.com?subject=Job Posting&body=Hi, I'm interested in Posting a Job on NodeKnockout.com") Post a job &raquo;
           h1 Jobs
 
           p
-            | Need a new gig? These great companies are hiring Node.js developers.
-
+            //- | Need a new gig? These great companies are hiring Node.js developers.
+            | Need a new gig? Stay tuned for some awesome companies who are hiring Node.js developers.
+          p
+            a(href="mailto:all@nodeknockout.com?subject=Job Posting&body=Hi, I'm interested in Posting a Job on NodeKnockout.com") Post a job &raquo;
+            
           hr
 
           - _(jobSponsors).shuffle().forEach(function(sponsor) {
