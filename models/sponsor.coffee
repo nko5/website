@@ -17,6 +17,17 @@ module.exports = [
     '''
     NodeSource, the Enterprise Node.js company(TM), provides enterprise-grade products and services that empower you to be efficient and productive with Node.
     '''
+,
+  name:  'Kadira'
+  image: 'logos/sm/kadira.png'
+  type: ["platinum"]
+  url:   'http://www.kadira.io/'
+  descriptionStyle: "padding-top:15px"
+  description:
+    '''
+    Kadira is a performance monitoring platform for Meteor. They'll also add support for monitoring GraphQL apps soon.
+    '''
+
 # ,
 #   name:  'GoInstant'
 #   image: 'logos/sm/goinstant.png'
