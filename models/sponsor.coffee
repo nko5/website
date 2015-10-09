@@ -21,11 +21,20 @@ module.exports = [
   name:  'Kadira'
   image: 'logos/sm/kadira.png'
   type: ["platinum"]
-  url:   'http://www.kadira.io/'
+  url:   'http://www.kadira.io/graphql'
   descriptionStyle: "padding-top:15px"
   description:
     '''
     Kadira is a performance monitoring platform for Meteor. They'll also add support for monitoring GraphQL apps soon.
+    '''
+,
+  name:  'Joyent'
+  image: 'logos/sm/joyent.png'
+  type: ["platinum"]
+  url:   'http://www.joyent.com/'
+  description:
+    '''
+    Joyent delivers container-native infrastructure, offering organizations high-performance, yet simple public cloud and private cloud software solutions for today’s demanding real-time web and mobile applications. As the original corporate steward of Node.js, Joyent's cloud solutions offer native tooling and debugging capabilities built for production Node.js implementations at scale.
     '''
 
 # ,
