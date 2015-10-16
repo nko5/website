@@ -25,7 +25,7 @@ module.exports = [
   descriptionStyle: "padding-top:15px"
   description:
     '''
-    Kadira is a performance monitoring platform for Meteor. They'll also add support for monitoring GraphQL apps soon.
+    [Kadira](https://kadira.io) is a performance monitoring service for Meteor and GraphQL, a technology poised to become the future of APIs. Kadira will award an additional $1000 for the best team using GraphQL. So, start learning GraphQL here: <https://learngraphql.com/>
     '''
 ,
   name:  'Joyent'
