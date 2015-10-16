@@ -5,7 +5,7 @@ module.exports = [
   url:   'http://www.modulus.io/'
   description:
     '''
-      Modulus is a premier application-hosting platform offering features to address the needs of individual developers and enterprises alike. Modulus is the best way to deploy, scale and monitor Node.js, Java, PHP, Nginx, and Python applications in the cloud, on-premises or a hybrid of the two.  Modulus is a home for web applications, Node.js hosting, integrated MongoDB and performance metrics, as well as helping enterprises drive Docker and container adoption.
+      [Modulus](http://www.modulus.io/) is a premier application-hosting platform offering features to address the needs of individual developers and enterprises alike. Modulus is the best way to deploy, scale and monitor Node.js, Java, PHP, Nginx, and Python applications in the cloud, on-premises or a hybrid of the two.  Modulus is a home for web applications, Node.js hosting, integrated MongoDB and performance metrics, as well as helping enterprises drive Docker and container adoption.
     '''
 ,
   name:  'NodeSource'
@@ -15,7 +15,7 @@ module.exports = [
   descriptionStyle: "padding-top:15px"
   description:
     '''
-    NodeSource, the Enterprise Node.js company(TM), provides enterprise-grade products and services that empower you to be efficient and productive with Node.
+    [NodeSource](http://www.nodesource.com/), the Enterprise Node.js company(TM), provides enterprise-grade products and services that empower you to be efficient and productive with Node.
     '''
 ,
   name:  'Kadira'
@@ -34,7 +34,7 @@ module.exports = [
   url:   'http://www.joyent.com/'
   description:
     '''
-    Joyent delivers container-native infrastructure, offering organizations high-performance, yet simple public cloud and private cloud software solutions for today’s demanding real-time web and mobile applications. As the original corporate steward of Node.js, Joyent's cloud solutions offer native tooling and debugging capabilities built for production Node.js implementations at scale.
+    [Joyent](http://www.joyent.com/) delivers container-native infrastructure, offering organizations high-performance, yet simple public cloud and private cloud software solutions for today’s demanding real-time web and mobile applications. As the original corporate steward of Node.js, Joyent's cloud solutions offer native tooling and debugging capabilities built for production Node.js implementations at scale.
     '''
 
 # ,
