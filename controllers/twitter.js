@@ -8,7 +8,10 @@ app.get('/twitter/:username', function(req, res){
   app.twitter.get( 'users/show'
   , { screen_name: req.params.username }
   , function(err, userData) {
-      if (err) { return res.next(err); }
+      if (err) {
+        console.log("Error: " + err);
+        return res.next(err);
+      }
       res.send(userData);
   })
 });

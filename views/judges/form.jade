@@ -1,0 +1,40 @@
+!= _csrf
+errors = person.errors
+include ../errors
+
+.row
+  .col-lg-8.col-md-8.col-sm-8.col-xs-12
+  
+    .twitter.tabular
+      label( for='twitter' ) Twitter
+      .clearfix
+      | http://twitter.com/
+      input.form-control( type='text', name='twitterScreenName', id='twitter', value=person.twitterScreenName, placeholder='username' )
+      img.spinner( src='/images/spinner.gif' )
+
+    .name.tabular
+      label( for='name' ) Name
+      input.form-control( type='text', name='name', id='name', value=person.name )
+
+    .email.tabular
+      label( for='email' ) Email (optional)
+      input.form-control( type='text', name='email', id='email', value=person.email )
+    
+    .location.tabular
+      label( for='location' ) Location
+      input.form-control( type='text', name='location', id='location', value=person.location )
+
+    .company.tabular
+      label( for='company' ) Company
+      input.form-control( type='text', name='company', id='company', value=person.company )
+    
+    .byline.tabular
+      .bio.tabular
+        label( for='bio' ) Bio
+        textarea.form-control( name='bio', id='bio' )= person.bio
+        .note
+          - if (person.judge || person.nomination)
+            | A 2-3 sentence bio for the
+            != ' <a href="/judging">judges page</a>. '
+          a( href='http://daringfireball.net/projects/markdown/syntax' ) Markdown
+          |  ok.
