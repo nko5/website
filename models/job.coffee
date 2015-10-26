@@ -1,52 +1,107 @@
 module.exports = [
-#   type: ["platinum"]
-#   image: 'prizes/joyent.jpg'
-#   slug: "joyent"
-#   description:
-#     '''
-#     **[Joyent](http://joyent.com)** is the high-performance cloud infrastructure
-#     company, offering the only solution specifically built to power real-time
-#     web and mobile applications.
+  image: 'prizes/modulus.jpg'
+  slug: "modulus"
+  description:
+    '''
+    **[Modulus.io](https://modulus.io/jobs)**
 
-#     * [Application Engineer](http://www.joyent.com/company/careers/application-engineer) &mdash; [San Francisco][joyent-sf]
+    **Senior Software Engineer**
 
-#     [joyent-sf]: http://maps.google.com/maps?q=1+embarcadero+center,+sf,+ca
-#     '''
-# ,
-#   type: ["platinum"]
-#   image: 'prizes/groupon.jpg'
-#   slug: "groupon"
-#   description:
-#     '''
-#     **[Groupon](http://engineering.groupon.com)**
+    We are looking for Engineers to design and build server-side and infrastructure components for our Docker based Node.js PaaS. [Learn&nbsp;More](https://modulus.io/jobs/senior-software-engineer)
 
-#     * [Software Engineer – Front End Platform Team](https://jobs.groupon.com/careers/engineering/software-engineer-front-end-platform-team-palo-alto-ca-united-states/)
-#     * [Senior Software Engineer – Full-Stack/Front End](https://jobs.groupon.com/careers/engineering/senior-software-engineer-full-stack-front-end-chicago-il-united-states/)
-#     '''
-# ,
-#   type: ["platinum"]
-#   image: 'prizes/goinstant.jpg'
-#   slug: "goinstant"
-#   description:
-#     '''
-#     **[GoInstant](http://goinstant.com/careers)**
+    **Partner Account Manager**
 
-#     * [Senior Web Developer](http://goinstant.theresumator.com/apply/NAgpfw/Senior-Web-Developer.html)
-#     '''
-# ,
-#   slug: "balderdash"
-#   # image: 'prizes/balderdash.jpg'
-#   description:
-#     '''
-#     **[Balderdash](http://balderdash.co)**  is the web studio in Austin, TX who created Sails.js. We're looking for an expert JavaScript developer to help us build products for startup and Fortune 500 clients.
+    We are looking for an inside software sales professional to help us build our indirect partner channel & navigate to close on enterprise sales of our Modulus products & services. [Learn&nbsp;More](https://modulus.io/jobs/partner-account-manager)
 
-#     Our specialties are SOAs, realtime, responsive web, hybrid applications, and SPAs. You don't necessarily have to be an expert in those things, but if you are, all the more reason for us to hang out.
+    **Training & Workshop Lead**
 
-#     * [Node.js/JavaScript/Backbone Developer](http://balderdash.co) &mdash; [Austin, TX](balderdash-tx)
-#     * [UX Engineer](http://balderdash.co) &mdash; [Austin, TX](balderdash-tx)
+    We are looking for a creative and ambitious leader to take the reigns of our training and workshop offerings. We feel that teaching people to build software is important to building a community and cutting edge software company. [Learn&nbsp;More](https://modulus.io/jobs/training-workshop-lead)
 
-#     [balderdash-tx]: https://maps.google.com/maps?q=Austin,+TX&hl=en&sll=47.691225,-122.355156&sspn=0.018214,0.01929&oq=austin+&hnear=Austin,+Travis,+Texas&t=m&z=11
-#     '''
+    '''
+,
+  image: 'prizes/venstar.png'
+  slug: "venstar"
+  description:
+    '''
+    **[Venstar](http://venstar.com/careers/)**
+
+    This position requires an experienced software developer to join the Venstar Skyport Cloud Team. Skyport Cloud Team designs, develops and maintains the core cloud-side interactive systems that are deployed on various cloud platforms. These systems remotely monitor and control, residential and commercial devices.
+    '''
+,
+  image: 'prizes/pluralsight.jpg'
+  slug: "pluralsight"
+  description:
+    '''
+    **[Pluralsight](http://www.pluralsight.com/teach)**
+
+    Interested in teaching other developers? Want to join one of the fastest growing education companies? Ready to earn extra income?
+
+    Pluralsight, the leader in online training across the Milky Way galaxy for software developers, IT specialists and creative technologists, is currently recruiting Open-Source Developer Authors to develop and teach online technical courses to subscribers around the world. We are specifically looking for developers with knowledge in Java, Python, Node PHP, Ruby, Web, mobile and iOS.
+
+    As a Pluralsight Author, you'll have the flexibility to select and develop your own technical course. You'll work together with our collaborative editorial team to ensure your course is presented and marketed in the best way possible. The majority of our instructor positions are freelance and part-time.
+
+    We currently have 800+ instructors who together inspire, teach and transform lives through online learning. You'll join a tight-knit developer community who enjoy helping others and believe in the power of community, mentoring and giving back.
+
+    **Skills and Requirements**
+
+    * You’ll need a few years of developing software with experience in one (or more) of these languages Java, Python, PHP, Ruby, Web, mobile and iOS.
+    * Prior online teaching experience not required but preferred
+    * Enthusiasm for communicating verbally (previous audio/video experience helpful but not required)
+    * Ability to commit 40-50 hours to developing a course
+
+    **About Pluralsight**
+
+    Founded in 2004, Pluralsight is the global leader in online learning for professional software developers, IT specialists and creative technologists. As the world’s largest curated professional development platform, the company offers instant access to more than 4,000 courses authored by top experts. With customers in more than 150 countries, Pluralsight serves as a career catalyst, delivering hands-on, practical training for the most in-demand and understaffed jobs of today.
+
+    Apply to become a Pluralsight author (http://www.pluralsight.com/). Please include the following information:
+
+    * First Name:
+    * Last Name:
+    * Email:
+    * Who is your main audience?
+    * What topics are you interested in creating courses for?
+    * Any prior online (or offline) teaching experience?
+
+    Here is the link you can use as well. <http://www.pluralsight.com/teach>
+
+    '''
+,
+  image: 'prizes/segment.png'
+  slug: "segment"
+  description:
+    '''
+    **[Segment](https://segment.com)**
+
+    At Segment, Javascript is everywhere. We’ve built some popular open source projects, contribute to the component ecosystem, and write all of the app’s server-side code with node. We’re always happy to find cleaner and cleaner ways to architect our app, anything from using Koa to running with generators and ES6. Like the sound of streaming hundreds of events per second to our client-side debugger? You've come to the right place. Come [help us build the future of analytics infrastructure](https://segment.com/jobs/descriptions/frontend-engineer/).
+    '''
+,
+  slug: "brandcast"
+  image: 'prizes/brandcast-sq.png'
+  description:
+    '''
+    **[Brandcast](http://brandcast.com/careers)**
+
+    **Lead Node.js Engineer**
+
+    Help us take our JavaScript-based Rapid Development Framework to the next level by designing and implementing platform tools, writing server-side code for high-volume web-based applications, and creating robust CLI and API design. In this position, you will have the opportunity to own and grow our Platform teams as we scale.
+
+    **Responsibilities:**
+
+    * Architect rapid development environments with ES6
+    * Develop isomorphic code, and server-side rendering pipeline using React.js
+    * Deploy robust applications and APIs built for high profile brands
+
+    **Requirements:**
+
+    * 5+ years experience in engineering roles
+    * 3+ years experience with Node.js
+    * 2+ years experience with MongoDB
+    * Expert in building and maintaining platforms and systems infrastructure
+    * Expert in Unix/Linux
+    * Expert with asynchronous code and distributed systems
+
+
+    '''
 # ,
 #   slug: "paypal"
 #   image: 'prizes/paypal.jpg'
@@ -225,6 +280,3 @@ module.exports = [
 #   description:
 #     '''
 #     '''
-
-
-

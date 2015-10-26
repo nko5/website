@@ -15,20 +15,24 @@ block body
           h1 Jobs
 
           p
-            //- | Need a new gig? These great companies are hiring Node.js developers.
-            | Need a new gig? Stay tuned for some awesome companies who are hiring Node.js developers.
-          p
-            a(href="mailto:all@nodeknockout.com?subject=Job Posting&body=Hi, I'm interested in Posting a Job on NodeKnockout.com") Post a job &raquo;
+            | Need a new gig? These great companies are hiring Node.js developers. Hover over the company to learn more.
+            //- | Need a new gig? Stay tuned for some awesome companies who are hiring Node.js developers.
+
+          - _(jobSponsors).forEach(function(sponsor) {
+            .job-icon(data-job=sponsor.slug)
+              img(src="/images/sponsors/#{sponsor.image}")
+          - });
+
             
           hr
 
-          - _(jobSponsors).shuffle().forEach(function(sponsor) {
-            .job.clearfix
+          - _(jobSponsors).forEach(function(sponsor) {
+            .job.clearfix(data-job=sponsor.slug style="display:none;")
               if sponsor.image
                 img(src="/images/sponsors/#{sponsor.image}")
               a(name=sponsor.slug)
               != markdown(sponsor.description)
-            hr
+              hr
           - });
 
       .col-lg-4.col-sm-4.col-md-4
