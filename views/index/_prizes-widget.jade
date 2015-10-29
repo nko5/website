@@ -6,10 +6,6 @@ mixin prize-logo(name, img, url)
   li: a(href="#{url}", title="Prize from #{name} (see below)", target="_blank", data-toggle="tooltip")
     img(src="/images/sponsors/prizes/#{img}.jpg")
 
-//- prize mixins (for reuse)
-mixin one-per-team
-  i.icon-users(title="one per team member")
-
 mixin modulus-beer
   .with-popover
     |  case of beer
@@ -70,195 +66,116 @@ mixin twilio-book
 
         ul.images
           mixin prize("NKO Team Winner", "nko-team", "#prize-list-team")
-          mixin prize("NKO Boxing Gloves", "gloves", "#prize-list-team")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-team")
-
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
-          mixin prize-logo("The Node Firm", "thenodefirm", "http://thenodefirm.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("GitHub", "github", "http://github.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("Uber", "uber", "http://uber.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("PluralSight", "pluralsight", "http://pluralsight.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
-          mixin prize-logo("PayPal", "paypal", "http://paypal.com")
-
+          
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Pebble", "pebble", "https://www.pebble.com/")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
+                    
         a.anchor-link(name="prize-list-team")
         h2
           | Team Winner
           em
             |  / best overall score
 
-        img(src="/images/sponsors/prizes/apple2k.jpg", height="200")
         ul
-          li: strong $2,000 Apple Store gift card
           li
-            strong Node Knockout Boxing Gloves & Trunks
-            mixin one-per-team
-          li
-            strong: a(href="http://paypal.com", target="_blank") PayPal
-            |  - $400 transferred to your PayPal account
-          li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - <a target="_blank" href="http://www.amazon.com/Parrot-AR-Drone-Quadricopter-Controlled-Android/dp/B007HZLLOK/ref=sr_1_2?ie=UTF8&qid=1383101601&sr=8-2&keywords=parrot+ar+drone+2.0">Parrot AR.Drone 2.0</a>
-          li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - <a href="http://www.themacallan.com/the-whisky/fine-oak/15-years-old/" target="_blank">Macallan 15</a> yr single malt
-              .popover-content(style="display:none")
-                p You've worked for a weekend, but the scotch has been here for years!
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - $2,000 gift card of your choice
 
           li
             .with-popover
-              strong: a(href="http://twilio.com", target="_blank") Twilio
-              |  - Han Solo Replica Blaster
-
-              mixin one-per-team
+              strong: a(href="http://www.pebble.com", target="_blank") Pebble
+              |  - <a href="https://www.pebble.com/buy-pebble-steel-smartwatch">Pebble Steel Smartwatch</a> for each team member (up to $600 value)
               .popover-content(style="display:none")
-                img(src="http://cl.ly/image/3R45291u2921/content", width="250", height="164")
-          li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer accounts
-            mixin goinstant-hoodie
-            mixin one-per-team
-          li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - <a href="http://nodesummit.com/nodejam/" target="_blank">Node Jam</a> spot for your team, pitch your product on stage
+                img(src="http://cl.ly/image/1U1o402U1Q3A/content", width="250")
 
           li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Premium subscription ($5,988 value)
-
-          li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $3,000 in credits
-
-          li
-            strong: a(href="http://aws.amazon.com/start-ups/", target="_blank") Amazon Web Services
-            |  - $3,000 in credits
-
-          li
-            strong: a(href="http://thenodefirm.com", target="_blank") The Node Firm
-            |  One-on-one eval of your Node.js project ($3,000 value)
-
-          li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 6mo subscription ($1,800 value)
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 12mo Agency subscription ($1,188 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
-            |  - $1,000 in credits
-          li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $1,000 in credits
-          li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $1,000 in credits
-          li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
-          li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://github.com", target="_blank") Github
-            |  - 1yr silver plan ($600 value)
-          li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $400 in credits towards your first design project
-          li
-            strong: a(href="http://uber.com", target="_blank") Uber
-            |  - $400 in credits
-          li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $300 in credits,
             .with-popover
-              |  4hrs dev,
+              strong: a(href="http://transloadit.com", target="_blank") Transloadit
+              |  - <a href="https://www.amazon.com/kindle-paperwhite‎">Kindle Paperwhite</a> for each team member (up to $560 value)
               .popover-content(style="display:none")
-                |  4 hours dev time with a Modulus.io engineer
-            |  hoodies,
-            mixin modulus-beer
+                img(src="http://cl.ly/image/0I1B2C020Z0P/content", width="250")
+
           li
-            strong: a(href="http://pluralsight.com", target="_blank") PluralSight
-            |  - 1yr subscription ($299 value)
-            mixin one-per-team
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
+            |  - $10,000 in credits
+
           li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
+          li
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
+          li
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 12 months Small plan ($600 value)
+
+          li
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
+          li
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
+          li
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
+          li
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Medium package ($300 value)
+
+          li
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr print subscription ($109 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $100 in credits
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-            mixin one-per-team
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Overall winner achievement badge
-            mixin one-per-team
 
+          li
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+
+          li
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
+          li
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Team winner achievement badge
 
       #prize-solo.tab-pane
         ul.images
           mixin prize("NKO Solo Winner", "nko-solo", "#prize-list-solo")
-          mixin prize("NKO Boxing Gloves", "gloves", "#prize-list-solo")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-solo")
-
-          mixin prize-logo("Northwoods Software / GoJS", "gojs", "http://nwoods.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("GitHub", "github", "http://github.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("Uber", "uber", "http://uber.com")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
-          mixin prize-logo("PayPal", "paypal", "http://paypal.com")
+          
+          mixin prize-logo("Mongolab", "mongolab", "https://mongolab.com/")
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Pebble", "pebble", "https://www.pebble.com/")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
 
         a.anchor-link(name="prize-list-solo")
         h2
@@ -266,131 +183,100 @@ mixin twilio-book
           em
             |  / best overall score for team of 1
 
-        img(src="/images/sponsors/prizes/apple500.jpg", height="200")
         ul
-          li: strong $500 Apple Store gift card
-          li: strong Node Knockout Boxing Gloves & Trunks
           li
-            strong: a(href="http://www.nwoods.com/", target="_blank") Northwoods Software
-            |  - Playstation 4 (US) or gift cert ($500 value)
+            strong: a(href="https://mongolab.com/", target="_blank") Mongolab
+            |  - $500 gift card of your choice
+
           li
-            strong: a(href="http://paypal.com", target="_blank") PayPal
-            |  - $100 transferred to your PayPal account
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $200 gift card of your choice
+
           li
             .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - <a href="http://www.betabrand.com/mens/hoodies/golden-disco-hoodie.html" target="_blank">Golden</a>
-              | or <a href="http://www.betabrand.com/womens/tops/womens-disco-hoodie.html" target="_blank">Silver</a> Hoodie
+              strong: a(href="http://www.pebble.com", target="_blank") Pebble
+              |  - <a href="https://www.pebble.com/buy-pebble-steel-smartwatch">Pebble Steel Smartwatch</a> ($150 value)
               .popover-content(style="display:none")
-                p Warm on the inside. Warmer on the outside.
+                img(src="http://cl.ly/image/1U1o402U1Q3A/content", width="250")
+
           li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - <a target="_blank" href="http://www.amazon.com/Estes-1469-Tandem-X-Launch-Set/dp/B002VLP67S/">Estes 1469 Tandem-X Launch Set</a>
-          li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
             .with-popover
-              | (+ Hoodie)
+              strong: a(href="http://transloadit.com", target="_blank") Transloadit
+              |  - <a href="https://www.amazon.com/kindle-paperwhite‎">Kindle Paperwhite</a> ($140 value)
               .popover-content(style="display:none")
-                img(src="/images/sponsors/prizes/goinstant-hoodie.jpg", width="250", height="250")
-          li
-            strong: a(href="http://www.nwoods.com/", target="_blank") Northwoods Software
-            |  - OEM License for GoJS (HTML5) ($2,795 value)
+                img(src="http://cl.ly/image/0I1B2C020Z0P/content", width="250")
 
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $2,000 in credits
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
+            |  - $1,000 in credits
 
           li
-            strong: a(href="http://aws.amazon.com/start-ups/", target="_blank") Amazon Web Services
-            |  - $2,000 in credits
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
 
           li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
-            |  - $1,000 in credits
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $1,000 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $1,000 in credits
-          li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
-          li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
-          li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 18mo Freelancer edition ($702 value)
-          li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $300 in credits, hoodies,
-            mixin modulus-beer
-          li
-            strong: a(href="http://github.com", target="_blank") Github
-            |  - 1yr bronze plan ($300 value)
-          li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
+
           li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
           li
-            strong: a(href="http://uber.com", target="_blank") Uber
-            |  - $100 in credits
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
+
           li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $100 in credits
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
+
           li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
           li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Solo winner achievement badge
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+          
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Solo winner achievement badge
 
 
       #prize-innovation.tab-pane
         ul.images
           mixin prize("NKO Innovation Category Winner", "nko-innovation", "#prize-list-innovation")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-innovation")
-
-          mixin prize-logo("Groupon", "groupon", "http://engineering.groupon.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+          
+          mixin prize-logo("Match.com", "match", "http://www.match.com")        
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
 
         a.anchor-link(name="prize-list-innovation")
         h2
@@ -398,227 +284,174 @@ mixin twilio-book
           em
             |  / best score for category of "Innovation"
 
-        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
-
+        
         ul
-          li: strong $1,000 Apple Store gift card
           li
-            strong Node Knockout Boxing Trunks
-            mixin one-per-team
-          li
-            strong: a(href="http://engineering.groupon.com", target="_blank") Groupon
-            |  - <a href="http://leapmotion.com" target="_blank">Leap Motion</a> Controller
-            mixin one-per-team
-          li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - Week Supply of <a href="https://campaign.soylent.me/soylent-free-your-body" target="_blank">Soylent</a> ($65 value)
-              .popover-content(style="display:none")
-                p The latest innovation in food -- too bad the 0.10 edition will break old style streams.
+            strong: a(href="https://match.com/", target="_blank") Match.com
+            |  - $500 gift card of your choice
 
           li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
-            mixin one-per-team
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $100 gift card of your choice
+
           li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
             |  - $1,000 in credits
+
           li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
           li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $600 in credits
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $500 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
+
           li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies,
-            mixin modulus-beer
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
           li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 3mo Studio edition ($117 value)
-            mixin one-per-team
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
+
           li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $100 in credits
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
           li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
           li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $50 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Innovation winner achievement badge
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+          
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Innovation winner achievement badge
 
       #prize-design.tab-pane
         ul.images
           mixin prize("NKO Design Category Winner", "nko-design", "#prize-list-design")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-design")
-
-          mixin prize-logo("Trumaker", "trumaker", "http://trumaker.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
-
+          
+          mixin prize-logo("Blitline", "blitline", "http://www.blitline.com")        
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
+          
+          
         a.anchor-link(name="prize-list-design")
         h2
           | Design Winner
           em
             |  / best score for category of "Design"
 
-        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
-
+        
         ul
-          li: strong $1,000 Apple Store gift card
           li
-            strong Node Knockout Boxing Trunks
-            mixin one-per-team
+            strong: a(href="https://www.blitline.com/", target="_blank") Blitline
+            |  - $500 gift card of your choice
+
           li
-            strong: a(href="http://trumaker.com", target="_blank") Trumaker
-            |  - Made-to-measure shirts, built to your spec ($150 value)
-            mixin one-per-team
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $100 gift card of your choice
+
           li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - Etsy Gift Certificate ($75)
-              .popover-content(style="display:none")
-                h3 The Ian Storm Taylor Memorial Etsy Award
-                p Switch from <code>/etc</code> to Etsy with a $75 gift certificate for some vintage designer threads. Comes with a free consultation from <strong>ianstormtaylor</strong>, Segment.io's least fashion impaired member.
-          li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
-            mixin one-per-team
-          li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
             |  - $1,000 in credits
+
           li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
           li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $600 in credits
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $500 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
+
           li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies,
-            mixin modulus-beer
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
           li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 3mo Studio edition ($117 value)
-            mixin one-per-team
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
+
           li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $100 in credits
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
           li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
           li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $50 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Design winner achievement badge
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Design winner achievement badge
 
 
       #prize-utility-fun.tab-pane
         ul.images
 
           mixin prize("NKO Utility/Fun Category Winner", "nko-utility", "#prize-list-utility-fun")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-utility-fun")
-
-          mixin prize-logo("Pebble", "pebble", "http://getpebble.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+          
+          mixin prize-logo("Blitline", "blitline", "http://www.blitline.com")        
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
 
         a.anchor-link(name="prize-list-utility-fun")
         h2
@@ -626,113 +459,84 @@ mixin twilio-book
           em
             |  / best score for category of "Utility/Fun"
 
-        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
         ul
-          li: strong $1,000 Apple Store gift card
           li
-            strong Node Knockout Boxing Trunks
-            mixin one-per-team
-          li
-            strong: a(href="http://getpebble.com", target="_blank") Pebble
-            |  - Smartwatch
-            mixin one-per-team
+            strong: a(href="https://www.blitline.com/", target="_blank") Blitline
+            |  - $500 gift card of your choice
 
           li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - <a href="http://www.thinkgeek.com/product/f2eb/" target="_blank">Shark Laser Pointers</a>
-              mixin one-per-team
-              .popover-content(style="display:none")
-                p Where utility and fun meet.
-          li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
-            mixin one-per-team
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $100 gift card of your choice
 
           li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
-
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
             |  - $1,000 in credits
+
           li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
           li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $600 in credits
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $500 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
+
           li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies,
-            mixin modulus-beer
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
           li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 3mo Studio edition ($117 value)
-            mixin one-per-team
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
+
           li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $100 in credits
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
           li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
           li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $50 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Utility/Fun winner achievement badge
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Utility/Fun winner achievement badge
 
       #prize-completeness.tab-pane
         ul.images
           mixin prize("NKO Completeness Category Winner", "nko-completeness", "#prize-list-completeness")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-completeness")
-          mixin prize-logo("Blitline", "blitline", "http://blitline.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+          
+          mixin prize-logo("Balsamiq", "balsamiq", "https://balsamiq.com")
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
 
         a.anchor-link(name="prize-list-completeness")
         h2
@@ -740,204 +544,154 @@ mixin twilio-book
           em
             |  / best score for category of "Complete"
 
-        img(src="/images/sponsors/prizes/apple1k.jpg", height="200")
         ul
-          li: strong $1,000 Apple Store gift card
           li
-            strong Node Knockout Boxing Trunks
-            mixin one-per-team
-          li
-            .with-popover
-              strong: a(href="http://blitline.com", target="_blank") Blitline
-              |  -&nbsp;
-              a(href="http://www.amazon.com/Kindle-Paperwhite-Touch-light/dp/B007OZNZG0", target="_blank")
-                | Amazon Paperwhite Kindle (US) or gift cert ($119 value)
-              mixin one-per-team
-              .popover-content(style="display:none")
-                img(src="/images/sponsors/prizes/kindle-paperwhite.jpg", height="200")
+            strong: a(href="https://www.balsamiq.com/", target="_blank") Balsamiq
+            |  - $500 gift card of your choice
 
           li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - Swiss Army Knives
-              mixin one-per-team
-              .popover-content(style="display:none")
-                p Doing everything your iPhone can't. Whenever you need an app for 'fighting a grizzly bear', look no further.
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $100 gift card of your choice
+
           li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
-            mixin one-per-team
-          li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
             |  - $1,000 in credits
+
           li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
           li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $600 in credits
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $500 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
+
           li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies,
-            mixin modulus-beer
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
           li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 3mo Studio edition ($117 value)
-            mixin one-per-team
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
+
           li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $100 in credits
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
           li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
           li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $50 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Completeness winner achievement badge
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Completeness winner achievement badge
 
 
       #prize-popularity.tab-pane
         ul.images
           mixin prize("NKO Popularity Category Winner", "nko-popularity", "#prize-list-popularity")
-          mixin prize("NKO Boxing Trunks", "trunks", "#prize-list-popularity")
-
-          mixin prize-logo("Pivotal Labs", "pivotal", "http://pivotallabs.com")
-          mixin prize-logo("Segment.io", "segmentio", "http://segment.io")
-          mixin prize-logo("GoInstant", "goinstant", "http://goinstant.com")
-          mixin prize-logo("MapBox", "mapbox", "http://mapbox.com")
-          mixin prize-logo("KISSmetrics", "kissmetrics", "http://kissmetrics.com")
-          mixin prize-logo("Amazon AWS", "amazonaws", "http://aws.amazon.com")
-          mixin prize-logo("Digital Ocean", "digitalocean", "http://digitalocean.com")
-          mixin prize-logo("CircleCI", "circleci", "http://circleci.com")
-          mixin prize-logo("Firebase", "firebase", "http://firebase.com")
-          mixin prize-logo("Node Summit", "node-summit", "http://nodesummit.com")
-          mixin prize-logo("MongoLab", "mongolab", "http://mongolab.com")
-          mixin prize-logo("Joyent", "joyent", "http://joyent.com")
-          mixin prize-logo("Sentry", "sentry", "http://getsentry.com")
-          mixin prize-logo("Modulus", "modulus", "http://modulus.io")
-          mixin prize-logo("Dashable", "dashable", "http://dashable.com")odu
-          mixin prize-logo("MongoHQ", "mongohq", "http://mongohq.com")
-          mixin prize-logo("Scoutzie", "scoutzie", "http://scoutzie.com")
-          mixin prize-logo("POP.co", "popco", "http://pop.co")
-          mixin prize-logo("Hacker Monthly", "hackermonthly", "http://hackermonthly.com")
-          mixin prize-logo("O'Reilly Media", "oreilly", "http://oreilly.com")
-          mixin prize-logo("Twilio", "twilio", "http://twilio.com")
-          mixin prize-logo("coderwall", "coderwall", "http://coderwall.com")
+          
+          mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Blitline", "blitline", "http://www.blitline.com")        
+          mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
+          mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
+          mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
+          mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
+          mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
+          mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
+          mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
+          mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
+          mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
+          
 
         a.anchor-link(name="prize-list-popularity")
         h2
           | Popularity Winner
           em
             |  / team with the most votes
-        img(src="/images/sponsors/prizes/apple500.jpg", height="200")
+        
         ul
           li
-            strong Node Knockout Boxing Trunks
-            mixin one-per-team
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - $300 gift card of your choice
+
           li
-            strong: a(href="http://pivotallabs.com", target="_blank") Pivotal Labs
-            |  - $500 Apple Store gift card
+            strong: a(href="https://www.blitline.com/", target="_blank") Blitline
+            |  - $200 gift card of your choice
+
           li
-            .with-popover
-              strong: a(href="http://segment.io", target="_blank") Segment.io
-              |  - Miley Cyrus's new album <em>Bangerz</em>
-              mixin one-per-team
-              .popover-content(style="display:none")
-                p Learn popularity from the pros.
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
+            |  - $100 gift card of your choice
+
           li
-            strong: a(href="http://goinstant.com", target="_blank") GoInstant
-            |  - Lifetime free Developer account
-            mixin goinstant-hoodie
-            mixin one-per-team
-          li
-            strong: a(href="http://mapbox.com", target="_blank") MapBox
-            |  - 12mo Plus subscription ($1,788 value)
-          li
-            strong: a(href="http://kissmetrics.com", target="_blank") KISSmetrics
-            |  - 6mo subscription ($1,500 value)
-          li
-            strong: a(href="http://aws.amazon.com/start-ups/", target="_blank") Amazon Web Services
+            strong: a(href="http://joyent.com/", target="_blank") Joyent
             |  - $1,000 in credits
+
           li
-            strong: a(href="http://digitalocean.com", target="_blank") Digital Ocean
-            |  - $1,000 in credits
+            strong: a(href="http://modulus.io/", target="_blank") Modulus
+            |  - $100 in credits, a Modulus hoodie for each team member, Cincinnati Craft Beer
+
           li
-            strong: a(href="http://circleci.com", target="_blank") CircleCI
-            |  - 6 containers, 3mo subscription ($900 value)
+            strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
+            |  - 6 months RedisGreen Basic ($950 value)
+
           li
-            strong: a(href="http://firebase.com", target="_blank") Firebase
-            |  - 6mo Bonfire plan ($900 value)
+            strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
+            |  - 3 months subscription for GraphQL ($400 value)
+
           li
-            strong: a(href="http://nodesummit.com", target="_blank") Node Summit
-            |  - 2013 Conference Ticket, Dec 3-4 in SF ($695 value)
-            mixin one-per-team
+            strong: a(href="https://transloadit.com/", target="_blank") Transloadit
+            |  - 6 months Small Business plan ($300 value)
+
           li
-            strong: a(href="http://mongolab.com", target="_blank") MongoLab
-            |  - $600 in credits
+            strong: a(href="https://nodebb.org/", target="_blank") NodeBB
+            |  - 3 months Hamlet plan ($300 value)
+
           li
-            strong: a(href="http://joyent.com", target="_blank") Joyent
-            |  - $500 in credits
-          li
-            strong: a(href="http://getsentry.com", target="_blank") Sentry
+            strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
-          li
-            strong: a(href="http://modulus.io", target="_blank") Modulus
-            |  - $200 in credits, hoodies,
-            mixin modulus-beer
-          li
-            strong: a(href="http://dashable.com", target="_blank") Dashable
-            |  - 3mo Studio edition ($117 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://mongohq.com", target="_blank") MongoHQ
-            |  - $100 in credits
-          li
-            strong: a(href="http://scoutzie.com", target="_blank") Scoutzie
-            |  - $100 in credits towards your first design project
-          li
-            strong: a(href="http://pop.co", target="_blank") POP.co
-            |  - $50 in credits
-          li
-            strong: a(href="http://hackermonthly.com", target="_blank") Hacker Monthly
-            |  - 1yr digital subscription ($29 value)
-            mixin one-per-team
-          li
-            strong: a(href="http://oreilly.com", target="_blank") O'Reilly Media
-            |  - O'Reilly eBook of your choosing
-          li
-            mixin twilio-book
-          li
-            strong: a(href="http://coderwall.com", target="_blank") coderwall
-            |  - 2013 Popularity winner achievement badge
 
+          li
+            strong: a(href="https://frontendmasters.com/", target="_blank") Frontend Masters
+            |  - 6 months subscription ($240 value)
+          
+          li
+            strong: a(href="https://slackline.io/", target="_blank") Slackline
+            |  - 6 months Small package ($180 value)
 
+          li
+            strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
+            |  - 3 months Small plan ($150 value)
+
+          li
+            strong: a(href="https://www.convergely.com/", target="_blank") Convergely
+            |  - 6 months service ($120 value)
+
+          li
+            strong: a(href="http://www.oreilly.com/", target="_blank") O'Reilly Media
+            |  - Free ebook
+
+          //- li
+          //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
+          //-   |  - 2015 Popularity winner achievement badge
