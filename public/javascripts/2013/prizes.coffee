@@ -7,9 +7,10 @@ load = ->
     stateObj = { slug: slug };
     history.replaceState(stateObj, slug, "/prizes##{slug}");
 
-  initialState = window.location.hash
-  if initialState and initialState != "#"
-    $(".prizes-widget .nav-tabs li a[href='#{initialState}']").click()
+  if $("body").is(".index-prizes")
+    initialState = window.location.hash
+    if initialState and initialState != "#"
+      $(".prizes-widget .nav-tabs li a[href='#{initialState}']").click()
 
   $(".prizes-widget .images li a").each ->
     $(this).tooltip
