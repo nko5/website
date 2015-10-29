@@ -1,5 +1,16 @@
 load = ->
 
+  $(".prizes-widget .nav-tabs li a").click (e) ->
+    slug = $(this).attr("href")
+    slug = slug.replace("#", "") if slug
+
+    stateObj = { slug: slug };
+    history.replaceState(stateObj, slug, "/prizes##{slug}");
+
+  initialState = window.location.hash
+  if initialState and initialState != "#"
+    $(".prizes-widget .nav-tabs li a[href='#{initialState}']").click()
+
   $(".prizes-widget .images li a").each ->
     $(this).tooltip
       container: "body"
