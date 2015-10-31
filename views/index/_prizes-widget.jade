@@ -62,8 +62,13 @@ mixin twilio-book
 
 
     .tab-content
-      #prize-team.tab-pane.active
-
+      #prize-team.tab-pane.active      
+        a.anchor-link(name="prize-list-team")
+        h2
+          | Team Winner
+          em
+            |  / best overall score
+        
         ul.images
           mixin prize("NKO Team Winner", "nko-team", "#prize-list-team")
           
@@ -74,6 +79,7 @@ mixin twilio-book
           mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
           mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
           mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
           mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
           mixin prize-logo("GetSentry", "sentry", "https://getsentry.com/welcome/")
@@ -81,13 +87,7 @@ mixin twilio-book
           mixin prize-logo("JScrambler", "jscrambler", "https://www.jscrambler.com/")
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
-                    
-        a.anchor-link(name="prize-list-team")
-        h2
-          | Team Winner
-          em
-            |  / best overall score
-
+              
         ul
           li
             strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
@@ -122,6 +122,10 @@ mixin twilio-book
           li
             strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
             |  - 12 months Small plan ($600 value)
+
+          li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Silver plan ($600 value)
 
           li
             strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
@@ -162,6 +166,12 @@ mixin twilio-book
           //-   |  - 2015 Team winner achievement badge
 
       #prize-solo.tab-pane
+        a.anchor-link(name="prize-list-solo")
+        h2
+          | Solo Winner
+          em
+            |  / best overall score for team of 1
+        
         ul.images
           mixin prize("NKO Solo Winner", "nko-solo", "#prize-list-solo")
           
@@ -172,6 +182,7 @@ mixin twilio-book
           mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
           mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
           mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
           mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")
@@ -180,12 +191,6 @@ mixin twilio-book
           mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
-
-        a.anchor-link(name="prize-list-solo")
-        h2
-          | Solo Winner
-          em
-            |  / best overall score for team of 1
 
         ul
           li
@@ -221,6 +226,10 @@ mixin twilio-book
           li
             strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
             |  - 6 months RedisGreen Basic ($950 value)
+
+          li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Silver plan ($600 value)
 
           li
             strong: a(href="https://kadira.io/graphql", target="_blank") Kadira
@@ -268,6 +277,12 @@ mixin twilio-book
 
 
       #prize-innovation.tab-pane
+        a.anchor-link(name="prize-list-innovation")
+        h2
+          | Innovation Winner
+          em
+            |  / best score for category of "Innovation"
+        
         ul.images
           mixin prize("NKO Innovation Category Winner", "nko-innovation", "#prize-list-innovation")
           
@@ -279,19 +294,13 @@ mixin twilio-book
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")          
           mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
           mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
           mixin prize-logo("JScrambler", "jscrambler", "https://www.jscrambler.com/")
           mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
-
-        a.anchor-link(name="prize-list-innovation")
-        h2
-          | Innovation Winner
-          em
-            |  / best score for category of "Innovation"
-
         
         ul
           li
@@ -327,6 +336,10 @@ mixin twilio-book
             |  - 3 months Hamlet plan ($300 value)
 
           li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Bronze plan ($300 value)
+
+          li
             strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
 
@@ -358,7 +371,13 @@ mixin twilio-book
           //-   strong: a(href="http://coderwall.com", target="_blank") coderwall
           //-   |  - 2015 Innovation winner achievement badge
 
-      #prize-design.tab-pane
+      #prize-design.tab-pane          
+        a.anchor-link(name="prize-list-design")
+        h2
+          | Design Winner
+          em
+            |  / best score for category of "Design"
+
         ul.images
           mixin prize("NKO Design Category Winner", "nko-design", "#prize-list-design")
           
@@ -370,6 +389,7 @@ mixin twilio-book
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")          
           mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
           mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
           mixin prize-logo("JScrambler", "jscrambler", "https://www.jscrambler.com/")
@@ -377,14 +397,6 @@ mixin twilio-book
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
           
-          
-        a.anchor-link(name="prize-list-design")
-        h2
-          | Design Winner
-          em
-            |  / best score for category of "Design"
-
-        
         ul
           li
             strong: a(href="https://www.nodesource.com/", target="_blank") NodeSource
@@ -419,6 +431,10 @@ mixin twilio-book
             |  - 3 months Hamlet plan ($300 value)
 
           li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Bronze plan ($300 value)
+
+          li
             strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
 
@@ -451,8 +467,13 @@ mixin twilio-book
 
 
       #prize-utility-fun.tab-pane
-        ul.images
+        a.anchor-link(name="prize-list-utility-fun")
+        h2
+          | Utility/Fun Winner
+          em
+            |  / best score for category of "Utility/Fun"
 
+        ul.images
           mixin prize("NKO Utility/Fun Category Winner", "nko-utility", "#prize-list-utility-fun")
           
           mixin prize-logo("Blitline", "blitline", "http://www.blitline.com")        
@@ -463,18 +484,13 @@ mixin twilio-book
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")          
           mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
           mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
           mixin prize-logo("JScrambler", "jscrambler", "https://www.jscrambler.com/")
           mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
-
-        a.anchor-link(name="prize-list-utility-fun")
-        h2
-          | Utility/Fun Winner
-          em
-            |  / best score for category of "Utility/Fun"
 
         ul
           li
@@ -510,6 +526,10 @@ mixin twilio-book
             |  - 3 months Hamlet plan ($300 value)
 
           li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Bronze plan ($300 value)
+
+          li
             strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
 
@@ -542,6 +562,13 @@ mixin twilio-book
           //-   |  - 2015 Utility/Fun winner achievement badge
 
       #prize-completeness.tab-pane
+        
+        a.anchor-link(name="prize-list-completeness")
+        h2
+          | Completeness Winner
+          em
+            |  / best score for category of "Complete"
+        
         ul.images
           mixin prize("NKO Completeness Category Winner", "nko-completeness", "#prize-list-completeness")
           
@@ -553,18 +580,13 @@ mixin twilio-book
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")          
           mixin prize-logo("Frontend Masters", "frontendmasters", "https://frontendmasters.com/")          
           mixin prize-logo("Slackline", "slackline", "https://slackline.io/")
           mixin prize-logo("JScrambler", "jscrambler", "https://www.jscrambler.com/")
           mixin prize-logo("Honeybadger.io", "honeybadger", "https://www.honeybadger.io/")
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
-
-        a.anchor-link(name="prize-list-completeness")
-        h2
-          | Completeness Winner
-          em
-            |  / best score for category of "Complete"
 
         ul
           li
@@ -600,6 +622,10 @@ mixin twilio-book
             |  - 3 months Hamlet plan ($300 value)
 
           li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Bronze plan ($300 value)
+
+          li
             strong: a(href="https://getsentry.com/welcome/", target="_blank") GetSentry
             |  - $250 in credits
 
@@ -633,6 +659,12 @@ mixin twilio-book
 
 
       #prize-popularity.tab-pane
+        a.anchor-link(name="prize-list-popularity")
+        h2
+          | Popularity Winner
+          em
+            |  / team with the most votes
+        
         ul.images
           mixin prize("NKO Popularity Category Winner", "nko-popularity", "#prize-list-popularity")
           
@@ -642,6 +674,7 @@ mixin twilio-book
           mixin prize-logo("Joyent", "joyent", "https://www.joyent.com/")
           mixin prize-logo("Modulus", "modulus", "https://modulus.io/")
           mixin prize-logo("RedisGreen", "redisgreen", "http://www.redisgreen.net/")
+          mixin prize-logo("Github", "github", "https://www.github.com/")          
           mixin prize-logo("Kadira", "kadira", "https://kadira.io/graphql")
           mixin prize-logo("Transloadit", "transloadit", "https://transloadit.com/")
           mixin prize-logo("NodeBB", "nodebb", "https://nodebb.org/")
@@ -651,13 +684,6 @@ mixin twilio-book
           mixin prize-logo("Convergely", "convergely", "https://www.convergely.com/")
           mixin prize-logo("O’Reilly Media", "oreilly", "http://www.oreilly.com/")
           
-
-        a.anchor-link(name="prize-list-popularity")
-        h2
-          | Popularity Winner
-          em
-            |  / team with the most votes
-        
         ul
           li
             strong: a(href="https://www.honeybadger.io/", target="_blank") Honeybadger.io
@@ -682,6 +708,10 @@ mixin twilio-book
           li
             strong: a(href="http://www.redisgreen.net/", target="_blank") RedisGreen
             |  - 6 months RedisGreen Basic ($950 value)
+
+          li
+            strong: a(href="https://www.github.com/", target="_blank") Github
+            |  - 12 months Silver plan ($600 value)
 
           li
             strong: a(href="https://kadira.io/graphql", target="_blank") Kadira

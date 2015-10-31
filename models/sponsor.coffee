@@ -66,15 +66,94 @@ module.exports = [
 #     Your success with Node.js is our success. Let's [discuss](mailto:hello@thenodefirm.com) how The Node Firm can help you deliver a great product.
 #     '''
 
-# ,
-#   name: "Segment.io"
-#   url: "http://segment.io"
-#   image: 'prizes/segmentio.jpg'
-#   type: ["prize"]
-#   description:
-#     '''
+,
+  name: "Pebble"
+  url: "https://www.pebble.com/"
+  image: 'prizes/pebble.jpg'
+  type: ["prize"]
+,
+  name: "Transloadit"
+  url: "https://transloadit.com/"
+  image: 'prizes/transloadit.jpg'
+  type: ["prize"]
+,
+  name: "Blitline"
+  url: "https://www.blitline.com/"
+  image: 'prizes/blitline.jpg'
+  type: ["prize"]
+,
+  name: "Mongolab"
+  url: "https://mongolab.com/"
+  image: 'prizes/mongolab.jpg'
+  type: ["prize"]
+,
+  name: "Match.com"
+  url: "https://www.match.com/"
+  image: 'prizes/match.jpg'
+  type: ["prize"]
+,
+  name: "Balsamiq"
+  url: "https://www.balsamiq.com/"
+  image: 'prizes/balsamiq.jpg'
+  type: ["prize"]
+,
+  name: "RedisGreen"
+  url: "http://www.redisgreen.net/"
+  image: 'prizes/redisgreen.jpg'
+  type: ["prize"]
+,
+  name: "Honeybadger.io"
+  url: "https://www.honeybadger.io/"
+  image: 'prizes/honeybadger.jpg'
+  type: ["prize"]
+,
+  name: "Github"
+  url: "https://www.github.com/"
+  image: 'prizes/github.jpg'
+  type: ["prize"]
+,
+  name: "NodeBB"
+  url: "https://nodebb.org/"
+  image: 'prizes/nodebb.jpg'
+  type: ["prize"]
+,
+  name: "Slackline"
+  url: "https://slackline.io/"
+  image: 'prizes/slackline.jpg'
+  type: ["prize"]
+,
+  name: "GetSentry"
+  url: "https://getsentry.com/welcome/"
+  image: 'prizes/sentry.jpg'
+  type: ["prize"]
+,
+  name: "Frontend Masters"
+  url: "https://frontendmasters.com/"
+  image: 'prizes/frontendmasters.jpg'
+  type: ["prize"]
+,
+  name: "JScrambler"
+  url: "https://www.jscrambler.com/"
+  image: 'prizes/jscrambler.jpg'
+  type: ["prize"]
+,
+  name: "Convergely"
+  url: "https://www.convergely.com/"
+  image: 'prizes/convergely.jpg'
+  type: ["prize"]
+,
+  name: "O’Reilly Media"
+  url: "http://www.oreilly.com/"
+  image: 'prizes/oreilly.jpg'
+  type: ["prize"]
 
-#     '''
+
+# ,
+#   name: ""
+#   url: ""
+#   image: 'prizes/.jpg'
+#   type: ["prize"]
+
 
 # ,
 #   name: "Twilio"
