@@ -36,9 +36,9 @@ msgPerson = (person, callback) ->
     recipients: address
     template: template_name
     variables:
-      team: " #{currentTeam.name}"
-      team_id: " #{currentTeam.id}"
-      slug: " #{currentTeam.slug}"
+      team: "#{currentTeam.name}"
+      team_id: "#{currentTeam.id}"
+      slug: "#{currentTeam.slug}"
     , (args...) ->
       # console.log "completed sending"
       # console.log args
