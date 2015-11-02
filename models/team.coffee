@@ -113,9 +113,11 @@ TeamSchema.index 'entry.url': 1
 
 # class methods
 TeamSchema.static 'findBySlug', (slug, rest...) ->
+  slug = slug.trim() if slug
   Team.findOne { slug: slug }, rest...
 
 TeamSchema.static 'findByCode', (code, rest...) ->
+  code = code.trim() if code
   Team.findOne { code: code }, rest...
 
 TeamSchema.static 'canRegister', (regCode, next) ->
