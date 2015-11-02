@@ -46,7 +46,7 @@ block body
             td Registration closes
           tr: td( colspan=3 ): .details
             :markdown
-              ### GET READY&hellip; NKO4 starts soon
+              ### GET READY&hellip; NKO5 starts soon
 
               Here are some things to think about before the competition begins:
 
@@ -55,7 +55,7 @@ block body
               [free services] provided by sponsors.
               3. **How are you going to win?** See the [rules] and [scoring page].
 
-              **Keep an eye out.** We'll set up [GitHub repos] and [Nodejitsu]
+              **Keep an eye out.** We'll set up [GitHub repos] and [Modulus]
               accounts for teams soon.
 
               [locations page]: /locations
@@ -63,8 +63,8 @@ block body
               [free services]: /resources#services
               [rules]: /rules
               [scoring page]: /scoring
-              [GitHub repos]: https://github.com/nko4
-              [Nodejitsu]: http://nodejitsu.com/
+              [GitHub repos]: https://github.com/nko5
+              [Modulus]: http://www.modulus.io/
 
         tbody
           tr.header
@@ -75,19 +75,19 @@ block body
             if coding
               if req.team
                 :markdown
-                  NKO4 is underway! Here&rsquo;s how to get started:
+                  NKO5 is underway! Here&rsquo;s how to get started:
                   ```sh
-                  $ git clone git@github.com:nko4/#{team}.git
+                  $ git clone git@github.com:nko5/#{team}.git
                   $ cd #{team}/
                   $ npm install -g jitsu
-                  $ jitsu login --username nko4-#{team} --password #{team.code}
+                  $ jitsu login --username nko5-#{team} --password #{team.code}
                   $ jitsu deploy
                   ```
 
                   Visit [your team page](/teams/mine) for more.
               else
                 :markdown
-                  NKO4 is underway! GO GO GO!
+                  NKO5 is underway! GO GO GO!
 
                   Visit [your team page](/teams/mine) for deploy instructions.
             else

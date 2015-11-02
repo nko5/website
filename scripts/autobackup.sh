@@ -1,4 +1,4 @@
-DB="nko4"
+DB="nko5"
 FROM_DB="--host URL:PORT -d $DB -u USER -p PASSWORD"
 DATENOW=$(date +"%b-%d-%y--%H")
 BACKUPPATH="/home/ubuntu/backupnko/back${DATENOW}"

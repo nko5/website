@@ -79,7 +79,7 @@ module.exports = resetTeam = (team, next) ->
     console.log team.slug, 'deleting github repo...'
 
     return next() unless team.slug
-    github.del "repos/nko4/#{team.slug}", (err, res, body) ->
+    github.del "repos/nko5/#{team.slug}", (err, res, body) ->
       return next(err) if err?
       return next(res.body ? res.statusCode) unless (res.statusCode is 204) or (res.statusCode is 404)
       # console.log(body)

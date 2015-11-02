@@ -74,10 +74,10 @@ module.exports = setupSSHKeys = (options, next) ->
 
     opts.stdio ?= 'inherit'
 
-    id_nko4 = path.join(rootDir, 'id_nko4')
+    id_nko5 = path.join(rootDir, 'id_nko5')
     login = "root@#{team.ip}"
 
-    ssh = spawn "ssh", ['-i', id_nko4, login, cmd], opts
+    ssh = spawn "ssh", ['-i', id_nko5, login, cmd], opts
     ssh.on 'error', (err) -> next(err)
     ssh.on 'exit', (err) -> next(err)
     ssh

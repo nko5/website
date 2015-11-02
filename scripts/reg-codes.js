@@ -1,4 +1,4 @@
-// Usage: mongo nko4_development scripts/reg-codes.js
+// Usage: mongo nko5_development scripts/reg-codes.js
 var codes = {
   'JSWEEKLY': 25,
 };

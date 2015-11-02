@@ -17,21 +17,21 @@ cat <<EOF >README.md
 
 ~~~sh
 # getting the code
-git clone git@github.com:nko4/${slug}.git && cd ./${slug}/
+git clone git@github.com:nko5/${slug}.git && cd ./${slug}/
 
 # developing
 npm install
 npm start
 
-# deploying (to http://${slug}.2013.nodeknockout.com/)
+# deploying (to http://${slug}.2015.nodeknockout.com/)
 ./deploy nko
 
 # ssh access
-ssh deploy@${slug}.2013.nodeknockout.com
-ssh root@${slug}.2013.nodeknockout.com
+ssh deploy@${slug}.2015.nodeknockout.com
+ssh root@${slug}.2015.nodeknockout.com
 # or, if you get prompted for a password
-ssh -i ./id_deploy deploy@${slug}.2013.nodeknockout.com
-ssh -i ./id_deploy root@${slug}.2013.nodeknockout.com
+ssh -i ./id_deploy deploy@${slug}.2015.nodeknockout.com
+ssh -i ./id_deploy root@${slug}.2015.nodeknockout.com
 ~~~
 
 Read more about this setup [on our blog][deploying-nko].
@@ -91,7 +91,7 @@ EOF
 
 cat <<EOF >package.json
 {
-  "name": "nko4-${slug}",
+  "name": "nko5-${slug}",
   "version": "0.0.0",
   "description": "${name}",
   "main": "server.js",
@@ -100,7 +100,7 @@ cat <<EOF >package.json
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nko4/${slug}.git"
+    "url": "git@github.com:nko5/${slug}.git"
   },
   "dependencies": {
     "nko": "*"
@@ -112,7 +112,7 @@ cat <<EOF >package.json
 EOF
 
 cat <<EOF >server.js
-// https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
+// https://github.com/nko5/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('${code}');
 
 var isProduction = (process.env.NODE_ENV === 'production');
@@ -146,8 +146,8 @@ cat <<EOF >deploy.conf
 key ./id_deploy
 forward-agent yes
 user deploy
-host ${slug}.2013.nodeknockout.com
-repo git@github.com:nko4/${slug}.git
+host ${slug}.2015.nodeknockout.com
+repo git@github.com:nko5/${slug}.git
 ref origin/master
 path /home/deploy
 post-deploy npm install && sv restart serverjs
@@ -156,7 +156,7 @@ EOF
 
 git add .
 git commit -m Initial
-git remote add origin git@github.com:nko4/${slug}.git
+git remote add origin git@github.com:nko5/${slug}.git
 
 cat <<'EOF' >gitssh.sh
 #!/bin/sh

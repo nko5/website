@@ -17,7 +17,7 @@ module.exports = setupGitHub = (options, next) ->
   async.waterfall [
     (next) ->                 # create repo
       console.log team.slug, 'create repo'
-      github.post 'orgs/nko4/repos',
+      github.post 'orgs/nko5/repos',
         name: team.slug
         homepage: "http://2013.nodeknockout.com/teams/#{team}"
         private: true
@@ -26,7 +26,7 @@ module.exports = setupGitHub = (options, next) ->
       return next(Error(JSON.stringify(body))) unless body.id
 
       console.log team.slug, 'create hook'
-      github.post "repos/nko4/#{team.slug}/hooks",
+      github.post "repos/nko5/#{team.slug}/hooks",
         name: 'web'
         active: true
         config:
@@ -37,9 +37,9 @@ module.exports = setupGitHub = (options, next) ->
       return next(Error(JSON.stringify(body))) unless body.id
 
       console.log team.slug, 'create team'
-      github.post 'orgs/nko4/teams',
+      github.post 'orgs/nko5/teams',
         name: team.name
-        repo_names: [ "nko4/#{team.slug}" ]
+        repo_names: [ "nko5/#{team.slug}" ]
         permission: 'admin'
       , next
     (res, body, next) ->      # save team

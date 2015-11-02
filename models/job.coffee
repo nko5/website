@@ -228,16 +228,6 @@ module.exports = [
 #     '''
 
 # ,
-#   slug: "vevo"
-#   # image: 'prizes/vevo.jpg'
-#   description:
-#     '''
-#     **[Vevo](http://vevo.com)** values innovative, self-driven, fast moving individuals with a passion for music and music videos.  They foster a collaborative environment where you have a say in what gets built.
-
-#     - [Software Developer - HTML Platforms (Web and TV)](https://github.com/nko4/website/blob/master/designs/jobs/2013/vevo.md) – San Francisco
-#     '''
-
-# ,
 #   slug: "b2msolutions"
 #   # image: 'prizes/b2msolutions.jpg'
 #   description:

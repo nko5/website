@@ -40,7 +40,7 @@ module.exports = setupDeployKey = (options, next) ->
 
   addDeployKeyToGithub = (next) ->
     console.log team.slug, 'add deploy key to github'
-    github.post "repos/nko4/#{team.slug}/keys",
+    github.post "repos/nko5/#{team.slug}/keys",
       title: "deploy@#{team.slug}.2013.nodeknockout.com"
       key: team.deployKey.public
     , (err, res, body) ->
@@ -65,7 +65,7 @@ module.exports = setupDeployKey = (options, next) ->
     team.save (err) -> next(err)
 
   execssh = (cmd, next) ->
-    id_nko4 = path.join(rootDir, 'id_nko4')
-    exec "ssh -i #{id_nko4} root@#{team.ip} #{cmd}", cwd: __dirname, next
+    id_nko5 = path.join(rootDir, 'id_nko5')
+    exec "ssh -i #{id_nko5} root@#{team.ip} #{cmd}", cwd: __dirname, next
 
   async.waterfall [ createDeployKey, getDeployPublicKey, getDeployPrivateKey, addDeployKeyToGithub, addDeployKeyToRepo, saveDeployKeypair ], (err) -> next(err)

@@ -24,9 +24,9 @@ module.exports = setupDeployKeyFixes = (options, next) ->
     """.split("\n").join(' && ')
 
     login = "root@#{team.ip}"
-    id_nko4 = path.join(rootDir, 'id_nko4')
+    id_nko5 = path.join(rootDir, 'id_nko5')
 
-    ssh = spawn 'ssh', ['-i', id_nko4, login, cmd], stdio: 'inherit'
+    ssh = spawn 'ssh', ['-i', id_nko5, login, cmd], stdio: 'inherit'
 
     ssh.on 'error', (err) -> next(err)
     ssh.on 'exit', (err) -> next(err)

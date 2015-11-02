@@ -25,10 +25,10 @@ module.exports = setupUbuntu = (options, next) ->
     spawnssh "bash setup-ubuntu.sh #{team.slug}.2013.nodeknockout.com", next
 
   spawnssh = (cmd, next)->
-    id_nko4 = path.join(rootDir, 'id_nko4')
+    id_nko5 = path.join(rootDir, 'id_nko5')
     login = "root@#{team.ip}"
 
-    ssh = spawn "ssh", ['-i', id_nko4, login, cmd],
+    ssh = spawn "ssh", ['-i', id_nko5, login, cmd],
       stdio: ['pipe', process.stdout, process.stderr]
     ssh.on 'error', (err) -> next(err)
     ssh.on 'exit', (err) -> next(err)

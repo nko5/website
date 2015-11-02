@@ -64,7 +64,7 @@ module.exports = setupJoyent = (options, next) ->
       ssh = spawn 'ssh', [
         '-o', 'StrictHostKeyChecking=no',
         '-o', 'BatchMode=yes',
-        '-i', './id_nko4',
+        '-i', './id_nko5',
         "root@#{team.ip}",
         "exit"],
         cwd: rootDir,

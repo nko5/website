@@ -14,5 +14,5 @@ restore.sh
 scripts/tmp/*
 .vagrant
 /repos
-/id_nko4*
+/id_nko5*
 config/modulus

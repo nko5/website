@@ -11,7 +11,7 @@ We have already configured each of these instances for easy deployment. **If
 you're lazy, or not interested in devops, all you need to know is:**
 
     # get the code
-    git clone git@github.com:nko4/<team>.git && cd ./<team>/
+    git clone git@github.com:nko5/<team>.git && cd ./<team>/
 
     # deploy it to http://<team>.2015.nodeknockout.com/
     ./deploy nko
@@ -22,7 +22,7 @@ interesting if you want to customize things.
 
 <h2 id="ubuntu-setup">How we setup Ubuntu for NKO</h2>
 
-All the Ubuntu configuration happens in [the setup-ubuntu.sh script](https://github.com/nko4/website/blob/master/scripts/setup/setup-ubuntu.sh).
+All the Ubuntu configuration happens in [the setup-ubuntu.sh script](https://github.com/nko5/website/blob/master/scripts/setup/setup-ubuntu.sh).
 
 ### Setting the hostname
 
@@ -70,11 +70,11 @@ script to `/etc/profile.d/` to ensure that is the case.
     touch ~/.ssh/authorized_keys ~/.ssh/known_hosts
     chmod 600 ~/.ssh/authorized_keys ~/.ssh/known_hosts
 
-    # Authorizing the nko4 public key for ssh access...
+    # Authorizing the nko5 public key for ssh access...
     cat <<EOS > ~/.ssh/authorized_keys
     #### BEGIN NKO ORGANIZERS KEY
     # DO NOT REMOVE - this allows us to audit teams for cheating
-    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu793tQ+5RP8uo9X0WRZituBPZwRgMLxyZf+4MlM2BXxizjSlUtP/gTOHTqkzlimR1r3QOTfJN9dzs6DJZsI9T6gxJB2icjYgmYn5/4lwbry0vgoWNXwqrDkWuuSy/zaQYbbZhF3wGnqwsjR3U96XYNB6hz/ugMDkFF3BLcXvqSj0oY7FN6vdWt7tQ9y4kjkFfWJNXewshxJs8DNXqbolGqo+jvXrbq+Uj2faPKUO9rijZzmaNdKW7CX3PQl0JFWFqefKhQlyCQMoBZ47zcU79jfhYrCfd7+DIDPYAxERotGn8T+qKZbmbWPXFJ5xnFfmI6AYpBtMFeWnGol5B/CNJw== nko4
+    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu793tQ+5RP8uo9X0WRZituBPZwRgMLxyZf+4MlM2BXxizjSlUtP/gTOHTqkzlimR1r3QOTfJN9dzs6DJZsI9T6gxJB2icjYgmYn5/4lwbry0vgoWNXwqrDkWuuSy/zaQYbbZhF3wGnqwsjR3U96XYNB6hz/ugMDkFF3BLcXvqSj0oY7FN6vdWt7tQ9y4kjkFfWJNXewshxJs8DNXqbolGqo+jvXrbq+Uj2faPKUO9rijZzmaNdKW7CX3PQl0JFWFqefKhQlyCQMoBZ47zcU79jfhYrCfd7+DIDPYAxERotGn8T+qKZbmbWPXFJ5xnFfmI6AYpBtMFeWnGol5B/CNJw== nko5
     #### END NKO ORGANIZERS KEY
     EOS
 
@@ -232,7 +232,7 @@ Here's what the `deploy.conf` looks like:
     forward-agent yes
     user deploy
     host $ip
-    repo git@github.com:nko4/${team}.git
+    repo git@github.com:nko5/${team}.git
     ref origin/master
     path /home/deploy
     post-deploy npm install && sv restart serverjs
@@ -254,7 +254,7 @@ above.
 
 `host $ip` tells the script what ip address to connect to.
 
-`repo git@github.com:nko4/${team}.git` tells the script to deploy code from
+`repo git@github.com:nko5/${team}.git` tells the script to deploy code from
 your team's github repo.
 
 `ref origin/master` tells the script to deploy the code from master. If you
@@ -276,7 +276,7 @@ Node Knockout best practices. Here's a quick summary.
 
 ### NKO module
 
-    // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
+    // https://github.com/nko5/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
     require('nko')('${code}');
 
 The first lines of the server add the nko module, which pings the nko website
