@@ -76,7 +76,7 @@ app.configure(function() {
   app.use(flash());
 
   rollbar.init(secrets.rollbar);
-  rollbar.reportMessage('Starting nko4');
+  rollbar.reportMessage('Starting nko5');
   rollbar.shutdown();
   app.use(rollbar.errorHandler(secrets.rollbar));
 });
