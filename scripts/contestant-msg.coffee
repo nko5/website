@@ -6,6 +6,8 @@ postageapp = require('postageapp')(env.secrets.postageapp)
 _ = require('underscore')
 async = require('async')
 
+template_name = "contestant_member_nag"
+
 Team = mongoose.model 'Team'
 Person = mongoose.model 'Person'
 
@@ -16,7 +18,7 @@ msgTeam = (team, callback) ->
   currentTeam.people (err, people) ->
     return callback(err) if err
     emailable = (person for person in people when /@/.test(person.email))
-    util.log "Sending 'final_thank_you' to '#{team.name}'".yellow
+    util.log "Sending '#{template_name}' to '#{team.name}'".yellow
     async.forEach emailable, msgPerson, callback
 
 msgPerson = (person, callback) ->
@@ -32,9 +34,10 @@ msgPerson = (person, callback) ->
 
   postageapp.sendMessage
     recipients: address
-    template: 'final_thank_you'
+    template: template_name
     variables:
       team: " #{currentTeam.name}"
+      team_id: " #{currentTeam.id}"
       slug: " #{currentTeam.slug}"
     , (args...) ->
       # console.log "completed sending"
