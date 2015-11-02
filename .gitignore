@@ -3,6 +3,7 @@
 .monitor
 node_modules
 tmp/*
+dump/*
 config/secrets.coffee
 config/secrets.js
 .npm-debug.log

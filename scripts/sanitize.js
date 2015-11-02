@@ -1,6 +1,9 @@
+// Usage: mongo nko5_development scripts/sanitize.js
 db.people.find({ email: { $nin: [
       /^visnupx?@gmail.com$/,
       'gerads@gmail.com',
+      'jcnetdev@gmail.com',
+      'sakinac@gmail.com',
       /@fortnightlabs\.com$/,
       /\.nodeknockout.com$/] }}).forEach(function(doc) {
 
