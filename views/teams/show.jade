@@ -30,6 +30,7 @@ block body
               span.locations
                 span.sep  /&nbsp;
                 = locations(people)
+          
           if coding || team.stats.pushes || team.stats.deploys
             ul.team-stats( data-team-id=team.id )
               li.commits
@@ -44,19 +45,27 @@ block body
 
 
 
-
-
-        .team-content
+        .team-content          
           - if ((coding || postCoding || voting) && req.user && team.includes(user))
             .content-section
               include steps
 
-          //- .content-section
-          //-   != markdown(team.description, { sanitize: true })
+          .content-section
+            != markdown(team.description, { sanitize: true })
 
           - if (team.entry.name)
             .content-section
               include team-info
+          
+          //- TODO: show team members
+          h2 Team Members (#{people.length})
+          ul.members
+            - each m in people
+              li
+                a.user-name(href="/people/#{m.id}")
+                  img.avatar( src=avatar_url(m))
+                  span.user-name
+                    = m.login
 
           - if (team.invites.length)
             h2 Invites (#{team.invites.length} pending)
