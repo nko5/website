@@ -66,6 +66,8 @@ module.exports = [
 #     Your success with Node.js is our success. Let's [discuss](mailto:hello@thenodefirm.com) how The Node Firm can help you deliver a great product.
 #     '''
 
+
+# PRIZE SPONSORS
 ,
   name: "Pebble"
   url: "https://www.pebble.com/"
@@ -159,16 +161,76 @@ module.exports = [
 #   image: 'prizes/.jpg'
 #   type: ["prize"]
 
+# SERVICE SPONSORS
 
-# ,
-#   name: "Twilio"
-#   url: "http://twilio.com"
-#   image: 'prizes/twilio.jpg'
-#   type: ["prize", "service"]
-#   description:
-#     '''
+,
+  name: "Compose"
+  url: "http://compose.io"
+  image: 'prizes/compose.jpg'
+  type: ["service"]
+  description:
+    '''
 
-#     '''
+    '''
+
+,
+  name: "RedisGreen"
+  url: "http://redisgreen.net"
+  image: 'prizes/redisgreen.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
+
+,
+  name: "Sentry"
+  url: "http://getsentry.com"
+  image: 'prizes/sentry.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
+,
+  name: "Balsamiq"
+  url: "https://www.balsamiq.com/"
+  image: 'prizes/balsamiq.jpg'
+  type: ["service"]
+
+,
+  name: "Transloadit"
+  url: "https://transloadit.com/"
+  image: 'prizes/transloadit.jpg'
+  type: ["service"]
+
+,
+  name: "Rollbar"
+  url: "https://www.rollbar.com/"
+  image: 'prizes/rollbar.jpg'
+  type: ["service"]
+
+,
+  name: "Convergely"
+  url: "https://www.convergely.com/"
+  image: 'prizes/convergely.jpg'
+  type: ["service"]
+
+,
+  name: "JScrambler"
+  url: "https://www.jscrambler.com/?utm_source=nko2015"
+  image: 'prizes/jscrambler.jpg'
+  type: ["service"]
+
+,
+  name: "Auth0"
+  url: "http://auth0.com"
+  image: 'services/auth0.jpg'
+  type: ["service"]
+  description:
+    '''
+
+    '''
 
 # ,
 #   name: "Node Summit"
