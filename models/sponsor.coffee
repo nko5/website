@@ -122,6 +122,11 @@ module.exports = [
   image: 'prizes/slackline.jpg'
   type: ["prize"]
 ,
+  name: "Rollbar"
+  url: "https://www.rollbar.com/"
+  image: 'prizes/rollbar.jpg'
+  type: ["prize"]
+,
   name: "GetSentry"
   url: "https://getsentry.com/welcome/"
   image: 'prizes/sentry.jpg'
