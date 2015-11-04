@@ -5,7 +5,7 @@ Person = app.db.model 'Person'
 
 # index
 app.get '/judges', (req, res, next) ->
-  if app.enabled('pre-registration') or app.enabled('registration') or app.enabled('pre-coding')
+  if app.enabled('pre-registration') or app.enabled('registration') or app.enabled('pre-coding') and !req.user?.admin
     res.redirect("/judges/new")
   else
     Person.find { role: 'judge' }, (err, judges) ->
