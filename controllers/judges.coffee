@@ -43,7 +43,10 @@ app.get '/judges/dashboard', [m.loadPerson, m.loadPersonTeam, m.loadPersonVotes,
 app.get '/judges/nominations', (req, res, next) ->
   Person.find { role: 'nomination' }, {}, {sort: [['updatedAt', -1]]}, (err, judges) ->
     return next err if err
-    res.render2 'judges', judges: judges
+    res.render2 'judges', {
+      judges: judges
+      judgesGrouped: _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/4)).value()
+    }
 
 app.get '/judges/technical', (req, res, next) ->
   Person.find { role: 'judge', technical: true }, (err, judges) ->
