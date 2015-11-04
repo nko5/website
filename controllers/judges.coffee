@@ -72,6 +72,12 @@ app.post '/judges', (req, res) ->
     req.body.role = 'nomination'
 
   judge = new Person req.body
+
+  # HACK: crash for spam (they post "New York" and garbage for company)
+  unless req.user?.admin
+    if judge.location == "New York" and !!judge.company
+      throw "Oops, something went wrong. Please email us at all@nodeknockout.com to become a judge!"
+
   judge.save (err) ->
     if err
       res.render2 'judges/new', person: judge
