@@ -22,7 +22,7 @@ module.exports = setupUbuntu = (options, next) ->
 
   runSetupScript = (next) ->
     console.log team.slug, 'running setup script'
-    spawnssh "bash setup-ubuntu.sh #{team.slug}.2013.nodeknockout.com", next
+    spawnssh "bash setup-ubuntu.sh #{team.slug}.2015.nodeknockout.com", next
 
   spawnssh = (cmd, next)->
     id_nko5 = path.join(rootDir, 'id_nko5')

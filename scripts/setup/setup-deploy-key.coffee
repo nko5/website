@@ -41,7 +41,7 @@ module.exports = setupDeployKey = (options, next) ->
   addDeployKeyToGithub = (next) ->
     console.log team.slug, 'add deploy key to github'
     github.post "repos/nko5/#{team.slug}/keys",
-      title: "deploy@#{team.slug}.2013.nodeknockout.com"
+      title: "deploy@#{team.slug}.2015.nodeknockout.com"
       key: team.deployKey.public
     , (err, res, body) ->
       return next(err) if err

@@ -1,4 +1,4 @@
-# creates an A record on linode that points #{slug}.2013.nodeknockout.com to
+# creates an A record on linode that points #{slug}.2015.nodeknockout.com to
 # the team's ip address
 
 linode = require('../../config/linode')
@@ -13,7 +13,7 @@ module.exports = setupDNS = (options, next) ->
   console.log team.slug, 'creating dns entry'
   linode 'resource.create',
     type: "A"
-    name: "#{team}.2013.nodeknockout.com"
+    name: "#{team}.2015.nodeknockout.com"
     target: team.ip
   , (err, res) ->
     return next(err) if err?

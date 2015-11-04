@@ -9,7 +9,7 @@ setupTeam = (team, next) ->
   team.setup.done ?= {}
 
   async.series [
-    (next) -> setup(team, 'joyent', next)
+    # (next) -> setup(team, 'joyent', next)
     (next) -> setup(team, 'dns', next)
     (next) -> setup(team, 'ubuntu', next)
     (next) -> setup(team, 'github', next)

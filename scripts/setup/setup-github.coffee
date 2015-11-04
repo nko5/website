@@ -19,7 +19,7 @@ module.exports = setupGitHub = (options, next) ->
       console.log team.slug, 'create repo'
       github.post 'orgs/nko5/repos',
         name: team.slug
-        homepage: "http://2013.nodeknockout.com/teams/#{team}"
+        homepage: "http://www.nodeknockout.com/teams/#{team}"
         private: true
       , next
     (res, body, next) ->      # create push hook
