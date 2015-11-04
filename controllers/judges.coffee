@@ -51,7 +51,11 @@ app.get '/judges/nominations', (req, res, next) ->
 app.get '/judges/technical', (req, res, next) ->
   Person.find { role: 'judge', technical: true }, (err, judges) ->
     return next err if err
-    res.render2 'judges', judges: _.shuffle(judges), subset: 'Technical'
+    res.render2 'judges', {
+      judges: _.shuffle(judges),
+      subset: 'Technical',
+      judgesGrouped: _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/4)).value()
+    }
 
 # new
 app.get '/judges/new', (req, res, next) ->
