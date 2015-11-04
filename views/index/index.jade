@@ -14,20 +14,22 @@ block body
           if preCoding
             .countdown(style="display:none")
               .with-popover
-                a(href="http://www.wolframalpha.com/input/?i=November+6th%2C+2015+00%3A00+UTC", target="_blank")
+                a(href="http://www.wolframalpha.com/input/?i=November+7th%2C+2015+00%3A00+UTC", target="_blank")
                   span.label.label-primary NodeKnockout starts in
                 .popover-content(style="display:none")
                   | The competition starts at exactly 00:00UTC on Nov 7th, 2015 and goes for 48hrs. Click to see what time it starts in your local time zone.
 
               .timer(data-from="Nov 7, 2015 00:00")
-
+              
+              p Still want to compete? We're accepting late registrations this year. <a href="mailto:all@nodeknockout.com?subject=i want to compete in nko2015">Email us</a>.
+              
             if req.myTeam
               .button-boxes.row
-                .col-lg-3.col-md-3.col-sm-6.col-xs-6
-                  .button-box
-                    a.btn.btn-primary.btn-block(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
-                      i.icon-upload-cloud
-                      | Deploying
+                //- .col-lg-3.col-md-3.col-sm-6.col-xs-6
+                //-   .button-box
+                //-     a.btn.btn-primary.btn-block(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
+                //-       i.icon-upload-cloud
+                //-       | Deploying
                 .col-lg-3.col-md-3.col-sm-6.col-xs-6
                   .button-box
                     a.btn.btn-primary.btn-block(href="/teams/mine")
