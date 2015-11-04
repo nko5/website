@@ -45,7 +45,7 @@ app.get '/judges/nominations', (req, res, next) ->
     return next err if err
     res.render2 'judges', {
       judges: judges
-      judgesGrouped: _.chain(judges).shuffle().groupBy((a,b) -> Math.floor(b/4)).value()
+      judgesGrouped: _.chain(judges).groupBy((a,b) -> Math.floor(b/4)).value()
     }
 
 app.get '/judges/technical', (req, res, next) ->
