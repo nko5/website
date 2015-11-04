@@ -20,8 +20,9 @@ block body
                   | The competition starts at exactly 00:00UTC on Nov 7th, 2015 and goes for 48hrs. Click to see what time it starts in your local time zone.
 
               .timer(data-from="Nov 7, 2015 00:00")
-              
-              p Still want to compete? We're accepting late registrations this year. <a href="mailto:all@nodeknockout.com?subject=i want to compete in nko2015">Email us</a>.
+                
+              unless req.myTeam
+                p Still want to compete? We're accepting late registrations this year. <a href="mailto:all@nodeknockout.com?subject=i want to compete in nko2015">Email us</a>.
               
             if req.myTeam
               .button-boxes.row
