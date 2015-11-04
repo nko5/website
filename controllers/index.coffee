@@ -146,3 +146,6 @@ app.get '/resources', (req, res, next) ->
   Service.asObject (error, services) ->
     next error if error
     res.render2 'index/resources', services: services
+
+app.get '/deploying', (req, res, next) ->
+  res.render2 'index/deploying'
