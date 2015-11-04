@@ -27,7 +27,9 @@ include ../errors
     .company.tabular
       label( for='company' ) Company
       input.form-control( type='text', name='company', id='company', value=person.company )
-    
+  
+    input( type='hidden', name='imageURL', id='image', value=person.imageURL )
+
     .byline.tabular
       .bio.tabular
         label( for='bio' ) Bio

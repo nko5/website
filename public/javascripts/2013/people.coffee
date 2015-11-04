@@ -7,7 +7,7 @@ $(document).on('blur', 'form.person .email input', ->
   $this = $ this
   return unless val = $this.val()
 
-  $img = $this.closest('form').find('.image_url')
+  $img = $this.closest('form').find('#image')
   return if $img.find('input').val()
 
   email = $.trim(val.toLowerCase())
@@ -20,7 +20,7 @@ $(document).on('blur', 'form.person .twitter input', ->
   return $this.next('.spinner').hide() unless $this.val()
 
   $this.next('.spinner').show()
-  
+
   $.getJSON '/twitter/' + encodeURI($.trim($this.val())),
     # username: ,
     (data) ->
@@ -28,11 +28,9 @@ $(document).on('blur', 'form.person .twitter input', ->
       $form.find('.location :text').val (i, v) -> v or data.location
       $form.find('.bio textarea').text (i, t) -> t or data.description
 
-      unless $form.find('.image_url input').val()
+      unless $form.find('#image').val()
         image_url = data.profile_image_url.replace '_normal.', '.'
-        $form.find('.image_url')
-          .find('img.avatar').attr('src', image_url).end()
-          .find('input').val image_url
+        $form.find('#image').val image_url
 
       $this.next('.spinner').hide()
 ).blur()
