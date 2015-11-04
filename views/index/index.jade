@@ -21,7 +21,9 @@ block body
 
               .timer(data-from="Nov 7, 2015 00:00")
                 
-              unless req.myTeam
+              if req.myTeam
+                p You are registered to compete. Get psyched!
+              else
                 p Still want to compete? We're accepting late registrations this year. <a href="mailto:all@nodeknockout.com?subject=i want to compete in nko2015">Email us</a>.
               
             if req.myTeam
