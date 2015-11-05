@@ -69,7 +69,7 @@ block body
 
             ## Configure Environment variables
 
-            **- Create an Environment variable**
+            **Create an Environment variable**
 
                 $ modulus env set CUSTOM_VAR_C custom_value_3
                 Setting CUSTOM_VAR_C for project ExampleProject
@@ -77,7 +77,7 @@ block body
                 
             Your project environment variable will be accessible via `process.env.CUSTOM_VAR_C`.
                 
-            **- List Current Variables**
+            **List Current Variables**
 
                 $ modulus env list
                 Project ExampleProject Environment Variables
@@ -85,15 +85,19 @@ block body
                 CUSTOM_VAR_A = custom_value
                 CUSTOM_VAR_B = custom_value_2
 
-            **- Delete an Environment variable**
+            **Delete an Environment variable**
 
                 modulus env delete CUSTOM_VAR_C            
 
             Learn more about [Environment variables](http://help.modulus.io/customer/en_us/portal/articles/1701180-using-environments-variables).
 
             ## Your MongoDB Database
-                      
-            We'll create a ENV variable for `MONGO_URI`. You can use this with your MongoDB client.
+                        
+            You can add a MongoDB to your project with a simple command:
+            
+                $ modulus addons add mongo:base
+            
+            This will create an ENV variable called `MONGO_URL`. You can use this with any node.js MongoDB client.
 
                 var MongoClient = require('mongodb').MongoClient;
 
