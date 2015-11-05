@@ -36,7 +36,7 @@ ssh -i ./id_deploy root@${slug}.2015.nodeknockout.com
 
 Read more about this setup [on our blog][deploying-nko].
 
-[deploying-nko]: http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup
+[deploying-nko]: http://www.nodeknockout.com/deploying
 
 ## Tips
 
@@ -138,20 +138,6 @@ http.createServer(function (req, res) {
 
   console.log('Server running at http://0.0.0.0:' + port + '/');
 });
-EOF
-
-cat <<EOF >deploy.conf
-# https://github.com/visionmedia/deploy
-[nko]
-key ./id_deploy
-forward-agent yes
-user deploy
-host ${slug}.2015.nodeknockout.com
-repo git@github.com:nko5/${slug}.git
-ref origin/master
-path /home/deploy
-post-deploy npm install && sv restart serverjs
-test sleep 5 && wget -qO /dev/null localhost
 EOF
 
 git add .

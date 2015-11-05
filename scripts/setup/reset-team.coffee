@@ -123,7 +123,17 @@ module.exports = resetTeam = (team, next) ->
     team.setup.done = null
     team.save (err) -> next(err)
 
-  async.waterfall [removeKnownHost, removeJoyent, waitUntilJoyentRemoved, removeDNS, removeGithubRepo, removeGithubTeam, removeDeployKeys, removeRepo, removeSetup], (err) -> next(err)
+  async.waterfall([
+    # removeKnownHost,
+    # removeJoyent,
+    # waitUntilJoyentRemoved,
+    # removeDNS,
+    removeGithubRepo,
+    removeGithubTeam,
+    # removeDeployKeys,
+    removeRepo,
+    removeSetup,
+  ], (err) -> next(err))
 
 if require.main is module
   slug = process.argv[2]

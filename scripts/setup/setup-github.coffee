@@ -30,7 +30,7 @@ module.exports = setupGitHub = (options, next) ->
         name: 'web'
         active: true
         config:
-          url: "http://nodeknockout.com/teams/#{team.code}/commits"
+          url: "http://www.nodeknockout.com/teams/#{team.code}/commits"
           content_type: 'json'
       , next
     (res, body, next) ->      # create team

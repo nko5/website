@@ -10,15 +10,14 @@ setupTeam = (team, next) ->
 
   async.series [
     # (next) -> setup(team, 'joyent', next)
-    (next) -> setup(team, 'dns', next)
-    (next) -> setup(team, 'ubuntu', next)
+    # (next) -> setup(team, 'dns', next)
     (next) -> setup(team, 'github', next)
-    (next) -> setup(team, 'deploy-key', next)
-    (next) -> setup(team, 'deploy-key-fixes', next)
-    (next) -> setup(team, 'repo', next)
-    (next) -> setup(team, 'deploy', next)
+    # (next) -> setup(team, 'deploy-key', next)
+    # (next) -> setup(team, 'deploy-key-fixes', next)
+    # (next) -> setup(team, 'repo', next)
+    # (next) -> setup(team, 'deploy', next)
     (next) -> setup(team, 'github-members', next)
-    (next) -> setup(team, 'ssh-keys', next)
+    # (next) -> setup(team, 'ssh-keys', next)
   ], next
 
 # loads and runs the callback script for the step, along with logging and saving which steps were completed, so those
