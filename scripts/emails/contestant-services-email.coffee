@@ -1,6 +1,6 @@
 require 'colors'
-env = require '../config/env'
-mongoose = require('../models')(env.mongo_url)
+env = require '../../config/env'
+mongoose = require('../../models')(env.mongo_url)
 util = require 'util'
 postageapp = require('postageapp')(env.secrets.postageapp)
 _ = require('underscore')
