@@ -149,3 +149,6 @@ app.get '/resources', (req, res, next) ->
 
 app.get '/deploying', (req, res, next) ->
   res.render2 'index/deploying'
+
+app.get '/irc', (req, res, next) ->
+  res.render2 'index/irc'

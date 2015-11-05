@@ -1,0 +1,17 @@
+extends ../layout-2013
+
+block body
+  - activeNav = "resources"
+  .contained
+    include ../index/_header-mini
+
+  .inner-page.container
+    .row
+      .col-lg-8.col-sm-8.col-md-8
+        h2
+          strong IRC / #nodeknockout on freenode
+        | <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=&theme=cli#nodeknockout" style="border:0; width:100%; height:700px;"></iframe>
+
+            
+      .col-lg-4.col-sm-4.col-md-4
+        include ../index/_sidebar
