@@ -41,21 +41,21 @@
                 pre.
                   # getting the code
                   git clone git@github.com:nko5/#{team.slug}.git && cd ./#{team.slug}/
-                  chmod 600 ./id_deploy*
-                  &nbsp;
+
                   # developing
                   npm install
                   npm start
-                  &nbsp;
-                  # deploying (to http://#{team.slug}.2015.nodeknockout.com/)
-                  ./deploy nko
-                  &nbsp;
-                  # ssh access
-                  ssh deploy@#{team.slug}.2015.nodeknockout.com
-                  ssh root@#{team.slug}.2015.nodeknockout.com
-                  # or, if you get prompted for a password
-                  ssh -i ./id_deploy deploy@#{team.slug}.2015.nodeknockout.com
-                  ssh -i ./id_deploy root@#{team.slug}.2015.nodeknockout.com
+
+                  # setup your modulus account
+                  npm install -g modulus
+                  modulus login
+
+                  # deploying to Modulus (to http://#{team.slug}.2015.nodeknockout.com/)
+                  modulus deploy
+
+                  # view the most recent logs from modulus
+                  modulus project logs
+                  
 
           p
             a(href="http://blog.nodeknockout.com/post/66039926165/node-knockout-deployment-setup")
