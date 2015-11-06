@@ -72,6 +72,7 @@ app.post '/judges', (req, res) ->
     req.body.role = 'nomination'
 
   judge = new Person req.body
+  judge.role ||= "nomination"
 
   # HACK: crash for spam (they post "New York" and garbage for company)
   unless req.user?.admin
