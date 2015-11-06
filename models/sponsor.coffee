@@ -149,10 +149,23 @@ module.exports = [
   image: 'prizes/jscrambler.jpg'
   type: ["prize"]
 ,
+  name: "npm"
+  url: "https://www.npmjs.com"
+  image: 'prizes/npm.jpg'
+  type: ["prize"]
+
+,
   name: "Convergely"
   url: "https://www.convergely.com/"
   image: 'prizes/convergely.jpg'
   type: ["prize"]
+
+,
+  name: "learnallthenodes"
+  url: "https://www.learnallthenodes.com"
+  image: 'prizes/learnallthenodes.jpg'
+  type: ["prize"]
+
 ,
   name: "O’Reilly Media"
   url: "http://www.oreilly.com/"
