@@ -33,12 +33,11 @@ include ../errors
         - if (typeof(people) === 'undefined') people = []
         - each person in people
           li
-            img.avatar( src=avatar_url(person) )
+            img.avatar( src=avatar_url(person), style="width:50px;height:50px;" )
             a( href='/people/' + person )= person.github.login
             input.form-control( name='peopleIds[]', type='hidden', value=person.id )
-            a.btn.btn-sm.btn-default.remove-btn( href='#' ) &#x2a2f;
+            a.btn.btn-sm.btn-default.pull-right.remove-btn( href='#' ) &#x2a2f;
         - for (var i = 0; i < 4 - people.length; i++)
           li
             input.form-control.email( type='email', name='emails[]', value=team.emails[i],
               placeholder='member' + (people.length+i+1) + '@example.com' )
-
