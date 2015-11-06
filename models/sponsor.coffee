@@ -109,6 +109,11 @@ module.exports = [
   image: 'prizes/honeybadger.jpg'
   type: ["prize"]
 ,
+  name: "npm"
+  url: "https://npmjs.com/"
+  image: 'prizes/npm.jpg'
+  type: ["prize"]
+,
   name: "Github"
   url: "https://www.github.com/"
   image: 'prizes/github.jpg'
