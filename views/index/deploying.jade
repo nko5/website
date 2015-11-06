@@ -15,22 +15,28 @@ block body
             Hosting for Node Knockout in 2015 is provided by [Modulus.io](http://www.modulus.io). This page aims to give you the essential stuff you need to to deploy your app. We'll be available via [email](mailto:all@nodeknockout.com) or [IRC](/irc) at anytime during the competition to try and solve any issues you might run into. We'll keep this page up to date as questions come in.
 
             Full documentation for the Modulus.io hosting platform is available [here](http://help.modulus.io/).
-
-            ## 1) Set up your Modulus account. 
+            
+            ## 1) Verify you have access to your Github repo.
+            
+            You should have received an invite from Github to join a new team within organization `nko5`. Please accept this invite in order to access your Git repository for the competition.
+            
+            The url for your NKO 2015 repository should look like: **`github.com/nko5/<your team>`**.
+            
+            ## 2) Set up your Modulus account. 
 
             A modulus user account was created for each team participant, you should have received an email from Modulus with a link to "Reset Password". It will ask you to set a password that can be used for subsequent steps.
             
             If you didn't receive this email, please <a href="mailto:all@nodeknockout.com?subject=i need a modulus account&body: my team name is: ______">let us know ASAP</a>.
+            
 
-
-            ## 2) Install Modulus CLI
+            ## 3) Install Modulus CLI
 
             The cli commands are used to deploy your project to Modulus.io. Install the CLI via npm:
 
                 $ npm install -g modulus
 
 
-            ## 3) Login to Modulus
+            ## 4) Login to Modulus
 
                 $ modulus login
                 
@@ -40,9 +46,9 @@ block body
                 [?] Enter your password:
                 [✓] Signed in as user spiderman
                 
-            ## 4) Deploy Your Project
+            ## 5) Deploy Your Project
 
-                $ cd path/to/project
+                $ cd path/to/repo
                 $ modulus deploy
                 [?] Are you sure you want to use project Lizard Locator? (yes)
                 Compressing project...
