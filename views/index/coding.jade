@@ -33,10 +33,10 @@ block body
                   .count.pushes
                     strong.number= stats.pushes
                     span.label-primary pushes
-                .col-md-4.col-lg-4.col-sm-4.col-xs-4
-                  .count.deploys
-                    strong.number= stats.deploys
-                    span.label-primary deploys
+                //- .col-md-4.col-lg-4.col-sm-4.col-xs-4
+                //-   .count.deploys
+                //-     strong.number= stats.deploys
+                //-     span.label-primary deploys
 
         .row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
@@ -70,15 +70,15 @@ block body
             | <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=&theme=cli#nodeknockout" style="border:0; width:100%; height:450px;"></iframe>
           
 
-        .recent-deploys.landing-section.row
-          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-            .recent-deploys-inner
-              h3
-                strong Recent Deploys
-
-              #recent-deploys
-                - each team in recentDeploys
-                  include recent-deploy
+        //- .recent-deploys.landing-section.row
+        //-   .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
+        //-     .recent-deploys-inner
+        //-       h3
+        //-         strong Recent Deploys
+        //- 
+        //-       #recent-deploys
+        //-         - each team in recentDeploys
+        //-           include recent-deploy
 
         .sponsors-section.landing-section.row
           hr
