@@ -17,22 +17,22 @@ DeploySchema.method 'team', (callback) ->
   Team = mongoose.model 'Team'
   Team.findById @teamId, callback
 
-# validations
-DeploySchema.path('remoteAddress').validate (v, next) ->
-  if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
-    return next(true)
-
-  @team (err, team) ->
-    next(false) if err
-    next(team.ip is v)
-, 'not recognized'
-
-DeploySchema.path('remoteAddress').validate (v, next) ->
-  if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
-    v = "#{v}:8000"
-  request.get "http://#{v}", (err, response, body) ->
-    next(response?.statusCode is 200)
-, 'not responding to web requests correctly'
+# # validations
+# DeploySchema.path('remoteAddress').validate (v, next) ->
+#   if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
+#     return next(true)
+#
+#   @team (err, team) ->
+#     next(false) if err
+#     next(team.ip is v)
+# , 'not recognized'
+#
+# DeploySchema.path('remoteAddress').validate (v, next) ->
+#   if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
+#     v = "#{v}:8000"
+#   request.get "http://#{v}", (err, response, body) ->
+#     next(response?.statusCode is 200)
+# , 'not responding to web requests correctly'
 
 DeploySchema.method 'urlForTeam', (team) ->
   "http://#{team.slug}.2015.nodeknockout.com"
