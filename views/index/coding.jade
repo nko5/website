@@ -63,12 +63,6 @@ block body
                       i.icon.icon-flask
                       | Resources / Services
 
-        .support-section.landing-section.row
-          .col.col-lg-12.col-md-12
-            h3
-              strong IRC / #nodeknockout on freenode
-            | <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=&theme=cli#nodeknockout" style="border:0; width:100%; height:450px;"></iframe>
-          
 
         .recent-deploys.landing-section.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
@@ -79,6 +73,13 @@ block body
               #recent-deploys
                 - each team in recentDeploys
                   include recent-deploy
+        
+        .support-section.landing-section.row
+          .col.col-lg-12.col-md-12
+            h3
+              strong IRC / #nodeknockout on freenode
+            | <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=&theme=cli#nodeknockout" style="border:0; width:100%; height:450px;"></iframe>
+          
 
         .sponsors-section.landing-section.row
           hr
