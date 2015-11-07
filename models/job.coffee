@@ -102,6 +102,53 @@ module.exports = [
 
 
     '''
+,
+  slug: "rollbar"
+  image: "prizes/rollbar.jpg"
+  description:
+    '''
+    **[Rollbar](https://rollbar.recruiterbox.com/jobs/fk0h8ho/)**
+
+    **Front-End Engineer**
+
+    We're a scrappy, distributed team (SF, Fort Worth, Syracuse, Barcelona) building tools that make developers' lives better. We're looking for our seventh employee, sixth engineer, and first front-end specialist.
+
+    About us:
+
+    * We help thousands of developers find and fix bugs quickly
+    * Our backend handles billions of errors with low latency and high reliability
+    * Our front-end allows developers to discover and drill down across millions of errors in real-time
+    * Our open source libraries are used by some of the best engineering teams in the world, including Twilio, Heroku, Instacart and Twitch.
+
+    Our tech stack:
+
+    * React, Webpack, Grunt, Engine.IO, Sass
+    * Python, Node.js
+    * GitHub, CircleCI, Rollbar
+
+    You will:
+
+    * Work with PMs, designers, and other developers to ship front-end features
+    * Own Rollbar's front-end architecture and development
+    * Have fun while releasing software that impacts millions of end-users
+
+    You are:
+
+    * A Javascript expert with experience building crisp, quick UIs
+    * Up on the latest trends, like server-side rendering, responsive design and module bundling
+    * Proud of the products you build and the impact they have for our customers
+
+    Bonus points:
+
+    * Experience using React and Webpack to build single-page apps
+    * Experience maintaining open source projects
+    * UI design chops
+    * Desire to grow into a Team Lead role
+
+    [Apply now](https://rollbar.recruiterbox.com/jobs/fk0h8ho/)
+
+    '''
+
 # ,
 #   slug: "paypal"
 #   image: 'prizes/paypal.jpg'
