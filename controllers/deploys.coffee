@@ -30,7 +30,7 @@ module.exports = (app) ->
       attr = _.clone req.query
       attr.teamId = team._id
 
-      rollbar.reportMessage("received modulus deploy hook: #{team.slug}")
+      # rollbar.reportMessage("received modulus deploy hook: #{team.slug}")
 
       # save the deploy in the db
       deploy = new Deploy attr
