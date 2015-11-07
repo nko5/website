@@ -120,6 +120,9 @@ TeamSchema.static 'findByCode', (code, rest...) ->
   code = code.trim() if code
   Team.findOne { code: code }, rest...
 
+TeamSchema.static 'findByProjectId', (id, rest...) ->
+  Team.findOne { "modulus_project_id": id }, rest...
+
 TeamSchema.static 'canRegister', (regCode, next) ->
   if typeof(regCode) == "function"
     next = regCode
