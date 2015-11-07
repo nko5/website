@@ -19,7 +19,7 @@ DeploySchema.method 'team', (callback) ->
 
 # validations
 DeploySchema.path('remoteAddress').validate (v, next) ->
-  if inNetwork v, '127.0.0.1/24'
+  if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
     return next(true)
 
   @team (err, team) ->
@@ -28,7 +28,7 @@ DeploySchema.path('remoteAddress').validate (v, next) ->
 , 'not recognized'
 
 DeploySchema.path('remoteAddress').validate (v, next) ->
-  if inNetwork v, '127.0.0.1/24'
+  if inNetwork(v, '50.19.0.0/16') or inNetwork(v, '75.101.128.0/17') or inNetwork(v, '54.239.98.0/24')
     v = "#{v}:8000"
   request.get "http://#{v}", (err, response, body) ->
     next(response?.statusCode is 200)
