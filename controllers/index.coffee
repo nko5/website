@@ -24,7 +24,7 @@ loadCanRegister = (req, res, next) ->
 
 loadRecentDeploys = (req, res, next) ->
   Team.find { 'lastDeploy.createdAt': { '$exists': 1 }, 'entry.url' : /\w/ }, {},
-    { limit: 10, sort: { 'lastDeploy.createdAt': -1 }}, (err, teams) ->
+    { limit: 20, sort: { 'lastDeploy.createdAt': -1 }}, (err, teams) ->
       return next(err) if err
       req.recentDeploys = teams
       next()
