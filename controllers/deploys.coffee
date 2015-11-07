@@ -56,3 +56,4 @@ module.exports = (app) ->
     else if projectId
       # TODO: query Team for modulus project id
       rollbar.reportMessage("received modulus deploy: #{projectId}")
+      res.send JSON.stringify({coming_soon: true})
