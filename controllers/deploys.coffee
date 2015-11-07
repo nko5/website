@@ -1,5 +1,6 @@
 _ = require 'underscore'
 m = require './middleware'
+rollbar = require('rollbar')
 
 module.exports = (app) ->
   Team = app.db.model 'Team'
@@ -7,8 +8,8 @@ module.exports = (app) ->
 
   (req, res, next) ->
     return next() unless app.enabled('coding')
-    return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys' 
-  
+    return next() unless req.method is 'GET' and req._parsedUrl.pathname is '/deploys'
+
     # custom error handler (since the default one dies w/o session)
     error = (err) ->
       console.error err.toString().red
@@ -32,9 +33,11 @@ module.exports = (app) ->
       attr.os = req.query.os
       attr.platform = req.query.release
 
+      rollbar.reportMessage("received deploy hook: #{team.name} from #{attr.remoteAddress}");
+
       # save the deploy in the db
       deploy = new Deploy attr
-      
+
       deploy.save (err, deploy) ->
         return error(err) if err
 
