@@ -33,7 +33,7 @@ module.exports = (app) ->
       attr.os = req.query.os
       attr.platform = req.query.release
 
-      # rollbar.reportMessage("received deploy hook: #{team.name} from #{attr.remoteAddress}");
+      rollbar.reportMessage("received deploy hook: #{team.slug} from ip: #{attr.remoteAddress}, platform: #{attr.platform}, os: #{attr.os}");
 
       # save the deploy in the db
       deploy = new Deploy attr
