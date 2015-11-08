@@ -289,7 +289,8 @@ TeamSchema.method 'prettifyURL', ->
     @save()
 
 TeamSchema.virtual('screenshot').get ->
-  return unless url = @entry.url
+  url = @entry.url || "http://#{@slug}.2015.nodeknockout.com/"
+  return unless url
 
   screenshotOverride = @entry.screenshotOverride
   return screenshotOverride if screenshotOverride

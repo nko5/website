@@ -362,3 +362,65 @@
     .more, #infscr-loading
       text-align center
       padding-top 1em
+
+
+body#page.teams
+  .teams-page
+    .header-box
+      padding-top: 0
+      h1
+        color: #555
+        text-transform: uppercase
+        letter-spacing: 1px
+        font-size: 22px
+        border-radius: 0
+        font-weight: bold
+        padding-top: 3px
+
+
+// teams-entries override
+body#page.teams-entries
+  background: #232323
+  .inner-page
+    background: #232323
+    color: #ccc
+  .teams-page
+    .header-box
+      padding-top: 0
+      h1
+        color: #fff
+        background-color: rgba(255,255,255, 0.1)
+        text-transform: uppercase
+        letter-spacing: 1px
+        padding: 12px 18px
+        letter-spacing: 1px
+        font-size: 20px
+        border-radius: 0
+        font-weight: bold
+
+      form.search
+        padding-top: 14px
+    .sorts
+      margin-top: 20px
+      margin-left: 20px
+      li
+        a
+          color: #333
+          &:hover
+            text-decoration: none
+        &.current a
+          color: #fff
+          font-weight: bold
+          text-shadow: 0 0 3px #000
+    .header-box, .team-item
+      border-bottom: 1px solid #3C3C3C
+    .team-item
+      .location
+        color: #ccc
+      .description
+        color: #ccc
+        margin-top: 6px
+      .screenshot img
+        border: 1px solid #2a2a2a
+      .team-stats
+        margin-top: -5px

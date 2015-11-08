@@ -15,8 +15,6 @@ block body
           | Leaderboard
         else
           | Entries
-        if voting
-          span.count  (#{teams.count})
       form.search
         input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
