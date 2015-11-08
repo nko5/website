@@ -40,15 +40,7 @@ block body
           .col.col-lg-9.col-md-9.col-sm-9
             ul.team-stats.clearfix(data-team-id=team.id)
             
-              if winners || (req.user && (req.user.admin || req.user.judge))
-                - scoreKey = sort
-                - if(scoreKey == "team" || scoreKey == "solo"){ scoreKey = "overall" }
-                - scoreKey = scoreKey || "overall"
-        
-                li.team-score
-                  .dimension= scoreKey
-                  .number= (team.scores[scoreKey] || 0).toFixed(2)
-
+              
               li.commits.team-stat
                 span.count.number= team.stats.commits
                 |  Commits
@@ -58,7 +50,15 @@ block body
               li.deploys.team-stat
                 span.count.number= team.stats.deploys
                 |  Deploys
-              
+              if winners || (req.user && (req.user.admin || req.user.judge))
+                - scoreKey = sort
+                - if(scoreKey == "team" || scoreKey == "solo"){ scoreKey = "overall" }
+                - scoreKey = scoreKey || "overall"
+        
+                li.team-score
+                  .dimension= scoreKey
+                  .number= (team.scores[scoreKey] || 0).toFixed(2)
+
             .team-name
               a(href="/teams/#{team.slug}")= team.entry.name || team.name
             
