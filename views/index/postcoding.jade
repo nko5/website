@@ -32,11 +32,19 @@ block body
                   .count.deploys
                     strong.number= stats.deploys
                     span.label-primary deploys
+        
+        
+        .demo-event.landing-section.row
+          .col.col-lg-12.col-md-12.col-xs-12.col-sm-12
+            h4.next-steps: strong ONLINE DEMO EVENT (STARTS AT 5pm PST!)
+            .support-inner(style="width:720px;margin:auto")
+              | <iframe width="720" height="437" src="https://www.youtube.com/embed/nMLHPnxkOwA" frameborder="0" allowfullscreen></iframe>
+              //- | <iframe width="720" height="437" src="http://www.ustream.tv/embed/16402128?ub=ff3d23&amp;lc=ff3d23&amp;oc=ffffff&amp;uc=ffffff&amp;v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>
 
-        .row
+        .next-steps-row.row
           .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
             if req.myTeam
-              h4.next-steps Next Steps
+              h4.next-steps: strong Next Steps
               .button-boxes.row
                 .col-lg-3.col-md-3.col-sm-6.col-xs-6
                   .button-box
