@@ -23,11 +23,11 @@ block body
                   if voting
                     if req.user
                       a.btn.btn-primary.votenow(href="/judges/dashboard")
-                        em The entries are in.
+                        em The entries are in for 2015.
                         | Start voting now
                     else
                       a.btn.btn-primary.votenow(href="/login?returnTo=/judges/dashboard")
-                        em The entries are in.
+                        em The entries are in for 2015.
                         | Start voting now
                   else
                     a.btn.btn-primary.votenow(href="/entries")
@@ -70,7 +70,7 @@ block body
               .clear
 
 
-      .sponsors-section.landing-section.row
+      .sponsors-section.landing-section.row(style="padding-top:24px;")
         hr
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           include _sponsors_horizontal
