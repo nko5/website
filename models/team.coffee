@@ -293,16 +293,28 @@ TeamSchema.virtual('screenshot').get ->
 
   screenshotOverride = @entry.screenshotOverride
   return screenshotOverride if screenshotOverride
-  qs = querystring.stringify
-    url: url
-    viewport: '1024x595'
-    thumbnail_max_width: '320'
+
+  url2png = require('url2png')(env.secrets.url2png_api_key, env.secrets.url2png_secret);
+  options = {
+    viewport: '1024x595',
+    thumbnail_max_width: 320,
+    protocol: 'http',
     unique: @lastDeploy?.createdAt?.toISOString()
-  md5 = crypto.createHash 'md5'
-  md5.update qs.toString(), 'ascii'
-  md5.update env.secrets.url2png, 'ascii'
-  token = md5.digest 'hex'
-  "http://beta.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
+  }
+
+  return url2png.buildURL(url, options);
+
+  # the old url2png code
+  # qs = querystring.stringify
+  #   url: url
+  #   viewport: '1024x595'
+  #   thumbnail_max_width: '320'
+  #   unique: @lastDeploy?.createdAt?.toISOString()
+  # md5 = crypto.createHash 'md5'
+  # md5.update qs.toString(), 'ascii'
+  # md5.update env.secrets.url2png, 'ascii'
+  # token = md5.digest 'hex'
+  # "http://beta.url2png.com/v6/P50A14826D8629/#{token}/png/?#{qs}"
 
 TeamSchema.method 'incrementStats', (stats, callback) ->
   $inc = {}

@@ -32,7 +32,8 @@ if (env.development) {
     github_setup_token: process.env.GITHUB_SETUP_TOKEN,
     twitter: process.env.TWITTER_OAUTH_SECRET,
     postageapp: process.env.POSTAGEAPP_SECRET,
-    url2png: process.env.URL2PNG_SECRET,
+    url2png_api_key: process.env.URL2PNG_API_KEY,
+    url2png_secret: process.env.URL2PNG_SECRET,
     session: process.env.EXPRESS_SESSION_KEY,
     rollbar: process.env.ROLLBAR_SECRET,
     twitterUser: {
