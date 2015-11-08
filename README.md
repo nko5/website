@@ -12,7 +12,6 @@ owes its roots to [rails rumble]. holla.
 [node.js]:http://nodejs.org/
 [rails rumble]:http://railsrumble.com/
 
-
 dependencies:
 
     brew install mongodb redis
@@ -30,8 +29,6 @@ to start console:
     node
 
 to deploy
-    
+
     NODE_ENV=production ./node_modules/.bin/coffee scripts/package-assets.coffee
     modulus deploy
-
-
