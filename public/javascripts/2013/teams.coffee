@@ -15,8 +15,9 @@ load = ->
         finished: (opts) -> opts.loading.msg.hide()
         finishedMsg: 'No more teams. :('
 
-    $(".header-box .search input").blur (e) =>
-      $("form.search").submit()
+    # TODO: figure out why this doesnt work
+    # $(".header-box .search input").blur (e) =>
+    #   $("form.search").submit()
 
     # re-send invites
     $(this).delegate '.invites a', 'click', (e) ->
