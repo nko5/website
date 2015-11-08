@@ -31,8 +31,10 @@
     padding: 0
     list-style: none
     margin: 0
-    margin-top: 15px
+    margin-top: 12px
     margin-bottom: 0px
+    margin-left: 10px
+    float: left
     li
       float: left
       margin-right: 5px
@@ -70,6 +72,7 @@
         margin-bottom: 10px
     .team-name
       margin-top: -5px
+      margin-bottom: 5px
       a
         color: #ca3c48
         font-weight: bold
@@ -86,7 +89,7 @@
       @media (min-width: 768px)
         margin-top: 0
 
-      li
+      li.team-stat
         float: left
         margin-left: 15px
         font-size: 15px
@@ -95,6 +98,8 @@
         text-transform: lowercase
         text-align: right
         margin-bottom: 2px
+        &.commits
+          clear: right
         .number
           font-size: 23px
           color: #BF293B
@@ -105,14 +110,44 @@
         float: none
         text-transform: none
         text-align: right
+        clear: both
 
+
+      .team-score
+        clear: both
+        float: right
+        background: #BF293B
+        text-align: center
+        color: #fff
+        width: 85px
+        height: 55px
+        padding: 8px 10px
+        line-height: 1.1
+        margin-top: 0
+        margin-bottom: 10px
+        .dimension
+          font-size: 11px
+          margin-bottom: 3px
+
+        .number
+          font-weight: bold
+          font-size: 23px
+          letter-spacing: 1px
+    .sep
+      margin: 0 10px
+      font-size: 15px
+      vertical-align: 2px
+    .location
+      color: #7E7E7E
+      font-weight: normal
+      font-size: 15px
     ul.members
       margin 0
       padding: 0
       margin-top: 0
       margin-bottom: 5px
       display: inline-block
-      margin-left: 10px
+      margin-left: 0
       vertical-align: middle
       li
         display inline-block
@@ -129,6 +164,7 @@
         height: 25px
         border-radius: 2px
 
+
     .actions
       float: none
       margin-top: 10px
@@ -142,8 +178,9 @@
         border: none
         box-shadow: none
         font-weight: bold
+        transition: none
         &:hover
-          color: #fff
+          box-shadow: 0 0 8px rgba(0,0,0,0.3)
 
   ul.teams
     overflow hidden

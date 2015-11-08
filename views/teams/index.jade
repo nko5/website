@@ -24,13 +24,13 @@ block body
               img(src="#{team.screenshot}")
           .col.col-lg-9.col-md-9.col-sm-9
             ul.team-stats.clearfix(data-team-id=team.id)
-              li.commits
+              li.commits.team-stat
                 span.count.number= team.stats.commits
                 |  Commits
-              li.pushes
+              li.pushes.team-stat
                 span.count.number= team.stats.pushes
                 |  Pushes
-              li.deploys
+              li.deploys.team-stat
                 span.count.number= team.stats.deploys
                 |  Deploys
               li.team-deployed-at
@@ -42,6 +42,7 @@ block body
             .team-name
               a(href="/teams/#{team.slug}")= team.name
             
+            .team-info
               ul.members
                 - each m in members
                   - if (m)
@@ -51,6 +52,11 @@ block body
                   li.invites
                     |  (#{team.invites.length} invited)
               
+              if locations(members).length > 0
+                span.location
+                  span.sep /
+                  = locations(members)
+
             .description= team.entry.quickIntro
 
             .actions

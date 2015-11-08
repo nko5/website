@@ -20,57 +20,74 @@ block body
       form.search
         input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-    if winners || (req.user && (req.user.admin || req.user.judge))
-      ul.sorts.clearfix
-        each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
-          - s = k.split(/\W/)[0].toLowerCase()
-          li( class= sort === s ? 'current' : '' )
-            a( href=urlFor({ sort: s }) )= k
+      if winners || (req.user && (req.user.admin || req.user.judge))
+        ul.sorts.clearfix
+          each k in [ 'Team', 'Solo', 'Innovation', 'Design', 'Utility/Fun', 'Completeness', 'Popularity' ]
+            - s = k.split(/\W/)[0].toLowerCase()
+            li( class= sort === s ? 'current' : '' )
+              a( href=urlFor({ sort: s }) )= k
 
     ul.teams
       - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
       - each team in teams
         - members = toPeople(team)
+        
         li.row.team-item
           .col.col-lg-3.col-md-3.col-sm-3
             a(href="#{team.entry.url}").screenshot
               img(src="#{team.screenshot}")
+          
           .col.col-lg-9.col-md-9.col-sm-9
             ul.team-stats.clearfix(data-team-id=team.id)
-              li.commits
+            
+              if winners || (req.user && (req.user.admin || req.user.judge))
+                - scoreKey = sort
+                - if(scoreKey == "team" || scoreKey == "solo"){ scoreKey = "overall" }
+                - scoreKey = scoreKey || "overall"
+        
+                li.team-score
+                  .dimension= scoreKey
+                  .number= (team.scores[scoreKey] || 0).toFixed(2)
+
+              li.commits.team-stat
                 span.count.number= team.stats.commits
                 |  Commits
-              li.pushes
+              li.pushes.team-stat
                 span.count.number= team.stats.pushes
                 |  Pushes
-              li.deploys
+              li.deploys.team-stat
                 span.count.number= team.stats.deploys
                 |  Deploys
-              li.team-deployed-at
-                if lastDeploy = team.lastDeploy
-                  | Last deployed&nbsp;
-                  - lastDeployedAt = new Date(lastDeploy.createdAt)
-                  = relativeDate(lastDeployedAt)
-
+              
             .team-name
-              a(href="/teams/#{team.slug}")= team.name
+              a(href="/teams/#{team.slug}")= team.entry.name || team.name
             
+            .team-info
               ul.members
                 - each m in members
                   - if (m)
                     li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
                       img.avatar( src=avatar_url(m))
-                - if (team.invites.length > 0)
-                  li.invites
-                    |  (#{team.invites.length} invited)
+
+              if locations(members).length > 0
+                span.location
+                  span.sep /
+                  = locations(members)
+
               
             .description= team.entry.quickIntro
-
-            
-            
+          
             .actions
-              a.btn.btn-primary(href="#{team.entry.url}") Launch Site
-              a.btn.btn-primary(href="/teams/#{team.slug}") View Team
+              if voting
+                a.btn.btn-primary(href="/teams/#{team.slug}") View <em>&raquo;</em>                
+              else
+                if team.entry.url
+                  a.btn.btn-primary(href='/teams/' + team) About Team
+                  a.btn.btn-primary(href='#{team.entry.url}') Launch Site
+                  
+                else
+                  a.btn.btn-primary(href='/teams/' + team) View Team
+              
         //-       
         //- li.row
         //-   .col-lg-8.col-md-8.col-sm-8
