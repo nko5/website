@@ -45,7 +45,7 @@ DeploySchema.post 'save', ->
     team.entry.url = @urlForTeam team
     team.save (err) ->
       throw err if err
-      team.prettifyURL()
+      # team.prettifyURL()
 
 Deploy = mongoose.model 'Deploy', DeploySchema
 
