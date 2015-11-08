@@ -29,7 +29,7 @@ html
     //- | <meta property="og:image" content="http://nodeknockout.com/images/facebook-img3.png"/>
     | <meta property="og:description" content="Node Knockout is a 48-hour hackathon featuring node.js. It's an online, virtual competition with contestants worldwide.">
 
-  body#page(class=view.replace(/\//g,'-'))
+  body#page(class=[view.replace(/\//g,'-'), coding ? "state-coding" : null, preCoding ? "state-pre-coding" : null, postCoding ? "state-post-coding" : null, voting ? "state-voting" : null, postVoting ? "state-post-voting" : null, winners ? "state-winners" : null])
     - if (flash.info)
       #flash
         .alert.alert-info

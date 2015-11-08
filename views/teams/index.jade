@@ -8,53 +8,55 @@ block body
     include ../index/_header-mini
 
   .inner-page.container.teams-page
-    .row
-      .col-lg-8.col-md-8.col-sm-8
 
-        .header-box.clearfix
-          h1 Teams <span class='count'>(#{teams.count})</span>
-          form.search
-            input( type='search', name='q', value=req.query.q, placeholder='Search' )
+    .header-box.clearfix
+      h1 Teams <span class='count'>(#{teams.count})</span>
+      form.search
+        input( type='search', name='q', value=req.query.q, placeholder='Search' )
 
-        ul.teams
-          - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
-          - each team in teams
-            - members = toPeople(team)
-            li.row
-              .col-lg-8.col-md-8.col-sm-8
-                h2
-                  a( href='/teams/' + team )= team.name
-                  if locations(members).length > 0
-                    span.location
-                      span.sep /
-                      = locations(members)
+    ul.teams
+      - toPeople = function(team) { return _.map(team.peopleIds, function(id) { return people[id]; }) };
+      - each team in teams
+        - members = toPeople(team)
+        li.row.team-item
+          .col.col-lg-3.col-md-3.col-sm-3
+            a(href="#{team.entry.url}").screenshot
+              img(src="#{team.screenshot}")
+          .col.col-lg-9.col-md-9.col-sm-9
+            ul.team-stats.clearfix(data-team-id=team.id)
+              li.commits
+                span.count.number= team.stats.commits
+                |  Commits
+              li.pushes
+                span.count.number= team.stats.pushes
+                |  Pushes
+              li.deploys
+                span.count.number= team.stats.deploys
+                |  Deploys
+              li.team-deployed-at
+                if lastDeploy = team.lastDeploy
+                  | Last deployed&nbsp;
+                  - lastDeployedAt = new Date(lastDeploy.createdAt)
+                  = relativeDate(lastDeployedAt)
 
-                .description= team.entry.quickIntro
+            .team-name
+              a(href="/teams/#{team.slug}")= team.name
+            
+              ul.members
+                - each m in members
+                  - if (m)
+                    li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
+                      img.avatar( src=avatar_url(m))
+                - if (team.invites.length > 0)
+                  li.invites
+                    |  (#{team.invites.length} invited)
+              
+            .description= team.entry.quickIntro
 
-                ul.members
-                  - each m in members
-                    - if (m)
-                      li: a.with-tooltip( href='/people/' + m, data-toggle="tooltip", data-placement="top", title=m.login )
-                        img.avatar( src=avatar_url(m))
-                  - if (team.invites.length > 0)
-                    li.invites
-                      |  (#{team.invites.length} invited)
+            .actions
+              a.btn.btn-primary(href="#{team.entry.url}") Launch Site
+              a.btn.btn-primary(href="/teams/#{team.slug}") View Team
+              
 
-              .col-lg-4.col-md-4.col-sm-4
-                if team.screenshot && team.entry.url
-                  .team-screenshot
-                    img(src=team.screenshot)
-                    .team-actions
-                      a.btn.btn-primary(href='#{team.entry.url}') Launch
-                      a.btn.btn-primary(href='/teams/' + team) Team
-
-                else
-                  .team-actions
-                    a.btn.btn-primary(href='/teams/' + team) View Team
-
-
-          - nextPage = (+req.query.page || 1) + 1
-          .more: a( href=urlFor({ page: nextPage }) ) more
-
-      .col-lg-4.col-md-4.col-sm-4
-        include ../index/_sidebar
+      - nextPage = (+req.query.page || 1) + 1
+      .more: a( href=urlFor({ page: nextPage }) ) more

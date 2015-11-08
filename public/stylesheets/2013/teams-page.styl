@@ -4,23 +4,26 @@
 
   .header-box
     padding-top: 5px
+    border-bottom: 1px solid #efefef
+    padding-bottom: 10px
     h1
-      font-size: 15px
+      font-size: 25px
       float: left
       font-weight: normal
       text-transform: uppercase
       margin-top: 13px
       .count
         opacity: 0.8
-        font-size: 16px
+        font-size: 18px
+        vertical-align: 4px
 
     form.search
       float: right
       padding-top: 5px
       input
-        width 16em
-        font-size: 13px
-        padding: 8px 10px
+        width: 250px
+        font-size: 15px
+        padding: 11px 14px
         border: 1px solid #D6D6D6
         border-radius: 3px
 
@@ -44,132 +47,211 @@
         background: #BF2A3B
         a
           color: #fff
+
+  .team-item
+    border-bottom: 1px solid #efefef
+    padding-top: 0
+    padding-bottom: 20px
+    margin-bottom: 10px
+    text-align: left
+    position: relative
+    &:last-child
+      margin-bottom: 0
+      padding-bottom: 0
+      border-bottom: 0
+    .col
+      position: static
+      overflow: hidden
+    .screenshot
+      img
+        width: 100%
+        border-radius: 3px
+        border: 1px solid #ccc
+        margin-bottom: 10px
+    .team-name
+      margin-top: -5px
+      a
+        color: #ca3c48
+        font-weight: bold
+        font-size: 24px
+
+    .description
+      max-width: 500px
+    .team-stats
+      list-style: none
+      padding: 0
+      margin: 0
+      margin-right: 2px
+      float: right
+      @media (min-width: 768px)
+        margin-top: 0
+
+      li
+        float: left
+        margin-left: 15px
+        font-size: 15px
+        color: #7E7E7E
+        font-weight: bold
+        text-transform: lowercase
+        text-align: right
+        margin-bottom: 2px
+        .number
+          font-size: 23px
+          color: #BF293B
+          font-weight: bold
+      .team-deployed-at
+        font-size: 15px
+        color: #7E7E7E
+        float: none
+        text-transform: none
+        text-align: right
+
+    ul.members
+      margin 0
+      padding: 0
+      margin-top: 0
+      margin-bottom: 5px
+      display: inline-block
+      margin-left: 10px
+      vertical-align: middle
+      li
+        display inline-block
+        margin-right 2px
+      li.invites
+        color hsla(0, 0%, 0%, 0.6)
+        font-size x-small
+        font-style italic
+        margin-left 5px
+        color: #7e7e7e
+      img.avatar
+        margin 0
+        width: 25px
+        height: 25px
+        border-radius: 2px
+
+    .actions
+      float: none
+      margin-top: 10px
+      .btn-primary
+        background: #BF293B
+        color: #fff
+        font-size: 16px
+        padding: 10px 20px
+        margin-right: 10px
+        margin-bottom: 5px
+        border: none
+        box-shadow: none
+        font-weight: bold
+        &:hover
+          color: #fff
+
   ul.teams
     overflow hidden
     padding: 0
     > li
       clear: both
 
-      border-top: 1px solid #E4E4E4
       overflow: hidden
-      padding: 10px 0
-      margin-top: 10px
-      margin-bottom: 10px
 
-      &:hover .team-actions
-        opacity: 1.0
-        transition: opacity .5s
+      //
+      // &:hover .team-actions
+      //   opacity: 1.0
+      //   transition: opacity .5s
+      //
+      // h2
+      //   font-size: 20px
+      //   margin-top: -9px
+      //   a
+      //     color: #363636
+      //   .sep
+      //     margin: 0 10px
+      //     font-size: 15px
+      //     vertical-align: 2px
+      //   .location
+      //     color: #7E7E7E
+      //     font-weight: normal
+      //     font-size: 15px
+      // .team-screenshot
+      //   position: relative
+      //   min-height: 100px
+      //   border: 1px solid #efefef
+      //   border-radius: 3px
+      //   img
+      //     width: 100%
+      //     max-height: 150px
+      //     position: relative
+      //     z-index: 10
+      //
+      //   .team-score
+      //     position: absolute
+      //     z-index: 11
+      //     right: 0
+      //     bottom: 0
+      //     background: #BF293B
+      //     text-align: center
+      //     color: #fff
+      //     width: 85px
+      //     height: 55px
+      //     padding: 8px 10px
+      //     line-height: 1.1
+      //     .dimension
+      //       font-size: 11px
+      //       margin-bottom: 3px
+      //
+      //     .number
+      //       font-weight: bold
+      //       font-size: 23px
+      //       letter-spacing: 1px
+      //
+      //   .team-actions
+      //     position: absolute
+      //     left: 0
+      //     z-index: 10
+      //     right: 0
+      //     top: 0
+      //     bottom: 0
+      //     background: rgba(0,0,0,0.75)
+      //     text-align: center
+      //     cursor: pointer
+      //     border-radius: 3px
+      //     .btn
+      //       margin-top: 20px
+      //       @media screen and (max-width: 767px)
+      //         margin-top: 0
+      //     .vote-btn
+      //       margin-top: 10px
+      //       display: inline-block
+      //       color: #fff
+      //       font-size: 25px
+      //       text-transform: uppercase
+      //       text-decoration: none
+      //       em
+      //         font-style: normal
+      //         color: #BC293E
+      //       @media screen and (max-width: 767px)
+      //         margin-top: 10px
+      //
+      // .team-actions
+      //   text-align: right
+      //   opacity: 0
+      //   .btn
+      //     margin-left: 5px
+      //   @media screen and (max-width: 767px)
+      //     text-align: left
+      //     margin-top: 10px
 
-      h2
-        font-size: 20px
-        margin-top: -9px
-        a
-          color: #363636
-        .sep
-          margin: 0 10px
-          font-size: 15px
-          vertical-align: 2px
-        .location
-          color: #7E7E7E
-          font-weight: normal
-          font-size: 15px
-      .team-screenshot
-        position: relative
-        min-height: 100px
-        border: 1px solid #efefef
-        border-radius: 3px
-        img
-          width: 100%
-          max-height: 150px
-          position: relative
-          z-index: 10
+      // .description
+      //   font-size: 13px
+      //   max-height: 120px
+      //   overflow: hidden
+      //   p, ul
+      //     margin 0.5em 0
+      //   img
+      //     display none
+      //   h1
+      //     font-size 1.5em
 
-        .team-score
-          position: absolute
-          z-index: 11
-          right: 0
-          bottom: 0
-          background: #BF293B
-          text-align: center
-          color: #fff
-          width: 85px
-          height: 55px
-          padding: 8px 10px
-          line-height: 1.1
-          .dimension
-            font-size: 11px
-            margin-bottom: 3px
 
-          .number
-            font-weight: bold
-            font-size: 23px
-            letter-spacing: 1px
-
-        .team-actions
-          position: absolute
-          left: 0
-          z-index: 10
-          right: 0
-          top: 0
-          bottom: 0
-          background: rgba(0,0,0,0.75)
-          text-align: center
-          cursor: pointer
-          border-radius: 3px
-          .btn
-            margin-top: 20px
-            @media screen and (max-width: 767px)
-              margin-top: 0
-          .vote-btn
-            margin-top: 10px
-            display: inline-block
-            color: #fff
-            font-size: 25px
-            text-transform: uppercase
-            text-decoration: none
-            em
-              font-style: normal
-              color: #BC293E
-            @media screen and (max-width: 767px)
-              margin-top: 10px
-
-      .team-actions
-        text-align: right
-        opacity: 0
-        .btn
-          margin-left: 5px
-        @media screen and (max-width: 767px)
-          text-align: left
-          margin-top: 10px
-      ul.members
-        margin 0
-        padding: 0
-        margin-top: 10px
-        margin-bottom: 20px
-        li
-          display inline-block
-          margin-right 2px
-        li.invites
-          color hsla(0, 0%, 0%, 0.6)
-          font-size x-small
-          font-style italic
-          margin-left 5px
-          color: #7e7e7e
-        img.avatar
-          margin 0
-          width: 25px
-          height: 25px
-          border-radius: 2px
-      .description
-        font-size: 13px
-        max-height: 120px
-        overflow: hidden
-        p, ul
-          margin 0.5em 0
-        img
-          display none
-        h1
-          font-size 1.5em
   .more, #infscr-loading
     text-align center
     padding-top 1em
@@ -194,53 +276,52 @@
           padding 2px 5px
           a
             color white
-    ul.teams
-      overflow hidden
-      margin 0
-      > li
-        box-shadow inset 0 0 5px hsla(0, 0%, 0%, 0.1)
-        background-color hsl(0, 0%, 95%)
-        background-color hsla(0, 0%, 95%, 0.5)
-        padding 10px
-        border-radius 2px
-        margin-bottom 1em
-        padding 20px
-        position relative
-        h2, h3, h4, .description
-          margin-left 174px
-        h2, h3, h4
-          margin-top 0px
-        h2
-          margin-right 100px
-        img.screenshot
-          width 160px
-          height 93px
-          float left
-          margin-left -5px
-          margin-right 10px
-          border solid 2px hsl(0, 0%, 90%)
-          border solid 2px hsla(0, 0%, 0%, 0.1)
-          border-radius 2px
-        .description p
-          margin-bottom 0
-          font-size small
-        .clear
-          clear both
-        .score
-          position absolute
-          top -2px
-          right 10px
-          inverted()
-          padding 10px 7px 6px 10px
-          text-align center
-          a
-            color white
-          h3
-            margin 0
-          .dimension
-            font-size x-small
-            line-height 100%
+    // ul.teams
+    //   overflow hidden
+    //   margin 0
+    //   > li
+    //     box-shadow inset 0 0 5px hsla(0, 0%, 0%, 0.1)
+    //     background-color hsl(0, 0%, 95%)
+    //     background-color hsla(0, 0%, 95%, 0.5)
+    //     padding 10px
+    //     border-radius 2px
+    //     margin-bottom 1em
+    //     padding 20px
+    //     position relative
+    //     h2, h3, h4, .description
+    //       margin-left 174px
+    //     h2, h3, h4
+    //       margin-top 0px
+    //     h2
+    //       margin-right 100px
+    //     img.screenshot
+    //       width 160px
+    //       height 93px
+    //       float left
+    //       margin-left -5px
+    //       margin-right 10px
+    //       border solid 2px hsl(0, 0%, 90%)
+    //       border solid 2px hsla(0, 0%, 0%, 0.1)
+    //       border-radius 2px
+    //     .description p
+    //       margin-bottom 0
+    //       font-size small
+    //     .clear
+    //       clear both
+    //     .score
+    //       position absolute
+    //       top -2px
+    //       right 10px
+    //       inverted()
+    //       padding 10px 7px 6px 10px
+    //       text-align center
+    //       a
+    //         color white
+    //       h3
+    //         margin 0
+    //       .dimension
+    //         font-size x-small
+    //         line-height 100%
     .more, #infscr-loading
       text-align center
       padding-top 1em
-

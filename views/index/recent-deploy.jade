@@ -14,7 +14,7 @@
           | deployed&nbsp;
           - lastDeployedAt = new Date(lastDeploy.createdAt)
           = relativeDate(lastDeployedAt)
-      .team-stats.clearfix(data-team-id=team.id)
+      ul.team-stats.clearfix(data-team-id=team.id)
         li.commits
           span.count.number= team.stats.commits
           |  Commits
