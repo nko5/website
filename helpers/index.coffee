@@ -77,12 +77,13 @@ module.exports = (app) ->
     favicon: (sponsor) -> favicons[sponsor]
 
     embedVideo: (url) ->
-      if match = url.match(/youtube.com\/.*v=([^&]+).*/)
-        "//www.youtube.com/embed/#{match[1]}"
-      else if match = url.match(/youtu.be\/(.*)/)
-        "//www.youtube.com/embed/#{match[1]}"
-      else if match = url.match(/vimeo.com\/(\d+)/)
-        "//player.vimeo.com/video/#{match[1]}"
+      # if match = url.match(/youtube.com\/.*v=([^&]+).*/)
+      #   "//www.youtube.com/embed/#{match[1]}"
+      # else if match = url.match(/youtu.be\/(.*)/)
+      #   "//www.youtube.com/embed/#{match[1]}"
+      # else if match = url.match(/vimeo.com\/(\d+)/)
+      #   "//player.vimeo.com/video/#{match[1]}"
+      url
 
   dynamicHelpers =
     user: (req, res) ->
