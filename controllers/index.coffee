@@ -1,6 +1,7 @@
 util = require 'util'
 _ = require 'underscore'
 app = require '../config/app'
+env = require '../config/env'
 Team = app.db.model 'Team'
 Person = app.db.model 'Person'
 Service = app.db.model 'Service'
@@ -138,7 +139,7 @@ app.get '/scores', (req, res, next) ->
     res.render2 'index/scores', teams: teams
 
 app.get '/scores/update', (req, res, next) ->
-  return next(401) unless req.user?.admin or (req.connection.remoteAddress is '127.0.0.1')
+  return next(401) unless req.user?.admin or (req.param("webhook_secret") and req.param("webhook_secret") == env.secrets.webhook_secret)
   Team.updateAllSavedScores (err) ->
     next err if err
     res.redirect '/scores'

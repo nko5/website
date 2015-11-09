@@ -1,14 +1,15 @@
 extends ../layout
 
 block body
+  
+  div(style="padding:30px 15px;")
+    h1 Internal Server Error (500)
+    :markdown
+      Uh oh. Don't worry, we've already been notified you hit this error, but if
+      this is blocking you from doing something, definitely [email us] and we'll
+      get right on it.
 
-  h1 Internal Server Error (500)
-  :markdown
-    Uh oh. Don't worry, we've already been notified you hit this error, but if
-    this is blocking you from doing something, definitely [email us] and we'll
-    get right on it.
+      [email us]: mailto:all@nodeknockout.com
 
-    [email us]: mailto:all@nodeknockout.com
-
-  h2 Error information
-  pre: code= error.stack
+    h2 Error information
+    pre: code= error.stack

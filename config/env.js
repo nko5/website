@@ -36,6 +36,7 @@ if (env.development) {
     url2png_secret: process.env.URL2PNG_SECRET,
     session: process.env.EXPRESS_SESSION_KEY,
     rollbar: process.env.ROLLBAR_SECRET,
+    webhook_secret: process.env.WEBHOOK_SECRET,
     twitterUser: {
       consumer_key: process.env.TWITTER_USER_CONSUMER_KEY,
       consumer_secret: process.env.TWITTER_USER_CONSUMER_SECRET,
