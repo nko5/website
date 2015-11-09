@@ -43,10 +43,11 @@ block body
               
               //- loverboy
               //- | <iframe width="720" height="437" src="https://www.youtube.com/embed/nMLHPnxkOwA" frameborder="0" allowfullscreen></iframe>
-              
-        .next-steps-row.row
-          .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
-            if req.myTeam
+        
+        if req.myTeam
+        
+          .next-steps-row.row
+            .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
               h4.next-steps: strong Next Steps
               .button-boxes.row
                 .col-lg-3.col-md-3.col-sm-6.col-xs-6
