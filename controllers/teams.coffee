@@ -11,6 +11,9 @@ app.get /^\/teams(\/pending)?\/?$/, (req, res, next) ->
   query.peopleIds = { $size: 0 } if req.params[0]
   query.search = new RegExp(req.param('q'), 'i') if req.param('q')
 
+  unless app.enabled('coding') or app.enabled('pre-coding') or app.enabled('registration')
+    query["stats.deploys"] = {"$ne": 0}
+
   if app.enabled('coding')
     sort = { 'lastDeploy.createdAt': -1 }
   else
