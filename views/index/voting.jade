@@ -97,7 +97,7 @@ block body
                       .avatar(style="background-image:url('#{judge.imageURL}');")
                         img(src="/images/2013/transparent.png")
                       label= judge.name
-                      label.about= judge.title
+                      label.about= judge.title || judge.company
                     ul.links
                       if judge.twitterScreenName
                         li
