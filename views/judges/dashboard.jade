@@ -12,7 +12,7 @@ block body
       .row
         .col-lg-7.col-md-7
           p
-            | Please spend 5-10 minutes per entry and tell the team what you think. <a href="/scoring">Scoring criteria</a>.
+            | Please spend 5-10 minutes per entry and tell the team what you think. <a href="/scoring" target="_blank">Scoring criteria</a>.
 
           if nextTeam
             form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
@@ -33,7 +33,7 @@ block body
           if (req.user && (req.user.judge || req.user.admin))
             .well
               :markdown
-                Need someone to play with? Hop on our IRC channel: <strong>#nodeknockout on Freenode (<a href="http://www.nodeknockout.com/irc">web client</a>)</strong>
+                Need someone to play with? Hop on our IRC channel: <strong>#nodeknockout on Freenode (<a href="http://www.nodeknockout.com/irc" target="_blank">web client</a>)</strong>
               //- p
               //-   a.btn.btn-primary(href="#")
               //-     | or ping the creators..

@@ -7,7 +7,7 @@
     h2= team.entry.name
     h3
       | By&nbsp;
-      a(href="/teams/#{team}")= team.name
+      a(href="/teams/#{team}", target="_blank")= team.name
 
   .screencast
     if team.entry.videoURL
@@ -49,7 +49,7 @@
         - each person in people
           li
             img.avatar( src=avatar_url(person), style="width:50px;height:50px;" )
-            a( href='/people/' + person )= person.github.login
+            a( href='/people/' + person, target="_blank")= person.github.login
             - if (person.location)
               &nbsp;&mdash;&nbsp;#{person.location}
       - if (admin)
