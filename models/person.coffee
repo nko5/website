@@ -81,14 +81,21 @@ PersonSchema.plugin auth,
           role: { $in: [ 'judge', 'nomination' ] }
           (err, person) ->
             return promise.fail err if err
-            if not person
-              session.twitterScreenName = twit.screen_name
-              util.error "ERROR: Twitter login failed. No judge login found for @#{twit.screen_name}.".red
-              return promise.fulfill(id: null)
-            person.updateWithTwitter twit, accessTok, accessTokExtra,
-              (err, updatedUser) ->
-                return promise.fail err if err
-                promise.fulfill updatedUser
+            if person
+              person.updateWithTwitter twit, accessTok, accessTokExtra,
+                (err, updatedUser) ->
+                  return promise.fail err if err
+                  promise.fulfill updatedUser
+            else
+              Person.findOne 'twit.id': twit.screen_name, role: 'voter',
+                (err, person) ->
+                  return promise.fail err if err
+                  person ||= new Person role: 'voter'
+                  person.updateWithTwitter twit, accessTok, accessTokExtra,
+                    (err, updatedUser) ->
+                      session.twitterScreenName = twit.screen_name
+                      return promise.fail err if err
+                      promise.fulfill updatedUser
         promise
   facebook:
     everyauth:
