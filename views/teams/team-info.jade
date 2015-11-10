@@ -12,14 +12,9 @@
         span.label.label-primary Screencast
 
       .screencast-thumb
-        - if (team.entry.videoURL.indexOf('youtu') >= 0)
-          a(href=team.entry.videoURL)
-            span.play-btn
-            img(src=team.screenshot)
-        - else
-          a(href=team.entry.videoURL, target="_blank")
-            span.play-btn
-            img(src=team.screenshot)
+        a(href=team.entry.videoURL, target="_blank")
+          span.play-btn
+          img(src=team.screenshot)
     else
       .screencast-thumb
         img(src=team.screenshot)
