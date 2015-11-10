@@ -21,7 +21,7 @@ block body
               input( type='hidden', name='skipTeamId', value=nextTeam.id)
               input.hidden( type='submit', value='Skip Entry' )
               p
-                | If you know anyone on this team, you can <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
+                | If you know anyone on this team, you should <a href="#" onclick="$(this).parents('form:first').submit()">skip this entry</a> to keep things impartial.
 
           p.judge-tally
             | You've judged <strong><a href="/people/me">#{votes.length}</a></strong>
@@ -33,7 +33,7 @@ block body
           if (req.user && (req.user.judge || req.user.admin))
             .well
               :markdown
-                Need someone to play with? Hop on our IRC channel: **<http://www.nodeknockout.com/irc>**
+                Need someone to play with? Hop on our IRC channel: <strong>#nodeknockout on Freenode (<a href="http://www.nodeknockout.com/irc">web client</a>)</strong>
               //- p
               //-   a.btn.btn-primary(href="#")
               //-     | or ping the creators..
@@ -94,7 +94,7 @@ block body
 
               .vote-actions
                 input.submit-btn.btn.btn-primary.btn-lg(type="submit", value="Submit Vote")
-
+            
             form.skip-vote.confirm-form( action='/people/' + req.user, method='POST', data-confirm-msg="Are you sure you want to skip voting for '#{nextTeam.name}'" )
               input( type='hidden', name='_method', value='PUT' )
               != _csrf
@@ -102,7 +102,9 @@ block body
               input.hidden( type='submit', value='Skip Entry' )
               p
                 | <a href="#" onclick="$(this).parents('form:first').submit()">Skip Entry</a>
-
+            
+              div.text-left(style="padding-top:10px;")
+                a(href="mailto:all@nodeknockout.com?subject=#{team.slug} is down&body=i'll skip that entry for now.") REPORT APP AS OFFLINE
     else
 
       h1 No other teams to vote on. You got em all!

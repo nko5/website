@@ -1,5 +1,8 @@
 .team-info
-  a.btn.btn-super.btn-primary.btn-block(href=team.entry.url, target="_blank") Launch Site
+  .launch-actions
+    a.btn.btn-super.btn-primary.btn-block(href=team.entry.url, target="_blank") Launch Site
+    a(href="mailto:all@nodeknockout.com?subject=#{team.slug} is down&body=i'll skip that entry for now.") REPORT APP AS OFFLINE
+
   .team-info-name
     h2= team.entry.name
     h3
