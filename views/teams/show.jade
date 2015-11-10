@@ -7,84 +7,83 @@ block body
     include ../index/_header-mini
 
   .inner-page.container.team-page
-    .row
-      .col-lg-8.col-md-8.col-sm-8
-        - if (team.invited(session.invite))
-          .well.row
-            h2 You're invited to this team!
-            p.accept.col-md-4
-              a.btn.btn-primary.btn-lg.btn-danger.btn-block( href='/login/github' ) Accept Invitation
-              != "via <i class='icon icon-github'></i> github"
-        - else if ((registration || preCoding) && team.includes(user, session.team))
-          .well
-            h3 This is your team.
 
-        .header-box
-          .actions.pull-right
-            - if (team.includes(user, session.team) || admin)
-              a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit Team
+    - if (team.invited(session.invite))
+      .well.row
+        h2 You're invited to this team!
+        p.accept.col-md-4
+          a.btn.btn-primary.btn-lg.btn-danger.btn-block( href='/login/github' ) Accept Invitation
+          != "via <i class='icon icon-github'></i> github"
+    - else if ((registration || preCoding) && team.includes(user, session.team))
+      .well
+        h3 This is your team.
 
-          h1
-            = title(team.entry.name || team.name)
-            if locations(people).length > 0
-              span.locations
-                span.sep  /&nbsp;
-                = locations(people)
+    .header-box
+      .actions.pull-right
+        - if (team.includes(user, session.team) || admin)
+          a.btn.btn-primary.btn-sm( href='/teams/' + team + '/edit' ) Edit Team
+
+      h1
+        = title(team.entry.name || team.name)
+        if locations(people).length > 0
+          span.locations
+            span.sep  /&nbsp;
+            = locations(people)
+      
+      if coding || team.stats.pushes || team.stats.deploys
+        ul.team-stats( data-team-id=team.id )
+          li.commits
+            span.count.number= team.stats.commits
+            |  Commits
+          li.pushes
+            span.count.number= team.stats.pushes
+            |  Pushes
+          li.deploys
+            span.count.number= team.stats.deploys
+            |  Deploys
+
+
+
+    .team-content          
+      - if ((coding || postCoding || voting) && req.user && team.includes(user))
+        .content-section
+          include steps
+
+      .content-section
+        != markdown(team.description, { sanitize: true })
+
+      - if (team.entry.name)
+        .content-section
+          include team-info
           
-          if coding || team.stats.pushes || team.stats.deploys
-            ul.team-stats( data-team-id=team.id )
-              li.commits
-                span.count.number= team.stats.commits
-                |  Commits
-              li.pushes
-                span.count.number= team.stats.pushes
-                |  Pushes
-              li.deploys
-                span.count.number= team.stats.deploys
-                |  Deploys
+      - if (!voting)
+        h2 Team Members (#{people.length})
+        ul.members
+          - each m in people
+            li
+              a.user-name(href="/people/#{m.id}")
+                img.avatar( src=avatar_url(m), style="width:50px;height:50px;")
+                span.user-name
+                  = m.login
 
+      - if (team.invites.length)
+        h2 Invites (#{team.invites.length} pending)
+        - if (team.includes(user, session.team) || admin)
+          p Check your email for invites or resend invites below.
+          ul.invites
+            - each invite in team.invites
+              li
+                = invite.email
+                | &nbsp;&mdash;&nbsp;
+                a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
+                  | resend
+                span.sending
+        - if (admin)
+          a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email invites
+          i  Created #{relativeDate(team.createdAt)}
 
-
-        .team-content          
-          - if ((coding || postCoding || voting) && req.user && team.includes(user))
-            .content-section
-              include steps
-
-          .content-section
-            != markdown(team.description, { sanitize: true })
-
-          - if (team.entry.name)
-            .content-section
-              include team-info
-              
-          - if (!voting)
-            h2 Team Members (#{people.length})
-            ul.members
-              - each m in people
-                li
-                  a.user-name(href="/people/#{m.id}")
-                    img.avatar( src=avatar_url(m), style="width:50px;height:50px;")
-                    span.user-name
-                      = m.login
-
-          - if (team.invites.length)
-            h2 Invites (#{team.invites.length} pending)
-            - if (team.includes(user, session.team) || admin)
-              p Check your email for invites or resend invites below.
-              ul.invites
-                - each invite in team.invites
-                  li
-                    = invite.email
-                    | &nbsp;&mdash;&nbsp;
-                    a( href='/teams/' + team + '/invites/' + invite.id, rel='nofollow' )
-                      | resend
-                    span.sending
-            - if (admin)
-              a( href='mailto:' + _.pluck(team.invites, 'email').join(',') ) Email invites
-              i  Created #{relativeDate(team.createdAt)}
-
-          - if (winners || postVoting || voting || (publicVotes && publicVotes.length) || (votes && votes.length))
-            include votes
-
-      .col-lg-4.col-md-4.col-sm-4
-        include ../index/_sidebar
+      - if (winners || postVoting || voting || (publicVotes && publicVotes.length) || (votes && votes.length))
+        include votes
+    
+    hr 
+    include ../index/_sponsors_horizontal
