@@ -23,7 +23,7 @@
     .company
       != markdown(vote.person.company)
       if vote.person.hiring
-        a.button.hiring( href="/jobs#" + vote.person.hiring ) Hiring
+        a.button.hiring( href="/people/" + vote.person._id )= vote.person.hiring
 
   // show the change link only when the user is a voter, owns the vote, and the info partial is in a form
   - if (voting && user && vote.personId && !user.voter && (typeof(form) !== 'undefined') && (vote.personId.toString() === user.id))
