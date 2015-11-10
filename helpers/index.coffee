@@ -83,7 +83,7 @@ module.exports = (app) ->
       #   "//www.youtube.com/embed/#{match[1]}"
       # else if match = url.match(/vimeo.com\/(\d+)/)
       #   "//player.vimeo.com/video/#{match[1]}"
-      url
+      null
 
   dynamicHelpers =
     user: (req, res) ->

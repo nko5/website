@@ -13,7 +13,7 @@
 
       .screencast-thumb
         - if (team.entry.videoURL.indexOf('youtu') >= 0)
-          a(href=team.entry.videoURL, data-toggle="lightbox")
+          a(href=team.entry.videoURL)
             span.play-btn
             img(src=team.screenshot)
         - else
