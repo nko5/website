@@ -86,7 +86,7 @@ block body
         .col.col-md-12.col-sm-12.col-xs-12.col-lg-12
           p.nominate-msg
             | Nominate a judge by filling out <a href="/judges/new">this form</a>, or just tweeting <a href="http://twitter.com/nodeknockout">@nodeknockout</a> their name.
-          h3 2015 JUDGES
+          h3 2015 JUDGES <a class='sm' href="/judges">(see all #{req.judgesCount} judges)</a>
 
           each judgeGroup in featuredJudges
             .judges-grid.row

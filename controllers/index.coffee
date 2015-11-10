@@ -43,6 +43,7 @@ loadFeaturedJudges = (req, res, next) ->
   # Person.find { role: 'judge', featured: true }
   Person.find { role: 'judge'}, (err, judges) ->
     return next err if err
+    req.judgesCount = judges.length
     req.featuredJudges = _.chain(judges).shuffle().first(18).groupBy((a,b) -> Math.floor(b/6)).value()
     next()
 
