@@ -56,16 +56,16 @@ block body
           - if (team.entry.name)
             .content-section
               include team-info
-          
-          //- TODO: show team members
-          h2 Team Members (#{people.length})
-          ul.members
-            - each m in people
-              li
-                a.user-name(href="/people/#{m.id}")
-                  img.avatar( src=avatar_url(m), style="width:50px;height:50px;")
-                  span.user-name
-                    = m.login
+              
+          - if (!voting)
+            h2 Team Members (#{people.length})
+            ul.members
+              - each m in people
+                li
+                  a.user-name(href="/people/#{m.id}")
+                    img.avatar( src=avatar_url(m), style="width:50px;height:50px;")
+                    span.user-name
+                      = m.login
 
           - if (team.invites.length)
             h2 Invites (#{team.invites.length} pending)
