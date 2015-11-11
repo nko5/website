@@ -13,7 +13,9 @@ module.exports = (app) ->
     qs: qs
     _: _
 
-    markdown: (str) -> if str? then md.parse str, sanitize: true else ''
+    markdown: (str, allowHtml) ->
+      allowHtml ||= false
+      if str? then md.parse str, sanitize: !allowHtml else ''
     markdown_ok: " <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> ok."
 
     relativeDate: require 'relative-date'

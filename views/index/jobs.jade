@@ -31,7 +31,7 @@ block body
               if sponsor.image
                 img(src="/images/sponsors/#{sponsor.image}")
               a(name=sponsor.slug)
-              != markdown(sponsor.description)
+              != markdown(sponsor.description, true)
               hr
           - });
 

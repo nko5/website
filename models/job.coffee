@@ -126,7 +126,7 @@ module.exports = [
     * Knowledge of the web stack, networks, and Unix administration
     * Our codebase is Java/Javascript; experience in these languages is ideal
 
-    **Bonus experience:**
+    Bonus experience
 
     * AWS infrastructure
     * Search infrastructure (Lucene/Solr, ElasticSearch)
@@ -152,6 +152,9 @@ module.exports = [
     Do you know we have a chef, Song, that makes fantastic lunches for the team, follow Song on Instagram here to see what he has whipped up today: <https://instagram.com/canvavibe/>
 
     Also don’t forget to checkout our Engineering Blog: <https://engineering.canva.com/>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/F7BLnm87a7o" frameborder="0" allowfullscreen></iframe>
+
 
     '''
 ,
