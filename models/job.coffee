@@ -161,6 +161,8 @@ module.exports = [
     '''
     **[MULESOFT](https://www.mulesoft.com/careers/apply?gh_jid=117124)**
 
+    <https://www.mulesoft.com/careers/apply?gh_jid=117124>
+
     Senior Software Engineer
 
     San Francisco
