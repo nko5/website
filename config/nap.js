@@ -17,6 +17,7 @@ nap({
         '/public/javascripts/vendor/jquery.infinitescroll2.js',
         "/public/javascripts/vendor/jquery.stars.coffee",
         '/public/javascripts/vendor/jquery.border-image.js',
+        '/public/javascripts/vendor/jquery.scrollTo.js',
         '/public/javascripts/vendor/jquery.transform.light.js',
         '/public/javascripts/vendor/jquery-ujs.js',
         '/public/javascripts/vendor/jquery.autosize.min.js',

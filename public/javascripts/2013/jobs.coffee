@@ -1,3 +1,8 @@
+scrollToCurrentJob = ->
+  setTimeout ->
+    $(window).scrollTo($(".job:visible"), offset: -20)
+  , 200
+
 switchJobDisplay = (slug) ->
   return unless slug
   slug = slug.replace("#", "")
@@ -21,11 +26,13 @@ load = ->
       switchJobDisplay($(this).data("job"))
     $(this).find(".job-icon").click (e) ->
       switchJobDisplay($(this).data("job"))
+      scrollToCurrentJob()
 
   if $("body").is(".index-jobs")
     initialState = window.location.hash
     if initialState and initialState != "#"
       switchJobDisplay(initialState)
+      scrollToCurrentJob()
 
 $(load)
 $(document).bind 'end.pjax', load

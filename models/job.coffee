@@ -102,7 +102,112 @@ module.exports = [
 
 
     '''
+,
+  slug: "canva"
+  image: 'prizes/canva.jpg'
+  description:
+    '''
+    **[Canva](https://engineering.canva.com/)**
 
+    [Fullstack Engineer](https://about.canva.com/careers/fullstack-engineer-2411/)
+
+    Key Criteria
+
+    1. Polyglot with experience in a variety of languages
+    2. Strong Computer Science/Software Engineering background
+    3. Excellent problem solving skills
+
+    Skills
+
+    * Comfortable working with a wide range of tools
+    * Strong Computer Science/Software Engineering background
+    * A generalist, who has experience across the full stack
+    * Excellent problem solving skills, with a creative and analytic mind
+    * Knowledge of the web stack, networks, and Unix administration
+    * Our codebase is Java/Javascript; experience in these languages is ideal
+
+    **Bonus experience:**
+
+    * AWS infrastructure
+    * Search infrastructure (Lucene/Solr, ElasticSearch)
+    * Image analysis and computer vision
+    * Horizontal scaling, Heroku, MapReduce
+    * Both SQL and NoSQL stores
+
+    Responsibilities
+
+    * Work with product designers and founders to build a next-generation web application with a focus on an exceptional client-side experience
+    * Build efficient and reusable front end abstractions and systems
+    * Identify and address performance bottlenecks
+    * Participate in design and code reviews
+    * Communicate with other team members to determine the best solutions to difficult problems
+    * Identify and communicate best practices for front end engineering
+    * Interact with our back end systems
+    * Use a spacer.gif in our email templates every now and then
+
+    Other Information
+
+    We are looking for people who love technology and can bring creativity when solving challenging problems. We ensure that the Canva workspace is setup for you to do your best work and have a great time doing so.
+
+    Do you know we have a chef, Song, that makes fantastic lunches for the team, follow Song on Instagram here to see what he has whipped up today: <https://instagram.com/canvavibe/>
+
+    Also don’t forget to checkout our Engineering Blog: <https://engineering.canva.com/>
+
+    '''
+,
+  slug: "mulesoft"
+  image: 'prizes/mulesoft.jpg'
+  description:
+    '''
+    **[MULESOFT](https://www.mulesoft.com/careers/apply?gh_jid=117124)**
+
+    Senior Software Engineer
+
+    San Francisco
+
+    **About the Team:**
+
+    Developers at MuleSoft are tackling some of the most challenging problems in technology today. MuleSoft’s leading cloud, on-premise and API integration platform is used by more than 200,000 developers in top companies around the world.
+
+    Our team is responsible for the architecture, development and scaling of our platforms that power thousands of customers and millions of integrations and APIs in the cloud. We’re a small but effective team with a track record of high impact. Our developers make substantial contributions to open source projects. We also have frequent meetups and hackathons to keep developers engaged with new ideas. We’re agile and move fast. If you are interested in solving some of the most complex distributed systems problems such as cloud messaging, distributed caching, identity management, reliability, cloud-to-ground connectivity, and global load balancing, we are the right team to join.
+
+    **About the Position:**
+
+    You will create one of the most innovative developer platforms in technology today—a platform used by hundreds of thousands of developers in some of the biggest companies on the planet. As a software engineer in our team you will tackle some of technologies most challenging problems spanning cloud infrastructure, massively distributed systems and cutting edge web applications with missions of users. Contribute to open source, work with great people, move fast and have a huge impact.
+    About You:
+
+    First and foremost, we’re looking for smart engineers who can get stuff done.
+
+    * Great engineering skills, strong CS fundamentals and elegance in your work
+    * Expert in at least one language and excited to learn others. Our engineers have all kinds of backgrounds, including Java, C++, Python and JavaScript
+    * You’ve got a strong sense of ownership of the work you do
+    * Experience building great products and proven track record of solving problems creatively
+    * Fanatical in the pursuit of quality and have a strong appreciation for the connection between the software you build and the experience it delivers to customers
+    * Innovative and fearless fast learners, who are also versatile team players
+
+    **Core Values:**
+
+    * Innovation. We’re looking for software engineers who like to explore, come up with new ideas and think outside the box. Your ideas and breakthroughs are key in helping us develop new product ideas and create new market opportunities
+    * Open Source Contributions. MuleSoft got its start years ago with the open source project, Mule ESB. Today we continue to be big believers of open development, leveraging open source technologies and making many open source contributions back to the community. Ideally, you like to do the same
+    * Fast learner. We’re looking for software engineers who thrive on learning new technologies and don’t believe in one-size-fits-all solutions. You should be able to adapt easily to meet the needs of our massive growth and rapidly evolving business environment
+    * Strong architecture chops. You know how to build highly scalable, robust, and fault-tolerant services that support our unique rate-of-growth requirements. You stay up-to-date with the latest architectural trends
+    * A team player. You believe that you can achieve more on a team — that the whole is greater than the sum of its parts. You rely on others' candid feedback for continuous improvement
+    * Design and business acumen. You understand requirements beyond the written word. Whether you’re working on an API used by other developers, an internal tool consumed by our operation teams, or a feature used by millions of customers, your attention to details leads to a delightful user experience
+
+    **About Our Benefits:**
+
+    * Pre-IPO equity
+    * Competitive medical, dental, and vision insurance for you and your family
+    * 401(k) and pre-tax health care, dependent care and commuter benefits (FSA)
+    * “No policy” vacation policy
+    * Commute up the peninsula on the MuleSoft shuttle
+    * Gym discounts and on-site yoga classes
+    * Mac or PC
+    * Fully stocked kitchen, regular catered lunches, weekly happy hours, family nights
+    * Annual, all-company weeklong MeetUp trip for collaboration, learning and inspiration
+
+
+    '''
 # ,
 #   slug: "paypal"
 #   image: 'prizes/paypal.jpg'
