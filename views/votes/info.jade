@@ -23,7 +23,7 @@
     .company
       != markdown(vote.person.company)
       if (isUrl(vote.person.hiring))
-        a.button.hiring( href=vote.person.hiring ) Now Hiring!
+        a.button.hiring( href=vote.person.hiring, style="font-weight:bold;text-transform:uppercase;" ) Now Hiring!
       else
         a.button.hiring( href="/people/" + vote.person._id )= vote.person.hiring
 
