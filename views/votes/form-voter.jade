@@ -1,6 +1,9 @@
 .voter
   - if (vote.isNew)
     input.scary( type='submit', value='Vote for this entry' )
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    a(href="mailto:all@nodeknockout.com?subject=#{team.slug} is down&body=just a heads up") Report app as offline
+
   - else
     img.heart( src='/images/iframe/heart.png' )
     |  You've voted for this entry
