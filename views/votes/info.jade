@@ -22,7 +22,9 @@
     .clear
     .company
       != markdown(vote.person.company)
-      if vote.person.hiring
+      if (isUrl(vote.person.hiring))
+        a.button.hiring( href=vote.person.hiring ) Now Hiring!
+      else
         a.button.hiring( href="/people/" + vote.person._id )= vote.person.hiring
 
   // show the change link only when the user is a voter, owns the vote, and the info partial is in a form

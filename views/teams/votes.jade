@@ -17,12 +17,14 @@ if votes.length || publicVotes.length
         .info.hearts
           - each vote in publicVotes
             img.heart( src='/images/iframe/heart.png' )
+            | &nbsp;
           |  (#{publicVotes.length})
         .people
           - each vote in publicVotes
             - if (vote.person)
               a( href='/people/' + vote.person, title=vote.person.login )
-                img.avatar( src=avatar_url(vote.person, 30) )
+                img.avatar( src=avatar_url(vote.person, 30), style="width:30px;height:30px;" )
+              | &nbsp;
   if shouldShowVoteList
     ul.votes
       if canSeeVotes

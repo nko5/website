@@ -38,6 +38,9 @@ module.exports = (app) ->
     serviceSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('service') >= 0
     prizeSponsors: _(allSponsors).filter (s) -> (s.type || []).indexOf('prize') >= 0
 
+    isUrl: (val) ->
+      val?.indexOf("http") == 0
+
     jobSponsors: allJobs
 
     locations: (people) ->
