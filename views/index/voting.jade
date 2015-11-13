@@ -21,12 +21,12 @@ block body
 
                   a.logo( href="/" ) Node Knockout
                   if voting
-                    if req.user
+                    if (req.user && req.user.judge)
                       a.btn.btn-primary.votenow(href="/judges/dashboard")
                         em The entries are in for 2015.
-                        | Start voting now
+                        | Start voting now                    
                     else
-                      a.btn.btn-primary.votenow(href="/login?returnTo=/judges/dashboard")
+                      a.btn.btn-primary.votenow(href="/entries")
                         em The entries are in for 2015.
                         | Start voting now
                   else
