@@ -6,6 +6,8 @@ postageapp = require('postageapp')(env.secrets.postageapp)
 _ = require('underscore')
 async = require('async')
 
+util.log "skipping email (in dev)..."
+
 Team = mongoose.model 'Team'
 Person = mongoose.model 'Person'
 
@@ -27,16 +29,20 @@ nagPerson = (person, callback) ->
       email
   util.log "\t -> #{address} (#{firstName})".yellow
 
-  postageapp.sendMessage
-    recipients: address
-    template: 'contestant_video_nag'
-    variables:
-      first_name: " #{firstName}"
-    , (args...) ->
-      # console.log "completed sending"
-      # console.log args
-      # callback(args...)
-      callback()
+  if env.skip_emails
+    util.log "skipping email (in dev)..."
+    callback()
+  else
+    postageapp.sendMessage
+      recipients: address
+      template: 'contestant_video_nag'
+      variables:
+        first_name: " #{firstName}"
+      , (args...) ->
+        # console.log "completed sending"
+        # console.log args
+        # callback(args...)
+        callback()
 
 
 Team.find { 'entry.votable': true, 'entry.videoURL':  {$in: ["",null]}}, (err, teams) ->

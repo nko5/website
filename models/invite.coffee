@@ -18,16 +18,20 @@ InviteSchema.method 'send', (force) ->
   if not @sent or force
     util.log "Sending 'teams_new' to '#{@email}'".yellow
     team = @parentArray()._parent
-    postageapp.sendMessage
-      recipients: @email,
-      template: 'teams_new'
-      variables:
-        team_id: team._id
-        team_name: team.name
-        invite_code: qs.escape @code
-      , (err, data) ->
-        return console.error(err) if err?
-        console.log(data)
+
+    if env.skip_emails
+      util.log "skipping email (in dev)..."
+    else
+      postageapp.sendMessage
+        recipients: @email,
+        template: 'teams_new'
+        variables:
+          team_id: team._id
+          team_name: team.name
+          invite_code: qs.escape @code
+        , (err, data) ->
+          return console.error(err) if err?
+          console.log(data)
     @sent = yes
 
 mongoose.model 'Invite', InviteSchema

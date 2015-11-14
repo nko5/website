@@ -32,18 +32,22 @@ msgPerson = (person, callback) ->
       email
   util.log "\t -> #{address} (#{firstName})".yellow
 
-  postageapp.sendMessage
-    recipients: address
-    template: template_name
-    variables:
-      team: "#{currentTeam.name}"
-      team_id: "#{currentTeam.id}"
-      slug: "#{currentTeam.slug}"
-    , (args...) ->
-      # console.log "completed sending"
-      # console.log args
-      # callback(args...)
-      callback()
+  if env.skip_emails
+    util.log "skipping email (in dev)..."
+    callback()
+  else
+    postageapp.sendMessage
+      recipients: address
+      template: template_name
+      variables:
+        team: "#{currentTeam.name}"
+        team_id: "#{currentTeam.id}"
+        slug: "#{currentTeam.slug}"
+      , (args...) ->
+        # console.log "completed sending"
+        # console.log args
+        # callback(args...)
+        callback()
 
 Team.find {}, (err, teams) ->
   throw err if err

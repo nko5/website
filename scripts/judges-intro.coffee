@@ -11,16 +11,20 @@ Person = mongoose.model 'Person'
 welcome = (judge, callback) ->
   email = judge.email
   util.log "Sending 'judge_intro' to '#{email}'".yellow
-  postageapp.sendMessage
-    recipients: email,
-    template: 'judge_intro'
-    variables:
-      first_name: judge.name.split(/\s/)[0]
-    , (args...) ->
-      # console.log "completed sending"
-      # console.log args
-      # callback(args...)
-      callback()
+  if env.skip_emails
+    util.log "skipping email (in dev)..."
+    callback()
+  else
+    postageapp.sendMessage
+      recipients: email,
+      template: 'judge_intro'
+      variables:
+        first_name: judge.name.split(/\s/)[0]
+      , (args...) ->
+        # console.log "completed sending"
+        # console.log args
+        # callback(args...)
+        callback()
 
 Person.find { role: 'judge', email: /@/ }, (err, judges) ->
   throw err if err

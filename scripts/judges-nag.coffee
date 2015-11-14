@@ -21,16 +21,20 @@ nag = (judge, callback) ->
 
     if !alreadySent and count is 0
       util.log "Sending 'judge_nag' to '#{email}' (#{count})".yellow
-      postageapp.sendMessage
-        recipients: email,
-        template: 'judge_nag'
-        variables:
-          first_name: judge.name.split(/\s/)[0]
-        , (args...) ->
-          # console.log "completed sending"
-          # console.log args
-          # callback(args...)
-          callback()
+      if env.skip_emails
+        util.log "skipping email (in dev)..."
+        callback()
+      else
+        postageapp.sendMessage
+          recipients: email,
+          template: 'judge_nag'
+          variables:
+            first_name: judge.name.split(/\s/)[0]
+          , (args...) ->
+            # console.log "completed sending"
+            # console.log args
+            # callback(args...)
+            callback()
     else
       util.log "Skipping '#{email}' (#{count})"
       callback()

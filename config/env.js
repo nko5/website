@@ -13,6 +13,7 @@ if (env.development) {
   env.facebook_app_id = '167380289998508';
   env.github_app_id = '3cfaa20160b10ab1c598';
   env.twitter_app_id = 'EDyM8JM1QRoRArpeXcarCA';
+  env.skip_emails = true;
   try { env.secrets = require('./secrets'); }
   catch(e) { throw "secret keys file is missing. see ./secrets.js.sample."; }
   env.irc = {
@@ -22,7 +23,7 @@ if (env.development) {
 	};
 } else {
   env.hostname = 'http://www.nodeknockout.com';
-
+  
   env.facebook_app_id = '228877970485637';
   env.github_app_id = 'a8e4746fff0c7e1a06d0';
   env.twitter_app_id = 'EDyM8JM1QRoRArpeXcarCA';
