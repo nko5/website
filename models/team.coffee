@@ -178,10 +178,10 @@ TeamSchema.static 'updateAllSavedScores', (next) ->
       judge_count: 0
       popularity_count: 0
     if this.type == 'contestant' or this.type == 'judge'
-      ret[this.type + '_utility'] = this.utility
-      ret[this.type + '_design'] = this.design
-      ret[this.type + '_innovation'] = this.innovation
-      ret[this.type + '_completeness'] = this.completeness
+      ret[this.type + '_utility'] = this.utility_curved
+      ret[this.type + '_design'] = this.design_curved
+      ret[this.type + '_innovation'] = this.innovation_curved
+      ret[this.type + '_completeness'] = this.completeness_curved
       ret[this.type + '_count'] = 1
     else if this.type == 'voter'
       ret.popularity_count = 1
