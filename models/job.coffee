@@ -213,6 +213,52 @@ module.exports = [
 
 
     '''
+,
+  slug: "help"
+  image: 'prizes/help.jpg'
+  description:
+    '''
+    **[Help.com](http://help.com/)**
+
+    **Senior Software Engineer (Backend - Node.js)**
+
+    <https://jobs.lever.co/help.com/ea972c24-982c-4724-bb4a-11cdf39c262d>
+
+    At Help.com (http://help.com/), our team of customer service and technology experts is setting out to build the next generation of customer service software. Our goal is to give companies the tools they need to delight their customers at enterprise scale. We want to win the customer service software market by providing companies and their customers with tools that are powerful and simple to use. At its core, Help.com (http://help.com/) is a technology company and we are looking for talented engineers at all levels to join our growing technical team in Austin. We are predominantly in the JavaScript/Node.js ecosystem, but are developing a microservice architecture that gives us immense flexibility in our choice of languages and tools. We've authored code in JavaScript, Java, and even Golang. We are looking for a senior software engineer to assist with backend development for our live chat product. We have a team of strong backend engineers who also dabble in fullstack development and are looking for a passionate backend engineer to help us grow our team and products.
+
+    **SOME OF THE FOLLOWING COULD MAKE YOU A GREAT FIT TO WORK AT [HELP.COM](http://help.com/)**
+
+    * You are excited about working at a startup and on a small, talented team.
+    * You are excited about JavaScript, Node.js, microservices, and/or messaging systems, and can explain the benefits and detriments of these technology choices.
+    * You are active in the open source community or have a desire to start contributing; our software engineers are constantly learning, using, and contributing to open source projects.
+    * You care deeply about code quality, performance, and execution, but aren't a dogmatic perfectionist.
+    * You don’t mind helping out on other areas of the stack if necessary.
+    * You are comfortable in an environment where projects are time-sensitive.
+    * Adapting to changes in products, projects, and direction won’t throw you for a loop.
+
+
+    **QUALIFICATIONS**
+
+    * 5+ years experience in development using modern stacks/frameworks/technologies
+    * An expert understanding of JavaScript and Node.js
+    * Experience with object-oriented and MVC design patterns
+    * Strong understanding of systems using real time interactions
+    * Familiarity with Service Oriented Architecture (SOA) or Distributed Systems
+    * Experience with "Big Data" data stores and technologies
+    * Proficiency with a Linux environment
+    * Experience with Relational Database Schema Design (preferably PostgreSQL)
+
+
+    **NICE-TO-HAVE SKILLS**
+
+    * Experience with Docker
+    * Skilled in front-end development (especially HTML template systems and LESS or SASS)
+    * Passion about UX
+    * Development experience on a SaaS product
+
+    All of our positions are based in our office in downtown Austin, TX. We offer competitive compensation (both cash and equity), an unlimited vacation policy, as well as fully paid medical benefits (health, dental, vision) for eligible employees. Best of all, we have the energy, agility, and fun of a startup. [Help.com](http://help.com/) is an equal opportunity employer and we value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status. We are unable to sponsor visas at this time, so all candidates must be legally authorized to work in the US.
+
+    '''
 # ,
 #   slug: "paypal"
 #   image: 'prizes/paypal.jpg'
