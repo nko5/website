@@ -69,6 +69,19 @@ app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loa
     interestingTeams: req.interestingTeams
     featuredJudges: req.featuredJudges
 
+
+app.get '/winners', [loadCanRegister, loadFeaturedJudges], (req, res, next) ->
+
+  if app.enabled('winners')
+    res.render2 'index/winners',
+      team: req.team
+      stats: app.stats
+      featuredJudges: req.featuredJudges
+
+  else
+    res.redirect("/")
+
+
 app.get '/2013', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
     res.render2 "index/index",
       team: req.team
