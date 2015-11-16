@@ -1,0 +1,19 @@
+each judgeGroup in featuredJudges
+  .judges-grid.row
+    each judge in judgeGroup
+      .person-col.col-md-2.col-sm-2.col-xs-2.col-lg-2
+        .person
+          a(href="/people/#{judge}")
+            .avatar(style="background-image:url('#{judge.imageURL}');")
+              img(src="/images/2013/transparent.png")
+            label= judge.name
+            label.about= judge.title || judge.company
+          ul.links
+            if judge.twitterScreenName
+              li
+                a(href="http://twitter.com/#{judge.twitterScreenName}")
+                  i.icon.icon-twitter
+            if judge.linkedinPath
+              li
+                a(href="http://www.linkedin.com/in/#{judge.linkedinPath}")
+                  i.icon.icon-linkedin

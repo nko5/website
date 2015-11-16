@@ -47,34 +47,27 @@ loadFeaturedJudges = (req, res, next) ->
     req.featuredJudges = _.chain(judges).shuffle().first(18).groupBy((a,b) -> Math.floor(b/6)).value()
     next()
 
-# app.get '/', (req, res, next) ->
-#   res.render2 'index/index'
-if app.enabled('winners')
-  app.get '/', (req, res, next) ->
-    res.render2 'index/winners'
+app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
 
-else
-  app.get '/', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
+  if app.enabled('splash')
+    template = 'index/splash'
+  else if app.enabled('coding')
+    template = 'index/coding'
+  else if app.enabled('post-coding')
+    template = 'index/postcoding'
+  else if app.enabled('voting') or app.enabled('post-voting')
+    template = 'index/voting'
+  else if app.enabled('winners')
+    template = 'index/winners'
+  else
+    template = 'index/index'
 
-    if app.enabled('splash')
-      template = 'index/splash'
-    else if app.enabled('coding')
-      template = 'index/coding'
-    else if app.enabled('post-coding')
-      template = 'index/postcoding'
-    else if app.enabled('voting') or app.enabled('post-voting')
-      template = 'index/voting'
-    else if app.enabled('winners')
-      template = 'index/winners'
-    else
-      template = 'index/index'
-
-    res.render2 template,
-      team: req.team
-      stats: app.stats
-      recentDeploys: req.recentDeploys
-      interestingTeams: req.interestingTeams
-      featuredJudges: req.featuredJudges
+  res.render2 template,
+    team: req.team
+    stats: app.stats
+    recentDeploys: req.recentDeploys
+    interestingTeams: req.interestingTeams
+    featuredJudges: req.featuredJudges
 
 app.get '/2013', [loadCanRegister, loadCurrentPersonWithTeam, loadRecentDeploys, loadInterestingTeams, loadFeaturedJudges], (req, res, next) ->
     res.render2 "index/index",
