@@ -114,6 +114,16 @@ TeamSchema.index 'entry.url': 1
 # class methods
 TeamSchema.static 'findBySlug', (slug, rest...) ->
   slug = slug.trim() if slug
+
+  # ghetto fix for slug redirects on 2015 winners
+  slug = "fight-club" if slug == "kadira"
+  slug = "cook-or-out" if slug == "nick-frost"
+  slug = "gitmatch" if slug == "barcelonajs"
+  slug = "bae-beats" if slug == "mountain-dew-crew"
+  slug = "node-rogue" if slug == "mesolabs"
+  slug = "flaggy-bomb" if slug == "brisjelly"
+  slug = "tapir" if slug == "apis-and-node"
+
   Team.findOne { slug: slug }, rest...
 
 TeamSchema.static 'findByCode', (code, rest...) ->
