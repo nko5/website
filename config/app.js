@@ -58,7 +58,7 @@ if (secrets.twitterUser) {
 }
 
 // state (getting pretty gross)
-app.disable('splash');
+app.enable('splash');
 app.disable('pre-registration');  // just the countdown
 app.disable('registration');       // months beforehand
 app.disable('pre-coding');        // week beforehand
@@ -66,7 +66,7 @@ app.disable('coding');            // coding + several hours before
 app.disable('post-coding');            // coding + several hours before
 app.disable('voting');            // after
 app.disable('post-voting');            // coding + several hours before
-app.enable('winners');        // after winners are selected
+app.disable('winners');        // after winners are selected
 
 app.configure(function() {
   require('./nap');
